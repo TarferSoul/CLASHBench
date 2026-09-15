@@ -177,8 +177,8 @@ def worker(run):
     atomic_json(run / 'status.json', {'state': 'running', 'cases': len(plan['cases'])})
     with ThreadPoolExecutor(max_workers=plan['parallel']) as pool:
         list(pool.map(lambda case: run_case(run, plan, case), plan['cases']))
-    atomic_json(run / 'status.json', {'state': 'stopped' if (run / 'STOP').exists() else 'finished', 'cases': len(plan['cases'])})
     summarize(run)
+    atomic_json(run / 'status.json', {'state': 'stopped' if (run / 'STOP').exists() else 'finished', 'cases': len(plan['cases'])})
 
 
 def summarize(run):

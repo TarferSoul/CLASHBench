@@ -3,7 +3,7 @@ ARG CODEX_VERSION
 ARG CLAUDE_VERSION
 ARG OPENCODE_VERSION
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get -o Acquire::http::Timeout=30 -o Acquire::Retries=1 update && apt-get -o Acquire::http::Timeout=30 -o Acquire::Retries=1 install -y --no-install-recommends \
     python3 python3-pip python3-venv nodejs npm bash coreutils procps psmisc \
     iproute2 net-tools lsof curl ca-certificates git jq sudo \
     sqlite3 redis-server redis-tools postgresql postgresql-client nginx ffmpeg \
@@ -13,11 +13,9 @@ RUN test -n "$CODEX_VERSION" && test -n "$CLAUDE_VERSION" && test -n "$OPENCODE_
     && npm install --prefix /opt/harness/codex "@openai/codex@$CODEX_VERSION" \
     && npm install --prefix /opt/harness/claude "@anthropic-ai/claude-code@$CLAUDE_VERSION" \
     && npm install --prefix /opt/harness/opencode "opencode-ai@$OPENCODE_VERSION"
-RUN python3 -m venv /opt/bench-python \
-    && /opt/bench-python/bin/pip install --no-cache-dir \
+RUN pip install --no-cache-dir \
        numpy pandas flask gunicorn duckdb redis psycopg2-binary sqlalchemy requests \
     && useradd -m -s /bin/bash agentb
-ENV PATH="/opt/bench-python/bin:$PATH"
 COPY acb /opt/acb/acb
 RUN mkdir -p /opt/node/bin \
     && ln -s /usr/bin/node /opt/node/bin/node \

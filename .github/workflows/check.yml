@@ -16,3 +16,18 @@ jobs:
       - uses: actions/checkout@v4
       - run: docker build -f docker/Dockerfile.smoke -t agentconflictbench:smoke .
       - run: python tests/docker_smoke.py
+  cpu-image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - run: >-
+          docker build -f docker/Dockerfile
+          --build-arg CODEX_VERSION=0.154.0
+          --build-arg CLAUDE_VERSION=2.1.272
+          --build-arg OPENCODE_VERSION=1.18.31
+          -t agentconflictbench:cpu .
+      - run: |
+          docker run --rm --entrypoint /opt/harness/codex/node_modules/.bin/codex agentconflictbench:cpu --version
+          docker run --rm --entrypoint /opt/harness/claude/node_modules/.bin/claude agentconflictbench:cpu --version
+          docker run --rm --entrypoint /opt/harness/opencode/node_modules/.bin/opencode agentconflictbench:cpu --version
