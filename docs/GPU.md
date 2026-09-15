@@ -12,7 +12,7 @@ No model weights or task datasets are added by the GPU build context.
 | Transformers / DeepSpeed | 5.6.0 / 0.18.4 | Training environment |
 | LlamaFactory | `f28afaf6355af515454dfb16c97d728307c93897` with local source changes recorded by file hashes | `/opt/acb-runtime/llamafactory` |
 | FLA / causal-conv1d | 0.4.2 / 1.6.2.post1 | `/opt/acb-runtime/fastpath` |
-| vLLM / PyTorch / Transformers | 0.19.1 / 2.10.0 / 5.13.0 | `/opt/acb-runtime/vllm` |
+| vLLM / PyTorch / Transformers | 0.19.1 / 2.10.0+cu128 / 5.13.0 | `/opt/acb-runtime/vllm` |
 | Codex / Claude Code / OpenCode | 0.154.0 / 2.1.272 / 1.18.31 | `/opt/harness` |
 
 The agent versions match this repository's portable CPU runtime. They are not
@@ -52,6 +52,14 @@ model checkpoints, experiment outputs, credentials, caches, and Git metadata.
 It rejects external or absolute symlinks and writes file hashes plus the
 LlamaFactory commit to `/opt/acb-runtime/manifest.json`. The copied Python venv
 metadata uses container paths rather than the original cluster path.
+
+The first stage creates the local `clashbench:gpu-runtime` image. After it has
+completed, set `CLASH_REUSE_GPU_RUNTIME=1` to retry the final image build without
+transferring the runtime again. The final build uses PJLab's Ubuntu Jammy proxy
+(`http://mirrors.i.h.pjlab.org.cn/repository/apt-jammy-proxy/ubuntu/`) and forwards
+HTTP(S)/NO_PROXY build arguments. It requires network access to PJLab; pass
+`--build-arg APT_MIRROR=...` to use another Ubuntu mirror outside the cluster.
+Do not reuse the runtime image after changing its source dependencies.
 
 The default base is pinned by digest in the Dockerfile. `--build-arg GPU_BASE=...`
 can select a relocated copy of that exact image. A public base replacement has

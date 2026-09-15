@@ -12,6 +12,7 @@ Validation performed during preparation on 2026-09-15:
 | Real provider-backed native-harness evaluation | Not run in this preparation check |
 | Full 268-case suite | Not run; public data package pending |
 | Original GPU base + packaged LlamaFactory source + compiled fastpath extension | Import check passed in a network-disabled Docker container; torch 2.6.0+cu124 |
+| Original GPU base + relocated vLLM environment | Import check passed in a network-disabled Docker container; vLLM 0.19.1, torch 2.10.0+cu128, transformers 5.13.0 |
 | GPU image build and native harness integration | Build in progress; `bash docker/build_gpu.sh` automatically runs runtime and Docker smoke checks after building |
 | GPU CUDA execution and real GPU cases | Not run; dedicated GPU and external models/task data required |
 

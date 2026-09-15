@@ -3,6 +3,8 @@
 __pycache__
 **/__pycache__
 results
+build
+dist
 data
 secrets
 .env*
