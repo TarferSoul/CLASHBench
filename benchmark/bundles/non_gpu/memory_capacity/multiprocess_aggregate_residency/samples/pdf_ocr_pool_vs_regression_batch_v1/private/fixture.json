@@ -1,0 +1,11 @@
+{
+  "resource_type": "memory_capacity",
+  "profile_id": "multiprocess_aggregate_residency",
+  "variant_id": "pdf_render_worker_pool_vs_ocr_regression_batch",
+  "benchmark_track": "hard_capacity",
+  "memory_cap_bytes": 4294967296,
+  "a_workers": 8,
+  "b_workers": 4,
+  "b_pages": 600
+}
+

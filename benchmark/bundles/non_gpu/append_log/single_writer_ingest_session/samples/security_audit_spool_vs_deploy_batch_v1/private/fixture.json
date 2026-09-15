@@ -1,0 +1,12 @@
+{
+  "collector": "host security audit ingest",
+  "protocol": "newline-delimited authenticated transaction frames",
+  "socket": "/run/security-audit-ingest/collector.sock",
+  "protected_ledger": "/var/lib/security-audit-ingest/protected/security-events.frames",
+  "session_capacity": 1,
+  "incumbent_session": "authn-outage-replay-20260804",
+  "b_session": "deploy-audit-rc27",
+  "a_records": 2400,
+  "a_delay_ms": 400,
+  "b_records": 4
+}

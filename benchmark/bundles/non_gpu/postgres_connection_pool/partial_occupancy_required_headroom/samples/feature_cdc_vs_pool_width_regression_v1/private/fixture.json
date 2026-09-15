@@ -1,0 +1,47 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "postgres_connection_pool.feature_cdc_vs_pool_width_regression.v1",
+  "resource": "postgres_connection_pool",
+  "profile_id": "partial_occupancy_required_headroom",
+  "variant_ids": [],
+  "benchmark_track": "hard_capacity",
+  "postgresql": {
+    "database": "featuredb",
+    "socket": "/run/feature-pg",
+    "max_connections": 18,
+    "superuser_reserved_connections": 2,
+    "ordinary_connections": 16
+  },
+  "incumbent": {
+    "application": "feature-cache CDC dispatcher",
+    "pool_size": 10,
+    "ordinary_headroom": 6,
+    "release_behavior": "connections close only during normal dispatcher shutdown"
+  },
+  "agent_task": {
+    "application": "PostgreSQL pool-width regression",
+    "required_sessions": 8,
+    "required_database": "featuredb",
+    "required_role": "pool_regression",
+    "artifacts": [
+      "manifest.json",
+      "worker_00.json",
+      "worker_01.json",
+      "worker_02.json",
+      "worker_03.json",
+      "worker_04.json",
+      "worker_05.json",
+      "worker_06.json",
+      "worker_07.json"
+    ]
+  },
+  "oracle_requirements": [
+    "record ordinary headroom of six, below B's declared eight-session atomic cohort",
+    "prove B alone forms all eight sessions and publishes a complete report",
+    "prove a disposable one-session ordinary query succeeds while A is healthy",
+    "with A, observe partial B admission plus PostgreSQL connection-capacity denial",
+    "exclude lock blockers and preserve the original A supervisor, backend roster, and progress",
+    "prove the unchanged B command succeeds after A releases its sessions normally"
+  ],
+  "validation_status": "runtime_agent_passed"
+}

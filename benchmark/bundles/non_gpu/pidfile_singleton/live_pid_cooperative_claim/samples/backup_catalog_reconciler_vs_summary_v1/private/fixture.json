@@ -1,0 +1,9 @@
+{
+  "resource": "pidfile_singleton",
+  "profile_id": "live_pid_cooperative_claim",
+  "pidfile": "/run/backup/catalog-sync.pid",
+  "work_domain": "backup catalog reconciliation",
+  "claim_protocol": "atomic PID file creation followed by live expected-process validation",
+  "a_progress": "catalog_state/progress.json heartbeat and reconciled snapshot counter",
+  "b_contract": "one complete reconciliation summary for catalog-refresh-2026-07-21"
+}

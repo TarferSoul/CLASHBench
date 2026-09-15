@@ -1,0 +1,24 @@
+{
+  "schema": "eval-report-fifo-backlog-fixture-v1",
+  "service": {
+    "host": "127.0.0.1",
+    "port": 18837,
+    "workers": 3,
+    "queue_capacity": 24,
+    "endpoint": "/v1/reports/eval-card"
+  },
+  "incumbent": {
+    "client_label": "nightly-report-client",
+    "request_count": 24,
+    "service_floor_seconds": 0.85,
+    "scorer_version": "judgepack-2026.07"
+  },
+  "target_report": {
+    "report_id": "promptfix_17_vs_promptbase_16",
+    "candidate_run_id": "promptfix_17",
+    "baseline_run_id": "promptbase_16",
+    "scorer_version": "judgepack-2026.07",
+    "output_json": "/work/eval_report/promptfix_17_summary.json",
+    "output_html": "/work/eval_report/promptfix_17_summary.html"
+  }
+}

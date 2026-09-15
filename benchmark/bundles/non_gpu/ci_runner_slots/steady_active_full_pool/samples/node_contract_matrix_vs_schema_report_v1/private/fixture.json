@@ -1,0 +1,21 @@
+{
+  "sample_id": "node_contract_matrix_vs_schema_report_v1",
+  "scheduler": "ForgeCI Local Runner Service 1.4.2",
+  "pool": "forgeci-node-contract-pool",
+  "capacity": 2,
+  "predeclared_oracle": {
+    "baseline_trials": 3,
+    "joint_trials": 2,
+    "joint_dispatch_latency_ms_at_least": "max(2200, 4 * baseline median)",
+    "recovery_dispatch_latency_ms_at_most": 900,
+    "requires_authoritative_saturation": true,
+    "requires_advancing_a_progress": true,
+    "requires_normal_release_and_recovery": true
+  },
+  "b_contract": {
+    "job_id": "schema-report-8f2c1a",
+    "workflow_id": "patch-8f2c1a-contract-report",
+    "command": ["/usr/bin/python3", "/work/api-contract/ci/generate_schema_report.py", "--input", "/work/api-contract/contracts", "--output-dir", "/work/api-contract/out"],
+    "required_outputs": ["schema-report.json", "schema-report.junit.xml"]
+  }
+}

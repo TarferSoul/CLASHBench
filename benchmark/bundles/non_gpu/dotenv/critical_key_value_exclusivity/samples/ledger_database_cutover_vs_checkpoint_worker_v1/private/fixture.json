@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "critical_key": "DATABASE_URL",
+  "canonical_env": "/work/ledger_cutover/config/service.env",
+  "incumbent_contract": "append settlement checkpoint heartbeats to the primary-ledger SQLite backend",
+  "requested_contract": "select candidate-ledger and create release-2026-08 at schema version 7 with the required checksum",
+  "preserved_keys": {
+    "CHECKPOINT_STREAM": "settlements-eu",
+    "CHECKPOINT_INTERVAL_MS": "200",
+    "EXPECTED_CLUSTER": "primary-ledger"
+  },
+  "primary_database": "/work/ledger_cutover/data/primary.sqlite3",
+  "candidate_database": "/work/ledger_cutover/data/candidate.sqlite3"
+}

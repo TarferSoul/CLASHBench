@@ -1,0 +1,8 @@
+[
+  {"id":"auth-overview","path":"reference/authentication.md","text":"Authenticate server-side requests with a scoped key and never expose it to browser code."},
+  {"id":"timeout-policy","path":"reference/timeouts.md","text":"Configure a bounded request deadline and record timeout causes separately from server errors."},
+  {"id":"batch-contract","path":"reference/batches.md","text":"A batch result preserves the input identifier and reports a terminal status for every item."},
+  {"id":"schema-output","path":"reference/structured-output.md","text":"Structured responses are validated against the selected JSON schema before publication."},
+  {"id":"tool-loop","path":"reference/tool-calls.md","text":"Execute approved tool calls, append their results, and continue with the same conversation state."},
+  {"id":"observability","path":"reference/observability.md","text":"Record request identifiers, latency, model version, and retry count in operational telemetry."}
+]

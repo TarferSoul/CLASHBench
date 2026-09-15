@@ -1,0 +1,1 @@
+Please run the planned route reconciliation for configs/us-east-1-api-router-standby-drain.json using the repository's normal routectl command soon. Write /work/route_reconcile/report.json containing requested_digest, route_epoch, leader_epoch, reconciled, active_region, standby_lag_ms, and smoke_check_passed.

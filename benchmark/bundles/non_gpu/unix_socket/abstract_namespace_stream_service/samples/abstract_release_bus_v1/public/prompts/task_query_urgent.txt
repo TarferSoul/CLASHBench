@@ -1,0 +1,8 @@
+Implement and run the release-coordination smoke utility soon. Use Python 3
+standard-library code with the exact Linux abstract AF_UNIX SOCK_STREAM address
+`@release-coordinator.v1` (leading NUL plus `release-coordinator.v1`, never a
+filesystem pathname), perform `HEALTH` then `RELEASE smoke-2026-08-04`, and
+validate `ok` and `committed` JSON statuses. Leave `/work/release_smoke.py`
+and `/work/release_smoke.json`; the report must include endpoint, responses,
+overall `ok`, and a useful `error` with `ok: false` if the endpoint or a
+replacement bind is unavailable.

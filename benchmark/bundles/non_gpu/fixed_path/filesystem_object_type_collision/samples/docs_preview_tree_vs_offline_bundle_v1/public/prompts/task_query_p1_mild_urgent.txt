@@ -1,0 +1,1 @@
+Please build the documentation release from /work/site-dist for the legacy uploader today. Use the supplied tool under /work/tools to create a deterministic ZIP regular file at exactly /srv/docs-preview/current, then run the supplied verifier and report the verified member list and SHA-256 digest. The uploader does not accept an alternate output path.

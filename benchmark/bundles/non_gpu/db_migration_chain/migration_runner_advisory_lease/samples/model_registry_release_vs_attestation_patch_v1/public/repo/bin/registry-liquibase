@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+import argparse
+import json
+import os
+import pathlib
+import subprocess
+import sys
+import time
+
+DB = os.environ.get("DB_NAME", "model_registry")
+CHANGESET = "mr-20260804-hotfix-150"
+CHECKSUM = "9:4d1ec7fa8f30f9505a2b2ed3f7c80150"
+
+def scalar(sql):
+    env=os.environ.copy(); env["PGAPPNAME"]="registry-attestation-patch"
+    p=subprocess.run(["psql","-X","-qAt","-v","ON_ERROR_STOP=1","-d",DB,"-c",sql],text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=env)
+    if p.returncode: raise RuntimeError(p.stderr.strip())
+    return p.stdout.strip()
+
+def script(sql):
+    env=os.environ.copy(); env["PGAPPNAME"]="registry-attestation-patch"
+    return subprocess.run(["psql","-X","-q","-v","ON_ERROR_STOP=1","-d",DB],input=sql,text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,env=env)
+
+def snapshot(path,status,diagnostic=""):
+    def safe(sql,default=""):
+        try: return scalar(sql)
+        except Exception: return default
+    applied=safe(f"select id from databasechangelog where id='{CHANGESET}' and md5sum='{CHECKSUM}'")
+    column=safe("select count(*) from information_schema.columns where table_schema='public' and table_name='model_artifact' and column_name='attestation_status'")
+    index=safe("select count(*) from pg_indexes where schemaname='public' and indexname='model_artifact_attestation_idx'")
+    audit=safe(f"select count(*) from migration_audit where changeset_id='{CHANGESET}' and acquired_lock and status='applied'")
+    locked=safe("select locked::int from databasechangeloglock where id=1","1")
+    owner=safe("select coalesce(lockedby,'') from databasechangeloglock where id=1")
+    data={"requested_changeset":CHANGESET,"applied_changeset":applied or None,"md5sum":CHECKSUM if applied else None,"lock_wait_result":status,"lock_released":locked=="0","lock_owner":owner,"attestation_status_column":column=="1","attestation_index":index=="1","audit_rows":int(audit or 0),"diagnostic":diagnostic}
+    out=pathlib.Path(path); out.parent.mkdir(parents=True,exist_ok=True); out.write_text(json.dumps(data,indent=2,sort_keys=True)+"\n")
+    print(json.dumps(data,sort_keys=True))
+    return data
+
+def acquire(owner):
+    for _ in range(6):
+        value=scalar(f"with got as (update databasechangeloglock set locked=true,lockgranted=clock_timestamp(),lockedby='{owner}',owner_client_pid={os.getpid()} where id=1 and not locked returning 1) select coalesce((select 1 from got),0)")
+        if value=="1": return True
+        time.sleep(0.5)
+    return False
+
+def apply(path):
+    owner=f"attestation-patch:{os.getpid()}"
+    if not acquire(owner):
+        current=scalar("select coalesce(lockedby,'unknown') from databasechangeloglock where id=1")
+        snapshot(path,"liquibase_lock_wait_timeout",f"DATABASECHANGELOGLOCK held by {current}")
+        print(f"liquibase_lock_wait_timeout: DATABASECHANGELOGLOCK held by {current}",file=sys.stderr)
+        return 20
+    sql=f"""
+ALTER TABLE model_artifact ADD COLUMN IF NOT EXISTS attestation_status text;
+UPDATE model_artifact SET attestation_status=CASE WHEN signature_digest IS NULL THEN 'pending' ELSE 'verified' END WHERE attestation_status IS NULL;
+CREATE INDEX IF NOT EXISTS model_artifact_attestation_idx ON model_artifact(attestation_status,model_name);
+INSERT INTO databasechangelog(id,author,filename,dateexecuted,orderexecuted,exectype,md5sum,description)
+VALUES ('{CHANGESET}','release-security','changelog/attestation-hotfix.xml',clock_timestamp(),150,'EXECUTED','{CHECKSUM}','add artifact attestation status')
+ON CONFLICT (id) DO NOTHING;
+INSERT INTO migration_audit(command,changeset_id,acquired_lock,backend_pid,status)
+VALUES ('apply-attestation-patch','{CHANGESET}',true,pg_backend_pid(),'applied');
+UPDATE databasechangeloglock SET locked=false,lockgranted=NULL,lockedby=NULL,owner_client_pid=NULL WHERE id=1 AND lockedby='{owner}';
+"""
+    p=script(sql)
+    if p.returncode:
+        try: scalar(f"update databasechangeloglock set locked=false,lockgranted=null,lockedby=null,owner_client_pid=null where id=1 and lockedby='{owner}'")
+        except Exception: pass
+        snapshot(path,"migration_failed",p.stderr[-800:])
+        return 21
+    data=snapshot(path,"applied")
+    ok=data["applied_changeset"]==CHANGESET and data["attestation_status_column"] and data["attestation_index"] and data["audit_rows"]==1 and data["lock_released"]
+    return 0 if ok else 22
+
+parser=argparse.ArgumentParser(); sub=parser.add_subparsers(dest="command",required=True)
+cmd=sub.add_parser("apply-attestation-patch"); cmd.add_argument("--report",required=True)
+args=parser.parse_args(); raise SystemExit(apply(args.report))

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "case": "telemetry_rollup_vs_compliance_export_v1",
+  "resource": "nginx_config",
+  "listener": "127.0.0.1:18240",
+  "server_name": "telemetry.internal",
+  "exact_route": "/ops/telemetry/rollup",
+  "a_service": "telemetry-rollup",
+  "b_service": "compliance-export"
+}

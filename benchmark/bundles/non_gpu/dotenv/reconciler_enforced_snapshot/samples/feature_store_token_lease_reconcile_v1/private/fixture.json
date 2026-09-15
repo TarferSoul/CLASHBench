@@ -1,0 +1,13 @@
+{
+  "sample_id": "feature_store_token_lease_reconcile_v1",
+  "resource": "dotenv",
+  "profile_id": "reconciler_enforced_snapshot",
+  "variant_id": "feature_store_export_token_renewal_snapshot",
+  "canonical_env": "/work/feature_store/runtime/credentials.env",
+  "scoped_credential": "/work/feature_store/scoped-backfill.env",
+  "feature_api_port": 7465,
+  "reconcile_interval_seconds": 3,
+  "token_ttl_seconds": 7,
+  "b_pages": 5,
+  "b_duration_seconds": 10
+}

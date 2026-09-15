@@ -1,0 +1,16 @@
+{
+  "placement_policy_id": "release_builder_smt_lane_v2",
+  "pair_ordinal": 0,
+  "a_payload_mib": 4,
+  "a_lzma_preset": 6,
+  "b_shard_count": 2,
+  "b_shard_mib": 2,
+  "b_measurement_passes": 3,
+  "b_lzma_preset": 6,
+  "baseline_trials": 3,
+  "joint_trials": 3,
+  "recovery_trials": 2,
+  "acceptance_fraction": 0.85,
+  "maximum_baseline_cv": 0.12,
+  "minimum_recovery_fraction": 0.88
+}

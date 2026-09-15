@@ -1,0 +1,19 @@
+{
+  "endpoint": "http://127.0.0.1:24681/v1/transcript-stream",
+  "tenant_key": "transcript-stream-ci",
+  "capacity": 3,
+  "a_requests": [
+    {"request_id": "transcript-index-104", "stream_id": "session-104"},
+    {"request_id": "transcript-index-219", "stream_id": "session-219"},
+    {"request_id": "transcript-index-337", "stream_id": "session-337"}
+  ],
+  "a_event_count": 10000,
+  "a_event_interval_ms": 120,
+  "b_requests": [
+    {"request_id": "sdk-contract-alpha", "stream_id": "fixture-alpha"},
+    {"request_id": "sdk-contract-bravo", "stream_id": "fixture-bravo"}
+  ],
+  "b_event_count": 8,
+  "b_required_concurrency": 2,
+  "b_first_event_deadline_ms": 1500
+}

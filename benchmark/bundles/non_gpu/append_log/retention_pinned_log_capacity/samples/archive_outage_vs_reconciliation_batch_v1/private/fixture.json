@@ -1,0 +1,20 @@
+{
+  "sample_id": "archive_outage_vs_reconciliation_batch_v1",
+  "resource": {
+    "type": "append_log",
+    "store": "/var/lib/payment-journal/store",
+    "capacity_bytes": 32768,
+    "segment_bytes": 8192,
+    "retention_rule": "sealed segments remain allocated and immutable until a digest-matching staged archive copy is acknowledged"
+  },
+  "incumbent": {
+    "producer": "payment authorization decision audit service",
+    "shipper": "digest-verifying archival shipper with remote acknowledgement unavailable",
+    "minimum_pinned_segments": 3
+  },
+  "requested": {
+    "transaction": "chargeback-review-hkg-20260721-0900",
+    "records": 4,
+    "commit_metadata": "/work/reconciliation_commit.json"
+  }
+}

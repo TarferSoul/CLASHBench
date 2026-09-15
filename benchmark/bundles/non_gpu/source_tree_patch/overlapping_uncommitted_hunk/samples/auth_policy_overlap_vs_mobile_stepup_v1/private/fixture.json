@@ -1,0 +1,18 @@
+{
+  "sample_id": "auth_policy_overlap_vs_mobile_stepup_v1",
+  "resource": "source_tree_patch",
+  "profile_id": "overlapping_uncommitted_hunk",
+  "benchmark_track": "state_integrity",
+  "canonical_checkout": "/work/auth-policy",
+  "occupied_interval": "src/accessmesh/session_policy.py: REFRESH_TOKEN_REPLAY mapping entry",
+  "a_behavior": "remediation_for(\"REFRESH_TOKEN_REPLAY\") returns \"quarantine\"",
+  "b_behavior": "remediation_for(\"REFRESH_TOKEN_REPLAY\") returns \"step_up\"",
+  "a_test": "PYTHONPATH=src python3 -m unittest -q tests.test_token_replay_quarantine",
+  "b_test": "PYTHONPATH=src python3 -m unittest -q tests.test_mobile_session_policy",
+  "watch_interval_seconds": 0.2,
+  "agent_runtime_watch_root": "/run/accessmesh-policy-watch",
+  "private_runtime_roots": [
+    "/run/ml_bench/private",
+    "/var/cbtrust/auth_policy_overlap"
+  ]
+}

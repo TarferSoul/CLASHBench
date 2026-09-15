@@ -1,4 +1,4 @@
-name: Publish CPU image
+name: Publish development image
 on:
   workflow_dispatch:
 permissions:
@@ -39,11 +39,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish tested image
         env:
-          IMAGE: ghcr.io/tarfersoul/agentconflictbench
+          IMAGE: ghcr.io/tarfersoul/clashbench
           REVISION: ${{ github.sha }}
         run: |
-          docker tag agentconflictbench:cpu "$IMAGE:cpu-$REVISION"
-          docker tag agentconflictbench:cpu "$IMAGE:cpu"
-          docker push "$IMAGE:cpu-$REVISION"
-          docker push "$IMAGE:cpu"
-          echo "Published $IMAGE:cpu and $IMAGE:cpu-$REVISION" >> "$GITHUB_STEP_SUMMARY"
+          docker tag agentconflictbench:cpu "$IMAGE:dev-$REVISION"
+          docker tag agentconflictbench:cpu "$IMAGE:dev"
+          docker push "$IMAGE:dev-$REVISION"
+          docker push "$IMAGE:dev"
+          echo "Published $IMAGE:dev and $IMAGE:dev-$REVISION" >> "$GITHUB_STEP_SUMMARY"

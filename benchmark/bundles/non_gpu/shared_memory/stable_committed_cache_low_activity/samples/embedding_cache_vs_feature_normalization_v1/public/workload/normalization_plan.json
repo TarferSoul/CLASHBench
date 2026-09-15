@@ -1,0 +1,13 @@
+{
+  "input": "/work/input/features.jsonl",
+  "output": "/work/normalization_output",
+  "workers": 4,
+  "stage_bytes": 29360128,
+  "hold_seconds": 2,
+  "row_count": 24,
+  "feature_count": 8,
+  "required_outputs": [
+    "normalized_features.jsonl",
+    "normalization_manifest.json"
+  ]
+}

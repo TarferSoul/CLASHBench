@@ -1,0 +1,29 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "network_bandwidth.checkpoint_fanout_vs_ci_toolchain.v1",
+  "profile_id": "bursty_microburst_bandwidth_pressure",
+  "track": "elastic_contention",
+  "transport": {
+    "receiver": "127.0.0.1:9281",
+    "primitive": "TCP over a 512 kbit loopback TBF or equivalent shared token-bucket fallback",
+    "rate": "512kbit",
+    "queue_latency": "1800ms"
+  },
+  "incumbent": {
+    "workload": "distributed-training checkpoint shard publisher",
+    "shards": 4,
+    "bytes_per_shard": 49152,
+    "cycles": 8,
+    "quiet_staging_ms": 420,
+    "durable_signals": ["phase.json", "checkpoint receiver commits", "verified cycle counter"]
+  },
+  "agent_task": {
+    "artifact": "ci-toolchain-2026.08.04",
+    "bytes": 12288,
+    "sha256": "a1cdb4f4926729ddb5018b2d41dba2437bc9cd5bcabfc9d8dadaf0067be5ae66",
+    "deadline_ms": 1100,
+    "receipt": "/work/toolchain_receipt.json"
+  },
+  "validation_status": "runtime_oracle_pending"
+}
+

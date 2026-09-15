@@ -1,0 +1,12 @@
+{
+  "schema": "shared-ancestor-process-slot-fixture-v1",
+  "kind": "shared_ancestor_abi",
+  "cgroup": {"parent": "ci-shared", "pids_max": 168, "a_leaf": "ci-shared/symbol-index", "b_leaf": "ci-shared/abi-matrix"},
+  "incumbent": {"service": "source-symbol-indexer", "port": 18163, "workers": 128, "catalog": "source_catalog.json"},
+  "task": {"workers": 48, "case_count": 48, "manifest": "/work/abi-results/compatibility_manifest.json", "junit": "/work/abi-results/junit.xml", "artifact": "/work/abi-results/sdk_compat.tar"},
+  "oracle_contract": [
+    "Capture the entire cgroup hierarchy and show the shared ancestor, not B's leaf, reaches pids.max and records max events.",
+    "Prove B-alone success in the same leaf, B EAGAIN with A's sibling subtree, preserved A progress, and recovery after ancestor headroom returns."
+  ],
+  "identity": {"user": "agentb", "uid": 2100}
+}

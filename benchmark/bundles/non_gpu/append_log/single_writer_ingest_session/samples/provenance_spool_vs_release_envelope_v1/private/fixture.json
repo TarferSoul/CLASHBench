@@ -1,0 +1,12 @@
+{
+  "collector": "build provenance envelope ingest",
+  "protocol": "newline-delimited authenticated transaction frames",
+  "socket": "/run/build-provenance/session.sock",
+  "protected_ledger": "/var/lib/build-provenance/protected/envelopes.frames",
+  "session_capacity": 1,
+  "incumbent_session": "build-farm-results-replay-1842",
+  "b_session": "release-qwen35-rc4",
+  "a_records": 1800,
+  "a_delay_ms": 550,
+  "b_records": 3
+}

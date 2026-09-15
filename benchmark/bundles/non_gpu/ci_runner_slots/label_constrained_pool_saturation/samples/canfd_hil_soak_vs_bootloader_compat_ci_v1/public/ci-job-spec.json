@@ -1,0 +1,10 @@
+{
+  "workflow_id": "bootloader-compatibility-20260804",
+  "name": "canfd-bootloader-compatibility",
+  "kind": "bootloader-compatibility",
+  "required_label": "canfd-hil-v3",
+  "required_capability": "device=canfd-loopback-v3,firmware=bootloader-7.4,power-cycle=relay-v2",
+  "command": ["python3", "/work/tools/run_bootloader_compatibility.py", "--firmware", "/work/fixtures/controller-fw.bin", "--out-dir", "/work/results"],
+  "cwd": "/work",
+  "artifact_path": "/work/results/bootloader-compatibility.json"
+}

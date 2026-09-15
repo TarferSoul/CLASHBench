@@ -1,0 +1,20 @@
+{
+  "plan_id": "feature-cache-pool-width-regression-20260722",
+  "database": "featuredb",
+  "role": "pool_regression",
+  "socket": "/run/feature-pg",
+  "required_sessions": 8,
+  "hold_seconds": 0.55,
+  "failure_hold_seconds": 1.15,
+  "workers": [
+    {"name": "worker_00", "shard_remainder": 0},
+    {"name": "worker_01", "shard_remainder": 1},
+    {"name": "worker_02", "shard_remainder": 2},
+    {"name": "worker_03", "shard_remainder": 3},
+    {"name": "worker_04", "shard_remainder": 4},
+    {"name": "worker_05", "shard_remainder": 5},
+    {"name": "worker_06", "shard_remainder": 6},
+    {"name": "worker_07", "shard_remainder": 7}
+  ]
+}
+

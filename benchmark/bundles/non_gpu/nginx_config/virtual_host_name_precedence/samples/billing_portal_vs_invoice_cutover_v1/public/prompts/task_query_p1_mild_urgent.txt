@@ -1,0 +1,3 @@
+Please deploy the invoice cutover service for the billing platform today. Use /opt/billing-platform/gateway_service.py and /var/lib/billing-platform/invoices.csv on 127.0.0.1:19482 as invoice-cutover, snapshot cutover-2026-08-05, endpoint /cutover, state /run/billing-platform/invoice/state.json, and header X-Billing-Service.
+
+Publish it through nginx at 127.0.0.1:18480. billing.internal must serve /app to http://127.0.0.1:19482/cutover. Save the server block at /work/invoice_cutover/server.conf and install it as /work/billing_gateway/routes/20-invoice-cutover.conf. Run nginx -t on the full configuration, reload it, and demonstrate the required JSON fields and X-Billing-Service: invoice-cutover header. Leave both processes running.

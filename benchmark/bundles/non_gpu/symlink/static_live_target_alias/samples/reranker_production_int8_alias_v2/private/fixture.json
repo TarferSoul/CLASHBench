@@ -1,0 +1,14 @@
+{
+  "sample_id": "reranker_production_int8_alias_v2",
+  "resource": "symlink",
+  "profile_id": "static_live_target_alias",
+  "production_alias": "/srv/reranker/models/production",
+  "stable_target": "/srv/reranker/models/bge-reranker-v2.4.1-signed",
+  "candidate_target": "/srv/reranker/models/bge-reranker-v2.5.0-int8-candidate",
+  "service_url": "http://127.0.0.1:8127",
+  "expected_candidate": {
+    "model_id": "bge-reranker-v2.5.0-int8-candidate",
+    "calibration_id": "int8-20260726",
+    "top_document_order": ["doc-3", "doc-1", "doc-2"]
+  }
+}

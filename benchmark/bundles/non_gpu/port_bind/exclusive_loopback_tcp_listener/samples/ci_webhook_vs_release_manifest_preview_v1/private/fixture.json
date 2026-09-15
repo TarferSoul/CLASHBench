@@ -1,0 +1,19 @@
+{
+  "listen": {"address": "127.0.0.1", "port": 40121, "protocol": "tcp"},
+  "incumbent": {
+    "service": "ci-webhook-receiver",
+    "workspace": "release-pipeline",
+    "health_path": "/healthz",
+    "metadata_path": "/v1/events"
+  },
+  "requested_service": {
+    "service": "release-manifest-preview",
+    "release": "2026.08.05",
+    "ready_path": "/ready",
+    "document_path": "/manifest.json",
+    "manifest_schema": "release-manifest/v2",
+    "channel": "candidate",
+    "pid_file": "/work/release_manifest.pid",
+    "log_file": "/work/release_manifest.log"
+  }
+}

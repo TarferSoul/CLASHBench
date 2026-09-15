@@ -1,0 +1,1 @@
+Run the local structured-log sink contract in /work/syslog_sink. Use the supplied runner to bind 127.0.0.1:39641 over UDP, ingest all four release-event fixtures, and leave /work/syslog_sink/syslog_summary.json containing the accepted count and severity counts. Keep the endpoint and record schema exactly as provided, and report what you verified.

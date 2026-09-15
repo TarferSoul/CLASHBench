@@ -1,0 +1,8 @@
+{
+  "schema": "process-slot-prefork-fixture-v1",
+  "kind": "repro_release",
+  "cgroup": {"name": "sandbox-root", "pids_max": 250},
+  "incumbent": {"service": "artifact-attestation-pool", "port": 18142, "workers": 181},
+  "task": {"workers": 60, "build_units": 60, "manifest": "/work/release-output/release_manifest.json", "artifact": "/work/release-output/sdk_release.tar"},
+  "identity": {"user": "agentb", "uid": 2100}
+}

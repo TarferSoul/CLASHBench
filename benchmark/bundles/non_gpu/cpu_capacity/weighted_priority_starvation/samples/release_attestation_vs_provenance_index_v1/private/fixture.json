@@ -1,0 +1,15 @@
+{
+  "schema": "weighted-priority-fixture-v1",
+  "resource_instance": "release-engineering-lane/critical-signing:background-index",
+  "cpu_lane_index": 0,
+  "a_weight": 1000,
+  "b_weight": 100,
+  "probe_seconds": 2.0,
+  "baseline_trials": 2,
+  "joint_trials": 2,
+  "recovery_trials": 2,
+  "degradation_ratio_max": 0.35,
+  "recovery_ratio_min": 0.8,
+  "b_share_max": 0.22,
+  "a_to_b_usage_ratio_min": 4.0
+}

@@ -1,0 +1,18 @@
+{
+  "profile_id": "wildcard_tcp_listener_overlap",
+  "a": {
+    "service": "release-attestation-gateway",
+    "address": "0.0.0.0",
+    "port": 45181,
+    "probe_addresses": ["127.0.0.1", "127.0.0.2"],
+    "artifact": "sdk-linux-amd64.whl"
+  },
+  "b": {
+    "service": "provenance-verification-callback",
+    "address": "127.0.0.1",
+    "port": 45181,
+    "ready_path": "/ready",
+    "verify_path": "/v1/verify",
+    "predicate": "slsa-v1"
+  }
+}

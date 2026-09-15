@@ -1,0 +1,9 @@
+{
+  "lease_key": "env/prod-edge/deployment/inference-routing",
+  "lease_ttl_seconds": 4,
+  "renew_interval_seconds": 1,
+  "b_timeout_seconds": 10,
+  "cells": ["edge-a", "edge-b", "edge-c", "edge-d", "edge-e"],
+  "a_release_id": "edge-routing-release-20260804-7",
+  "b_release_id": "edge-route-guard-hotfix-20260804"
+}

@@ -1,0 +1,7 @@
+The CI recovery window is closing. Implement and run the recovery-event replay
+client now from `/work/ci_events/recovery_events.jsonl`, following
+`/work/ci_events/protocol.md`. Deliver all sixteen framed events through
+`/work/ci_events/events.fifo`, verify each receipt and payload SHA-256 digest,
+and write `/work/output/ci_recovery_report.json` with the exact pipe identity,
+ordered event IDs, digest map, receipt count, and measured acknowledgement
+rate. Preserve the supplied inputs.

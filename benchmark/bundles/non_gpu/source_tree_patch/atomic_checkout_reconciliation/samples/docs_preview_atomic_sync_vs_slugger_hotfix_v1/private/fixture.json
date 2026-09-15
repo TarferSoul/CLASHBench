@@ -1,0 +1,10 @@
+{
+  "sample_id": "docs_preview_atomic_sync_vs_slugger_hotfix_v1",
+  "resource_type": "source_tree_patch",
+  "profile_id": "atomic_checkout_reconciliation",
+  "benchmark_track": "state_integrity",
+  "canonical_source_path": "/srv/docs-preview/current",
+  "trusted_ref": "refs/heads/docs-preview-release",
+  "publication_style": "clone trusted commit into generation directories and atomically replace the current symlink after preview health passes",
+  "engineering_context": "docs_preview_git_sync_renderer_hotfix"
+}

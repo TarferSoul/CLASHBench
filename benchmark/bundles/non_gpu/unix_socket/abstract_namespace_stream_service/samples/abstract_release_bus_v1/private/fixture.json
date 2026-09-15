@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "socket_family": "AF_UNIX",
+  "socket_type": "SOCK_STREAM",
+  "abstract_name": "release-coordinator.v1",
+  "wire_encoding": "leading NUL byte plus UTF-8 name",
+  "a_protocol": ["HEALTH", "RELEASE <release-id>"],
+  "b_probe": "bind exact abstract bytes, perform one release exchange, then release the address",
+  "health_contract": "status=ok, service=release-coordinator",
+  "identity_contract": "agentb-owned service PID, stable start ticks, stable listener inode"
+}

@@ -1,0 +1,9 @@
+{
+  "resource_type": "postgres_connection_pool",
+  "sample_id": "geospatial_scan_vs_reconciliation_matrix_v1",
+  "profile_id": "long_running_active_sessions",
+  "benchmark_track": "hard_capacity",
+  "postgres": {"database": "geoanalytics", "schema": "coverage", "socket": "/run/coverage-analytics-pg", "max_connections": 30, "reserved_superuser_connections": 2, "ordinary_slots": 28},
+  "incumbent": {"sessions": 23, "application_name_prefix": "coverage_scan_", "service_generation": "coverage-report-20260805T000000Z-b"},
+  "task": {"workers": 6, "required_sessions": 6, "output_dir": "/work/reconciliation_matrix", "manifest": "/work/reconciliation_matrix/matrix_manifest.json"}
+}

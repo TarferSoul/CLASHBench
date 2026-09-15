@@ -1,0 +1,11 @@
+Please update the local inference router tracing configuration in `/work/inference-router/deploy/router.env`.
+
+Set these values exactly:
+
+```
+OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318
+TRACE_SAMPLE_RATE=0.20
+TRACE_ROUTE_TAG=canary-eval
+```
+
+Use the router's generation-aware dotenv commit tool at `/work/inference-router/bin/router_env_commit` so the current model rollout fields are preserved. After committing, run the router config validator and the dry-run trace emission check, then write `/work/inference-router/out/tracing-config.json` with the effective tracing values, commit generation, validator result, and dry-run result.

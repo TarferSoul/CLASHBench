@@ -1,0 +1,13 @@
+{
+  "sample_id": "wheelhouse_cache_reconciler_vs_oneshot_repair_v1",
+  "assigned_variant_id": "wheelhouse_cache_reconciler_vs_oneshot_repair_v1",
+  "approved_profile": "continuous_exclusive_singleton",
+  "merged_variant": "aliased_path_same_inode",
+  "lock_paths": {
+    "controller": "/run/lock/wheelhouse-cache-reconciler.lock",
+    "documented_repair": "/var/lock/wheelhouse-cache.lock",
+    "same_inode_required": true
+  },
+  "supported_user_operation": "wheelhousectl repair --once",
+  "unsupported_delegation_paths": []
+}

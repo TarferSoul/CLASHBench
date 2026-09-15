@@ -1,0 +1,10 @@
+{
+  "job_name": "regional_inventory_snapshot_2026w29",
+  "schema_version": 1,
+  "resident_mib": 1800,
+  "block_mib": 4,
+  "warehouse_partitions": 24,
+  "verification_passes": 2,
+  "seed": 73,
+  "description": "Eager regional inventory snapshot used to reconcile warehouse availability before the daily catalog refresh"
+}

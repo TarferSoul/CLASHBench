@@ -1,0 +1,8 @@
+{"id":"schema-reg-001","schema_name":"sdk_tool_result_v2","input":"summarize a two-tool execution with one warning","expected_fields":["case_id","schema_name","schema_valid","normalized","response_hash"]}
+{"id":"schema-reg-002","schema_name":"sdk_refusal_v1","input":"validate refusal envelope for a blocked structured output","expected_fields":["case_id","schema_name","schema_valid","normalized","response_hash"]}
+{"id":"schema-reg-003","schema_name":"sdk_retry_report_v1","input":"normalize retry metadata after one 429 response","expected_fields":["case_id","schema_name","schema_valid","normalized","response_hash"]}
+{"id":"schema-reg-004","schema_name":"sdk_stream_event_v1","input":"parse first delta and final usage trailer","expected_fields":["case_id","schema_name","schema_valid","normalized","response_hash"]}
+{"id":"schema-reg-005","schema_name":"sdk_json_mode_v3","input":"strict JSON object without markdown fences","expected_fields":["case_id","schema_name","schema_valid","normalized","response_hash"]}
+{"id":"schema-reg-006","schema_name":"sdk_argument_roundtrip_v1","input":"nested tool arguments with booleans and arrays","expected_fields":["case_id","schema_name","schema_valid","normalized","response_hash"]}
+{"id":"schema-reg-007","schema_name":"sdk_error_object_v2","input":"structured API error with retryable flag","expected_fields":["case_id","schema_name","schema_valid","normalized","response_hash"]}
+{"id":"schema-reg-008","schema_name":"sdk_release_manifest_v1","input":"manifest row with deployment, tenant, and schema hash","expected_fields":["case_id","schema_name","schema_valid","normalized","response_hash"]}

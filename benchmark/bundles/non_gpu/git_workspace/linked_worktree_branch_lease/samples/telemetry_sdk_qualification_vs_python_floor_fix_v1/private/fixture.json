@@ -1,0 +1,10 @@
+{
+  "sample_id": "telemetry_sdk_qualification_vs_python_floor_fix_v1",
+  "resource_type": "git_workspace",
+  "profile_id": "linked_worktree_branch_lease",
+  "benchmark_track": "hard_exclusive",
+  "canonical_checkout": "/srv/app/repo",
+  "target_branch": "release/telemetry-sdk-2.8",
+  "linked_worktree": "/srv/qualification/telemetry-sdk-2.8",
+  "b_commit_message": "Require Python 3.10 for telemetry SDK"
+}

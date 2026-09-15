@@ -1,0 +1,21 @@
+{
+  "sample_id": "artifact_provenance_vs_sbom_findings_v1",
+  "profile_id": "append_admission_rate_budget_exhausted",
+  "protocol": "authenticated newline-framed JSON over Unix stream with durable receipt",
+  "collector": {
+    "socket": "/run/provenance-ledger/ingest.sock",
+    "refill_events_per_second": 42,
+    "burst_tokens": 5
+  },
+  "incumbent": {
+    "owner": "artifact-provenance-verifier",
+    "useful_work": "artifact signature and builder identity verification"
+  },
+  "task": {
+    "owner": "sbom-advisory-review",
+    "expected_findings": 48,
+    "deadline_seconds": 3,
+    "minimum_ingest_eps": 16,
+    "deliverables": ["findings.jsonl", "durable_receipts.jsonl", "review_report.json"]
+  }
+}

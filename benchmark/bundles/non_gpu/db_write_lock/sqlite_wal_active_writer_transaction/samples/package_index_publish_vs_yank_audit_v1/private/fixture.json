@@ -1,0 +1,17 @@
+{
+  "database": "/srv/python-registry/index/catalog.sqlite3",
+  "journal_mode": "wal",
+  "incumbent_batch": "package-index-gen-20260804-0348",
+  "candidate_generation": "gen-2026-08-04-0348",
+  "incumbent_transaction": "BEGIN IMMEDIATE",
+  "b_contract": {
+    "project": "tensorzip",
+    "version": "2.4.1",
+    "yanked": 1,
+    "yank_reason": "malformed wheel metadata",
+    "incident": "SEC-2026-804",
+    "actor": "supply-chain-sre",
+    "action": "release_yanked",
+    "receipt": "/work/yank_receipt.json"
+  }
+}

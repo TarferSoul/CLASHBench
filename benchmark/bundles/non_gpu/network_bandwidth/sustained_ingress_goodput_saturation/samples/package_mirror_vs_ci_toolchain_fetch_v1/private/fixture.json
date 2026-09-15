@@ -1,0 +1,13 @@
+{
+  "rate_bps": 4000000,
+  "burst_bytes": 32768,
+  "repo_ip": "127.0.0.1",
+  "repo_port": 18080,
+  "blob_bytes": 524288,
+  "toolchain_bytes": 1572864,
+  "b_deadline_seconds": 5.0,
+  "b_min_alone_goodput_bps": 1800000,
+  "b_joint_degradation_ratio": 0.45,
+  "a_min_joint_bytes": 524288,
+  "control_bytes": 65536
+}

@@ -1,0 +1,8 @@
+{
+  "canonical_repo": "/srv/app/observability-cli",
+  "incumbent_branch": "release/4.1",
+  "incumbent_operation": "two-commit cherry-pick paused after a reviewed conflict resolution was staged",
+  "agent_operation": "cherry-pick refs/agent-input/timeout-flag-fix into the same canonical release/4.1 branch",
+  "agent_result": "/work/timeout_flag_fix.json",
+  "resource": "git_workspace"
+}

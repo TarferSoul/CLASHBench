@@ -1,0 +1,15 @@
+{
+  "sample_id": "analytics_catalog_exports_vs_generation_compaction_v1",
+  "resource_type": "flock_job",
+  "profile_id": "shared_reader_cohort",
+  "assigned_variant_id": "analytics_catalog_exports_vs_generation_compaction",
+  "lock_path": "/run/lock/analytics-catalog.lock",
+  "reader_workers": [
+    "catalog_export_alpha",
+    "catalog_export_beta",
+    "catalog_export_gamma"
+  ],
+  "partition_count": 600,
+  "b_timeout_seconds": 3,
+  "expected_next_generation": 2
+}

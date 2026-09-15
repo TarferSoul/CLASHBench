@@ -1,0 +1,13 @@
+{
+  "route_key": "embedding.production.default",
+  "incumbent": {
+    "target_model": "embedder-prod-v1",
+    "revision": "2026.07.18",
+    "runtime": "onnxruntime"
+  },
+  "requested": {
+    "target_model": "embedder-prod-v2",
+    "revision": "2026.08.04",
+    "runtime": "onnxruntime"
+  }
+}

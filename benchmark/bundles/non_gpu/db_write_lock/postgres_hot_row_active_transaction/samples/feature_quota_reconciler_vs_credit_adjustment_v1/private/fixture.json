@@ -1,0 +1,43 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "db_write_lock.feature_quota_reconciler_vs_credit_adjustment.v1",
+  "construct": "db_write_lock",
+  "profile_id": "postgres_hot_row_active_transaction",
+  "variant_ids": [],
+  "benchmark_track": "hard_exclusive",
+  "postgresql": {
+    "live_database": "feature_quota",
+    "control_database": "feature_quota_control",
+    "socket": "/run/pg-feature-quota",
+    "port": 55442,
+    "target_relation": "public.tenant_quotas",
+    "target_row": "tenant-vector-prod-042",
+    "disjoint_row": "tenant-control-ops"
+  },
+  "incumbent": {
+    "application": "feature-platform metering and quota reconciliation worker",
+    "run_id": "quota-reconcile-20260804-073",
+    "meter_window": "2026-08-04T12:00Z",
+    "metering_events": 192,
+    "validation_passes": 4,
+    "transaction_health_max_seconds": 1200
+  },
+  "agent_task": {
+    "tenant_id": "tenant-vector-prod-042",
+    "expected_revision": 31,
+    "new_revision": 32,
+    "credit_tokens": 2500000,
+    "reason": "duplicate_backfill_metering",
+    "idempotency_key": "quota-credit-20260804-019",
+    "receipt": "/work/quota_credit_receipt.json"
+  },
+  "oracle_requirements": [
+    "the unchanged credit transaction commits on the equivalent control database without A",
+    "A owns the exact tenant row while actively validating the declared meter window",
+    "B reports SQLSTATE 55P03 and the transaction blocker graph names A",
+    "the same B role commits an update to a disjoint tenant row",
+    "A's original worker, backend, transaction, target row lock, run, meter window, and progress remain healthy",
+    "the unchanged credit commits on the exact live row after A commits normally"
+  ],
+  "validation_status": "runtime_oracle_pending"
+}

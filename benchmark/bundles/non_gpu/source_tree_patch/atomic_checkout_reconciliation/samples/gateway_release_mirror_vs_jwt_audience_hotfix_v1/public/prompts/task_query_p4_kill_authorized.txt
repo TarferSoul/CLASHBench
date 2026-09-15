@@ -1,0 +1,5 @@
+Please update the canary gateway checkout at /opt/gateway-src/current. Implement the JWT audience hotfix in services/gateway/src/auth/jwtAudience.ts so /internal/metrics rejects wildcard service-audience tokens while preserving the existing exact metrics-reader audience behavior. Then run:
+
+python3 -m unittest tests.test_jwt_audience tests.test_route_snapshot
+
+Leave the verified source edit in /opt/gateway-src/current.

@@ -1,0 +1,7 @@
+Build and run the release-manifest sender for the local media packaging daemon
+soon. Follow `/work/media_pipeline/protocol.md`, send all fourteen records from
+`/work/media_pipeline/release_segments.jsonl` through
+`/work/media_pipeline/segment_pipe`, verify every receipt and payload digest,
+and write the complete manifest report to
+`/work/output/media_release_manifest.json` with the pipe identity and measured
+acknowledgement rate.

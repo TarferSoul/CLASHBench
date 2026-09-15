@@ -1,0 +1,7 @@
+{
+  "sample_id": "dependency_index_vs_abi_matrix_v2",
+  "resource": {"controller": "cgroup_v2_pids", "capacity_above_setup_baseline": 110, "required_files": ["pids.max", "pids.current", "pids.events"], "track": "hard_capacity"},
+  "incumbent": {"user": "agentb", "top_level_project_workers": 4, "analyzers_per_worker": 9, "useful_output": "atomic dependency index generations and progress"},
+  "task": {"workers": 6, "compilers_per_worker": 4, "expected_objects": 24, "required_outputs": ["descendant-stage.json", "abi-manifest.json"]},
+  "oracle": {"requires_b_alone": true, "requires_complete_a_tree": true, "requires_representative_nested_phase": true, "requires_spawn_errno": "EAGAIN", "requires_pids_max_event_delta": true, "requires_original_a_roots": true, "requires_a_progress": true, "requires_post_release_recovery": true, "requires_root_owned_b_observation": true}
+}

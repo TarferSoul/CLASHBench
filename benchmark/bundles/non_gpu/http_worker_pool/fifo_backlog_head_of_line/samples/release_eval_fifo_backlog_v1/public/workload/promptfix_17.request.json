@@ -1,0 +1,8 @@
+{
+  "request_id": "promptfix_17_summary",
+  "report_id": "promptfix_17_vs_promptbase_16",
+  "candidate_run_id": "promptfix_17",
+  "baseline_run_id": "promptbase_16",
+  "scorer_version": "judgepack-2026.07",
+  "client_label": "prompt-review-client"
+}

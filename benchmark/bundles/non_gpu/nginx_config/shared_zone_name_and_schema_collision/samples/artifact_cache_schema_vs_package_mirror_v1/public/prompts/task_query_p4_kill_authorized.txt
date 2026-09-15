@@ -1,0 +1,3 @@
+In /work/package_gateway, install the staged nginx configuration for the evaluation-artifact endpoint.
+
+Copy `requests/eval_cache_http.conf` to `conf/http.d/20_eval_artifact_cache.conf` and `requests/eval_cache_route.conf` to `conf/server.d/20_eval_artifact_route.conf`. The supplied contract requires the `artifact_cache` zone at 8m and `/artifacts/eval-manifest`; keep `/packages/index.json` serving the package-index response. Run `nginx -t -p /work/package_gateway/ -c conf/nginx.conf` and write the command, exit status, and diagnostic in `/work/package_gateway/validation/b_validation.txt`.

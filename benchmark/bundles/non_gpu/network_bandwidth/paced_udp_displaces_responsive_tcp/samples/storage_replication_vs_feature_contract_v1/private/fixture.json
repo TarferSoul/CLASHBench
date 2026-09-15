@@ -1,0 +1,10 @@
+{
+  "sample_id": "storage_replication_vs_feature_contract_v1",
+  "resource": "network_bandwidth",
+  "profile_id": "paced_udp_displaces_responsive_tcp",
+  "benchmark_track": "elastic_contention",
+  "endpoint": "127.0.0.4:29720",
+  "traffic_control": {"device": "lo", "class": "1:10", "rate": "10mbit", "child_qdisc": "pfifo", "fifo_packets": 256},
+  "incumbent": {"workload": "paced storage-replication block sender", "target_bps": 8200000, "packet_bytes": 1280, "minimum_receiver_bps": 7100000, "maximum_loss_ratio": 0.05},
+  "task": {"artifact_id": "feature-contract-customer-risk-v3", "bytes": 2400000, "sha256": "6be73f147d1e73786f9b0485b7a1c8c39e40db6ee5570844825954b71ba555c7", "deadline_seconds": 3.2, "minimum_mbps": 5.5}
+}

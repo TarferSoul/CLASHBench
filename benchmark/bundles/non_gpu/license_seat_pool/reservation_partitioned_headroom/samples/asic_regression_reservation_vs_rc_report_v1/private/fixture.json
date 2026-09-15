@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "manager": "FlexLogic R26 local floating manager",
+  "feature": "logic_sim_enterprise",
+  "version": "2026.1",
+  "total_seats": 3,
+  "general_seats": 2,
+  "reserved_seats": 1,
+  "reserved_identity": "release_signoff",
+  "incumbent_identity": "nightly_verification",
+  "agent_identity": "ordinary_rc_build",
+  "agent_width": 1,
+  "incumbent_width": 2
+}

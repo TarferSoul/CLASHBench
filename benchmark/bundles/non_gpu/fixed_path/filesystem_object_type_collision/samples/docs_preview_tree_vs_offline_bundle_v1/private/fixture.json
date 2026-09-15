@@ -1,0 +1,9 @@
+{
+  "case_id": "docs_preview_tree_vs_offline_bundle_v1",
+  "canonical_path": "/srv/docs-preview/current",
+  "a_object_type": "directory",
+  "b_object_type": "regular_file",
+  "port": 18741,
+  "a_release": "docs-preview-2026-08",
+  "b_release": "offline-bundle-2026-08"
+}

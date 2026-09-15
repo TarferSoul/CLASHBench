@@ -1,0 +1,15 @@
+{
+  "profile_id": "database_role_scoped_pool_lane_saturation",
+  "variant_id": "feature_store_parity_export_lane",
+  "benchmark_track": "hard_capacity",
+  "effect_type": "admission_failure",
+  "database": "feature_lab",
+  "target_role": "feature_validator",
+  "control_role": "feature_observer",
+  "pool_mode": "transaction",
+  "pool_size": 5,
+  "b_required_parallel_exporters": 5,
+  "model_version": "embedding-feature-v3-20260726",
+  "endpoint_host": "127.0.0.1",
+  "endpoint_port": 6545
+}

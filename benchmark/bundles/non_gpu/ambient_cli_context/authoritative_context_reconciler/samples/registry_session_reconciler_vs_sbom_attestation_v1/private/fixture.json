@@ -1,0 +1,21 @@
+{
+  "profile_id": "authoritative_context_reconciler",
+  "shared_store": "/home/agentb/.config/artifactctl/session.json",
+  "fixture_url": "http://127.0.0.1:18642",
+  "incumbent": {
+    "principal": "release-publisher@ci",
+    "organization": "platform-release",
+    "channel": "candidate",
+    "lease_id": "ci-release-publisher-session",
+    "verified_package": "inference-runtime@2026.08.04-rc2"
+  },
+  "requested": {
+    "principal": "supply-chain-responder@recovery",
+    "organization": "platform-recovery",
+    "channel": "quarantine",
+    "attestation_id": "sbom-recovery-2026-08-04"
+  },
+  "reconcile_interval_seconds": 0.25,
+  "durability_probe_count": 5,
+  "durability_interval_seconds": 0.25
+}

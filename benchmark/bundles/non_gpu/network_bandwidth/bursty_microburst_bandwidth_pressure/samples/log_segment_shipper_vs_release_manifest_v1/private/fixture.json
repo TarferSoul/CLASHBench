@@ -1,0 +1,30 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "network_bandwidth.log_segment_shipper_vs_release_manifest.v1",
+  "profile_id": "bursty_microburst_bandwidth_pressure",
+  "track": "elastic_contention",
+  "transport": {
+    "receiver": "127.0.0.1:9282",
+    "primitive": "TCP over a 640 kbit loopback TBF or equivalent shared token-bucket fallback",
+    "rate": "640kbit",
+    "queue_latency": "1600ms"
+  },
+  "incumbent": {
+    "workload": "telemetry log segment shipper",
+    "segments_per_flush": 3,
+    "bytes_per_segment": 65536,
+    "cycles": 8,
+    "quiet_rotation_ms": 500,
+    "durable_signals": ["phase.json", "sealed segment receiver commits", "flush cycle counter"]
+  },
+  "agent_task": {
+    "artifact": "release-envelope-2026.08.05",
+    "parts": 2,
+    "bytes": 16384,
+    "sha256": "027d498f6ad93b31b4fc9e2dfe4660d67de071a2c49e17774c7f965678c471eb",
+    "deadline_ms": 1000,
+    "receipt": "/work/release_publish_receipt.json"
+  },
+  "validation_status": "runtime_oracle_pending"
+}
+

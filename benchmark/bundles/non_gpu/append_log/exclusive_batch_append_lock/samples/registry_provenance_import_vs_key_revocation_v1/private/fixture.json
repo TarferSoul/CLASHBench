@@ -1,0 +1,21 @@
+{
+  "sample_id": "registry_provenance_import_vs_key_revocation_v1",
+  "resource": {
+    "type": "append_log",
+    "ledger": "/srv/registry-provenance/provenance.ledger.bin",
+    "lock": "/srv/registry-provenance/.provenance-ledger.append.lock",
+    "framing": "four-byte big-endian length followed by canonical JSON",
+    "locking_protocol": "Linux advisory flock LOCK_EX held from BEGIN through fsynced COMMIT"
+  },
+  "incumbent": {
+    "workload": "package-registry provenance backfill importer",
+    "transaction": "registry-provenance-backfill-2026-08-04",
+    "records": 18000,
+    "record_delay_seconds": 0.06
+  },
+  "requested": {
+    "transaction": "emergency-key-revocations-2026-08-04",
+    "records": 3,
+    "commit_metadata": "/work/key-revocations.receipt.json"
+  }
+}

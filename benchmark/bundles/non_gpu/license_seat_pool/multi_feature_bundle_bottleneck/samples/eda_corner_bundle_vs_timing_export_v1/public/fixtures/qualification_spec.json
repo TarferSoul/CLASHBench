@@ -1,0 +1,8 @@
+{
+  "job": "two_corner_timing_qualification",
+  "resource_instance": "eda-license-lane-7",
+  "features": {"eda-base-2025": 1, "eda-parallel-2025": 2, "timing-report-export-2025": 1},
+  "required_workers": 2,
+  "artifact_names": ["timing_report.json", "timing_audit.json"],
+  "output_kind": "timing_report"
+}

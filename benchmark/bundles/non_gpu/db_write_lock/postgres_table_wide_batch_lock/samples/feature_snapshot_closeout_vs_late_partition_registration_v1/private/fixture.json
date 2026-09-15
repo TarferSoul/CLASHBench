@@ -1,0 +1,12 @@
+{
+  "case": "feature_snapshot_closeout_vs_late_partition_registration_v1",
+  "database": "feature_registry",
+  "relation": "public.feature_partitions",
+  "port": 55431,
+  "incumbent_lock": "ShareRowExclusiveLock",
+  "requested_lock": "RowExclusiveLock",
+  "closeout_id": "feature-closeout-20260804-06",
+  "snapshot_id": "fs-prod-20260804-06",
+  "target_partition": "late-shard-20260804-017",
+  "target_audit_id": "feature-audit-20260804-017"
+}

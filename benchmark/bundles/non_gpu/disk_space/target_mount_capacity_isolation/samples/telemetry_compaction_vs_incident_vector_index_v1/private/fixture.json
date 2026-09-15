@@ -1,0 +1,6 @@
+{
+  "target_mount": {"path": "/work/vector-index-data", "resolved_mount": "/dev/shm", "type": "pre-mounted tmpfs subdirectory", "size_mib": 64, "purpose": "search service segment data path"},
+  "incumbent": {"merge_run_bytes": 44040192, "run_count": 4, "ready_phase": "merge_verification", "minimum_verification_rounds": 2},
+  "b": {"release": "incident-response-20260804", "shard_count": 6, "shard_bytes": 4194304, "total_bytes": 25165824, "receipt": "/work/artifacts/incident-vector-index-receipt.json"},
+  "oracle": {"requires_distinct_control_device": true, "requires_target_enospc": true, "requires_a_progress": true, "requires_unchanged_b_after_release": true, "requires_per_shard_root_observation": true}
+}

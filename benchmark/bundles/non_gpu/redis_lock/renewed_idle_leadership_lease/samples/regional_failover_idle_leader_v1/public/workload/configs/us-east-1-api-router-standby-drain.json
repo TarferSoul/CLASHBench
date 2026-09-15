@@ -1,0 +1,16 @@
+{
+  "config_id": "us-east-1-api-router-standby-drain",
+  "region": "us-east-1",
+  "intent": "standby_drain",
+  "requested_active_region": "us-east-1-primary",
+  "standby_pool": "draining",
+  "min_primary_health": "passing",
+  "max_standby_lag_ms": 500,
+  "change_ticket": "SRE-20260726-route-drain",
+  "smoke_tests": [
+    "router-config-digest",
+    "primary-route-health",
+    "standby-drain-flag"
+  ]
+}
+

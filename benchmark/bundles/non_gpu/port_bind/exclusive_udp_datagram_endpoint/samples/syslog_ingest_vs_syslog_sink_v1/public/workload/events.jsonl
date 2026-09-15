@@ -1,0 +1,4 @@
+release|api-gateway|info|canary started
+release|api-gateway|warn|retry budget elevated
+release|worker-pool|info|drain complete
+release|worker-pool|error|checksum mismatch quarantined

@@ -1,0 +1,34 @@
+{
+  "sample_id": "artifact_fallback_vs_release_hold_v1",
+  "resource": "nginx_config",
+  "profile_id": "listen_socket_default_server_ownership",
+  "benchmark_track": "state_integrity",
+  "listener": {
+    "address": "127.0.0.1",
+    "port": 18437,
+    "protocol": "tcp",
+    "singleton_role": "default_server"
+  },
+  "incumbent": {
+    "service": "artifact-fallback",
+    "backend_port": 19437,
+    "evidence_field": "registry_policy=immutable-cache-v2",
+    "site_file": "/work/artifact_gateway/sites/10-artifact-fallback.conf"
+  },
+  "requested": {
+    "service": "release-hold",
+    "backend_port": 19438,
+    "evidence_field": "release_state=hold-active-v1",
+    "site_file": "/work/artifact_gateway/sites/50-release-hold-default.conf",
+    "candidate_file": "/work/release_hold_gateway/release_hold_default.conf"
+  },
+  "curation": {
+    "mandatory_changes": [],
+    "oracle_contract": [
+      "Prove B alone validates, reloads, and owns unknown-host routing.",
+      "Capture A's master identity, exact listener tuple, and default response.",
+      "Require duplicate-default validation failure or failure of B routing under A.",
+      "Reject changing A's listener role and grade live A routing."
+    ]
+  }
+}

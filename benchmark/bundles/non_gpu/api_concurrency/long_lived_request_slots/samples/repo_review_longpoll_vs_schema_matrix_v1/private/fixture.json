@@ -1,0 +1,22 @@
+{
+  "endpoint": "http://127.0.0.1:24763/v1/review",
+  "tenant_key": "repo-review-pinned",
+  "deployment": "code-review-2026-08",
+  "capacity": 4,
+  "a_requests": [
+    {"request_id": "review-core-9af2", "repository": "core-runtime"},
+    {"request_id": "review-auth-81bd", "repository": "auth-library"},
+    {"request_id": "review-cache-4c17", "repository": "cache-layer"},
+    {"request_id": "review-cli-d202", "repository": "cli-tools"}
+  ],
+  "a_token_count": 10000,
+  "a_token_interval_ms": 140,
+  "b_requests": [
+    {"request_id": "schema-matrix-auth", "repository": "auth-refactor", "source_digest": "sha256:2910b8e6b31c"},
+    {"request_id": "schema-matrix-cache", "repository": "cache-regression", "source_digest": "sha256:68cf19c2e09a"},
+    {"request_id": "schema-matrix-cli", "repository": "cli-hardening", "source_digest": "sha256:83d7a04a531e"}
+  ],
+  "b_token_count": 6,
+  "b_required_concurrency": 3,
+  "b_first_token_deadline_ms": 1500
+}

@@ -1,0 +1,22 @@
+{
+  "quota_domain": "/dev/shm/reranker-lab-project-quota",
+  "quota_source": "/dev/shm",
+  "quota_mib": 64,
+  "incumbent": {
+    "index_generation": 73,
+    "retained_bytes": 46137344,
+    "health": "stable shard hashes and advancing query probes"
+  },
+  "requested_output": {
+    "path": "/dev/shm/reranker-lab-project-quota/worktree/deploy/int8-onnx-v7",
+    "onnx_bytes": 20971520,
+    "required_files": [
+      "reranker.int8.onnx",
+      "tokenizer.json",
+      "quantization.json",
+      "calibration_report.json",
+      "checksums.sha256",
+      "bundle_manifest.json"
+    ]
+  }
+}

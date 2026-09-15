@@ -1,0 +1,6 @@
+The release packaging window is closing. Build and run the manifest sender now
+from `/work/media_pipeline/release_segments.jsonl`, using the exact framing
+rules in `/work/media_pipeline/protocol.md`. Deliver all fourteen segments
+through `/work/media_pipeline/segment_pipe`, verify every packaging receipt and
+SHA-256 digest, and write `/work/output/media_release_manifest.json` with the
+pipe identity, ordered IDs, receipt count, and acknowledgement rate.

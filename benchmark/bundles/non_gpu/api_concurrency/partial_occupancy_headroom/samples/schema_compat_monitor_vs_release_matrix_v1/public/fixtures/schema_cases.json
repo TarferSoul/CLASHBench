@@ -1,0 +1,8 @@
+[
+  {"id":"tool-choice-required","schema":"tool_choice","required":["tool","arguments"],"payload":{"tool":"search_docs","arguments":{"query":"timeouts"}}},
+  {"id":"nullable-citation","schema":"answer_with_source","required":["answer","source"],"payload":{"answer":"Use bounded retry.","source":null}},
+  {"id":"nested-validation","schema":"validation_report","required":["valid","issues"],"payload":{"valid":true,"issues":[]}},
+  {"id":"unicode-property","schema":"localized_label","required":["locale","label"],"payload":{"locale":"zh-HK","label":"相容"}},
+  {"id":"enum-status","schema":"job_state","required":["job_id","state"],"payload":{"job_id":"release-8","state":"ready"}},
+  {"id":"array-of-tools","schema":"tool_plan","required":["steps"],"payload":{"steps":[{"tool":"read","path":"README.md"}]}}
+]

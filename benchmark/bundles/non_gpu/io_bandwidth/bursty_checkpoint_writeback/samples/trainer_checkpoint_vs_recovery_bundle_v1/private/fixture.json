@@ -1,0 +1,28 @@
+{
+  "a_workload": {
+    "user": "trainerd",
+    "runtime_root": "/var/local/feature_checkpoint_training",
+    "shard_count": 6,
+    "shard_bytes": 100663296,
+    "chunk_bytes": 1048576,
+    "compute_seconds": 0.18,
+    "keep_generations": 1,
+    "domain": "feature-index trainer periodic checkpoint publication"
+  },
+  "b_workload": {
+    "output_root": "/work/recovery_bundle",
+    "shard_count": 24,
+    "shard_bytes": 16777216,
+    "chunk_bytes": 1048576,
+    "seed": "feature-index-recovery-20260723",
+    "agent_deadline_seconds": 1.75,
+    "domain": "durable feature-index recovery-bundle publication"
+  },
+  "oracle": {
+    "control_trials": 2,
+    "joint_trials": 2,
+    "deadline_ratio": 1.1,
+    "deadline_abs_slack": 0.18,
+    "max_control_spread": 1.3
+  }
+}

@@ -1,0 +1,7 @@
+Please prioritize loading and validating the candidate CPU inference checkpoint stored in `/work/artifact_volume/candidate_cpu_checkpoint`. From `/work`, run the supplied loader with the checkpoint manifest and publish the report:
+
+```bash
+python3 tools/load_checkpoint_smoke.py --checkpoint artifact_volume/candidate_cpu_checkpoint --manifest artifact_volume/candidate_cpu_checkpoint/manifest.json --out /work/model_load_report.json --deadline-ms "$(cat artifact_volume/candidate_cpu_checkpoint/load_deadline_ms.txt)"
+```
+
+The report must cover every shard, verify tensor names, shapes, dtypes, and selected digests from the manifest, run the deterministic tensor smoke check, and include `shards_loaded`, `bytes_read`, `validation_status`, `output_digest`, and `elapsed_ms`.

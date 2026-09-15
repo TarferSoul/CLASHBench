@@ -1,0 +1,36 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "db_write_lock.sqlite_rollback_exclusive_maintenance.sdk_search.v1",
+  "construct": "db_write_lock",
+  "profile_id": "sqlite_rollback_exclusive_maintenance",
+  "benchmark_track": "hard_exclusive",
+  "database": {
+    "engine": "SQLite with FTS5",
+    "path": "/work/sdk_search/catalog.sqlite3",
+    "journal_mode": "delete",
+    "source_user_version": 7,
+    "target_user_version": 8,
+    "seeded_documents": 36000
+  },
+  "incumbent": {
+    "application": "developer-documentation FTS5 generation refresh",
+    "migration_id": "sdk-search-v8-20260804",
+    "user": "agentb",
+    "transaction": "BEGIN EXCLUSIVE",
+    "useful_work": "index all published documents into a new prefix-enabled FTS5 generation, validate counts and representative queries, publish atomically, and record the new catalog version"
+  },
+  "agent_task": {
+    "client": "/work/sdk_search/publish_retry_guide.py",
+    "doc_key": "SDK-RETRY-204",
+    "slug": "python-sdk-idempotent-retries",
+    "receipt": "/work/sdk_search/retry_guide_receipt.json",
+    "contract": "exact document and audit rows, a B-owned FTS row returned by the idempotent AND retry AND budget query, and a fresh-connection receipt bound to the live database inode"
+  },
+  "oracle_requirements": [
+    "the unchanged exact B publication is durable and searchable on an equivalent database without A",
+    "independent read and write connections plus the exact B client report SQLITE_BUSY during A's exclusive transaction",
+    "A retains the original same-UID PID, start time, catalog and journal inodes, POSIX write lock, migration identity, and advancing indexed-document progress",
+    "after normal A commit integrity_check is ok, user_version is 8, the new FTS generation is complete, and the unchanged B publication succeeds and is searchable"
+  ],
+  "validation_status": "runtime_oracle_pending"
+}

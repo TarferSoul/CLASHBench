@@ -1,0 +1,20 @@
+ARG CPU_BASE=registry-v2.h.pjlab.org.cn/ailab-ai4good1/agentconflict-cb-real@sha256:d07c3fb60ed1de776226680eb7826491d99d6dba3e87ded545e66bb83921bca2
+ARG HARNESS_IMAGE=clashbench:gpu-harnesses
+FROM ${HARNESS_IMAGE} AS harnesses
+FROM ${CPU_BASE}
+USER root
+COPY --from=harnesses /usr/local/bin/node /usr/local/bin/node
+COPY --from=harnesses /opt/harness /opt/harness
+COPY acb /opt/acb/acb
+RUN mkdir -p /opt/node/bin \
+    && ln -sfn /usr/local/bin/node /opt/node/bin/node \
+    && for cli in codex claude opencode; do \
+         ln -sfn /opt/acb/acb/harness.py /usr/local/bin/$cli; \
+         ln -sfn /opt/acb/acb/harness.py /opt/node/bin/$cli; \
+       done \
+    && chmod 755 /opt/acb/acb/harness.py \
+    && (id agentb >/dev/null 2>&1 || useradd -m -s /bin/bash agentb)
+ENV PYTHONPATH=/opt/acb
+LABEL org.opencontainers.image.source="https://github.com/TarferSoul/CLASHBench"
+WORKDIR /opt/acb
+ENTRYPOINT ["/opt/conda/bin/python", "-m", "acb.container"]

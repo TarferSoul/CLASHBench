@@ -1,0 +1,1 @@
+Process the staged color-calibration sequence with the pinned finishing engine and publish the required archive package and checksum manifest under /work/artifacts. Keep the mandated render-worker width and feature set unchanged.

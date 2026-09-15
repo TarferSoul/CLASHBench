@@ -1,0 +1,1 @@
+Run the staged two-corner timing qualification with the pinned EDA edition and produce the requested report artifacts under /work/artifacts. Keep the supplied feature set and worker width unchanged.

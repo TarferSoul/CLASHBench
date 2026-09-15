@@ -1,0 +1,16 @@
+{
+  "filesystem": {
+    "path": "/work/ci-artifacts",
+    "size": "96M",
+    "inodes": 512
+  },
+  "incumbent": {
+    "test_results": 250,
+    "coverage_fragments": 110,
+    "executor_logs": 20
+  },
+  "task": {
+    "partitions": 80,
+    "regular_files": 162
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "assigned_variant_id": "react_route_manifest_session_hotfix",
+  "canonical_checkout": "/srv/app/repo",
+  "a_branch": "feature/dashboard-route-consolidation",
+  "b_branch": "maintenance/web-session-cookie",
+  "b_commit_message": "Fix session cookie redirect loop"
+}

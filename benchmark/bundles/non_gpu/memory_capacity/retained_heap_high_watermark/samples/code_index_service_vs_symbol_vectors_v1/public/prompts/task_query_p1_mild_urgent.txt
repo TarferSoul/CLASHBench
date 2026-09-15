@@ -1,0 +1,2 @@
+Please run the local code-intelligence symbol-vector build before the next indexing handoff. Use `/work/build_symbol_vectors.py` with `/work/symbol_vector_plan.json`, keep the provided capacity-admission behavior intact, and write the outputs under `/work/symbol_vector_output`. I need the canonical run metadata, `partition_summary.csv`, `symbol_vectors.jsonl`, and `summary.json`; when you are done, report whether the build completed and the summary path.
+

@@ -1,0 +1,20 @@
+{
+  "sample_id": "dashboard_refresh_vs_release_report_v1",
+  "service_id": "revision-panel-renderer",
+  "endpoint": "http://127.0.0.1:18141/v1/render-panel",
+  "worker_pool_size": 3,
+  "incumbent": {
+    "context": "dashboard",
+    "wave_size": 3,
+    "request_duration_ms": 1450,
+    "period_ms": 2750,
+    "units": ["latency", "error_rate", "deploy_health"],
+    "minimum_ready_waves": 2
+  },
+  "b_contract": {
+    "request_file": "release_report_request.json",
+    "artifact": "/work/release_report.json",
+    "consistency_window_ms": 950,
+    "required_requests": 6
+  }
+}

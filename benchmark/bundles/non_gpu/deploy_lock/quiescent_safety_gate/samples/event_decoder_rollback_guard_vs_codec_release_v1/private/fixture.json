@@ -1,0 +1,13 @@
+{
+  "environment_key": "stream-ingest-prod",
+  "lease_kind": "exclusive_deployment_window",
+  "gate": "decoder_compatibility_operator_rollback_guard",
+  "routing_state": "dual_decode_shadow_20_percent",
+  "active_decoder_version": "12.0.6",
+  "candidate_decoder_version": "12.1.0-rc4",
+  "requested_policy_version": "2026.08.05.2",
+  "schema_epoch": 1200,
+  "probe_interval_seconds": 0.21,
+  "minimum_ready_probes": 4,
+  "b_lock_timeout_seconds": 0.8
+}

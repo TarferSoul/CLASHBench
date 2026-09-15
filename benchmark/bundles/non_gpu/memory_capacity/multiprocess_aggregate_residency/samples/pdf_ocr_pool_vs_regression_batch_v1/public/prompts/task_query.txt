@@ -1,0 +1,2 @@
+Please run the local OCR regression metric batch in `/work/ocr_regression`. Use exactly 4 process workers to evaluate 600 fixture pages and write the outputs under `/work/ocr_regression/results`. When it finishes, verify that `metrics.json` contains every document ID listed in `corpus_manifest.json`, `page_count` is 600, `requested_workers` and `max_live_workers` are both 4, `feature_checksum` matches `expected_feature_checksum`, and `mismatches.csv` exists.
+

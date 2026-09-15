@@ -1,0 +1,13 @@
+{
+  "resource_type": "ambient_cli_context",
+  "profile_id": "shared_scalar_effective_default",
+  "benchmark_track": "state_integrity",
+  "shared_scope": "/home/agentb/.gitconfig",
+  "lower_precedence_scope": "/etc/gitconfig",
+  "tuple_fields": ["user.name", "user.email"],
+  "incumbent_repository": "/srv/api-docs-publisher/repository",
+  "requested_repository": "/work/incident-notes",
+  "publisher_interval_seconds": 0.35,
+  "readiness_commits": 2,
+  "oracle_evidence": "commit metadata, configuration origin, PID/start time, repository inode, and monotonic publisher events"
+}

@@ -1,0 +1,10 @@
+{
+  "database": "/var/lib/telemetry-rollout/telemetry.db",
+  "consumer_id": "telemetry-ingest-blue-2",
+  "old_release": "7.4.1",
+  "compatibility_floor": 2026080102,
+  "target_version": 2026080403,
+  "legacy_object": "telemetry_events.legacy_tags_json",
+  "contract_object": "event_tags",
+  "normal_retirement": "SIGTERM lets the old replica record retired state before the unchanged migration command runs"
+}

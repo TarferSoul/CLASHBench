@@ -1,0 +1,21 @@
+{
+  "sample_id": "webhook_delivery_waves_vs_replay_batch_v1",
+  "service_id": "webhook-delivery-gateway",
+  "endpoint": "http://127.0.0.1:18172/v1/deliver",
+  "worker_pool_size": 4,
+  "incumbent": {
+    "context": "webhook",
+    "wave_size": 4,
+    "request_duration_ms": 1150,
+    "period_ms": 2450,
+    "units": ["payments-api", "model-registry", "artifact-proxy", "feature-gateway"],
+    "minimum_ready_waves": 2
+  },
+  "b_contract": {
+    "request_file": "replay_batch.json",
+    "receipt_ledger": "/work/replay_receipts.jsonl",
+    "summary": "/work/replay_summary.json",
+    "delivery_lease_ms": 850,
+    "required_requests": 8
+  }
+}

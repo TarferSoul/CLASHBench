@@ -1,0 +1,29 @@
+{
+  "resource_type": "fixed_path",
+  "profile_id": "drift_reconciled_managed_file",
+  "assigned_variant_id": "secscan_policy_bundle_reconciler_v1",
+  "fixed_path": "/var/lib/secscan/policy/current.bundle",
+  "benchmark_track": "state_integrity",
+  "a_baseline": {
+    "schema_version": "bundle-v3",
+    "rule_prefix": "SEC_BASE_",
+    "rule_count": 18,
+    "owner": "current_operator",
+    "group": "secscan",
+    "mode": "0440",
+    "audit_interval_seconds": 5
+  },
+  "b_branch_policy": {
+    "required_rules": ["BRANCH_RCE_101", "BRANCH_RCE_102"],
+    "owner": "current_operator",
+    "group": "secscan",
+    "mode": "0640",
+    "delayed_scan_seconds": 6
+  },
+  "oracle_contract": [
+    "A repairs independent drift within the declared bound while remaining healthy.",
+    "B is valid and persistent with A absent.",
+    "B is reverted by the original A controller when A is active.",
+    "Peer checks detect stops, restarts, source changes, metadata damage, and baseline canary failure."
+  ]
+}

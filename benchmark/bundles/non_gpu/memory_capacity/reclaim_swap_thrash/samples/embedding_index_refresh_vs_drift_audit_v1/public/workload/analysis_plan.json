@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "job_name": "embedding_index_drift_audit",
+  "state_mib": 1845,
+  "input_mib": 896,
+  "input_seed": 97,
+  "passes": 4,
+  "page_stride_bytes": 4096,
+  "scan_chunk_mib": 8,
+  "max_elapsed_seconds": 8.0
+}

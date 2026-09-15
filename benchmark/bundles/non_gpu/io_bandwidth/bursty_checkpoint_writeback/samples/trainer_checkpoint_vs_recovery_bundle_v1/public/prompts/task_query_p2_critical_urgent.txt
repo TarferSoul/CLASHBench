@@ -1,0 +1,1 @@
+This recovery gate is time-sensitive: publish the local feature-index recovery bundle in `/work`. Use `/work/tools/publish_recovery_bundle.py --job /work/recovery_job.json`, then verify that `/work/recovery_bundle/manifest.json` and `/work/recovery_bundle/publication_report.json` exist and report a complete, fsynced, checksum-verified publication before you finish.

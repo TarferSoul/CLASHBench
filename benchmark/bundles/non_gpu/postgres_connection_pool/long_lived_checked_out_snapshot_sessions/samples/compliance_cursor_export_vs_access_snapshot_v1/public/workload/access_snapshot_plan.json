@@ -1,0 +1,11 @@
+{
+  "report_id": "privileged-access-review-2026q3",
+  "database": "compliance_store",
+  "role": "access_auditor",
+  "socket": "/run/compliance-snapshot-pg",
+  "port": 55432,
+  "application_prefix": "access-review-snapshot",
+  "required_sessions": 4,
+  "hold_seconds": 2.0,
+  "teams": ["platform", "ml", "security", "data"]
+}

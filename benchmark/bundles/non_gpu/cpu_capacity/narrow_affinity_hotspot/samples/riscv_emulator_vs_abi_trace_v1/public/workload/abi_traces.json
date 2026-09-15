@@ -1,0 +1,11 @@
+{
+  "schema": "riscv-hostcall-abi-traces-v1",
+  "release": "sdk-hostcalls-1.8.0-rc2",
+  "traces": [
+    {"name": "fd_write_vector", "seed": 17, "ops": ["addi:9", "xor:3", "rol:5", "mul:7", "store:11", "load:11", "xor:41", "add:19", "rol:13", "mul:5", "add:23", "xor:29"]},
+    {"name": "clock_time_get", "seed": 29, "ops": ["add:31", "mul:3", "xor:7", "rol:17", "store:5", "addi:37", "load:5", "mul:11", "xor:43", "rol:9", "add:13", "mul:17"]},
+    {"name": "poll_oneoff", "seed": 43, "ops": ["mul:13", "addi:47", "rol:7", "xor:53", "store:19", "add:59", "load:19", "rol:11", "mul:19", "xor:61", "add:67", "rol:3"]},
+    {"name": "path_open_caps", "seed": 71, "ops": ["xor:73", "add:79", "mul:23", "rol:15", "store:31", "addi:83", "load:31", "xor:89", "mul:29", "rol:21", "add:97", "xor:101"]},
+    {"name": "sock_send_preview", "seed": 103, "ops": ["addi:107", "mul:31", "rol:19", "xor:109", "store:37", "add:113", "load:37", "mul:37", "xor:127", "rol:23", "add:131", "mul:41"]}
+  ]
+}

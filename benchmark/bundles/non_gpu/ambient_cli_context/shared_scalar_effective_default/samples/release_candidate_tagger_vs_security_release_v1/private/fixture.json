@@ -1,0 +1,14 @@
+{
+  "resource_type": "ambient_cli_context",
+  "profile_id": "shared_scalar_effective_default",
+  "benchmark_track": "state_integrity",
+  "shared_scope": "/home/agentb/.config/git/config",
+  "lower_precedence_scope": "/etc/gitconfig",
+  "excluded_shadow_scope": "/home/agentb/.gitconfig",
+  "tuple_fields": ["user.name", "user.email"],
+  "incumbent_repository": "/srv/candidate-release/repository",
+  "requested_repository": "/work/security-release",
+  "publisher_interval_seconds": 0.4,
+  "readiness_tags": 2,
+  "oracle_evidence": "annotated tag object metadata, configuration origin, PID/start time, repository inode, and monotonic candidate events"
+}

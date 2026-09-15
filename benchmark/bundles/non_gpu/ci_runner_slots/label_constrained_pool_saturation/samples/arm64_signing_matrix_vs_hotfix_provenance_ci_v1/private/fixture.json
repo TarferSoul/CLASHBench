@@ -1,0 +1,11 @@
+{
+  "scheduler": "LaneCI",
+  "scheduler_version": "laneci-2.4.0",
+  "endpoint": "http://127.0.0.1:59141",
+  "target_label": "arm64-release-signing",
+  "target_capacity": 2,
+  "generic_label": "generic-linux",
+  "generic_capacity": 2,
+  "required_capability": "architecture=arm64,toolchain=cross-aarch64-v13,signing-key=rsa2048",
+  "oracle": {"baseline_trials": 3, "joint_trials": 3, "recovery_trials": 3, "minimum_joint_latency_seconds": 1.0, "minimum_degradation_ratio": 4.0}
+}

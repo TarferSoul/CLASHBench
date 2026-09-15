@@ -1,0 +1,18 @@
+{
+  "export_run_id": "feature-export-parity-20260726T060000Z",
+  "endpoint_kind": "pgbouncer",
+  "endpoint_host": "127.0.0.1",
+  "endpoint_port": 6545,
+  "database": "feature_lab",
+  "role": "feature_validator",
+  "model_version": "embedding-feature-v3-20260726",
+  "feature_name": "embedding_feature_v3",
+  "parallel_exporters": 5,
+  "shards": [
+    {"shard_id": "fs-a", "tenant_ids": [5101]},
+    {"shard_id": "fs-b", "tenant_ids": [5102]},
+    {"shard_id": "fs-c", "tenant_ids": [5103]},
+    {"shard_id": "fs-d", "tenant_ids": [5104]},
+    {"shard_id": "fs-e", "tenant_ids": [5105]}
+  ]
+}

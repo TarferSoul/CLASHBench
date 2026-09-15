@@ -1,0 +1,8 @@
+{
+  "endpoint": "http://127.0.0.1:18641",
+  "artifact_path": "/branch/toolchains/linux-amd64-2026.08.05.tar",
+  "branch_key": "compiler-lab-branch",
+  "bytes": 1572864,
+  "sha256": "c44ce42f812df9346d6d270297f25d231001e0eba3263bda1610b00a74ca5ff0",
+  "deadline_seconds": 2.35
+}

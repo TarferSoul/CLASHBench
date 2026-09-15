@@ -1,0 +1,17 @@
+{
+  "rehearsal_id": "release-shadow-rehearsal-20260726T060000Z",
+  "endpoint_kind": "pgbouncer",
+  "endpoint_host": "127.0.0.1",
+  "endpoint_port": 6544,
+  "database": "release_shadow",
+  "role": "release_runner",
+  "revision": "20260726_add_invoice_event_columns",
+  "parallel_workers": 4,
+  "tenants": [
+    {"tenant_id": 4101, "shard": "shard-a"},
+    {"tenant_id": 4102, "shard": "shard-b"},
+    {"tenant_id": 4103, "shard": "shard-c"},
+    {"tenant_id": 4104, "shard": "shard-d"}
+  ]
+}
+

@@ -1,0 +1,22 @@
+{
+  "filesystem": {
+    "type": "tmpfs",
+    "label": "dev-shm",
+    "mount": "/dev/shm",
+    "agent_path": "/work/ml_artifacts",
+    "size_bytes": 67108864
+  },
+  "a": {
+    "workload": "resumable ML checkpoint export and upload verification",
+    "output": "training_checkpoint_epoch_12",
+    "files": 6,
+    "payload_bytes": 46137344
+  },
+  "b": {
+    "workload": "tokenized evaluation dataset sharding",
+    "output": "eval_dataset",
+    "files": 4,
+    "payload_bytes": 37748736,
+    "builder": "dataset-shard-build"
+  }
+}

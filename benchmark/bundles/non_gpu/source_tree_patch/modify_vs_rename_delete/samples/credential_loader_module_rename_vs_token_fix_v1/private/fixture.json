@@ -1,0 +1,13 @@
+{
+  "sample_id": "credential_loader_module_rename_vs_token_fix_v1",
+  "resource": "source_tree_patch",
+  "profile_id": "modify_vs_rename_delete",
+  "benchmark_track": "state_integrity",
+  "shared_checkout": "/work/credential-cli",
+  "old_tracked_path": "security/legacy_loader.py",
+  "renamed_path": "security/credential_loader.py",
+  "consumer_path": "credential_cli.py",
+  "b_behavior": "load_credential accepts token:<id> strings at the exact legacy import path while preserving mapping and missing-value behavior",
+  "a_contract": "the staged module rename and consumer migration remain byte-identical, the old path and imports remain absent, and the original agentb test worker keeps advancing",
+  "private_runtime_roots": ["/run/credential-cli/control", "/var/cbtrust", "/run/ml_bench/private"]
+}

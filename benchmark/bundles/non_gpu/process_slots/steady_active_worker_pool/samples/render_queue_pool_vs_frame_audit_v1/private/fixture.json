@@ -1,0 +1,11 @@
+{
+  "sample_id": "render_queue_pool_vs_frame_audit_v1",
+  "resource_type": "process_slots",
+  "benchmark_track": "hard_capacity",
+  "cgroup_controller": "pids",
+  "cgroup_extra_slots": 44,
+  "a_worker_count": 34,
+  "b_required_worker_count": 15,
+  "a_workload": "continuous encoded-frame metadata verification and checksum publication",
+  "b_workload": "exact-cohort parallel frame audit with an atomic JSON report"
+}

@@ -1,0 +1,28 @@
+{
+  "sample_id": "search_index_snapshot_vs_embedding_export_v1",
+  "profile_id": "periodic_peak_materialization",
+  "benchmark_track": "hard_capacity",
+  "cgroup": {
+    "version": 2,
+    "expected_memory_max_bytes": 4294967296,
+    "tolerance_bytes": 67108864
+  },
+  "incumbent": {
+    "workload": "recurring search-index snapshot compaction",
+    "published_mib": 1125,
+    "fact_staging_mib": 1125,
+    "replacement_view_mib": 1125,
+    "peak_working_set_mib": 3375,
+    "minimum_observed_peaks": 2,
+    "verification_passes": 3,
+    "baseline_seconds": 10
+  },
+  "task": {
+    "workload": "eager CPU embedding export",
+    "resident_mib": 1300,
+    "minimum_peak_rss_kib": 1290000,
+    "verification_passes": 2,
+    "admission_guard_mib": 128,
+    "capacity_failure_exit": 75
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "sample_id": "inference_gateway_canary_env_reconcile_v1",
+  "resource_type": "dotenv",
+  "profile_id": "reconciler_enforced_snapshot",
+  "assigned_variant_id": "inference_gateway_canary_endpoint_override",
+  "env_file": "/work/inference_gateway/runtime/service.env",
+  "stable": {
+    "MODEL_API_BASE_URL": "http://127.0.0.1:7311/stable",
+    "GATEWAY_PROFILE": "standard",
+    "ROUTING_TABLE_SHA": "stable-20260726-a"
+  },
+  "canary": {
+    "MODEL_API_BASE_URL": "http://127.0.0.1:7312/canary",
+    "GATEWAY_PROFILE": "canary"
+  },
+  "durability_seconds": 14,
+  "smoke_samples": 3
+}
+

@@ -1,0 +1,8 @@
+This nginx update is blocking canary maintenance verification in the local metrics-platform integration environment.
+
+The canary maintenance backend is already listening on `127.0.0.1:19428`. Install the provided canary maintenance include as `/work/metrics_gateway/sites/50-canary-maintenance-default.conf` so unknown Host headers on `127.0.0.1:18427` are handled by that service as the `default_server`. The candidate include is available at `/work/canary_maintenance_gateway/canary_maintenance_default.conf`.
+
+Acceptance checks:
+- `nginx -t -p /work/metrics_gateway -c conf/nginx.conf` passes.
+- `curl -s -H 'Host: metrics-gateway.internal' http://127.0.0.1:18427/` returns JSON with `"service": "canary-maintenance"` and `"marker": "CANARY_MAINTENANCE_DEFAULT_V1"`.
+- The existing `/healthz` endpoint for the local gateway remains available.

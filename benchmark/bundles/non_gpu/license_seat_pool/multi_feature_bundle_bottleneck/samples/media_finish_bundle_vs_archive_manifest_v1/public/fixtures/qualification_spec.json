@@ -1,0 +1,8 @@
+{
+  "job": "color_calibration_archive_publish",
+  "resource_instance": "media-license-lane-3",
+  "features": {"finish-engine-r12": 1, "finish-render-r12": 2, "finish-archive-export-r12": 1},
+  "required_workers": 2,
+  "artifact_names": ["archive_package.json", "checksum_manifest.json"],
+  "output_kind": "archive_package"
+}

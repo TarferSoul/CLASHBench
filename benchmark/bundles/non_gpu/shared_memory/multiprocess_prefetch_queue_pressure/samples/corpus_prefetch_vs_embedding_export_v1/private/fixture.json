@@ -1,0 +1,23 @@
+{
+  "a_recipe": {
+    "workload": "continuous language-model corpus tokenization and shard indexing",
+    "workers": 3,
+    "prefetch_factor": 2,
+    "batch_size": 4,
+    "tensor_ratio": 0.62,
+    "transport": "unlinked POSIX shared-memory tensor slots inherited by multiprocessing workers"
+  },
+  "b_recipe": {
+    "workload": "finite code-search corpus embedding export",
+    "workers": 3,
+    "prefetch_factor": 2,
+    "batch_size": 4,
+    "required_items": 24,
+    "tensor_ratio": 0.48,
+    "transport": "unlinked POSIX shared-memory tensor slots inherited by multiprocessing workers"
+  },
+  "capacity_relation": "A and B each commit successfully alone; their fixed high-water marks total 110 percent of the same /dev/shm mount",
+  "expected_contention_signal": "B worker SIGBUS or ENOSPC while committing its prefetched tensor slots",
+  "peer_integrity": "original supervisor and worker start times, recipe hash, deleted shm inode geometry and allocated blocks, output journal integrity, and advancing batch count"
+}
+

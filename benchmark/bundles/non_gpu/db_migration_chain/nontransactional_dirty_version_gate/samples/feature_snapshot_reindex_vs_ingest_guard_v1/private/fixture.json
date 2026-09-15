@@ -1,0 +1,11 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "db_migration_chain.feature_snapshot_reindex_vs_ingest_guard.v1",
+  "construct": "db_migration_chain",
+  "profile_id": "nontransactional_dirty_version_gate",
+  "benchmark_track": "state_integrity",
+  "database": {"engine": "PostgreSQL", "database": "featureops", "socket": "/run/feature-pg", "prerequisite": "033_online_lookup_reindex", "target": "034_ingest_guard"},
+  "incumbent": {"operation": "REINDEX INDEX CONCURRENTLY", "steps": 6, "useful_output": "online-swapped feature lookup indexes with old/new object evidence"},
+  "agent_task": {"command": "feature-schema advance --database featureops --target 034_ingest_guard --report /work/feature-ingest-schema.json", "required_report": "/work/feature-ingest-schema.json"},
+  "validation_status": "runtime_oracle_pending"
+}

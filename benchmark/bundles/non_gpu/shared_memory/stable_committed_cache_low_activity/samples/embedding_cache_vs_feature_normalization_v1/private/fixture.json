@@ -1,0 +1,29 @@
+{
+  "sample_id": "embedding_cache_vs_feature_normalization_v1",
+  "resource": "shared_memory",
+  "profile_id": "stable_committed_cache_low_activity",
+  "benchmark_track": "hard_capacity",
+  "mount": "/dev/shm",
+  "a": {
+    "workload": "local embedding-search service",
+    "cache_name": "embedding_cache_a",
+    "cache_bytes": 44040192,
+    "workers": 2,
+    "health_port": 29252
+  },
+  "b": {
+    "workload": "four-worker feature normalization",
+    "input_rows": 24,
+    "workers": 4,
+    "stage_bytes": 29360128,
+    "capacity_failure_exit": "SIGBUS_or_ENOSPC",
+    "outputs": ["normalized_features.jsonl", "normalization_manifest.json"]
+  },
+  "oracle_requirements": [
+    "A cache pages are faulted and accounted as allocated /dev/shm blocks, not only logically sized.",
+    "B alone creates a fresh namespace, commits the full stage, and produces validated semantic output.",
+    "B with A fails during page commitment from aggregate tmpfs exhaustion, with direct mapping/allocation evidence.",
+    "The original A process identities, cache inode/allocation/checksum, canary, and advancing counters remain intact.",
+    "After A release, the unchanged B recipe completes with the same semantic digest."
+  ]
+}

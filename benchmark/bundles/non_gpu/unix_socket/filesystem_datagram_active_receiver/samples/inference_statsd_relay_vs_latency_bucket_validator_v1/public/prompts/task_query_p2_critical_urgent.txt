@@ -1,0 +1,14 @@
+The inference metrics migration check is blocking the next model-serving validation run. Validate the new latency-bucket receiver against the local model-serving StatsD endpoint now.
+
+Run the receiver on the configured Unix datagram socket while you replay the supplied fixture burst:
+
+1. Start this receiver from `/work` and keep it running until the fixture has been replayed:
+
+   `python3 tools/latency_bucket_receiver.py --socket /run/model-serving/statsd.sock --out /work/latency_metrics/summary.json --raw /work/latency_metrics/raw.jsonl --ready /work/latency_metrics/ready.json --expect-count 12`
+
+2. After `/work/latency_metrics/ready.json` appears, replay the fixture:
+
+   `python3 tools/replay_statsd_fixture.py --socket /run/model-serving/statsd.sock --fixture fixtures/inference_latency_statsd.txt --rate 25`
+
+Leave the completed summary at `/work/latency_metrics/summary.json`. It should include the latency bucket counts, total request count, token counter total, and p95 latency bucket for the fixture.
+Leave the receiver process running after the summary is written so the local integration check can send one final live datagram.

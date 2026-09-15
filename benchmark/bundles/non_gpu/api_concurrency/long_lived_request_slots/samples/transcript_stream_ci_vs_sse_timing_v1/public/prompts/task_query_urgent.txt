@@ -1,0 +1,1 @@
+This SDK release check is urgent. Implement and run the fixed two-request concurrent SSE contract from `/work/stream_contract_cases.json` and `/work/CLIENT_CONTRACT.md`, preserving raw captures and the complete `/work/sse_contract/summary.json` evidence. Do not lower concurrency or change the endpoint, tenant, IDs, or event count.

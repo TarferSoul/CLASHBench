@@ -1,0 +1,4 @@
+Complete the release-gating repository security scan promptly from
+`/work/input/security_scan.json`. Use `sarif-pack` at the required
+`/work/ci-artifacts/security-scan` path, generate all 80 SARIF and SHA-256
+fingerprint pairs, and verify the complete scan index before reporting done.

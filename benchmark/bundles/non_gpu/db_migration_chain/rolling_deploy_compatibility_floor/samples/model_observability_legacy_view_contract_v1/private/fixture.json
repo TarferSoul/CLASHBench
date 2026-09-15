@@ -1,0 +1,13 @@
+{
+  "database": "/var/lib/model-observability/observability.db",
+  "consumer_id": "report-api-canary-1",
+  "old_release": "3.11.6",
+  "compatibility_floor": 2026072904,
+  "target_version": 2026080407,
+  "legacy_objects": [
+    "daily_model_metrics_v1",
+    "prediction_metrics.latency_ms_text"
+  ],
+  "contract_object": "latency_slo_rollups",
+  "health_url": "http://127.0.0.1:18181/health"
+}

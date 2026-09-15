@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "manager": "EdgeCodegen 2026.2 floating manager",
+  "feature": "edge_codegen_pro",
+  "version": "2026.2",
+  "total_seats": 2,
+  "general_seats": 1,
+  "reserved_seats": 1,
+  "reserved_identity": "safety_validation",
+  "incumbent_identity": "model_cache_service",
+  "agent_identity": "staged_ml_build",
+  "agent_width": 1,
+  "incumbent_width": 1
+}

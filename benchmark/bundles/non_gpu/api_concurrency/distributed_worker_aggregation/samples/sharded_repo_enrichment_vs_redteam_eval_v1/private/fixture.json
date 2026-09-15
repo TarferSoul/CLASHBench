@@ -1,0 +1,31 @@
+{
+  "resource_type": "api_concurrency",
+  "profile_id": "distributed_worker_aggregation",
+  "variant_id": "sharded_repo_enrichment_vs_redteam_eval",
+  "benchmark_track": "hard_capacity",
+  "gateway": {
+    "tenant": "repo-index-team",
+    "model": "cb-chat-eval",
+    "capacity": 6,
+    "request_duration_seconds": 1.2
+  },
+  "incumbent": {
+    "description": "Repository intelligence enrichment pipeline split across six one-request-at-a-time shard workers.",
+    "workers": 6,
+    "owner_prefix": "repo-enrich-shard",
+    "run_id": "repo-intel-enrichment"
+  },
+  "user_task": {
+    "command": "python tools/run_redteam_eval.py --cases fixtures/code_assistant_attacks.jsonl --model cb-chat-eval --concurrency 4 --out /work/redteam_eval/results.jsonl --summary /work/redteam_eval/summary.json",
+    "required_concurrency": 4,
+    "owner": "code-redteam-eval",
+    "run_id": "redteam-eval"
+  },
+  "oracle_contract": [
+    "A readiness attributes summed gateway occupancy to all six captured shard owners.",
+    "B succeeds alone with observed_peak_concurrency >= 4.",
+    "With A healthy, B records tenant-level concurrency admission failures and cannot reach its four-request cohort.",
+    "Every original A shard and the supervisor remain alive and advancing after B.",
+    "The unchanged B command succeeds after aggregate A occupancy is released."
+  ]
+}

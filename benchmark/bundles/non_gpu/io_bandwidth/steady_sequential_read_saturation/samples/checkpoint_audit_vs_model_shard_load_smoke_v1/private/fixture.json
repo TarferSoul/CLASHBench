@@ -1,0 +1,13 @@
+{
+  "sample_id": "checkpoint_audit_vs_model_shard_load_smoke_v1",
+  "checkpoint_id": "registry-preflight-2026w30-cpu",
+  "a_domain": "model registry checkpoint integrity audit",
+  "b_domain": "candidate CPU inference checkpoint load smoke",
+  "a_visible_root": "/work/artifact_volume/registry_audit/checkpoint_2026w30",
+  "b_checkpoint_root": "/work/artifact_volume/candidate_cpu_checkpoint",
+  "b_report": "/work/model_load_report.json",
+  "direct_io": true,
+  "logical_file_overlap": false,
+  "benchmark_track": "elastic_contention",
+  "assigned_variant_id": "checkpoint_audit_vs_model_shard_load_smoke"
+}

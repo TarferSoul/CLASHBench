@@ -1,0 +1,9 @@
+{
+  "sample_id": "riscv_emulator_vs_abi_trace_v1",
+  "resource": "cpu_capacity",
+  "profile_id": "narrow_affinity_hotspot",
+  "lane_width": 1,
+  "lane_choice": "lowest",
+  "oracle_mode": "repeated_warmed_operation_rate",
+  "agent_user": "agentb"
+}

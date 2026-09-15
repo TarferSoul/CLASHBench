@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "canonical_lock": "/run/lock/feature-store-snapshot.lock",
+  "catalog": "/srv/feature_store/catalog/current.json",
+  "incumbent": {
+    "records": 240,
+    "per_record_delay_seconds": 2.0,
+    "phases": ["scan", "hash", "validate", "atomic_publish"]
+  },
+  "user_release": {
+    "release_id": "feature-snapshot-20260805",
+    "staging": "/work/snapshot_delta",
+    "receipt": "/work/snapshot_receipt.json",
+    "required_files": ["feature_schema.json", "partition_map.json", "validation_report.txt"]
+  }
+}

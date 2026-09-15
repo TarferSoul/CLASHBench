@@ -1,0 +1,12 @@
+{
+  "sample_id": "warehouse_snapshot_dispatcher_vs_partition_ledger_v1",
+  "claim_protocol": "os.open(path, O_WRONLY|O_CREAT|O_EXCL, 0644), write PID, fsync, retain descriptor and pathname",
+  "canonical_pidfile": "/run/warehouse-snapshot/dispatcher.pid",
+  "incumbent_command_marker": "snapshot-dispatch coordinate",
+  "b_command_marker": "snapshot-dispatch materialize-once",
+  "b_request_id": "warehouse-replay-2026-08-05",
+  "b_outputs": [
+    "/work/warehouse-snapshot/replay/snapshot-index.json",
+    "/work/warehouse-snapshot/replay/completion-ledger.json"
+  ]
+}

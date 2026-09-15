@@ -1,0 +1,21 @@
+{
+  "profile_id": "dual_stack_ipv6_wildcard_overlap",
+  "a": {
+    "service": "model-route-catalog",
+    "address": "::",
+    "port": 43629,
+    "ipv6_v6only": 0,
+    "health_paths": ["/healthz", "/v1/routes"]
+  },
+  "b": {
+    "service": "legacy-metrics-bridge",
+    "address": "127.0.0.1",
+    "port": 43629,
+    "ready_path": "/ready",
+    "metrics_path": "/metrics",
+    "required_series": [
+      "legacy_queue_depth{pipeline=\"embedding-index\"} 7",
+      "legacy_bridge_info{version=\"2026.08\"} 1"
+    ]
+  }
+}

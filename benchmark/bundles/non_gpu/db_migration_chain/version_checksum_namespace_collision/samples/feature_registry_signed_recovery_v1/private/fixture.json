@@ -1,0 +1,31 @@
+{
+  "resource_type": "db_migration_chain",
+  "profile_id": "version_checksum_namespace_collision",
+  "engine": "yoyo-migrations==9.0.0",
+  "database": "/srv/feature-registry/catalog.db",
+  "namespace": "ml-feature-registry/catalog-schema",
+  "incumbent_release": {
+    "release_id": "FR-MAINLINE-2026.08.2",
+    "version": "M307",
+    "parent": "M306",
+    "checksum": "bfca87732c9d00feb59f98171e79c637623cac67d5be9dcfc4a6a3e600ff7876",
+    "workload": "continuous model-artifact projection and signed-lineage validation"
+  },
+  "requested_release": {
+    "release_id": "FR-RECOVERY-2026.08.2",
+    "version": "M307",
+    "parent": "M306",
+    "checksum": "948d92b64a2dadce6d1013036cb42d88873b7794cab45cc41a17fe76c9ee221b",
+    "deliverables": [
+      "/work/recovery-receipt.json",
+      "/work/provenance-export.jsonl"
+    ]
+  },
+  "control_rows": 180,
+  "oracle_evidence": [
+    "control signed recovery application and independently reconstructed provenance export",
+    "contested immutable schema, yoyo history, lineage, and artifact fingerprint before and after collision",
+    "original projection worker identity, checkpoint, audit growth, and catalog digest",
+    "signed alias and merged-SQL tamper rejection without database mutation"
+  ]
+}

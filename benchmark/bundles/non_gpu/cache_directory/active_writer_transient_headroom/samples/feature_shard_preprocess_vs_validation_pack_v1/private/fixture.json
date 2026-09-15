@@ -1,0 +1,9 @@
+{
+  "profile_id": "active_writer_transient_headroom",
+  "cache_limit_bytes": 54525952,
+  "a_stage_bytes": 33554432,
+  "a_dictionary_committed_bytes": 5242880,
+  "b_peak_staging_bytes": 20971520,
+  "cache_root": "/work/feature-cache",
+  "b_output": "/work/output/validation-split.catalog.json"
+}

@@ -1,0 +1,12 @@
+llm.requests:1|c
+llm.requests:1|c
+llm.tokens:96|c
+llm.tokens:128|c
+llm.request_latency_ms:42|ms
+llm.request_latency_ms:87|ms
+llm.request_latency_ms:119|ms
+llm.request_latency_ms:156|ms
+llm.request_latency_ms:203|ms
+llm.request_latency_ms:251|ms
+llm.queue_depth:3|g
+llm.queue_depth:2|g

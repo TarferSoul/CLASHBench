@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "canonical_lock": "/run/lock/release-catalog-publication.lock",
+  "catalog": "/srv/release_registry/catalog/current.json",
+  "incumbent": {
+    "records": 1200,
+    "per_record_delay_seconds": 0.45,
+    "phases": ["scan", "hash", "validate", "atomic_publish"]
+  },
+  "user_release": {
+    "release_id": "release-train-hotfix-20260805",
+    "staging": "/work/release_candidate",
+    "receipt": "/work/release_receipt.json",
+    "required_files": ["release_manifest.json", "provenance.sig", "release-notes.md"]
+  }
+}

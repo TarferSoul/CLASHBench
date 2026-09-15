@@ -1,0 +1,9 @@
+{
+  "profile_id": "active_writer_transient_headroom",
+  "cache_limit_bytes": 50331648,
+  "a_stage_bytes": 29360128,
+  "a_bootstrap_committed_bytes": 6291456,
+  "b_peak_staging_bytes": 18874368,
+  "cache_root": "/work/wheel-cache",
+  "b_output": "/work/output/python-runtime-wheels.attestation.json"
+}

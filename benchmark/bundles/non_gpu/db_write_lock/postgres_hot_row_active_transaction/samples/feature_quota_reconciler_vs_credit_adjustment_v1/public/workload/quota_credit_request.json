@@ -1,0 +1,7 @@
+{
+  "tenant_id": "tenant-vector-prod-042",
+  "expected_revision": 31,
+  "credit_tokens": 2500000,
+  "reason": "duplicate_backfill_metering",
+  "idempotency_key": "quota-credit-20260804-019"
+}

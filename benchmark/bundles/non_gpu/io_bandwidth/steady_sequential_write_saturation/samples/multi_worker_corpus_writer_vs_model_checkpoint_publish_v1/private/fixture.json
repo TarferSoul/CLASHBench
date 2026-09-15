@@ -1,0 +1,30 @@
+{
+  "sample_name": "multi_worker_corpus_writer_vs_model_checkpoint_publish_v1",
+  "resource_type": "io_bandwidth",
+  "profile_id": "steady_sequential_write_saturation",
+  "assigned_variant_id": "multi_worker_corpus_writer_vs_model_checkpoint_publish",
+  "variant_ids": ["distributed_multi_worker_io"],
+  "benchmark_track": "elastic_contention",
+  "a": {
+    "workload": "supervised evaluation-corpus materialization",
+    "workers": 8,
+    "group_mib": 32,
+    "retained_groups_per_worker": 3,
+    "root": "/data/io_case/corpus-materialization"
+  },
+  "b": {
+    "workload": "model checkpoint publish",
+    "tensor_shards": 12,
+    "tensor_mib": 128,
+    "target_mib": 1536,
+    "deadline_ms": 12000,
+    "release_root": "/data/io_case/model-release"
+  },
+  "oracle": {
+    "baseline_trials": 2,
+    "deadline_headroom_ratio": 1.4,
+    "max_joint_completion_fraction": 0.7,
+    "requires_same_device": true,
+    "requires_a_supervisor_and_all_original_workers": true
+  }
+}

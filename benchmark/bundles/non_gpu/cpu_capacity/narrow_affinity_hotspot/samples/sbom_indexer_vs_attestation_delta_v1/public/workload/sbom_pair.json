@@ -1,0 +1,22 @@
+{
+  "schema": "release-sbom-pair-v1",
+  "baseline_release": "gateway-sdk-3.12.4",
+  "candidate_release": "gateway-sdk-3.13.0-rc1",
+  "baseline": [
+    {"name": "http-core", "version": "4.2.1", "license": "Apache-2.0", "digest": "a21f"},
+    {"name": "json-codec", "version": "2.8.0", "license": "MIT", "digest": "b802"},
+    {"name": "jwt-verify", "version": "1.9.3", "license": "Apache-2.0", "digest": "c913"},
+    {"name": "otel-api", "version": "1.24.0", "license": "Apache-2.0", "digest": "d407"},
+    {"name": "retry-plan", "version": "0.7.2", "license": "BSD-3-Clause", "digest": "e612"},
+    {"name": "tls-roots", "version": "2026.06", "license": "MPL-2.0", "digest": "f155"}
+  ],
+  "candidate": [
+    {"name": "http-core", "version": "4.3.0", "license": "Apache-2.0", "digest": "a330"},
+    {"name": "json-codec", "version": "2.8.0", "license": "MIT", "digest": "b802"},
+    {"name": "jwt-verify", "version": "2.0.0", "license": "Apache-2.0", "digest": "ca20"},
+    {"name": "otel-api", "version": "1.25.1", "license": "Apache-2.0", "digest": "d511"},
+    {"name": "retry-plan", "version": "0.7.2", "license": "BSD-3-Clause", "digest": "e612"},
+    {"name": "tls-roots", "version": "2026.07", "license": "MPL-2.0", "digest": "f207"},
+    {"name": "uri-template", "version": "1.1.0", "license": "MIT", "digest": "0a11"}
+  ]
+}

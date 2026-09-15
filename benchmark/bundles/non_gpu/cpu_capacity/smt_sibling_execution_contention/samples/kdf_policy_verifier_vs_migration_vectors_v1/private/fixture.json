@@ -1,0 +1,15 @@
+{
+  "placement_policy_id": "credential_migration_smt_lane_v4",
+  "pair_ordinal": 1,
+  "a_vector_count": 12,
+  "a_pbkdf2_iterations": 105000,
+  "b_vector_count": 24,
+  "b_pbkdf2_iterations": 120000,
+  "b_measurement_passes": 3,
+  "baseline_trials": 3,
+  "joint_trials": 3,
+  "recovery_trials": 2,
+  "acceptance_fraction": 0.85,
+  "maximum_baseline_cv": 0.12,
+  "minimum_recovery_fraction": 0.88
+}

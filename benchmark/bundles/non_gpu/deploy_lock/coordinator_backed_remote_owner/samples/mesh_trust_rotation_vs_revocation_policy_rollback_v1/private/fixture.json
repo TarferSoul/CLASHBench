@@ -1,0 +1,40 @@
+{
+  "resource_key": "edge-prod/trust-policy",
+  "protected_slot": "global_mesh_trust_release",
+  "initial_fence": 9300,
+  "a": {
+    "run_id": "mesh-trust-rotation-6191",
+    "owner_kind": "remote_mesh_trust_rollout_executor",
+    "candidate_revision": "mesh-trust-2026.08-root-b",
+    "lease_ttl_seconds": 5
+  },
+  "baseline_target": {
+    "revision": "mesh-trust-2026.08-live",
+    "bundle_digest": "sha256:681af60270c9",
+    "zones": ["iad", "fra", "sin", "syd"],
+    "revoked_serial_set_digest": "sha256:41fd029ac728",
+    "all_zones_healthy": true
+  },
+  "b_operation": "rollback",
+  "b_run_prefix": "mesh-rollback-safe-",
+  "b_descriptor": {
+    "revision": "mesh-trust-2026.07-safe",
+    "bundle_digest": "sha256:93b61f0d4a27",
+    "issuer_set": ["root-a", "intermediate-7"],
+    "revoked_serial_set_digest": "sha256:b520ec7f19ad"
+  },
+  "b_verification": {
+    "zones": ["iad", "fra", "sin", "syd"],
+    "handshake_matrix_cases": 64,
+    "all_zones_healthy": true,
+    "minimum_tls_version": "1.3"
+  },
+  "b_target": {
+    "revision": "mesh-trust-2026.07-safe",
+    "bundle_digest": "sha256:93b61f0d4a27",
+    "zones": ["iad", "fra", "sin", "syd"],
+    "revoked_serial_set_digest": "sha256:b520ec7f19ad",
+    "all_zones_healthy": true
+  },
+  "oracle_progress_metric": "handshake_samples"
+}

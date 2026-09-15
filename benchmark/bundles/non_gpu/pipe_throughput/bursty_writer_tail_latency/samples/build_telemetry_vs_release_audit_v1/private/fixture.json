@@ -1,0 +1,22 @@
+{
+  "resource": "pipe_throughput",
+  "profile_id": "bursty_writer_tail_latency",
+  "track": "elastic_contention",
+  "fifo": "/work/telemetry_router/ingest.fifo",
+  "frame_bytes": 3900,
+  "pipe_capacity_policy": "retain smaller image default or reduce to 16384 bytes",
+  "collector_service_ms": 55,
+  "a": {
+    "workload": "build stage telemetry buffering and acknowledged batch export",
+    "records_per_flush": 36,
+    "buffer_interval_seconds": 2.5,
+    "required_joint_generations": 2
+  },
+  "b": {
+    "workload": "release audit control-plane submission",
+    "records": 4,
+    "deadline_ms": 290,
+    "required_alone_trials": 4,
+    "receipt": "/work/release_audit_receipt.json"
+  }
+}

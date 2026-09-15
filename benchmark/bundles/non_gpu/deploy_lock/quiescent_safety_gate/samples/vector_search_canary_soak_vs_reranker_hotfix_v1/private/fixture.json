@@ -1,0 +1,14 @@
+{
+  "environment_key": "search-serving-prod",
+  "lease_kind": "exclusive_deployment_window",
+  "gate": "vector_search_rank_continuity_soak",
+  "routing_state": "candidate_10_percent",
+  "active_vector_search_version": "9.4.7",
+  "candidate_vector_search_version": "9.5.0-rc1",
+  "active_reranker_version": "2.6.3",
+  "requested_reranker_version": "2.6.4-hotfix.2",
+  "probe_port": 18131,
+  "sample_interval_seconds": 0.24,
+  "minimum_ready_samples": 3,
+  "b_lock_timeout_seconds": 0.75
+}

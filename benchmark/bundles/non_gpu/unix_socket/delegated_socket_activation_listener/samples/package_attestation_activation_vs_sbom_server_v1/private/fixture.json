@@ -1,0 +1,16 @@
+{
+  "socket_path": "/work/attestation/package-attestation.sock",
+  "a_service": "package-attestation-index-activation",
+  "b_service": "package-attestation-sbom",
+  "api_version": 1,
+  "feature_key": "pkg.libcrypto",
+  "feature": {
+    "name": "pkg.libcrypto",
+    "version": "3.2.1-dist",
+    "owner": "release-security",
+    "dimension": 0,
+    "dtype": "source-package",
+    "index": "sbom-main-2026q3",
+    "digest": "sha256:1a8f7e7b16b7896f4ef21c2a3aa5d59dbf47db1780f7051e9c2f6f0c6517f9b2"
+  }
+}

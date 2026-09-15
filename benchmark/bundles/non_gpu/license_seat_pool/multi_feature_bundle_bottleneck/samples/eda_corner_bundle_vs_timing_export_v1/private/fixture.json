@@ -1,0 +1,9 @@
+{
+  "case": "eda_corner_bundle_vs_timing_export_v1",
+  "resource": "license_seat_pool",
+  "resource_instance": "eda-license-lane-7",
+  "feature_bundle": ["eda-base-2025", "eda-parallel-2025", "timing-report-export-2025"],
+  "a_roles": ["eda-synthesis-stage", "eda-timing-stage"],
+  "b_width": 2,
+  "atomic_checkout": true
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "wasm-abi-matrix-job-v1",
+  "module_count": 8,
+  "exports_per_module": 72,
+  "validation_rounds": 3400,
+  "worker_count": 2,
+  "seed": 81173,
+  "max_module_ms": 320,
+  "output_dir": "/work/abi-output"
+}

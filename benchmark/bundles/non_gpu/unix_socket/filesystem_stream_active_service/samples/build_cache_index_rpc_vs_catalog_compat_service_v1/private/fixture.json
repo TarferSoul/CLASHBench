@@ -1,0 +1,11 @@
+{
+  "digest": "sha256:cbf-fixture-001",
+  "artifact_id": "monorepo://packages/cache-protocol/objects/cbf-fixture-001",
+  "package": "cache-protocol",
+  "target": "linux-x64",
+  "size": 7341,
+  "producer": "compat-catalog-ci",
+  "expected_service": "artifact-catalog-compat",
+  "commit_note": "candidate catalog compatibility smoke"
+}
+

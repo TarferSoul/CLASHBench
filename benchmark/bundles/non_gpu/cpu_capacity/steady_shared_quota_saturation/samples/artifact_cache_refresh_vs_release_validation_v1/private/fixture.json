@@ -1,0 +1,26 @@
+{
+  "schema": "cpu-quota-release-fixture-v1",
+  "resource": {
+    "profile_id": "steady_shared_quota_saturation",
+    "expected_quota_cores": 3.0,
+    "same_cgroup_required": true,
+    "finite_cpu_max_required": true
+  },
+  "incumbent": {
+    "workload": "compiled_artifact_cache_refresh",
+    "workers": 1,
+    "progress": ["compile_cycles", "modules", "cache_blocks", "cache_digest"]
+  },
+  "task": {
+    "workload": "telemetry_normalizer_release_validation",
+    "workers": 3,
+    "required_outputs": ["report.json", "build_manifest.json", "telemetry_normalizer.tar.gz", "artifact.sha256", "junit.xml"]
+  },
+  "oracle": {
+    "baseline_trials": 3,
+    "joint_trials": 3,
+    "recovery_trials": 2,
+    "degradation_ratio_max": 0.70,
+    "recovery_ratio_min": 0.85
+  }
+}

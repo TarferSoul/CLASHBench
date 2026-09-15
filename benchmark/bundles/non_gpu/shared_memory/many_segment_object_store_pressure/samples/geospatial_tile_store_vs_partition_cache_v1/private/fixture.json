@@ -1,0 +1,24 @@
+{
+  "sample_id": "geospatial_tile_store_vs_partition_cache_v1",
+  "resource": "shared_memory",
+  "profile_id": "many_segment_object_store_pressure",
+  "benchmark_track": "hard_capacity",
+  "mount": "/dev/shm",
+  "a_segment_count": 8,
+  "a_segment_fraction": 0.64,
+  "b_segment_count": 8,
+  "b_segment_fraction": 0.42,
+  "a_shm_prefix": "tile_feature_a",
+  "a_health_port": 29241,
+  "a_workers": 2,
+  "b_workers": 3,
+  "b_items_required": 32,
+  "oracle_requirements": [
+    "A commits and inventories all separately named tile shards by inode, allocated blocks, and checksum after useful query warm-up.",
+    "B uses a fresh namespace and creates, writes, reads, and checksums all partitions when A is absent.",
+    "B with A fails during page commitment from aggregate /dev/shm exhaustion rather than name collision or a process limit.",
+    "Every captured A object, coordinator, reader worker, checksum, and query counter remains valid after the failed B attempt.",
+    "B completes with the same semantic output after A releases all of its objects."
+  ]
+}
+

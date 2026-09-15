@@ -1,0 +1,9 @@
+{
+  "sample_id": "feature_registry_compaction_vs_feature_view_apply_v1",
+  "registry_root": "/srv/feature-store/registry",
+  "lock_path": "/srv/feature-store/registry/.locks/registry-update.lock",
+  "staged_feature_view": "user_velocity_10m",
+  "expected_report": "/work/feature_apply_report.json",
+  "benchmark_track": "hard_exclusive"
+}
+

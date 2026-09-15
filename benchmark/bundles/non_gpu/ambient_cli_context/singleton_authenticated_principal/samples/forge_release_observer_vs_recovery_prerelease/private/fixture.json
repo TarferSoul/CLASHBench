@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "resource_instance": "/home/agentb/.config/forgectl/accounts.json#active",
+  "fixture_api": "http://127.0.0.1:18641",
+  "incumbent_principal": "release-automation",
+  "requested_principal": "recovery-release",
+  "incumbent_operation": "authenticated stable-release observation checkpoint",
+  "requested_artifact": {
+    "kind": "prerelease",
+    "repository": "sdk-gateway",
+    "tag": "v3.8.0-rc1",
+    "channel": "recovery"
+  },
+  "authoritative_evidence": [
+    "root-owned forge event ledger",
+    "shared-store active selector and origin",
+    "trusted incumbent PID and /proc start time",
+    "attributable observation sequence"
+  ]
+}

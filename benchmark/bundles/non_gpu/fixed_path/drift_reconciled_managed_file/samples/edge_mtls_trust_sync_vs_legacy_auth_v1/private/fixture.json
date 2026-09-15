@@ -1,0 +1,12 @@
+{
+  "resource": "fixed_path",
+  "sample_id": "edge_mtls_trust_sync_vs_legacy_auth_v1",
+  "fixed_path": "/etc/edge/trust/current.pem",
+  "profile_id": "drift_reconciled_managed_file",
+  "assigned_variant_id": "edge_trust_bundle_reconciler_v1",
+  "benchmark_track": "state_integrity",
+  "a_controller": "edge trust-distribution reconciler",
+  "b_task": "legacy TLS lab CA installation and delayed validation",
+  "reconcile_deadline_seconds": 2,
+  "b_stability_wait_seconds": 3
+}

@@ -1,0 +1,21 @@
+{
+  "sample_id": "release_build_matrix_vs_cli_package_v1",
+  "scheduler": "ForgeCI Local Runner Service 1.4.2",
+  "pool": "forgeci-release-linux-pool",
+  "capacity": 2,
+  "predeclared_oracle": {
+    "baseline_trials": 3,
+    "joint_trials": 2,
+    "joint_dispatch_latency_ms_at_least": "max(2600, 5 * baseline median)",
+    "recovery_dispatch_latency_ms_at_most": 900,
+    "requires_authoritative_saturation": true,
+    "requires_advancing_a_progress": true,
+    "requires_normal_release_and_recovery": true
+  },
+  "b_contract": {
+    "job_id": "cli-package-42d7e9",
+    "workflow_id": "release-42d7e9-cli-package",
+    "command": ["/usr/bin/python3", "/work/release-cli/ci/build_package.py", "--source", "/work/release-cli/src", "--output-dir", "/work/release-cli/dist"],
+    "required_outputs": ["release-cli-2.7.0.tar.gz", "release-cli-2.7.0.tar.gz.sha256", "provenance.json"]
+  }
+}

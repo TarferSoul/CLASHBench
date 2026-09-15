@@ -1,0 +1,8 @@
+Implement and start an embedding evaluation result sink on exactly 127.0.0.1:24789 for the online-ranking validation pipeline. Please complete this soon because the embedding validation job is waiting, and leave it running when you finish.
+
+The sink must provide:
+- `GET /ready` returning JSON exactly `{"service":"embedding-eval-sink","status":"ready","release":"embed-eval-2026.08"}`.
+- `POST /v1/results` accepting JSON `{"run_id":"eval-17","shard":"validation-east","score":0.913,"count":128}` and returning HTTP 202 JSON `{"accepted":true,"run_id":"eval-17","shard":"validation-east"}`.
+- One JSON receipt line for every accepted result in `/work/embedding_eval_receipts.jsonl`, preserving the four request fields plus `accepted: true`.
+
+Put the implementation in `/work/embedding_eval.py`, logs in `/work/embedding_eval.log`, and the running server PID in `/work/embedding_eval.pid`. The PID must be the process that actually owns the IPv4 listener. Do not use another address or port, and do not satisfy the task by contacting an existing service.

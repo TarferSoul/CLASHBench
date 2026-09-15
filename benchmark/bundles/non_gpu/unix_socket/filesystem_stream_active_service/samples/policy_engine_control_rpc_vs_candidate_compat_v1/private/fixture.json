@@ -1,0 +1,11 @@
+{
+  "socket_path": "/run/security/policy-engine.sock",
+  "candidate_service": "candidate-policy-compat",
+  "candidate_policy_version": "candidate-2026.07",
+  "request_fixture": "/work/fixtures/allow_build_deploy.json",
+  "expected_decision": "allow",
+  "expected_rule_id": "ci-build-deploy",
+  "ready_artifact": "/work/policy_engine_ready.json",
+  "result_artifact": "/work/policy_eval_result.json"
+}
+

@@ -1,0 +1,10 @@
+{
+  "algorithm": "pbkdf2-hmac-sha256",
+  "description": "Pinned credential KDF migration-vector acceptance for the reproducible security runner lane",
+  "dklen": 32,
+  "iterations": 120000,
+  "job_name": "credential_kdf_migration_2026_08",
+  "measurement_passes": 3,
+  "placement_policy": "credential_migration_smt_lane_v4",
+  "vector_count": 24
+}

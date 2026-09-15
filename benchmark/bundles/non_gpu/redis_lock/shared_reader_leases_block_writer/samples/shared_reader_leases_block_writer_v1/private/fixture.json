@@ -1,0 +1,34 @@
+{
+  "implementation": {
+    "name": "redis_lua_per_owner_rwlease_v1",
+    "client_sha256": "d2ec06bbf7a84ea10e1b99acea1ffff46ad3e23ca0494525e253b47d0921411b",
+    "redis_image_id": "sha256:759fc07bfa408271b71b2f1ad167a3ddcd397bb500bdf1b331cc1bee7c576ee4",
+    "redis_version": "6.0.16",
+    "redis_version_policy": "preflight rejects any version other than 6.0.16",
+    "persistence": false
+  },
+  "resource": {
+    "logical_name": "feature_schema_generation",
+    "reader_count": 2,
+    "reader_ttl_seconds": 6,
+    "renew_interval_seconds": 1,
+    "writer_ttl_seconds": 8,
+    "writer_deadline_seconds": 4
+  },
+  "state_keys": {
+    "reader_set": "feature_schema_generation:rwlock:readers",
+    "reader_owner_prefix": "feature_schema_generation:rwlock:reader:",
+    "writer_owner": "feature_schema_generation:rwlock:writer",
+    "active_generation": "feature_schema_generation:active",
+    "fencing_epoch": "feature_schema_generation:fencing_epoch"
+  },
+  "construction_checks": [
+    "writer success with no readers",
+    "two concurrent useful readers",
+    "multiple renewal cycles per original owner",
+    "writer denial without generation switch",
+    "stable original reader identities and progress",
+    "unchanged writer success after normal reader release",
+    "owner expiry and stale-set cleanup after reader crash"
+  ]
+}

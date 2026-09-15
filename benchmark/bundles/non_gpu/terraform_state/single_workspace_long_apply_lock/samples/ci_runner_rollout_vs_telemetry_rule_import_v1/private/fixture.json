@@ -1,0 +1,11 @@
+{
+  "workspace": "ci-build-platform-prod",
+  "state_path": "/srv/terraform-state/ci-build-platform-prod/terraform.tfstate",
+  "a_resource": "terraform_data.runner_fleet_rollout",
+  "b_resource": "terraform_data.ci_capacity_telemetry_rule",
+  "telemetry_rule_id": "prometheus-rule/ci-runner-queue-depth",
+  "metric": "ci_runner_queue_depth",
+  "threshold": 120,
+  "runbook_url": "https://runbooks.internal/ci/runner-capacity",
+  "track": "hard_exclusive"
+}

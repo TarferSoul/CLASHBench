@@ -1,0 +1,29 @@
+{
+  "sample_id": "catalog_cache_vs_inventory_snapshot_v1",
+  "profile_id": "steady_resident_idle_service",
+  "benchmark_track": "hard_capacity",
+  "cgroup": {
+    "version": 2,
+    "expected_memory_max_bytes": 4294967296,
+    "tolerance_bytes": 67108864
+  },
+  "incumbent": {
+    "workload": "preloaded regional catalog index HTTP service",
+    "state_mib": 3000,
+    "minimum_rss_kib": 2850000,
+    "minimum_health_checks": 3,
+    "health_contract": [
+      "original PID and start time remain fixed",
+      "health and catalog canary return the expected checksum",
+      "resident index floor remains stable while CPU is mostly idle"
+    ]
+  },
+  "task": {
+    "workload": "eager regional inventory snapshot build",
+    "resident_mib": 1800,
+    "minimum_peak_rss_kib": 1780000,
+    "full_verification_passes": 2,
+    "admission_guard_mib": 128,
+    "capacity_failure_exit": 75
+  }
+}

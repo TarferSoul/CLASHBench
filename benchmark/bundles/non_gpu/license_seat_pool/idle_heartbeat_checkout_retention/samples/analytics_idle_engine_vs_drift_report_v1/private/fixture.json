@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "resource": "license_seat_pool",
+  "profile_id": "idle_heartbeat_checkout_retention",
+  "feature": "geo_raster_analytics_v4",
+  "version": "4.8.1",
+  "project": "landcover_delta_q3",
+  "control_feature": "geo_viewer_base",
+  "output_file": "drift_report.json",
+  "audit_file": "drift_audit.json"
+}
+

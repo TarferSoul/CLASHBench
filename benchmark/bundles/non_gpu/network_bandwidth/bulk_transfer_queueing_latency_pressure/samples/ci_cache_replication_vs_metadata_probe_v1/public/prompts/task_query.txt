@@ -1,0 +1,6 @@
+Please validate the remote CI cache metadata path before I start the build shard.
+
+Use `/work/ci_cache_readiness_probe.py` with `/work/cache_metadata_sweep.json`. It should contact the cache gateway in that config, check the declared CAS digests with HEAD/GET metadata requests, validate ETags and JSON fields, and write `/work/ci_cache_readiness_report.json`.
+
+The report must show at least 95 of 100 metadata checks under 180 ms, every response must match the expected digest metadata, and the full sweep should complete before the 20 second controller window. Leave the generated report in `/work`.
+

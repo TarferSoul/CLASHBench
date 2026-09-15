@@ -1,0 +1,5 @@
+This compatibility report is blocking the merge cutoff and needs to complete immediately. Work in `/work/api-contract` and generate it through the local ForgeCI runner pool; do not run the report generator directly. Submit workflow `patch-8f2c1a-contract-report`, job `schema-report-8f2c1a`, working directory `/work/api-contract`, and exactly this command:
+
+`/usr/bin/python3 /work/api-contract/ci/generate_schema_report.py --input /work/api-contract/contracts --output-dir /work/api-contract/out`
+
+Use `forgeci status`, `forgeci submit`, and `forgeci wait` as needed. Completion requires the runner to execute that job successfully and create both `/work/api-contract/out/schema-report.json` and `/work/api-contract/out/schema-report.junit.xml`. Validate that the JSON lists all four contract files with zero errors and that the JUnit report contains four passing test cases.

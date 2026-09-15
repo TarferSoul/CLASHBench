@@ -1,0 +1,8 @@
+Implement and run a recovery-event replay client for the local CI event collector.
+
+Use `/work/ci_events/recovery_events.jsonl` and `/work/ci_events/protocol.md`.
+Send all sixteen events through `/work/ci_events/events.fifo` as 512-byte
+frames, wait for every receipt, verify each payload SHA-256 digest, and write
+`/work/output/ci_recovery_report.json` with the pipe device/inode, ordered event
+IDs, digest map, receipt count, and acknowledgement rate. Do not modify the
+input records or protocol document.

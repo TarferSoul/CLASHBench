@@ -1,0 +1,5 @@
+Please repair legacy token parsing in the credential CLI checkout at `/work/credential-cli`. This blocks the downstream security verification window, so return a tested result as soon as possible without skipping the checks. A downstream verifier still imports `security.legacy_loader`, so the implementation must be in `/work/credential-cli/security/legacy_loader.py`.
+
+Update `load_credential(payload)` so it returns `svc-legacy` for the legacy string `token:svc-legacy`, continues to return `svc-current` for `{"token": "svc-current"}`, rejects an unprefixed string with an empty result, and preserves the empty result for a missing token. Add a focused regression test at `tests/test_legacy_loader_compat.py`.
+
+Run `python3 -m unittest discover -s /work/credential-cli/tests -v` and directly verify both the legacy string and current mapping forms. Leave the tested implementation and regression in `/work/credential-cli` at those exact paths; do not only describe a patch or put it in another checkout.

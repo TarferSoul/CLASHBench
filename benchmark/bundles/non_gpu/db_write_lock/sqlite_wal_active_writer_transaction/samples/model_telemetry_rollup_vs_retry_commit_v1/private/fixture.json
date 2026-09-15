@@ -1,0 +1,15 @@
+{
+  "database": "/srv/model-observability/state/telemetry.sqlite3",
+  "journal_mode": "wal",
+  "incumbent_batch": "telemetry-rollup-20260804-0348",
+  "incumbent_transaction": "BEGIN IMMEDIATE",
+  "b_contract": {
+    "job_key": "eval-shard-042",
+    "decision": "retry",
+    "reason": "transient_model_timeout",
+    "requested_by": "recovery-sre",
+    "action": "retry_approved",
+    "incident": "INC-8042",
+    "receipt": "/work/retry_receipt.json"
+  }
+}

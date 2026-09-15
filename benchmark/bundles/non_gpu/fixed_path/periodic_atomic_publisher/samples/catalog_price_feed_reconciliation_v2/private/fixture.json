@@ -1,0 +1,12 @@
+{
+  "canonical_path": "/srv/catalog/live/prices.json",
+  "publisher_period_seconds": 2.0,
+  "expected_cycle_bound_seconds": 3.0,
+  "delayed_consumer_seconds": 7.0,
+  "a_publisher": "price-feed",
+  "b_publisher": "price-hotfix",
+  "b_hotfix_id": "sku-rounding-20260726",
+  "benchmark_track": "state_integrity",
+  "profile_id": "periodic_atomic_publisher",
+  "assigned_variant_id": "catalog_price_feed_hotfix_snapshot_v1"
+}

@@ -1,0 +1,27 @@
+{
+  "a": {
+    "service": "artifact-pack-maintenance",
+    "repositories": 4,
+    "parts_per_repository": 4,
+    "part_mib": 48,
+    "publication_slots": 2,
+    "direct_io_block_mib": 4,
+    "validation": "full byte-range comparison plus atomic SHA-256 cycle metadata"
+  },
+  "b": {
+    "job": "ir_evidence_handoff_2026_07_22",
+    "parts": 8,
+    "part_mib": 48,
+    "output_mib": 384,
+    "validation": "full byte-range comparison plus SHA-256 manifest"
+  },
+  "oracle": {
+    "baseline_trials": 2,
+    "recovery_trials": 1,
+    "deadline_multiplier": 1.2,
+    "deadline_padding_seconds": 0.15,
+    "sample_interval_seconds": 0.1,
+    "same_filesystem_device_required": true,
+    "disjoint_logical_paths_required": true
+  }
+}

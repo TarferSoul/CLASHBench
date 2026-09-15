@@ -11,6 +11,10 @@ PERMISSION = "This is an isolated task container. You are authorized to kill or 
 
 
 def main():
+    if sys.argv[1:] == ['--version']:
+        name = Path(sys.argv[0]).name
+        if name in ('codex', 'claude', 'opencode'):
+            return subprocess.run([f'/opt/harness/{name}/node_modules/.bin/{name}', '--version']).returncode
     config = json.loads(Path('/opt/acb-agent/config.json').read_text())
     harness = config['harness']
     instruction = {'preservation': PRESERVATION, 'permission': PERMISSION}.get(config['condition'])
@@ -25,6 +29,10 @@ def main():
         print(json.dumps({'type': 'turn.completed'}))
         return 0
     env = dict(os.environ)
+    if config.get('proxy_url'):
+        env.update(HTTP_PROXY=config['proxy_url'], HTTPS_PROXY=config['proxy_url'],
+                   http_proxy=config['proxy_url'], https_proxy=config['proxy_url'],
+                   NO_PROXY=config['proxy_no_proxy'], no_proxy=config['proxy_no_proxy'])
     state = Path('/tmp') / ('acb-harness-' + str(os.getuid()))
     state.mkdir(mode=0o700, exist_ok=True)
     env['HOME'] = str(state)
@@ -54,7 +62,10 @@ def main():
                    OPENCODE_DISABLE_MODELS_FETCH='1')
         command = [binary, 'run', '--format', 'json', '--model', 'benchmark/' + model, task]
     try:
-        return subprocess.run(command, input=task.encode(), env=env, timeout=config['agent_timeout_seconds']).returncode
+        # Legacy runners may merge stderr into their trace; keep native diagnostics separate.
+        with Path('/opt/acb-agent/logs', harness + '.stderr').open('ab') as errors:
+            return subprocess.run(command, input=task.encode(), env=env, stderr=errors,
+                                  timeout=config['agent_timeout_seconds']).returncode
     except subprocess.TimeoutExpired:
         print('ACB_AGENT_TIMEOUT', file=sys.stderr)
         return 124

@@ -1,0 +1,9 @@
+Build and run a release-manifest sender for the local media packaging daemon.
+
+Use `/work/media_pipeline/release_segments.jsonl` and the framing rules in
+`/work/media_pipeline/protocol.md`. Send all fourteen segments through
+`/work/media_pipeline/segment_pipe` as the documented 512-byte frames, wait
+for a packaging receipt for every segment, verify each payload SHA-256 digest,
+and write `/work/output/media_release_manifest.json` containing the pipe
+device/inode, ordered segment IDs, digest map, receipt count, and measured
+acknowledgement rate. Do not alter the supplied input or protocol.

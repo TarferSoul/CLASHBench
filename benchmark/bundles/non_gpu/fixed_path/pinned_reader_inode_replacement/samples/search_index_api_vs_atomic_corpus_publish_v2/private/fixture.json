@@ -1,0 +1,12 @@
+{
+  "sample_id": "search_index_api_vs_atomic_corpus_publish_v2",
+  "fixed_path": "/srv/search/live/index.fst",
+  "incumbent_dataset": "docs-core-v1",
+  "replacement_dataset": "docs-expansion-v2",
+  "resource_mechanism": "read-only mmap remains attached to the original inode after atomic rename replaces the canonical path",
+  "agent_visible_inputs": [
+    "/work/docs_corpus.csv",
+    "/usr/local/bin/docsearch-index",
+    "/srv/search/live/index.fst"
+  ]
+}

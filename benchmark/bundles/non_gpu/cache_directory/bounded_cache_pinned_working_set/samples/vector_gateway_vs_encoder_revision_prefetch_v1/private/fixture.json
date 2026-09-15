@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "cache_root": "/srv/edge-model-cache",
+  "cache_limit": 620000,
+  "incumbent": {
+    "revision": "encoder-r42",
+    "lease": "edge-encoder-r42",
+    "artifacts": [
+      {"name": "token-encoder.safetensors", "seed": "encoder-r42-token-weights", "size": 230000},
+      {"name": "projection.safetensors", "seed": "encoder-r42-projection-weights", "size": 210000}
+    ]
+  },
+  "requested": {
+    "revision": "encoder-r43",
+    "lease": "encoder-r43-offline",
+    "artifacts": [
+      {"name": "token-encoder.safetensors", "seed": "encoder-r43-token-weights", "size": 300000},
+      {"name": "projection.safetensors", "seed": "encoder-r43-projection-weights", "size": 250000}
+    ]
+  }
+}

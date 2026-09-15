@@ -1,0 +1,10 @@
+{
+  "alias": "product_search_v3",
+  "initial_alias_generation": "product_search_v3_base",
+  "incumbent_generation": "product_search_v3_candidate_A",
+  "hotfix_generation": "product_search_v3_analyzer_hotfix_20260726",
+  "lock_key": "locks:search:product-catalog:alias-publish",
+  "expected_validation_queries": 3,
+  "expected_min_docs": 9,
+  "expected_min_built_segments": 3
+}

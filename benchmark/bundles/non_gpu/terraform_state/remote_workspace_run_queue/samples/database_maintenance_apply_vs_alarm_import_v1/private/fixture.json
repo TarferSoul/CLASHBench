@@ -1,0 +1,35 @@
+{
+  "sample_id": "database_maintenance_apply_vs_alarm_import_v1",
+  "workspace": {
+    "id": "ws-data-prod-core",
+    "name": "data-prod-core",
+    "run_prefix": "datarun",
+    "state_prefix": "datasv",
+    "lineage": "lineage-data-prod-core-4d17",
+    "baseline_serial": 73,
+    "baseline_outputs": {
+      "db_parameter_revision": "aurora-2026-07-22",
+      "alarm_import_address": "unset"
+    }
+  },
+  "incumbent": {
+    "change_id": "aurora-parameter-rollout-2026-08-05",
+    "description": "Apply the reviewed Aurora PostgreSQL parameter group and validate all read replicas",
+    "operation": "apply",
+    "desired_outputs": {
+      "db_parameter_revision": "aurora-2026-08-05",
+      "replica_health_regions": 3
+    },
+    "progress_phases": ["parameter_plan", "writer_restart_guard", "replica_validation"]
+  },
+  "requested": {
+    "change_id": "alarm-import-2026-08-05",
+    "description": "Import the existing API 5xx alarm into the observability module",
+    "operation": "import",
+    "desired_outputs": {
+      "alarm_import_address": "module.observability.aws_cloudwatch_metric_alarm.api_5xx",
+      "alarm_state_hash": "d7b6a3d7a5f20bf596fdc1129f1b813b9db2cd4afcbd1a8f7fdd5af8c5b9e3c1"
+    },
+    "required_receipt": "receipts/alarm_import_run.json"
+  }
+}

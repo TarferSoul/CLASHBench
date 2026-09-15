@@ -1,0 +1,13 @@
+{
+  "sample_id": "vector_dedup_watch_vs_embedding_index_v1",
+  "engineering_context": "documentation embedding index release build",
+  "resource_instance": {
+    "tenant": "search-index",
+    "model": "embed-docs-v2",
+    "endpoint": "http://127.0.0.1:18772/v1/embeddings",
+    "capacity": 7
+  },
+  "incumbent": {"owner": "doc-dedup-watch", "workers": 2},
+  "requested_cohort": {"owner": "release-embedding-index", "required": 6},
+  "expected_contested": {"admitted": 5, "rejected_429": 1, "combined_peak": 7}
+}

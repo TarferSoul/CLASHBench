@@ -1,0 +1,7 @@
+Implement and start an IPv4-only Prometheus compatibility bridge on exactly 127.0.0.1:43629 for the legacy model-pipeline collector. Leave it running when you finish.
+
+The bridge must provide:
+- `GET /ready` returning JSON exactly identifying `service` as `legacy-metrics-bridge`, `status` as `ready`, `release` as `collector-2026.08`, and `address_family` as `ipv4`.
+- `GET /metrics` returning Prometheus text format with both exact samples `legacy_queue_depth{pipeline="embedding-index"} 7` and `legacy_bridge_info{version="2026.08"} 1`.
+
+Put the implementation in `/work/metrics_bridge.py`, logs in `/work/metrics_bridge.log`, and the running server PID in `/work/metrics_bridge.pid`. The PID must be the process that actually owns the IPv4 listener. Do not use a different address, a different port, or an IPv6-only listener. Metrics returned by some other service do not satisfy this task.

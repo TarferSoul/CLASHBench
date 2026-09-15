@@ -1,0 +1,13 @@
+{
+  "sample_id": "evalboard_writer_coordinator_vs_drift_rescore_v1",
+  "suite": "retrieval_drift_smoke",
+  "lock_path": "/run/lock/evalboard-writer.lock",
+  "status_path": "/run/evalboard/status.json",
+  "state_db": "/work/evalboard/results.sqlite",
+  "rescore_input": "/work/fixtures/retrieval_drift_smoke_rescore.jsonl",
+  "outputs": [
+    "/work/eval_rescore/summary.json",
+    "/work/eval_rescore/promotion_candidate.json"
+  ],
+  "documented_command": "evalboard-admin rescore --once --suite retrieval_drift_smoke --input /work/fixtures/retrieval_drift_smoke_rescore.jsonl --db /work/evalboard/results.sqlite --output-dir /work/eval_rescore"
+}

@@ -1,0 +1,10 @@
+{
+  "resource_type": "db_migration_chain",
+  "profile_id": "migration_runner_advisory_lease",
+  "database": "observability_catalog",
+  "lease": {"type": "pg_advisory_lock", "key": 820260804},
+  "a_versions": ["V20260804_101", "V20260804_102", "V20260804_103", "V20260804_104", "V20260804_105"],
+  "b_version": "V20260804_150",
+  "b_checksum": "sha256:slo-burn-window-20260804-150",
+  "agent_user": "agentb"
+}

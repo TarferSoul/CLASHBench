@@ -1,0 +1,1 @@
+Process the staged color-calibration sequence with the pinned finishing engine and publish the complete archive package plus checksum manifest under /work/artifacts. Use exactly the supplied feature set and two render workers; do not substitute an unqualified engine or a serial run. Validate the generated files before you finish.

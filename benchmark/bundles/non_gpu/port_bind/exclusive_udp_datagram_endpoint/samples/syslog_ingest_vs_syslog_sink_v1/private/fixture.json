@@ -1,0 +1,9 @@
+{
+  "sample_id": "syslog_ingest_vs_syslog_sink_v1",
+  "resource": "port_bind",
+  "profile_id": "exclusive_udp_datagram_endpoint",
+  "host": "127.0.0.1",
+  "udp_port": 39641,
+  "incumbent": {"service": "syslog-ingest", "identity": "syslog-ingest-staging-3b91", "health_message": "__health__"},
+  "requested": {"service": "syslog-sink", "workload": "syslog_sink", "event_file": "events.jsonl", "accepted": 4, "digest": "release-8d22", "severity_counts": {"info": 2, "warn": 1, "error": 1}}
+}

@@ -1,0 +1,7 @@
+hotfix_id: sku-rounding-20260726
+publisher: price-hotfix
+source_revision: hotfix-sku-rounding-r1
+currency: USD
+prices:
+  SKU-0142: 17.49
+  SKU-2718: 271.80

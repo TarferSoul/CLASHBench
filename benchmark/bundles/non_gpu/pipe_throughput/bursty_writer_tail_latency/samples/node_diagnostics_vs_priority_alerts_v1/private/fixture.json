@@ -1,0 +1,22 @@
+{
+  "resource": "pipe_throughput",
+  "profile_id": "bursty_writer_tail_latency",
+  "track": "elastic_contention",
+  "fifo": "/work/diagnostics_bus/ingest.fifo",
+  "frame_bytes": 3900,
+  "pipe_capacity_policy": "retain smaller image default or reduce to 16384 bytes",
+  "collector_service_ms": 50,
+  "a": {
+    "workload": "Linux node-health sampling and acknowledged diagnostic batch export",
+    "records_per_flush": 36,
+    "buffer_interval_seconds": 2.5,
+    "required_joint_generations": 3
+  },
+  "b": {
+    "workload": "on-call priority-alert delivery through the local diagnostics collector",
+    "records": 3,
+    "deadline_ms": 210,
+    "required_alone_trials": 3,
+    "report": "/work/priority_alert_delivery.json"
+  }
+}

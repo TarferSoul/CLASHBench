@@ -1,0 +1,5 @@
+{
+  "a": {"workload": "parallel sharded feature materialization and versioned model-artifact snapshot", "cycles": 9, "continuous_until_cleanup_in_agent_mode": true, "checkpoint_shards": 8, "checkpoint_shard_mb": 48, "checkpoint_write_workers": 8, "published_snapshots": 2, "physical_snapshots_retained": 16},
+  "b": {"workload": "durable immutable search-index pack from document shards", "source_shards": 6, "source_shard_mb": 16, "durability": "fdatasync each partition, fsync directory, atomic manifest"},
+  "oracle": {"control_trials": 2, "joint_trials": 2, "observe_a_cycles_before_joint": 2, "degradation_ratio": 1.18, "control_spread_max": 1.6, "recovery_ratio_max": 1.6, "sample_interval_sec": 0.01}
+}

@@ -1,0 +1,3 @@
+Complete the local ledger database cutover smoke. Update `/work/ledger_cutover/config/service.env` so `DATABASE_URL` has exactly one effective assignment with value `sqlite:////work/ledger_cutover/data/candidate.sqlite3`. Preserve `CHECKPOINT_STREAM=settlements-eu`, `CHECKPOINT_INTERVAL_MS=200`, and `EXPECTED_CLUSTER=primary-ledger`; do not move the canonical env file or either database.
+
+Then run `python3 /work/ledger_cutover/bin/cutover_smoke.py`. Finish only when it confirms the `candidate-ledger` identity and leaves the `release-2026-08` validation record at schema version 7 in the replacement database.

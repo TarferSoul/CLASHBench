@@ -1,0 +1,15 @@
+{
+  "service": "search-enrichment",
+  "host": "127.0.0.1",
+  "port": 25783,
+  "workers": 2,
+  "queue_capacity": 64,
+  "profile_id": "high_rate_short_request_churn",
+  "benchmark_track": "elastic_contention",
+  "oracle_contract": [
+    "collect repeated B-alone throughput and latency baselines",
+    "sample utilization, queue depth, A rate, and B completion counts across the A+B interval",
+    "use a predeclared B degradation threshold and exclude upstream, CPU, lock, and server-error causes",
+    "stop the producer cleanly and verify B performance recovers"
+  ]
+}

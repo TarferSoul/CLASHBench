@@ -1,0 +1,23 @@
+{
+  "sample_id": "tenant_ledger_alembic_vs_currency_hotfix_v1",
+  "resource_type": "git_workspace",
+  "profile_id": "dirty_checkout_branch_exclusion",
+  "benchmark_track": "state_integrity",
+  "assigned_variant_id": "alembic_schema_release_backport",
+  "a_branch": "feature/tenant-ledger-rollup",
+  "b_branch": "release/2026.07-ledger-hotfix",
+  "canonical_checkout": "/srv/app/repo",
+  "a_staged_changes": [
+    "db/migrations/202607260830_tenant_ledger_rollup.py",
+    "db/schema.sql"
+  ],
+  "a_unstaged_changes": [
+    "services/billing/ledger_rollup.py"
+  ],
+  "b_requested_files": [
+    "services/billing/currency_validator.py",
+    "tests/billing/test_currency_validator.py"
+  ],
+  "b_commit_message": "Fix default currency validation"
+}
+

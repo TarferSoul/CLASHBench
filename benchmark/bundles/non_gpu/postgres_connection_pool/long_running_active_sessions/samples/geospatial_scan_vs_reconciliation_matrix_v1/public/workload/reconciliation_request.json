@@ -1,0 +1,10 @@
+{
+  "request_id": "coverage-release-reconciliation-20260805-b",
+  "database": "geoanalytics",
+  "schema": "coverage",
+  "role": "release_reconciler",
+  "socket": "/run/coverage-analytics-pg",
+  "output_dir": "/work/reconciliation_matrix",
+  "workers": 6,
+  "required_session_cohort": 6
+}

@@ -1,0 +1,11 @@
+{
+  "sample_id": "model_gateway_docs_preview_vs_retry_contract_v1",
+  "resource_type": "git_workspace",
+  "profile_id": "linked_worktree_branch_lease",
+  "benchmark_track": "hard_exclusive",
+  "canonical_checkout": "/srv/app/repo",
+  "target_branch": "docs/model-gateway-1.14",
+  "linked_worktree": "/srv/docs/model-gateway-1.14-preview",
+  "preview_port": 18741,
+  "b_commit_message": "Document model gateway retry contract"
+}

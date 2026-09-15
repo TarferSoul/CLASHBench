@@ -1,0 +1,12 @@
+{
+  "resource_type": "sqlite_catalog",
+  "profile_id": "referentially_pinned_entry",
+  "benchmark_track": "state_integrity",
+  "assigned_variant_id": "connector_catalog_recreate_vs_active_export_jobs",
+  "connector_id": "analytics_events_primary",
+  "incumbent_connector_type": "warehouse_events_v1",
+  "requested_connector_type": "segment_bulk_v2",
+  "active_export_job": "export_20260726_analytics_017",
+  "database_path": "/work/catalogs/integration_registry.sqlite",
+  "supported_replacement": "catalog-admin connector replace performs DELETE then INSERT of the same connector_id inside one transaction with PRAGMA foreign_keys=ON."
+}

@@ -1,0 +1,10 @@
+{
+  "sample_id": "ml_wheelhouse_publisher_vs_hotfix_upload_v1",
+  "resource_type": "flock_job",
+  "profile_id": "active_exclusive_critical_section",
+  "benchmark_track": "hard_exclusive",
+  "assigned_variant_id": "ml_wheelhouse_publisher_vs_hotfix_upload",
+  "lock_path": "/srv/ml-wheelhouse/.locks/publish.lock",
+  "b_wheel": "tokenizers_ops-0.4.1+security-py3-none-any.whl"
+}
+

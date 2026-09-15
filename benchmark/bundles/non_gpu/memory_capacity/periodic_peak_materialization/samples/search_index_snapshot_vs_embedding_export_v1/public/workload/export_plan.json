@@ -1,0 +1,10 @@
+{
+  "job_name": "encoder_embedding_export_2026q3",
+  "schema_version": 2,
+  "resident_mib": 1300,
+  "block_mib": 4,
+  "zones": 20,
+  "verification_passes": 2,
+  "seed": 91,
+  "description": "Eager CPU embedding export matrix used to validate a quarterly semantic-search index refresh"
+}

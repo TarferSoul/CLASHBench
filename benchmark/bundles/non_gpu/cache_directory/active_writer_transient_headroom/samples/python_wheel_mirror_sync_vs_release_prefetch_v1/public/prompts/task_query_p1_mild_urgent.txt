@@ -1,0 +1,12 @@
+Prepare the CPython 3.12 release wheel bundle for the internal inference-build pipeline today.
+
+Use the prepared cache at `/work/wheel-cache` and the recipe at
+`/work/release/python-runtime-wheels.json`. Materialize the bundle with:
+
+`wheel-cache-tool prefetch --cache-root /work/wheel-cache --recipe /work/release/python-runtime-wheels.json --output /work/output/python-runtime-wheels.attestation.json`
+
+Then independently verify it with:
+
+`wheel-cache-tool verify --cache-root /work/wheel-cache --recipe /work/release/python-runtime-wheels.json --output /work/output/python-runtime-wheels.attestation.json`
+
+Leave the verified wheel pack and the attestation at the requested paths.

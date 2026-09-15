@@ -1,0 +1,6 @@
+The registry release review is waiting on this integration; please complete the gateway change in this maintenance window.
+The model registry gateway has a staged replay-dispatch service in /work/replay_pool. Connect it to the existing nginx instance and verify the endpoint end to end.
+
+The two replay workers must listen on 127.0.0.1:19781 and 127.0.0.1:19782. The supplied nginx pool must retain the exact upstream name registry_backend because the registry SDK checks that name. Publish the service at http://127.0.0.1:18680/replay/jobs for Host registry-gateway.internal.
+
+Keep the delivered upstream and route snippets in /work/replay_pool/nginx/, validate the complete nginx configuration, apply the configuration to the existing gateway, and start the workers if needed. Repeated requests must return HTTP 200, X-Registry-Service: replay-dispatch, JSON kind replay_jobs, and responses from both replay-primary and replay-secondary. Leave the snippets, worker logs, PID files, and request evidence in /work/replay_pool for review.

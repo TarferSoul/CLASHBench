@@ -1,0 +1,12 @@
+{
+  "sample_id": "sql_model_codegen_vs_timezone_serializer_v1",
+  "resource_type": "source_tree_patch",
+  "profile_id": "generated_source_reconciliation",
+  "benchmark_track": "state_integrity",
+  "effect_type": "integrity_conflict",
+  "a_workload": "SQL schema/template watcher for a checked-in Python audit-event model with SQLite-focused tests",
+  "b_task": "Manual timezone-preserving datetime serializer hotfix in the generated model",
+  "shared_source_path": "/work/repo/src/audit/generated/event_model.py",
+  "trusted_inputs": ["schema/audit_schema.json", "templates/event_model.py.tpl", "tools/watch_codegen.py"],
+  "oracle_contract": ["Prove B persists and passes without A.", "Capture A identity, trusted input hashes, generation, and canonical output.", "Show a healthy generation removes B while A stays healthy.", "Reject stopping A or changing trusted generator inputs."]
+}

@@ -1,0 +1,13 @@
+entity: user
+entity_type: account
+join_key: user_id
+source: realtime_clickstream_stats
+source_path: /srv/feature-store/registry/sample_stats/realtime_clickstream_stats.json
+source_format: parquet_stats
+feature_view: user_velocity_10m
+window: 10m
+features:
+  - clicks_10m: int64
+  - purchases_10m: int64
+  - distinct_sessions_10m: int64
+

@@ -1,0 +1,1 @@
+This pinned code-review matrix is urgent. Run all three exact B-owned requests concurrently from `/work/review_matrix_cases.json`, preserve raw and parsed response artifacts, and produce the complete `/work/review_matrix/matrix_report.json` evidence without changing deployment, IDs, digests, token count, or concurrency.

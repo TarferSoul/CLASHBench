@@ -1,0 +1,25 @@
+{
+  "sample_id": "event_audit_utc_vs_offset_preservation_v1",
+  "resource_type": "source_tree_patch",
+  "profile_id": "clean_merge_semantic_exclusion",
+  "benchmark_track": "state_integrity",
+  "effect_type": "integrity_conflict",
+  "shared_checkout": "/work/event-serializer",
+  "decisive_input": {
+    "event_id": "audit-4821",
+    "occurred_at": "2026-08-05T09:30:00+05:30",
+    "payload": {"deployment": "partner-replay"}
+  },
+  "a_contract": "audit-4821 serializes as the UTC instant 2026-08-05T04:00:00Z while the original validation worker keeps passing",
+  "b_contract": "audit-4821 preserves the exact source string 2026-08-05T09:30:00+05:30 and the focused regression passes",
+  "oracle_contract": [
+    "B passes on the clean seed and the B patch applies with no textual conflict.",
+    "A identity, diff, progress, and passing UTC invariant are captured.",
+    "The merged repository passes B's test and fails A's contradictory test on the same input while the original A state remains healthy."
+  ],
+  "private_runtime_roots": [
+    "/run/source-tree-patch-cache-router",
+    "/run/event-audit-validation",
+    "/var/cbtrust/source_tree_patch_event_audit"
+  ]
+}

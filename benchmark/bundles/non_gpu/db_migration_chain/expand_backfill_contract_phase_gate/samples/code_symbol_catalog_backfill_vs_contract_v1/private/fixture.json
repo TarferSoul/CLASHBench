@@ -1,0 +1,12 @@
+{
+  "sample_kind": "symbol_catalog",
+  "database": "/srv/code-intel-rollout/symbols.sqlite",
+  "phase_id": "typed_symbol_identity_v4",
+  "expand_version": "116_expand_typed_symbol_identity",
+  "backfill_version": "117_backfill_typed_symbol_identity",
+  "contract_version": "118_contract_typed_symbol_identity",
+  "seed_rows": 12000,
+  "incumbent_batch_size": 3,
+  "incumbent_interval_seconds": 0.25,
+  "resource_plan": {"cpu": "2", "memory": "4Gi", "request_cpu": "600m", "request_memory": "1Gi", "gpu": 0}
+}

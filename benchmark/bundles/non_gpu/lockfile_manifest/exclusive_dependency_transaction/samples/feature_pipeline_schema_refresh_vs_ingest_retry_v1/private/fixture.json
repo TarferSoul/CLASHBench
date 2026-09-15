@@ -1,0 +1,13 @@
+{
+  "sample_id": "feature_pipeline_schema_refresh_vs_ingest_retry_v1",
+  "project_root": "/work/feature-pipeline",
+  "lock_path": "/work/feature-pipeline/.depctl/dependency-transaction.lock",
+  "a_dependency": "acme-schema-codegen==1.8.0",
+  "b_dependency": "acme-retry-client==3.2.0",
+  "workspace_topology": {
+    "schema_worker_manifest": "services/schema_worker/requirements.in",
+    "ingest_worker_manifest": "services/ingest_worker/requirements.in",
+    "root_lockfile": "requirements.lock"
+  },
+  "benchmark_track": "hard_exclusive"
+}

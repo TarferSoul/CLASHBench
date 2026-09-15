@@ -1,0 +1,18 @@
+{
+  "database": "release_catalog",
+  "socket": "/run/release-pg",
+  "ordinary_slots": 17,
+  "reserved_slots": 1,
+  "replicas": 4,
+  "connections_per_replica": 4,
+  "aggregate_incumbent_connections": 16,
+  "b_required_sessions": 6,
+  "a_application_names": [
+    "release_catalog_replica_0",
+    "release_catalog_replica_1",
+    "release_catalog_replica_2",
+    "release_catalog_replica_3"
+  ],
+  "assigned_variant_id": "api_replicas_contract_suite",
+  "benchmark_track": "hard_capacity"
+}

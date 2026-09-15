@@ -1,0 +1,8 @@
+{
+  "sample_id": "artifact_cache_schema_vs_package_mirror_v1",
+  "profile_id": "shared_zone_name_and_schema_collision",
+  "benchmark_track": "state_integrity",
+  "zone": {"name": "artifact_cache", "incumbent_size": "2m", "requested_size": "8m", "module": "ngx_http_proxy_module"},
+  "incumbent": {"host": "package-mirror.internal", "route": "/packages/index.json", "service": "package-index-cache"},
+  "requested": {"route": "/artifacts/eval-manifest", "service": "eval-artifact-cache"}
+}

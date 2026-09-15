@@ -1,0 +1,12 @@
+{
+  "case": "release_manifest_rewriter_vs_checksum_correction_v1",
+  "database": "release_control",
+  "relation": "public.release_artifacts",
+  "port": 55432,
+  "incumbent_lock": "ShareRowExclusiveLock",
+  "requested_lock": "RowExclusiveLock",
+  "closeout_id": "manifest-rewrite-20260804-rc3",
+  "release_id": "rel-2026.08.04-rc3",
+  "target_artifact": "sdk-linux-amd64",
+  "target_event_id": "checksum-fix-20260804-042"
+}

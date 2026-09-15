@@ -3,6 +3,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import shutil
 import sys
 from .core import atomic_json, contained
 
@@ -25,6 +26,9 @@ def main():
     uid = pwd.getpwnam('agentb').pw_uid
     os.chown(agent_config, uid, -1)
     agent_config.chmod(0o600)
+    native_logs = runtime / 'logs'
+    native_logs.mkdir(mode=0o700, exist_ok=True)
+    os.chown(native_logs, uid, -1)
     for relative, digest in case.get('sha256', {}).items():
         import hashlib
         if hashlib.sha256(contained('/opt/acb-bundle', relative).read_bytes()).hexdigest() != digest:
@@ -43,6 +47,8 @@ def main():
             rc = subprocess.run(['bash', str(runner)], env=env, stdout=stdout, stderr=stderr).returncode
         atomic_json(out / 'runner.json', {'exit_code': rc})
     finally:
+        if native_logs.exists():
+            shutil.copytree(native_logs, out / 'native-harness-logs', dirs_exist_ok=True)
         agent_config.unlink(missing_ok=True)
         (control / 'config.json').unlink(missing_ok=True)
     return rc

@@ -1,0 +1,16 @@
+dr_plan_id: regional-failover-20260726
+cluster: green-dr
+services:
+  auth-api:
+    url: https://green-dr-auth.internal.example/health
+    health_check_token: dr-auth-8a42
+    weight: 100
+  inference-api:
+    url: https://green-dr-infer.internal.example/health
+    health_check_token: dr-infer-51c9
+    weight: 100
+  vector-gateway:
+    url: https://green-dr-vector.internal.example/health
+    health_check_token: dr-vector-446e
+    weight: 60
+

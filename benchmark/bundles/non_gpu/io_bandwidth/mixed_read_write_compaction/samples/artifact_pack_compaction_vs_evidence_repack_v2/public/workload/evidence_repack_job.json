@@ -1,0 +1,11 @@
+{
+  "job_name": "ir_evidence_handoff_2026_07_22",
+  "part_count": 8,
+  "part_mib": 48,
+  "block_mib": 4,
+  "completion_window_seconds": 60.0,
+  "require_direct_io": true,
+  "require_full_range_validation": true,
+  "require_sha256_manifest": true,
+  "description": "Durable evidence pack for the incident-analysis handoff queue"
+}

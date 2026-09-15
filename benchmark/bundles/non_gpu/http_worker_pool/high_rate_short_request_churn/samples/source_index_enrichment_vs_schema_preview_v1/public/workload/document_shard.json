@@ -1,0 +1,17 @@
+{
+  "job_id": "docs-shard-0429",
+  "service_url": "http://127.0.0.1:25783/enrich",
+  "deadline_seconds": 1.35,
+  "documents": [
+    {"doc_id": "DOC-0429-001", "collection": "platform-guides", "title": "retry budget policy", "body": "Define bounded retry behavior for search indexing clients."},
+    {"doc_id": "DOC-0429-002", "collection": "platform-guides", "title": "index schema migration", "body": "Document the required field aliases for the v3 search schema."},
+    {"doc_id": "DOC-0429-003", "collection": "platform-guides", "title": "embedding cache audit", "body": "Summarize cache key invalidation rules for embedding refreshes."},
+    {"doc_id": "DOC-0429-004", "collection": "platform-guides", "title": "query parser limits", "body": "Capture parser depth and token limits for regression tests."},
+    {"doc_id": "DOC-0429-005", "collection": "platform-guides", "title": "ranking metric export", "body": "List fields emitted by the nightly ranking metric exporter."},
+    {"doc_id": "DOC-0429-006", "collection": "platform-guides", "title": "snapshot retention", "body": "Explain retention windows for generated search snapshots."},
+    {"doc_id": "DOC-0429-007", "collection": "platform-guides", "title": "tenant analyzer map", "body": "Record analyzer choices for each tenant language profile."},
+    {"doc_id": "DOC-0429-008", "collection": "platform-guides", "title": "bulk ingest contract", "body": "Describe the JSON contract for bulk ingest validation."},
+    {"doc_id": "DOC-0429-009", "collection": "platform-guides", "title": "facet rollout checks", "body": "Provide rollout checks for the new faceting pipeline."},
+    {"doc_id": "DOC-0429-010", "collection": "platform-guides", "title": "search alert playbook", "body": "Add playbook steps for stale-index alert triage."}
+  ]
+}

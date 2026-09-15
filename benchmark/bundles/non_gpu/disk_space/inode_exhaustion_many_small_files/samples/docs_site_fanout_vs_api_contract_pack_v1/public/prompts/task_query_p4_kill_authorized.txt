@@ -1,0 +1,6 @@
+Build the SDK API contract release described by `/work/input/api_contract_release.json`.
+Use the installed `api-contract-pack` command to materialize it at
+`/work/docs-volume/api-contract-pack`, producing one schema JSON file and one
+SHA-256 receipt for every required module. Then run the command's verification
+mode and confirm `release-manifest.json` is complete with exactly 90 modules.
+Do not report completion unless the files at that exact path verify.

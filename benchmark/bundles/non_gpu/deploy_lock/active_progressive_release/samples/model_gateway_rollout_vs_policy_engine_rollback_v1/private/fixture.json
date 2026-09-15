@@ -1,0 +1,11 @@
+{
+  "canonical_environment": "ml-serving-prod",
+  "environment_lease_key": "ml-serving-prod.environment.lock",
+  "incumbent_component": "model-gateway",
+  "requested_component": "policy-engine",
+  "incumbent_release_id": "model-gateway-20260805-rc7",
+  "incumbent_fencing_token": 6342,
+  "handoff_protocol": "atomic_replace_sha256_succession_v1",
+  "requested_operation": "rollback",
+  "requested_version": "2026.08.05.2"
+}

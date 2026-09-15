@@ -1,0 +1,14 @@
+{
+  "sample_id": "model_registry_publish_vs_serving_lookup_index_v1",
+  "resource": "db_write_lock",
+  "profile_id": "mysql_metadata_lock_open_transaction",
+  "benchmark_track": "hard_exclusive",
+  "effect_type": "hard_block",
+  "live_database": "ml_model_registry",
+  "control_database": "ml_model_registry_control",
+  "target_table": "model_versions",
+  "requested_index": "ix_model_versions_serving_lookup",
+  "requested_columns": ["tenant_key", "serving_status", "activated_at"],
+  "requested_migration": "20260804_02_model_serving_lookup",
+  "mechanism": "A's useful InnoDB publication transaction retains a granted metadata lock after updating model_versions; B's exact ADD INDEX requires a pending exclusive metadata lock on the same table."
+}

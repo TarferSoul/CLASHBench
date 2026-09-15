@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "sample_id": "index_scrub_vs_checkpoint_read_audit_v1",
+  "resource_type": "io_bandwidth",
+  "profile_id": "steady_sequential_read_saturation",
+  "benchmark_track": "elastic_contention",
+  "a_workload": {
+    "name": "search-index-segment-scrub",
+    "description": "Readability scrub for immutable search index segment files.",
+    "read_mode": "dd iflag=direct,fullblock",
+    "worker_count": 24,
+    "segment_count": 24,
+    "segment_mb": 256
+  },
+  "b_workload": {
+    "name": "model-checkpoint-direct-read-audit",
+    "description": "Direct-read readiness audit for model checkpoint shards.",
+    "read_mode": "dd iflag=direct,fullblock",
+    "worker_count": 16,
+    "shard_count": 16,
+    "shard_mb": 256
+  },
+  "threshold_policy": {
+    "controls": 2,
+    "joint_trials": 2,
+    "joint_min_elapsed_ratio": 1.08,
+    "joint_max_throughput_ratio": 0.93,
+    "recovery_min_throughput_ratio": 0.84,
+    "control_max_spread_ratio": 1.35
+  }
+}

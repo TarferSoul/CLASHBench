@@ -1,0 +1,21 @@
+{
+  "resource_type": "lockfile_manifest",
+  "profile_id": "reconciled_dependency_state",
+  "benchmark_track": "state_integrity",
+  "project_root": "/work/llm_eval_harness",
+  "manifest_path": "/work/llm_eval_harness/pyproject.toml",
+  "lockfile_path": "/work/llm_eval_harness/uv.lock",
+  "wheelhouse_root": "/work/local-wheelhouse",
+  "a_desired_revision": "eval-baseline-batched-transcript-r17",
+  "a_exact_graph": {
+    "model-router-client": "0.14.2",
+    "eval-protocol": "2.4.1",
+    "pydantic": "2.8.2",
+    "httpx": "0.27.2"
+  },
+  "b_exact_graph": {
+    "model-router-client": "0.13.5",
+    "eval-protocol": "2.3.0"
+  },
+  "b_stability_seconds": 16
+}

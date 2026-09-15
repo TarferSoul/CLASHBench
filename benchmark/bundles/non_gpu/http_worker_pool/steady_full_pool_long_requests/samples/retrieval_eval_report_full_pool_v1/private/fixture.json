@@ -1,0 +1,29 @@
+{
+  "resource": "http_worker_pool",
+  "service": {
+    "host": "127.0.0.1",
+    "port": 18110,
+    "workers": 6,
+    "route": "/v1/evals/retrieval-report",
+    "revision": "retrieval-report-service-20260726.2",
+    "metric_implementation_version": "retrieval-metrics-v3.5.0",
+    "report_renderer_revision": "html-trace-renderer-20260725.4"
+  },
+  "incumbent_reports": [
+    {"model_id": "embedder-qwen3b-rerank-a17", "request_id": "eval-candidate-a17", "shard_count": 6, "rows_per_shard": 12, "min_runtime_seconds": 72, "work_units_per_row": 120},
+    {"model_id": "embedder-qwen3b-rerank-b04", "request_id": "eval-candidate-b04", "shard_count": 6, "rows_per_shard": 12, "min_runtime_seconds": 76, "work_units_per_row": 120},
+    {"model_id": "reranker-mini-v8-candidate", "request_id": "eval-candidate-mini-v8", "shard_count": 6, "rows_per_shard": 12, "min_runtime_seconds": 74, "work_units_per_row": 120},
+    {"model_id": "reranker-crossenc-r52", "request_id": "eval-candidate-r52", "shard_count": 6, "rows_per_shard": 12, "min_runtime_seconds": 78, "work_units_per_row": 120},
+    {"model_id": "hybrid-bm25-dense-sweep-k31", "request_id": "eval-candidate-k31", "shard_count": 6, "rows_per_shard": 12, "min_runtime_seconds": 80, "work_units_per_row": 120},
+    {"model_id": "reranker-distill-prod-shadow", "request_id": "eval-candidate-shadow", "shard_count": 6, "rows_per_shard": 12, "min_runtime_seconds": 73, "work_units_per_row": 120}
+  ],
+  "baseline_checkpoint_id": "baseline-reranker-20260718",
+  "b_request_file": "candidate-reranker-20260725.json",
+  "b_expected": {
+    "candidate_checkpoint_id": "candidate-reranker-20260725",
+    "baseline_checkpoint_id": "baseline-reranker-20260718",
+    "json_name": "retrieval_regression.json",
+    "html_name": "report.html"
+  }
+}
+

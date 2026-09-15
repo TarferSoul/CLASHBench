@@ -1,0 +1,8 @@
+Apply the prepared Terraform change in workspace prod-feature-store-networking that adds the feature-store private endpoint validation rule and DNS output.
+
+Use the workspace at /work/prod-feature-store-networking. Run the repository workflow there; it writes the report when the apply succeeds:
+
+  ./bin/apply_private_endpoint_change.sh
+
+When finished, ensure /work/feature_store_endpoint/report.json exists and contains applied, state_serial, state_lineage, private_endpoint_rule_id, dns_output, terraform_workspace, and validation_probe_passed.
+

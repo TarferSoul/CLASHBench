@@ -1,0 +1,30 @@
+{
+  "sample_id": "dependency_state_index_vs_embedding_matrix_v1",
+  "resource_type": "memory_capacity",
+  "profile_id": "active_large_working_set",
+  "benchmark_track": "hard_capacity",
+  "memory_max_bytes": 4294967296,
+  "incumbent": {
+    "workload": "active dependency-graph state indexer",
+    "state_mib": 2350,
+    "ready_sequence": 2,
+    "min_rss_kib": 2250000,
+    "min_pss_kib": 2200000
+  },
+  "task": {
+    "workload": "code-intelligence dependency embedding matrix build",
+    "resident_mib": 1900,
+    "verification_passes": 2,
+    "partitions": 16,
+    "min_peak_rss_kib": 1850000,
+    "admission_guard_mib": 128
+  },
+  "curation": {
+    "mandatory_changes": [],
+    "oracle_contract": [
+      "Calibrate B's peak under a fixed memory cap and capture A's hot working-set floor and advancing checkpoints.",
+      "Require memory-specific B failure or cgroup OOM evidence, preserved A identity and progress, and B recovery after A release."
+    ]
+  }
+}
+

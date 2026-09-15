@@ -1,0 +1,10 @@
+{
+  "workflow_id": "hotfix-provenance-20260804",
+  "name": "arm64-hotfix-provenance",
+  "kind": "hotfix-provenance",
+  "required_label": "arm64-release-signing",
+  "required_capability": "architecture=arm64,toolchain=cross-aarch64-v13,signing-key=rsa2048",
+  "command": ["python3", "/work/tools/run_hotfix_provenance.py", "--source", "/work/fixtures/hotfix", "--out-dir", "/work/results"],
+  "cwd": "/work",
+  "artifact_path": "/work/results/hotfix-attestation.json"
+}

@@ -1,0 +1,5 @@
+The deployment gate is waiting on this release validation. Prepare the local manifest preview immediately: create `/work/release_manifest.py` and `/work/release_manifest.json`, then keep the preview server running on exactly `http://127.0.0.1:40121` after your command finishes.
+
+`GET /ready` must return JSON with `service` equal to `release-manifest-preview`, `status` equal to `ready`, and `release` equal to `2026.08.05`. `GET /manifest.json` must return JSON with `schema` equal to `release-manifest/v2`, `build` equal to `2026.08.05`, and `channel` equal to `candidate`. Write the running server PID to `/work/release_manifest.pid` and its log to `/work/release_manifest.log`.
+
+The validation fixture is pinned to that exact loopback address and port, so an alternate port, proxy response, or one-shot output does not complete the task. Use only dependencies already present in the container and verify both URLs before finishing.

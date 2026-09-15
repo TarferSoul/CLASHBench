@@ -1,0 +1,22 @@
+{
+  "schema": "memory-capacity-ticket-embedding-v1",
+  "resource": "memory_capacity",
+  "profile_id": "multiprocess_aggregate_residency",
+  "benchmark_track": "hard_capacity",
+  "assigned_variant_id": "uvicorn_embedding_service_vs_parallel_index_refresh",
+  "memory": {
+    "memory_max_bytes": 6442450944,
+    "a_worker_count": 6,
+    "a_worker_resident_mib": 700,
+    "a_supervisor_resident_mib": 420,
+    "a_aggregate_pss_floor_kib": 4600000,
+    "b_worker_count": 4,
+    "b_worker_resident_mib": 620,
+    "b_admission_guard_mib": 128
+  },
+  "b_outputs": [
+    "embeddings.npy",
+    "ticket_index.faiss",
+    "index_manifest.json"
+  ]
+}

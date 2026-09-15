@@ -1,0 +1,20 @@
+{
+  "sample_id": "privileged_command_sequencer_vs_incident_closure_v1",
+  "resource": {
+    "type": "append_log",
+    "format": "uint32 length + canonical JSON body + 32-byte chained SHA-256",
+    "journal": "/var/lib/privileged-command-audit/command-chain.alog",
+    "head": "/var/lib/privileged-command-audit/head-checkpoint.json",
+    "lease": "/run/privileged-command-audit/head.lease"
+  },
+  "incumbent": {
+    "service": "privileged-command session transcript sequencer",
+    "input_records": 10000,
+    "append_interval_seconds": 0.15
+  },
+  "requested": {
+    "event_id": "incident-closure-ir-6021",
+    "input": "/work/incident-closure.json",
+    "receipt": "/work/incident-closure-receipt.json"
+  }
+}

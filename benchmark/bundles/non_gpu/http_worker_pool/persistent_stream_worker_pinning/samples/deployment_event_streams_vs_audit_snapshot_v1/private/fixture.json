@@ -1,0 +1,15 @@
+{
+  "service_host": "127.0.0.1",
+  "service_port": 18174,
+  "worker_count": 4,
+  "revision": "release-2026.07.26-rc3",
+  "environments": [
+    "staging-us",
+    "staging-eu",
+    "prod-us",
+    "prod-eu"
+  ],
+  "stream_min_updates": 3,
+  "b_deadline_seconds": 8
+}
+

@@ -1,0 +1,16 @@
+{
+  "plan_id": "code-intel-dependency-graph-2026-07",
+  "dataset": "local dependency graph for code-intelligence embedding checks",
+  "resident_mib": 1900,
+  "verification_passes": 2,
+  "partitions": 16,
+  "node_count": 262144,
+  "feature_dimensions": 64,
+  "admission_guard_mib": 128,
+  "min_peak_rss_kib": 1850000,
+  "summary_filename": "embedding_matrix_summary.json",
+  "partition_filename": "partition_report.csv",
+  "progress_filename": "progress.json",
+  "seed": 18421
+}
+

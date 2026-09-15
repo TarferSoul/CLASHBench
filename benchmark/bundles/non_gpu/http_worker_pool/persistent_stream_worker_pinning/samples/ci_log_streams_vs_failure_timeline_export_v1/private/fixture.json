@@ -1,0 +1,81 @@
+{
+  "build_id": "build-4812",
+  "required_phases": [
+    "setup",
+    "unit",
+    "package",
+    "integration-db"
+  ],
+  "jobs": {
+    "linux-unit": {
+      "starting_cursor": 1200,
+      "steps": [
+        {
+          "phase": "setup",
+          "step_name": "checkout workspace",
+          "first_failed_test": "",
+          "excerpt": "Fetched repository, restored pip cache, and prepared pytest shard metadata."
+        },
+        {
+          "phase": "unit",
+          "step_name": "pytest unit/shard-a",
+          "first_failed_test": "tests/test_auth.py::test_refresh_token_retry",
+          "excerpt": "AssertionError: retry budget was exhausted before the refreshed token reached the cache."
+        },
+        {
+          "phase": "unit",
+          "step_name": "pytest unit/shard-b",
+          "first_failed_test": "",
+          "excerpt": "Shard b completed after rerunning flaky database isolation checks."
+        }
+      ]
+    },
+    "package-wheel": {
+      "starting_cursor": 2400,
+      "steps": [
+        {
+          "phase": "setup",
+          "step_name": "prepare build backend",
+          "first_failed_test": "",
+          "excerpt": "Resolved pyproject hooks and wrote isolated build environment metadata."
+        },
+        {
+          "phase": "package",
+          "step_name": "build manylinux wheel",
+          "first_failed_test": "packaging::wheel_metadata_hash",
+          "excerpt": "WARNING metadata digest changed between two wheel metadata reads."
+        },
+        {
+          "phase": "package",
+          "step_name": "audit wheel tags",
+          "first_failed_test": "",
+          "excerpt": "Wheel tags matched the expected linux_x86_64 deployment matrix."
+        }
+      ]
+    },
+    "integration-db": {
+      "starting_cursor": 3600,
+      "steps": [
+        {
+          "phase": "setup",
+          "step_name": "create postgres schema",
+          "first_failed_test": "",
+          "excerpt": "Created temporary schema, loaded seed rows, and verified migration checksum."
+        },
+        {
+          "phase": "integration-db",
+          "step_name": "pytest integration/db",
+          "first_failed_test": "tests/integration/test_reconcile.py::test_deadlock_retry",
+          "excerpt": "Deadlock retry assertion failed after the second serialization error."
+        },
+        {
+          "phase": "integration-db",
+          "step_name": "collect db diagnostics",
+          "first_failed_test": "",
+          "excerpt": "Collected pg_stat_activity and query digest rows for failed reconcile tests."
+        }
+      ]
+    }
+  }
+}
+

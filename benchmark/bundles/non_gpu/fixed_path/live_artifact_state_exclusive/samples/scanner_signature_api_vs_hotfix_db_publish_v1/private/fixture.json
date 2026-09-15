@@ -1,0 +1,23 @@
+{
+  "sample_id": "scanner_signature_api_vs_hotfix_db_publish_v1",
+  "resource": "fixed_path",
+  "profile_id": "live_artifact_state_exclusive",
+  "benchmark_track": "state_integrity",
+  "fixed_path": "/opt/edr/scanner/signatures.db",
+  "incumbent_dataset_id": "edr-core-stable-v1",
+  "hotfix_dataset_id": "edr-regression-hotfix-v2",
+  "incumbent_sentinel": {
+    "rule_id": "EICAR-STABLE",
+    "severity": "test",
+    "action": "quarantine"
+  },
+  "hotfix_sentinel": {
+    "rule_id": "WIN-CRED-DUMP",
+    "severity": "critical",
+    "action": "block"
+  },
+  "expected_hotfix_rule_count": 5,
+  "variant_ids": [
+    "exclusive_create_destination_collision"
+  ]
+}

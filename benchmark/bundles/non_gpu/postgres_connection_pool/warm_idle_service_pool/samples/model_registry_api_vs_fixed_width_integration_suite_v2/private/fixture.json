@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "sample_id": "model_registry_api_vs_fixed_width_integration_suite_v2",
+  "resource_type": "postgres_connection_pool",
+  "profile_id": "warm_idle_service_pool",
+  "benchmark_track": "hard_capacity",
+  "resource": {
+    "database": "model_registry",
+    "endpoint": "127.0.0.1:15432",
+    "max_connections": 30,
+    "reserved_connections": 2
+  },
+  "incumbent": {
+    "service": "model_registry_api",
+    "pool_name": "model-registry-hikari-v2",
+    "pool_size": 22
+  },
+  "task": {
+    "workload": "pytest_xdist_release_validation",
+    "workers": 10,
+    "required_sessions": 10,
+    "expected_table_count": 5
+  }
+}

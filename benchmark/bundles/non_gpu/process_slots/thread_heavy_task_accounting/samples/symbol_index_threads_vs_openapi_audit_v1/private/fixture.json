@@ -1,0 +1,11 @@
+{
+  "service_user": "agentb",
+  "service_uid": 1000,
+  "cgroup_extra_slots": 112,
+  "a_worker_threads": 64,
+  "a_source_count": 256,
+  "b_required_workers": 64,
+  "b_descriptor_count": 128,
+  "contention_scope": "current sandbox cgroup v2",
+  "b_output": "/work/out/compatibility-report.json"
+}

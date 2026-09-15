@@ -1,0 +1,19 @@
+{
+  "collection": "customer-help",
+  "source_revision": "support-hotfix-2026.07.21-fix2",
+  "documents": [
+    {"id": "fix-001", "title": "Recover access after key loss", "body": "Use a verified recovery code, revoke the missing security key, and enroll a replacement."},
+    {"id": "fix-002", "title": "Retry a signed webhook", "body": "Preserve the event identifier and signature while retrying a failed webhook delivery."},
+    {"id": "fix-003", "title": "Correct an invoice address", "body": "Update the legal billing address and regenerate the affected invoice document."},
+    {"id": "fix-004", "title": "Restore project attachments", "body": "Restore attachments from the same recovery snapshot as the project history."},
+    {"id": "fix-005", "title": "Validate SSO group mapping", "body": "Test mapped administrator and viewer groups before enforcing single sign-on."},
+    {"id": "fix-006", "title": "Confirm regional migration", "body": "Compare object totals and checksums before switching the active data region."},
+    {"id": "fix-007", "title": "Repair a report schedule", "body": "Set the intended timezone and verify the next recurring delivery timestamp."},
+    {"id": "fix-008", "title": "Remove a suppressed recipient", "body": "Confirm consent and remove the address from the appropriate email suppression entry."},
+    {"id": "fix-009", "title": "Audit a service credential", "body": "Review scope, last use, owner, and expiration before rotating the service credential."},
+    {"id": "fix-010", "title": "Verify a backup manifest", "body": "Match object counts and hashes against the source inventory and signed backup manifest."},
+    {"id": "fix-011", "title": "Test an allowlist change", "body": "Validate office and automation access before enforcing the revised IP allowlist."},
+    {"id": "fix-012", "title": "Publish corrected release notes", "body": "Verify incident links, corrected rollout dates, and customer support references."}
+  ]
+}
+

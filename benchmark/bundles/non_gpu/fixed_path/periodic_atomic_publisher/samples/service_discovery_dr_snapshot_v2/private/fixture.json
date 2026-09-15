@@ -1,0 +1,15 @@
+{
+  "fixed_path": "/var/lib/discovery/current.json",
+  "a_cluster": "blue",
+  "b_cluster": "green-dr",
+  "dr_plan_id": "regional-failover-20260726",
+  "a_cadence_seconds": 5,
+  "b_delay_seconds": 12,
+  "a_replacement_bound_seconds": 7,
+  "required_services": [
+    "auth-api",
+    "inference-api"
+  ],
+  "assigned_variant_id": "service_discovery_dr_endpoint_snapshot_v1"
+}
+

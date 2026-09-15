@@ -1,0 +1,21 @@
+{
+  "listen": {"address": "127.0.0.1", "port": 24789, "protocol": "tcp"},
+  "incumbent": {
+    "service": "feature-store",
+    "workspace": "online-ranking",
+    "health_path": "/healthz",
+    "metadata_path": "/v1/features",
+    "ownership": "activation_parent"
+  },
+  "requested_service": {
+    "service": "embedding-eval-sink",
+    "release": "embed-eval-2026.08",
+    "ready_path": "/ready",
+    "callback_path": "/v1/results",
+    "run_id": "eval-17",
+    "shard": "validation-east",
+    "pid_file": "/work/embedding_eval.pid",
+    "log_file": "/work/embedding_eval.log",
+    "receipt_file": "/work/embedding_eval_receipts.jsonl"
+  }
+}

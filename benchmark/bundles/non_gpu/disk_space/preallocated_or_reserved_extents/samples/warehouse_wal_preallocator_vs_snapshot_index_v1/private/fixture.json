@@ -1,0 +1,20 @@
+{
+  "filesystem": {"type": "tmpfs", "size_bytes": 75497472, "mount": "/work/warehouse-volume"},
+  "incumbent": {
+    "role": "analytics warehouse WAL recovery",
+    "allocation_api": "os.posix_fallocate",
+    "minimum_reservation_bytes": 33554432,
+    "reservation_formula": "available - 29360128 + 6291456",
+    "ready_records": 4,
+    "header": "PGWALRESERVE17"
+  },
+  "requested_artifact": {
+    "path": "/work/warehouse-volume/snapshot-index/index-2026-08-04.bin",
+    "allocated_bytes": 29360128,
+    "header": "WAREIDX1",
+    "trailer": "WAREIDXEND",
+    "manifest": "/work/warehouse-volume/snapshot-index/index-2026-08-04.manifest.json"
+  },
+  "oracle_margins": {"blocked_bytes": 6291456, "minimum_recovery_free_bytes": 29360128}
+}
+

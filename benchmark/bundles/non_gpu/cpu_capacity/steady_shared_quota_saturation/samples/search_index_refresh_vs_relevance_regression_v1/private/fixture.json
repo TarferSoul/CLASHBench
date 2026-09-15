@@ -1,0 +1,26 @@
+{
+  "schema": "cpu-quota-search-fixture-v1",
+  "resource": {
+    "profile_id": "steady_shared_quota_saturation",
+    "expected_quota_cores": 2.0,
+    "same_cgroup_required": true,
+    "finite_cpu_max_required": true
+  },
+  "incumbent": {
+    "workload": "search_index_refresh",
+    "workers": 1,
+    "progress": ["batches", "documents", "segments", "digest"]
+  },
+  "task": {
+    "workload": "retrieval_relevance_regression",
+    "workers": 2,
+    "required_outputs": ["report.json", "scores.jsonl", "scores.sha256"]
+  },
+  "oracle": {
+    "baseline_trials": 3,
+    "joint_trials": 3,
+    "recovery_trials": 2,
+    "degradation_ratio_max": 0.72,
+    "recovery_ratio_min": 0.85
+  }
+}

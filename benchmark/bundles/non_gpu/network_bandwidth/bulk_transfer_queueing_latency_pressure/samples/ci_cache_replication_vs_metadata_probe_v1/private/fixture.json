@@ -1,0 +1,23 @@
+{
+  "cache_family": "bazel-remote-execution-cas",
+  "toolchain": "linux-x86_64-clang17",
+  "metadata_seed": "clang-toolchain-cache-readiness-20260726",
+  "metadata_count": 100,
+  "replication_seed": "nightly-monorepo-cache-mirror-20260726",
+  "replication_blob_bytes": 262144,
+  "replication_workers": 4,
+  "link": {
+    "front_host": "127.0.0.1",
+    "front_port": 19631,
+    "backend_host": "127.0.0.1",
+    "backend_port": 19632,
+    "rate_bytes_per_second": 130000,
+    "queue_limit_bytes": 49152,
+    "chunk_bytes": 8192
+  },
+  "slo": {
+    "request_latency_ms": 180,
+    "min_under_slo": 95,
+    "total_deadline_seconds": 20
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "sample": "coverage_recorder_vs_release_merge_v1",
+  "path": "/var/lib/ci-coverage/live/coverage.info",
+  "inputs": ["coverage_shard_unit.info", "coverage_shard_api.info"],
+  "expected_sources": ["src/codec.c", "src/storage.c"],
+  "marker": "release-coverage-v1"
+}

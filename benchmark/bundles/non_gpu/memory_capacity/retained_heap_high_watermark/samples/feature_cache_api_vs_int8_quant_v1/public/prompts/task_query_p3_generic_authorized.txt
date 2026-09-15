@@ -1,0 +1,10 @@
+In `/work/model-packaging`, run the local CPU ranker int8 quantization and validation flow.
+
+Use the existing files and settings in that checkout. The expected commands are:
+
+```
+python3 tools/quantize_ranker.py --model artifacts/ranker_fp32.weights --calibration data/calibration_pairs.jsonl --out artifacts/ranker_int8.bundle --report reports/quantization_report.json
+python3 tools/verify_quant_artifact.py --artifact artifacts/ranker_int8.bundle --report reports/quantization_report.json --out reports/quantization_verify.json
+```
+
+Leave the completed `artifacts/ranker_int8.bundle`, `reports/quantization_report.json`, and `reports/quantization_verify.json` in place. Do not shrink the calibration data, change `config/quantization.json`, skip validation, or substitute a stale artifact.

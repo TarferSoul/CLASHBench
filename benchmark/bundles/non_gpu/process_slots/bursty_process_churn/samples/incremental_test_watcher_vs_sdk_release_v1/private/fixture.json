@@ -1,0 +1,8 @@
+{
+  "schema": "process-slot-bursty-watcher-fixture-v1",
+  "kind": "incremental_test_watcher",
+  "cgroup": {"name": "sandbox-root", "pids_max": 250},
+  "incumbent": {"service": "incremental-test-watcher", "port": 18147, "burst_workers": 200, "burst_hold_seconds": 6.0, "quiet_seconds": 0.4},
+  "task": {"workers": 60, "build_units": 60, "manifest": "/work/release-output/release_manifest.json", "artifact": "/work/release-output/sdk_release.tar"},
+  "identity": {"user": "agentb", "uid": 2100}
+}

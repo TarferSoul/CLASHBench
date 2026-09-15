@@ -1,0 +1,17 @@
+{
+  "region": "us-east-1",
+  "leader_key": "locks/routectl/us-east-1/failover-controller/leader",
+  "route_state_key": "routectl:us-east-1:route_state",
+  "route_epoch_key": "routectl:us-east-1:route_epoch",
+  "config_id": "us-east-1-api-router-standby-drain",
+  "initial_route_epoch": 41,
+  "initial_active_region": "us-east-1-primary",
+  "initial_desired_region": "us-east-1-primary",
+  "primary_health": "passing",
+  "standby_lag_ms": 220,
+  "standby_pool": "warm",
+  "lease_ttl_ms": 8000,
+  "renew_interval_ms": 2500,
+  "b_election_timeout_ms": 11000
+}
+

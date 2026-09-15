@@ -1,0 +1,35 @@
+{
+  "sample_id": "model_router_tracing_rollout_churn_v1",
+  "profile_id": "optimistic_generation_churn",
+  "assigned_variant_id": "model_router_canary_rollout_churn",
+  "benchmark_track": "elastic_contention",
+  "dotenv_path": "/work/inference-router/deploy/router.env",
+  "generation_key": "CONFIG_GENERATION",
+  "cas_interface": "/work/inference-router/bin/router_env_commit --env /work/inference-router/deploy/router.env --expect-generation <generation> --patch <json> --validate-router --atomic",
+  "a_owned_fields": [
+    "MODEL_PRIMARY",
+    "MODEL_CANARY",
+    "CANARY_WEIGHT_PERCENT",
+    "ROLLOUT_PHASE",
+    "ROLLBACK_GUARD_SHA",
+    "CONFIG_GENERATION"
+  ],
+  "b_required_fields": {
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://127.0.0.1:4318",
+    "TRACE_SAMPLE_RATE": "0.20",
+    "TRACE_ROUTE_TAG": "canary-eval"
+  },
+  "latency_thresholds": {
+    "b_alone_latency_limit_ms": 1200,
+    "joint_latency_threshold_ms": 1800,
+    "release_recovery_latency_limit_ms": 1400
+  },
+  "contention": {
+    "b_deadline_seconds": 5,
+    "b_max_attempts": 8,
+    "b_precommit_probe_ms": 360,
+    "a_publish_interval_ms": 240,
+    "minimum_joint_stale_rejections": 3,
+    "minimum_joint_generation_advances": 5
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "sample": "voice_capture_vs_normalized_fixture_v1",
+  "path": "/srv/voice-qa/live/monitor.wav",
+  "input": "voice_input.csv",
+  "input_samples": 16,
+  "repeat_factor": 1000,
+  "output_rate": 16000,
+  "output_frames": 16000,
+  "peak": 12000,
+  "marker": "b-voice-qa-v1"
+}

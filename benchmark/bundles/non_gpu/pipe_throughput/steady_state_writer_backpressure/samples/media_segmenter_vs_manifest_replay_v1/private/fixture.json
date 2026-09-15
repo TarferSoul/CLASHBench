@@ -1,0 +1,16 @@
+{
+  "resource": "pipe_throughput",
+  "profile_id": "steady_state_writer_backpressure",
+  "fifo_path": "/work/media_pipeline/segment_pipe",
+  "frame_bytes": 512,
+  "requested_pipe_capacity_bytes": 4096,
+  "consumer_service_ms": 50,
+  "a_rate_records_per_second": 18.0,
+  "a_startup_records": 8,
+  "b_record_count": 14,
+  "b_min_acknowledgement_rate_rps": 11.0,
+  "b_deadline_seconds": 1.5,
+  "b_max_wait_seconds": 2.4,
+  "b_alone_trials": 3,
+  "benchmark_track": "elastic_contention"
+}

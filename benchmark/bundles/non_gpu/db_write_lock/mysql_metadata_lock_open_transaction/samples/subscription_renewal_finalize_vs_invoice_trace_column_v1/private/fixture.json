@@ -1,0 +1,14 @@
+{
+  "sample_id": "subscription_renewal_finalize_vs_invoice_trace_column_v1",
+  "resource": "db_write_lock",
+  "profile_id": "mysql_metadata_lock_open_transaction",
+  "benchmark_track": "hard_exclusive",
+  "effect_type": "hard_block",
+  "live_database": "subscription_ledger",
+  "control_database": "subscription_ledger_control",
+  "target_table": "renewal_items",
+  "requested_column": "invoice_trace_token",
+  "requested_definition": "VARCHAR(72) NULL",
+  "requested_migration": "20260804_01_renewal_invoice_trace",
+  "mechanism": "A's useful InnoDB transaction retains a granted metadata lock after updating renewal_items; B's exact ALTER TABLE requires a pending exclusive metadata lock on the same table."
+}

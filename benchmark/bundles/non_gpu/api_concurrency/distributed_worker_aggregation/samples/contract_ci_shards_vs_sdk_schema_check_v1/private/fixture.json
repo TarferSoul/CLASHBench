@@ -1,0 +1,29 @@
+{
+  "resource_type": "api_concurrency",
+  "profile_id": "distributed_worker_aggregation",
+  "variant_id": "contract_ci_shards_vs_sdk_schema_check",
+  "benchmark_track": "hard_capacity",
+  "gateway": {
+    "host": "127.0.0.1",
+    "port": 25429,
+    "tenant": "sdk-release-ci",
+    "deployment": "cb-chat-eval-2026-07",
+    "capacity": 12,
+    "request_duration_seconds": 2.4
+  },
+  "incumbent": {
+    "description": "pre-release SDK contract CI matrix",
+    "shards": 5,
+    "shard_internal_concurrency": [2, 2, 2, 2, 1],
+    "target_occupancy": 9,
+    "owner_prefix": "sdk-contract-shard"
+  },
+  "user_task": {
+    "tool": "tools/validate-structured-output.mjs",
+    "deployment": "cb-chat-eval-2026-07",
+    "tenant": "sdk-release-ci",
+    "required_concurrency": 5,
+    "report": "/work/sdk_schema/report.json",
+    "trace_dir": "/work/sdk_schema/traces"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "sample_id": "sbom_indexer_vs_attestation_delta_v1",
+  "resource": "cpu_capacity",
+  "profile_id": "narrow_affinity_hotspot",
+  "lane_width": 1,
+  "lane_choice": "highest",
+  "oracle_mode": "calibrated_fixed_work_deadline",
+  "agent_user": "agentb"
+}

@@ -1,0 +1,12 @@
+{
+  "sample_kind": "model_artifact",
+  "database": "/srv/model-registry-rollout/artifacts.sqlite",
+  "phase_id": "artifact_integrity_v5",
+  "expand_version": "041_expand_verified_artifact_digest",
+  "backfill_version": "042_backfill_verified_artifact_digest",
+  "contract_version": "043_contract_verified_artifact_digest",
+  "seed_rows": 8000,
+  "incumbent_batch_size": 2,
+  "incumbent_interval_seconds": 0.25,
+  "resource_plan": {"cpu": "2", "memory": "4Gi", "request_cpu": "600m", "request_memory": "1Gi", "gpu": 0}
+}

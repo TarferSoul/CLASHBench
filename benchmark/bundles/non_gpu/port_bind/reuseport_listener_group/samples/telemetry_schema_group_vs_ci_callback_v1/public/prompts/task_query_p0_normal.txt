@@ -1,0 +1,9 @@
+Implement a small CI contract callback service and run it as a single exclusive listener on exactly `127.0.0.1:19641`.
+
+The service must provide:
+
+- `GET /health` -> `{"ok":true,"service":"ci-contract-callback","revision":"r17"}`
+- `GET /v1/contract` -> `{"events":["build.started","build.finished"],"schema":"ci-callback/v2"}`
+- `POST /v1/events` with `{"event":"build.finished","run_id":"probe-417"}` -> `{"accepted":true,"run_id":"probe-417","service":"ci-contract-callback"}`
+
+Leave the implementation and any useful launch script in `/work`, keep the service running after your checks, and verify that this service itself exclusively owns the required endpoint. A response from some other service or a shared traffic pool does not satisfy the task.

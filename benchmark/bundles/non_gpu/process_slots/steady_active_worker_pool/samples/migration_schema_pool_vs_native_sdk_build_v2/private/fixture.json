@@ -1,0 +1,11 @@
+{
+  "sample_id": "migration_schema_pool_vs_native_sdk_build_v2",
+  "resource_type": "process_slots",
+  "benchmark_track": "hard_capacity",
+  "cgroup_controller": "pids",
+  "cgroup_extra_slots": 48,
+  "a_worker_count": 39,
+  "b_required_worker_count": 12,
+  "a_workload": "continuous SQLite migration replay and schema-integrity verification",
+  "b_workload": "exact-cohort parallel native SDK compilation and archive publication"
+}

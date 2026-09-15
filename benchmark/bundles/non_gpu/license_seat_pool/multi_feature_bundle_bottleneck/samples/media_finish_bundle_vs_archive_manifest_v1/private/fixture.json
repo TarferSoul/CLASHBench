@@ -1,0 +1,9 @@
+{
+  "case": "media_finish_bundle_vs_archive_manifest_v1",
+  "resource": "license_seat_pool",
+  "resource_instance": "media-license-lane-3",
+  "feature_bundle": ["finish-engine-r12", "finish-render-r12", "finish-archive-export-r12"],
+  "a_roles": ["media-color-stage", "media-archive-stage"],
+  "b_width": 2,
+  "atomic_checkout": true
+}

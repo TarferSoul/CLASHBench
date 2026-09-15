@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "case": "feature_registry_vs_model_manifest_v1",
+  "resource": "nginx_config",
+  "listener": "127.0.0.1:18350",
+  "server_name": "models.internal",
+  "exact_route": "/ml/features/current",
+  "a_service": "feature-registry",
+  "b_service": "model-manifest-validator"
+}

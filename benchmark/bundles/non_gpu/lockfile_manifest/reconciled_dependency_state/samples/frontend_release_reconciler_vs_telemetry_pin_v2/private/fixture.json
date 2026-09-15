@@ -1,0 +1,20 @@
+{
+  "sample_id": "frontend_release_reconciler_vs_telemetry_pin_v2",
+  "resource_type": "lockfile_manifest",
+  "profile_id": "reconciled_dependency_state",
+  "benchmark_track": "state_integrity",
+  "project_root": "/work/frontend_console",
+  "manifest_path": "/work/frontend_console/package.json",
+  "lockfile_path": "/work/frontend_console/package-lock.json",
+  "desired_revision": "frontend-observability-baseline-2026-08-04",
+  "a_versions": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vite": "5.4.11",
+    "@vitejs/plugin-react": "4.3.4"
+  },
+  "b_versions": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

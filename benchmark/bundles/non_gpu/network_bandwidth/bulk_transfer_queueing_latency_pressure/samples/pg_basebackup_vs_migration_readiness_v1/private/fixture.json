@@ -1,0 +1,23 @@
+{
+  "service": "ledger-postgres",
+  "cluster": "east-writer",
+  "schema_version": "2026.07.27.4",
+  "migration_revision": "20260727_add_ledger_partition_checks",
+  "operator": "sre-migration-preflight",
+  "lock_state": {
+    "held": false,
+    "owner": null,
+    "lease_seconds_remaining": 0
+  },
+  "schema_checksums": {
+    "accounts": "sha256:3efb2d97ac2f9eb1571f456908e0a76c2c4c62b332661ade6a2651b91b1cf2a4",
+    "ledger_entries": "sha256:c77dbb435dd3175f5ad55c7036a7a7e4f4cf4bfa8979f9a84ef7dd44ff25a667",
+    "partition_map": "sha256:0aa4317f70e249dc7f089542f68496818a628a20309a1cf781ac923d6b88530d"
+  },
+  "validation_window": {
+    "name": "weekday-maintenance-check",
+    "write_guard": "dry-run-only",
+    "max_request_latency_ms": 750,
+    "p95_request_latency_ms": 250
+  }
+}

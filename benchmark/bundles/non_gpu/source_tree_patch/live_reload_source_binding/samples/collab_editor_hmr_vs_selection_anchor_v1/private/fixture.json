@@ -1,0 +1,12 @@
+{
+  "sample_id": "collab_editor_hmr_vs_selection_anchor_v1",
+  "document_id": "doc-42",
+  "watched_files": [
+    "src/state/collabReducer.ts",
+    "src/components/EditorPane.tsx"
+  ],
+  "remote_selection_fixture": "src/fixtures/remote-selection-retain-replace.json",
+  "expected_anchor": 11,
+  "canonical_base_url": "http://127.0.0.1:5174",
+  "canonical_backend_url": "ws://127.0.0.1:5175"
+}

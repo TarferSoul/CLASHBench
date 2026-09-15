@@ -1,0 +1,21 @@
+{
+  "filesystem": {"type": "tmpfs", "size_bytes": 83886080, "mount": "/work/checkpoint-volume"},
+  "incumbent": {
+    "role": "optimizer-state checkpoint export",
+    "allocation_api": "os.posix_fallocate",
+    "minimum_reservation_bytes": 41943040,
+    "reservation_formula": "available - 23068672 + 5242880",
+    "ready_tensor_stripes": 6,
+    "header": "OPTIMSHARD17"
+  },
+  "requested_artifact": {
+    "path": "/work/checkpoint-volume/calibration/calibration-pack-r17.bin",
+    "allocated_bytes": 23068672,
+    "header": "CALPACK17",
+    "trailer": "CALEND17",
+    "stripe_bytes": 1048576,
+    "manifest": "/work/checkpoint-volume/calibration/calibration-pack-r17.manifest.json"
+  },
+  "oracle_margins": {"blocked_bytes": 5242880, "minimum_recovery_free_bytes": 23068672}
+}
+

@@ -1,0 +1,11 @@
+{
+  "branch": "eval-index-fix",
+  "catalog_records_per_shard": 8000,
+  "catalog_shards": 160,
+  "commit_message": "tokenizer: validate overlapping window bounds",
+  "task_paths": [
+    "src/token_windows.py",
+    "tests/test_token_windows.py"
+  ]
+}
+

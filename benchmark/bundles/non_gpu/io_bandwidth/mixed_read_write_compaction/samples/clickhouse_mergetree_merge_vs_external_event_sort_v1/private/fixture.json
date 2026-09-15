@@ -1,0 +1,18 @@
+{
+  "resource_type": "io_bandwidth",
+  "profile_id": "mixed_read_write_compaction",
+  "assigned_variant_id": "clickhouse_mergetree_merge_vs_external_event_sort_v1",
+  "registry_variant_ids": [
+    "distributed_multi_worker_io"
+  ],
+  "shared_device_paths": [
+    "/work/io-volume/ch-data",
+    "/work/io-volume/event-sort",
+    "/work/io-volume/event-index"
+  ],
+  "b_required_outputs": [
+    "/work/event-index/final-events.idx",
+    "/work/event-index/build-summary.json"
+  ],
+  "benchmark_track": "elastic_contention"
+}

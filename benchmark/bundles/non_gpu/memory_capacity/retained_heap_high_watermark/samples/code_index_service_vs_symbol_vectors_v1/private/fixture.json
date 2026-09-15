@@ -1,0 +1,11 @@
+{
+  "memory_max_bytes": 4294967296,
+  "profile_id": "retained_heap_high_watermark",
+  "benchmark_track": "hard_capacity",
+  "a_cache_mib": 2600,
+  "a_min_resident_kib": 2500000,
+  "b_resident_mib": 1500,
+  "b_min_peak_rss_kib": 1350000,
+  "b_guard_mib": 128
+}
+

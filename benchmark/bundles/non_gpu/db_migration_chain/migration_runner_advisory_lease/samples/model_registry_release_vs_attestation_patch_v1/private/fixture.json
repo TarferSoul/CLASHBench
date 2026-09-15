@@ -1,0 +1,10 @@
+{
+  "resource_type": "db_migration_chain",
+  "profile_id": "migration_runner_advisory_lease",
+  "database": "model_registry",
+  "lease": {"type": "DATABASECHANGELOGLOCK", "row_id": 1},
+  "a_changesets": ["mr-20260804-101", "mr-20260804-102", "mr-20260804-103", "mr-20260804-104", "mr-20260804-105"],
+  "b_changeset": "mr-20260804-hotfix-150",
+  "b_checksum": "9:4d1ec7fa8f30f9505a2b2ed3f7c80150",
+  "agent_user": "agentb"
+}

@@ -1,0 +1,27 @@
+{
+  "plan_id": "atlas_symbol_vectors_20260723",
+  "resident_mib": 1500,
+  "admission_guard_mib": 128,
+  "partition_count": 16,
+  "vector_dimensions": 32,
+  "verification_passes": 2,
+  "symbols": [
+    "parse_module", "extract_docstrings", "vectorize_module", "SourceSpan",
+    "SymbolIndex", "merge_symbols", "lookup_definition", "DefinitionRecord",
+    "CallGraph", "edge_weight", "rank_symbols", "GraphPartition",
+    "QueryCache", "cache_key", "load_snapshot", "WarmEntry",
+    "HealthHandler", "lookup_symbol", "serve_index", "LatencySample",
+    "feature_row", "normalize_vector", "bucket_features", "FeaturePlan",
+    "write_report", "summarize_index", "emit_partition_csv", "ReportRow",
+    "test_lookup_definition", "test_vectorize_module", "test_cache_hit", "IndexSmokeTest",
+    "ModuleDigest", "ImportCollector", "DefinitionResolver", "ReferenceScanner",
+    "CallSite", "TypeHintEdge", "PackageGraph", "SourceArchive",
+    "SearchShard", "QueryPlanner", "IndexSnapshot", "CacheWarmup",
+    "VectorStore", "VectorShard", "CosineRanker", "SymbolEncoder",
+    "StaticFinding", "FindingWriter", "CoverageMap", "RepositorySummary",
+    "DependencyMatrix", "PartitionManifest", "BatchEncoder", "ChecksumWriter",
+    "SymbolVector", "ModuleVector", "EdgeVector", "SmokeVector",
+    "ParserMetric", "CacheMetric", "LatencyMetric", "CanaryMetric"
+  ]
+}
+

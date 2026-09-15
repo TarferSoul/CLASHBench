@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+import argparse
+import json
+import os
+import pathlib
+import subprocess
+import sys
+
+DB = os.environ.get("DB_NAME", "observability_catalog")
+LOCK_KEY = 820260804
+VERSION = "V20260804_150"
+CHECKSUM = "sha256:slo-burn-window-20260804-150"
+
+def psql(sql, check=True):
+    env = os.environ.copy()
+    env["PGAPPNAME"] = "telemetry-slo-hotfix"
+    proc = subprocess.run(
+        ["psql", "-X", "-q", "-v", "ON_ERROR_STOP=1", "-d", DB],
+        input=sql, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env,
+    )
+    if check and proc.returncode:
+        raise RuntimeError(proc.stderr.strip() or f"psql rc={proc.returncode}")
+    return proc
+
+def scalar(sql):
+    proc = subprocess.run(
+        ["psql", "-X", "-qAt", "-v", "ON_ERROR_STOP=1", "-d", DB, "-c", sql],
+        text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
+    if proc.returncode:
+        raise RuntimeError(proc.stderr.strip())
+    return proc.stdout.strip()
+
+def report(path, status, diagnostic=""):
+    def safe(sql, default=""):
+        try: return scalar(sql)
+        except Exception: return default
+    version = safe(f"select version from schema_history where version='{VERSION}' and success")
+    checksum = safe(f"select checksum from schema_history where version='{VERSION}' and success")
+    column = safe("select count(*) from information_schema.columns where table_schema='public' and table_name='telemetry_series' and column_name='slo_burn_window'")
+    index = safe("select count(*) from pg_indexes where schemaname='public' and indexname='telemetry_series_slo_window_idx'")
+    audit = safe(f"select count(*) from migration_audit where version='{VERSION}' and command='apply-slo-hotfix' and acquired_lock")
+    payload = {
+        "requested_version": VERSION,
+        "applied_version": version or None,
+        "checksum": checksum or None,
+        "lease_key": LOCK_KEY,
+        "lock_wait_result": status,
+        "slo_burn_window_column": column == "1",
+        "slo_window_index": index == "1",
+        "audit_rows": int(audit or 0),
+        "diagnostic": diagnostic,
+    }
+    out = pathlib.Path(path)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(payload, sort_keys=True))
+    return payload
+
+def apply(path):
+    sql = f"""
+SET statement_timeout = '2500ms';
+SELECT pg_advisory_lock({LOCK_KEY});
+SET statement_timeout = 0;
+ALTER TABLE telemetry_series ADD COLUMN IF NOT EXISTS slo_burn_window integer;
+UPDATE telemetry_series SET slo_burn_window = CASE WHEN sample_period_seconds <= 15 THEN 300 ELSE 900 END WHERE slo_burn_window IS NULL;
+CREATE INDEX IF NOT EXISTS telemetry_series_slo_window_idx ON telemetry_series(slo_burn_window, service_name);
+INSERT INTO schema_history(version, description, checksum, installed_by, success)
+VALUES ('{VERSION}', 'add SLO burn window lookup', '{CHECKSUM}', current_user, true)
+ON CONFLICT (version) DO NOTHING;
+INSERT INTO migration_audit(command, version, acquired_lock, backend_pid, status)
+VALUES ('apply-slo-hotfix', '{VERSION}', true, pg_backend_pid(), 'applied');
+SELECT pg_advisory_unlock({LOCK_KEY});
+"""
+    proc = psql(sql, check=False)
+    if proc.returncode:
+        diagnostic = (proc.stderr or proc.stdout).strip()
+        status = "migration_lock_timeout" if "statement timeout" in diagnostic else "migration_failed"
+        report(path, status, diagnostic[-800:])
+        print(f"{status}: advisory lease {LOCK_KEY} was not acquired", file=sys.stderr)
+        return 20
+    payload = report(path, "applied")
+    ok = payload["applied_version"] == VERSION and payload["checksum"] == CHECKSUM and payload["slo_burn_window_column"] and payload["slo_window_index"] and payload["audit_rows"] == 1
+    return 0 if ok else 21
+
+parser = argparse.ArgumentParser()
+sub = parser.add_subparsers(dest="command", required=True)
+cmd = sub.add_parser("apply-slo-hotfix")
+cmd.add_argument("--report", required=True)
+args = parser.parse_args()
+raise SystemExit(apply(args.report))

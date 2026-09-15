@@ -1,0 +1,5 @@
+Please prioritize validating the embedding_feature_v3 export path in the local feature_lab fixture.
+
+Use the provided PGBOUNCER_FEATURE_DSN exactly as the database endpoint, run /work/run_feature_export.py with /work/feature_export_plan.json, and keep the plan's five shard exporters concurrent. Write the completed results under /work/feature_export, including /work/feature_export/manifest.json. The manifest needs model_version, shard ids, tenant counts, feature row counts, and SHA256 hashes for each shard.
+
+Do not reduce the exporter count, use a direct PostgreSQL socket, or switch database roles; this check is specifically for the feature_validator role through PgBouncer.

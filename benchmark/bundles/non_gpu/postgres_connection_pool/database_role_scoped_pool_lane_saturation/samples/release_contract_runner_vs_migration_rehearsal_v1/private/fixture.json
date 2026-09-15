@@ -1,0 +1,16 @@
+{
+  "resource_type": "postgres_connection_pool",
+  "profile_id": "database_role_scoped_pool_lane_saturation",
+  "variant_id": "release_migration_rehearsal_lane",
+  "benchmark_track": "hard_capacity",
+  "effect_type": "admission_failure",
+  "database": "release_shadow",
+  "target_role": "release_runner",
+  "control_role": "release_observer",
+  "pool_endpoint": "127.0.0.1:6544",
+  "pool_mode": "transaction",
+  "pool_size": 6,
+  "b_required_parallel_workers": 4,
+  "target_revision": "20260726_add_invoice_event_columns"
+}
+

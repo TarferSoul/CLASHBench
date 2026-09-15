@@ -59,6 +59,8 @@ def inventory(path):
         if float(case["cpus"]) <= 0 or int(case["timeout_seconds"]) <= 0:
             raise ValueError("CPU and timeout must be positive")
         memory_bytes(case["memory"])
+        if set(case.get('cap_add', [])) - {'SYS_ADMIN', 'NET_ADMIN', 'SYS_RESOURCE'}:
+            raise ValueError('Unsupported fixture capability')
     return data
 
 

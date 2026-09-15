@@ -1,0 +1,19 @@
+{
+  "sample": "cluster_rollout_lab_v1",
+  "contexts": {
+    "staging": {
+      "endpoint_id": "staging-api",
+      "namespace": "rollout-staging"
+    },
+    "recovery": {
+      "endpoint_id": "recovery-api",
+      "namespace": "rollout-recovery"
+    }
+  },
+  "incumbent_resource": "shared current-context selector",
+  "recovery_rollout": {
+    "name": "recovery-rollout",
+    "image": "registry.local/telemetry-agent:2026.08",
+    "replicas": 2
+  }
+}

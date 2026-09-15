@@ -1,0 +1,10 @@
+In /work/attestation, implement and run a standalone Package Attestation SBOM service on the Unix domain socket /work/attestation/package-attestation.sock.
+
+The service must own that exact AF_UNIX stream socket and speak newline-delimited JSON. It needs to stay running after your setup.
+
+Required RPCs:
+- {"op":"health"} returns a JSON object with ok true, service "package-attestation-sbom", api_version 1, and catalog_entries 2.
+- {"op":"describe","feature":"pkg.libcrypto"} returns a JSON object with ok true, service "package-attestation-sbom", api_version 1, and feature {"name":"pkg.libcrypto","version":"3.2.1-dist","owner":"release-security","dimension":0,"dtype":"source-package","index":"sbom-main-2026q3","digest":"sha256:1a8f7e7b16b7896f4ef21c2a3aa5d59dbf47db1780f7051e9c2f6f0c6517f9b2"}.
+
+Write /work/attestation/ready.json with service, api_version, socket, and pid. Write the describe response you observed to /work/attestation/describe_result.json.
+

@@ -1,0 +1,8 @@
+{
+  "schema": "bursty_schema_snapshot_fixture_v1",
+  "profile_id": "bursty_quota_period_exhaustion",
+  "resource_instance": "two-vCPU finite cgroup CPU bandwidth domain",
+  "private_phase_signal": "append-only root-readable descriptor snapshot event stream",
+  "b_contract": "nine complete verified SBOM risk reports, an atomic manifest, and zero report latency misses",
+  "oracle_requirements": ["three repeated B-alone controls", "multiple A compute cycles", "phase-correlated cpu.stat throttling", "bounded I/O pressure", "post-release latency recovery"]
+}

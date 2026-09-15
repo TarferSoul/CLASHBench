@@ -1,0 +1,12 @@
+{
+  "endpoint": "http://127.0.0.1:24681/v1/transcript-stream",
+  "tenant": "transcript-stream-ci",
+  "owner": "release-sdk-sse",
+  "required_concurrency": 2,
+  "first_event_deadline_ms": 1500,
+  "event_count": 8,
+  "streams": [
+    {"request_id": "sdk-contract-alpha", "stream_id": "fixture-alpha"},
+    {"request_id": "sdk-contract-bravo", "stream_id": "fixture-bravo"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "sbom-risk-report-job-v1",
+  "report_count": 9,
+  "packages_per_report": 36,
+  "dependency_depth": 6,
+  "hash_rounds": 2600,
+  "seed": 1979,
+  "max_report_ms": 250,
+  "output_dir": "/work/sbom-output"
+}

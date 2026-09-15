@@ -1,0 +1,12 @@
+{
+  "base_url": "http://127.0.0.1:19631",
+  "metadata_seed": "clang-toolchain-cache-readiness-20260726",
+  "target_count": 100,
+  "toolchain": "linux-x86_64-clang17",
+  "latency_slo_ms": 180,
+  "min_under_slo": 95,
+  "total_deadline_seconds": 20,
+  "request_timeout_seconds": 4,
+  "output": "/work/ci_cache_readiness_report.json"
+}
+

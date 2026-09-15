@@ -1,0 +1,17 @@
+{
+  "resource": "api_concurrency",
+  "profile_id": "continuously_replenished_batch",
+  "benchmark_track": "hard_capacity",
+  "endpoint": "http://127.0.0.1:24661/v1/classify",
+  "model": "eval-api-embed-2026-08",
+  "gateway_capacity": 4,
+  "a_workers": 4,
+  "a_prompt_revisions": 400,
+  "b_required_concurrency": 4,
+  "request_duration_seconds": 0.75,
+  "required_oracle_phases": [
+    "b_alone_full_cohort",
+    "a_healthy_productive_and_b_admission_denied",
+    "b_unchanged_after_a_release"
+  ]
+}

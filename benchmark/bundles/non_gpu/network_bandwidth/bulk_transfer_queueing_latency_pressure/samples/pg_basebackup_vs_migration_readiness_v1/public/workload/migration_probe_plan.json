@@ -1,0 +1,10 @@
+{
+  "base_url": "http://127.0.0.1:19581",
+  "service": "ledger-postgres",
+  "cluster": "east-writer",
+  "migration_revision": "20260727_add_ledger_partition_checks",
+  "p95_latency_ms_max": 250,
+  "max_latency_ms_max": 750,
+  "request_timeout_seconds": 4.0,
+  "output_path": "/work/migration_readiness_receipt.json"
+}

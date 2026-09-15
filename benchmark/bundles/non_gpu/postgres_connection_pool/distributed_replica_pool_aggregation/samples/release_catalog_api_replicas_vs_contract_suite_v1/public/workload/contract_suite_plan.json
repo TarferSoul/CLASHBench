@@ -1,0 +1,15 @@
+{
+  "suite_id": "release-catalog-contracts-2026-07-26-r1",
+  "database": "release_catalog",
+  "role": "contract_tester",
+  "socket": "/run/release-pg",
+  "required_sessions": 6,
+  "workers": [
+    {"name": "api_shape", "modulus": 6, "remainder": 0},
+    {"name": "semver_ordering", "modulus": 6, "remainder": 1},
+    {"name": "package_metadata", "modulus": 6, "remainder": 2},
+    {"name": "artifact_digest", "modulus": 6, "remainder": 3},
+    {"name": "readiness_view", "modulus": 6, "remainder": 4},
+    {"name": "event_lineage", "modulus": 6, "remainder": 5}
+  ]
+}

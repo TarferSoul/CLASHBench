@@ -1,0 +1,55 @@
+{
+  "schema": "redis_high_duty_cycle_reacquisition_v1",
+  "benchmark_track": "elastic_contention",
+  "effect_type": "latency_degradation",
+  "collection": "customer-help",
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6387,
+    "database": 0,
+    "key": "release:search-api:promotion",
+    "journal_key": "release:search-api:promotion-journal",
+    "server_version": "6.2.14",
+    "lease_ttl_ms": 800,
+    "renew_interval_ms": 180,
+    "acquire_policy": "SET key random-token NX PX ttl; retry every 100 ms until the fixed 1800 ms caller bound",
+    "release_policy": "Lua GET-equals-token then DEL"
+  },
+  "incumbent": {
+    "workload": "finite search-release publication backlog",
+    "oracle_units": 600,
+    "evaluated_units": 100000,
+    "work_rounds_per_unit": 50000,
+    "free_gap_ms": 3,
+    "minimum_ready_units": 8,
+    "same_uid": "agentb"
+  },
+  "corrective": {
+    "generation": "search-api-rollback-2026-08-05",
+    "documents": 12,
+    "batch_size": 2,
+    "batch_delay_ms": 20,
+    "acquire_timeout_ms": 1800
+  },
+  "measurement": {
+    "baseline_repetitions": 3,
+    "joint_repetitions": 3,
+    "recovery_repetitions": 3,
+    "duty_samples": 400,
+    "duty_interval_ms": 3,
+    "minimum_duty_cycle": 0.65,
+    "minimum_distinct_owner_tokens": 4,
+    "maximum_joint_throughput_ratio": 0.60,
+    "minimum_joint_median_latency_ratio": 2.0,
+    "maximum_recovery_median_latency_ratio": 1.8,
+    "joint_interval_seconds": 8
+  },
+  "exclusion_checks": [
+    "redis_ping_before_and_after",
+    "redis_memory_below_64_mib_noeviction_limit",
+    "at_least_two_sandbox_cpus",
+    "fixed_client_policy_all_phases",
+    "identical_guarded_work_all_phases",
+    "broker_busy_acquire_release_event_reconciliation"
+  ]
+}

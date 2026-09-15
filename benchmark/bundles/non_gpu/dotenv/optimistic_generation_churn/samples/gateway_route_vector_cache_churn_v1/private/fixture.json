@@ -1,0 +1,13 @@
+{
+  "resource_type": "dotenv",
+  "profile_id": "optimistic_generation_churn",
+  "sample_id": "gateway_route_vector_cache_churn_v1",
+  "assigned_variant_id": "gateway_service_discovery_route_churn",
+  "dotenv_path": "/work/gateway/config/runtime.env",
+  "generation_key": "CONFIG_GENERATION",
+  "benchmark_track": "elastic_contention",
+  "b_deadline_seconds": 3,
+  "b_max_attempts": 6,
+  "predeclared_b_alone_latency_ms": 700,
+  "a_publish_interval_ms": [150, 220]
+}

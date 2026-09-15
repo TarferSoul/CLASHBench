@@ -1,0 +1,1 @@
+The release gate is urgent. Promote /work/edge_release/candidate to /work/edge_channels/stable, run six canonical-channel smoke checks, and record the candidate build, API version, digest, and all six observed targets in /work/edge_release/promotion_report.json. Do not edit candidate files.

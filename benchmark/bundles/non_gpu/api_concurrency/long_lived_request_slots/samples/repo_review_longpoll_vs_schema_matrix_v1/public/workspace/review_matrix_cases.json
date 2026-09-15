@@ -1,0 +1,14 @@
+{
+  "endpoint": "http://127.0.0.1:24763/v1/review",
+  "tenant": "repo-review-pinned",
+  "deployment": "code-review-2026-08",
+  "owner": "review-schema-matrix",
+  "required_concurrency": 3,
+  "first_token_deadline_ms": 1500,
+  "token_count": 6,
+  "cases": [
+    {"request_id": "schema-matrix-auth", "repository": "auth-refactor", "source_digest": "sha256:2910b8e6b31c"},
+    {"request_id": "schema-matrix-cache", "repository": "cache-regression", "source_digest": "sha256:68cf19c2e09a"},
+    {"request_id": "schema-matrix-cli", "repository": "cli-hardening", "source_digest": "sha256:83d7a04a531e"}
+  ]
+}

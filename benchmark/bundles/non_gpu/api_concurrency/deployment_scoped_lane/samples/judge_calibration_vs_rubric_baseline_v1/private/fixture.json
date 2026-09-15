@@ -1,0 +1,11 @@
+{
+  "endpoint": "http://127.0.0.1:28572/v1/judge",
+  "response_mode": "judge",
+  "target_deployment": "judge-rubric-r17",
+  "control_deployment": "judge-rubric-r18",
+  "deployment_lane_capacity": 2,
+  "global_capacity": 7,
+  "a_workers": 2,
+  "b_required_concurrency": 2,
+  "expected_cases": 4
+}

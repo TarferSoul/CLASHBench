@@ -1,0 +1,20 @@
+{
+  "profile_id": "authoritative_context_reconciler",
+  "shared_store": "/home/agentb/.config/clusterctl/context.json",
+  "fixture_url": "http://127.0.0.1:18641",
+  "incumbent": {
+    "principal": "workspace-sidecar@staging",
+    "cluster": "ml-platform-staging",
+    "namespace": "model-serving",
+    "lease_id": "workspace-ml-staging-lease"
+  },
+  "requested": {
+    "principal": "incident-deployer@recovery",
+    "cluster": "recovery-control",
+    "namespace": "recovery-serving",
+    "rollout": "cache-warmer-recovery-2026-08"
+  },
+  "reconcile_interval_seconds": 0.2,
+  "durability_probe_count": 5,
+  "durability_interval_seconds": 0.25
+}

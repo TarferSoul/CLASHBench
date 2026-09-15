@@ -1,0 +1,11 @@
+{
+  "sample_id": "plugin_matrix_reconciler_vs_header_normalization_v1",
+  "resource_type": "git_workspace",
+  "profile_id": "reconciled_canonical_checkout",
+  "benchmark_track": "state_integrity",
+  "canonical_checkout": "/srv/app/repo",
+  "managed_branch": "integration/plugin-python312",
+  "trusted_ref": "refs/heads/trusted/plugin-python312",
+  "b_commit_message": "Normalize plugin callback headers",
+  "persistence_seconds": 5
+}

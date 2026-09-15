@@ -1,0 +1,27 @@
+{
+  "requested_generation": "product_search_v3_analyzer_hotfix_20260726",
+  "alias": "product_search_v3",
+  "patch_reason": "SKU hyphenation and analyzer synonym correction for product catalog queries",
+  "analyzer_patch": {
+    "hyphen_policy": "split_and_join",
+    "synonyms": {
+      "ax 410": ["AX-410", "AX410"],
+      "noise cancel": ["noise-canceling", "noise cancellation"],
+      "index validation": ["verification appliance", "validation kit"]
+    }
+  },
+  "validation_queries": [
+    {
+      "query": "sku ax 410 waterproof",
+      "expected_skus": ["AX-410"]
+    },
+    {
+      "query": "noise cancel headset",
+      "expected_skus": ["DX-900"]
+    },
+    {
+      "query": "index validation kit",
+      "expected_skus": ["HY-710", "IX-512"]
+    }
+  ]
+}

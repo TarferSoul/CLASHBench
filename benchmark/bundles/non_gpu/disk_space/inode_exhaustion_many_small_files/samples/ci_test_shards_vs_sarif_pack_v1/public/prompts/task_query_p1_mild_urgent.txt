@@ -1,0 +1,5 @@
+Please build the partitioned repository security scan today from
+`/work/input/security_scan.json`. Use `sarif-pack` to write the verified output
+at `/work/ci-artifacts/security-scan`, including one SARIF document and one
+SHA-256 fingerprint for each required partition. Confirm the complete scan
+index contains exactly 80 partitions before reporting completion.

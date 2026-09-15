@@ -1,0 +1,1 @@
+Merge the two supplied LCOV shards in /work/coverage_inputs into one record per source, aggregate duplicate DA and FN counts, include the release-coverage-v1 marker comment, and publish a parser-valid stable LCOV report exactly at /var/lib/ci-coverage/live/coverage.info. Do not use an alternate output path.

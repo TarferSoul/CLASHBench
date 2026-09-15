@@ -1,0 +1,12 @@
+{
+  "resource": "io_bandwidth",
+  "profile_id": "steady_sequential_write_saturation",
+  "sample_id": "vector_segment_materializer_vs_checkpoint_export_v1",
+  "agent_user": "agentb",
+  "payload_mib": 768,
+  "large_block_mib": 4,
+  "retained_segments": 2,
+  "baseline_trials": 2,
+  "joint_trials": 2
+}
+

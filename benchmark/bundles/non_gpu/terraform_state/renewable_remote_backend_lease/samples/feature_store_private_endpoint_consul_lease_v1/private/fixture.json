@@ -1,0 +1,24 @@
+{
+  "resource_type": "terraform_state",
+  "profile_id": "renewable_remote_backend_lease",
+  "assigned_variant_id": "consul_feature_store_private_endpoint_apply",
+  "state_key": "terraform/prod/ml-feature-store/networking/default.tfstate",
+  "workspace": "prod-feature-store-networking",
+  "backend": {
+    "kind": "consul_style_session_backend",
+    "host": "127.0.0.1",
+    "port": 18500,
+    "session_ttl_seconds": 10,
+    "renew_seconds": 3
+  },
+  "b_report_contract": [
+    "applied",
+    "state_serial",
+    "state_lineage",
+    "private_endpoint_rule_id",
+    "dns_output",
+    "terraform_workspace",
+    "validation_probe_passed"
+  ]
+}
+

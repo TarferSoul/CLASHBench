@@ -1,0 +1,9 @@
+{
+  "resource": "pidfile_singleton",
+  "profile_id": "advisory_locked_pidfile_inode",
+  "benchmark_track": "hard_exclusive",
+  "canonical_pidfile": "/run/backup-pruner/planner.pid",
+  "lock_protocol": "fcntl.lockf LOCK_EX|LOCK_NB",
+  "a_progress": "retention plan generations, evaluated snapshot count, and heartbeat",
+  "b_contract": "live B-owned audit coordinator plus dependency-checked recovery_retention_audit.json"
+}

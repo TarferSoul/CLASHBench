@@ -1,0 +1,22 @@
+{
+  "filesystem": {
+    "type": "tmpfs",
+    "label": "dev-shm",
+    "mount": "/dev/shm",
+    "agent_path": "/work/symbol_store",
+    "size_bytes": 67108864
+  },
+  "a": {
+    "workload": "mobile debug-symbol archive packaging and upload verification",
+    "output": "android_release_9.4.0_symbols",
+    "files": 8,
+    "payload_bytes": 48234496
+  },
+  "b": {
+    "workload": "SQLite crash-triage index build",
+    "output": "crash_index/incidents.sqlite",
+    "rows": 304,
+    "payload_bytes": 39845888,
+    "builder": "crash-index-build"
+  }
+}

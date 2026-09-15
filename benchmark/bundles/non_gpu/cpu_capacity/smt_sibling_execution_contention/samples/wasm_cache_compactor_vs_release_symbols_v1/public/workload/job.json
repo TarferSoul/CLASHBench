@@ -1,0 +1,10 @@
+{
+  "description": "Pinned release-symbol archive acceptance for the reproducible WebAssembly builder lane",
+  "job_name": "wasm_release_symbols_2026_08",
+  "lzma_preset": 6,
+  "measurement_passes": 3,
+  "placement_policy": "release_builder_smt_lane_v2",
+  "shard_count": 2,
+  "shard_mib": 2,
+  "verify_archives": true
+}

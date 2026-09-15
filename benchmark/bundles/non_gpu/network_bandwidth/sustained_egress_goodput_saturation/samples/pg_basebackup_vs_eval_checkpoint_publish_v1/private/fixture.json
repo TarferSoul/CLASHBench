@@ -1,0 +1,19 @@
+{
+  "context": "postgresql-basebackup",
+  "gateway": "127.0.0.1:9571",
+  "backend": "127.0.0.1:9572",
+  "direction": "database_host_to_backup_receiver",
+  "rate_bytes_per_second": 135000,
+  "incumbent": {
+    "kind": "basebackup-tablespace-segment",
+    "workers": 2,
+    "chunk_bytes": 73728,
+    "revision": "basebackup-lsn-7A4-19C0"
+  },
+  "task": {
+    "artifact": "reranker-eval-checkpoint-r42",
+    "bytes": 147456,
+    "parts": 3,
+    "deadline_ms": 1900
+  }
+}

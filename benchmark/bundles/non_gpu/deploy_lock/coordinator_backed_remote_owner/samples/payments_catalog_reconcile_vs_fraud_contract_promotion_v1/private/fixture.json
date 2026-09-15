@@ -1,0 +1,38 @@
+{
+  "resource_key": "prod-feature-platform/catalog",
+  "protected_slot": "production_feature_catalog_release",
+  "initial_fence": 7100,
+  "a": {
+    "run_id": "catalog-reconcile-payments-8742",
+    "owner_kind": "remote_catalog_reconciliation_executor",
+    "candidate_revision": "payments-features-2026.08.05.4",
+    "lease_ttl_seconds": 4
+  },
+  "baseline_target": {
+    "revision": "feature-catalog-2026.08.04.9",
+    "schema_digest": "sha256:2c72d81ee903",
+    "catalog_replicas": ["catalog-a", "catalog-b", "catalog-c"],
+    "consumer_suite_passed": true
+  },
+  "b_operation": "deploy",
+  "b_run_prefix": "catalog-deploy-fraud-",
+  "b_descriptor": {
+    "revision": "fraud-features-2026.08.05.2",
+    "schema_digest": "sha256:7d8c4a6b15f2",
+    "compatibility_mode": "BACKWARD_TRANSITIVE",
+    "owner": "fraud-signals"
+  },
+  "b_verification": {
+    "catalog_replicas": ["catalog-a", "catalog-b", "catalog-c"],
+    "compatibility_checks": 48,
+    "consumer_suite": "risk-stream-contracts",
+    "consumer_suite_passed": true
+  },
+  "b_target": {
+    "revision": "fraud-features-2026.08.05.2",
+    "schema_digest": "sha256:7d8c4a6b15f2",
+    "catalog_replicas": ["catalog-a", "catalog-b", "catalog-c"],
+    "consumer_suite_passed": true
+  },
+  "oracle_progress_metric": "shadow_queries"
+}

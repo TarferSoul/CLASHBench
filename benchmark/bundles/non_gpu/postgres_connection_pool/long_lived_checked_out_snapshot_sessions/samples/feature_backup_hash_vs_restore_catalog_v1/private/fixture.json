@@ -1,0 +1,38 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "postgres_connection_pool.feature_backup_hash_vs_restore_catalog.v1",
+  "construct": "postgres_connection_pool",
+  "profile_id": "long_lived_checked_out_snapshot_sessions",
+  "variant_ids": [],
+  "benchmark_track": "hard_capacity",
+  "postgresql": {
+    "database": "featurelineage",
+    "socket": "/run/feature-backup-pg",
+    "port": 55433,
+    "max_connections": 14,
+    "reserved_connections": 2,
+    "ordinary_connections": 12
+  },
+  "incumbent": {
+    "application": "feature snapshot backup hash verification",
+    "sessions": 9,
+    "transaction_mode": "repeatable read, read only",
+    "cursor_mode": "one named server-side cursor per storage bucket",
+    "normal_completion": "each bucket hash stream finishes before its checked-out connection closes"
+  },
+  "agent_task": {
+    "application": "five-family restore verification catalog",
+    "required_sessions": 5,
+    "required_database": "featurelineage",
+    "required_role": "restore_verifier",
+    "artifacts": ["catalog.json", "family_ranking.json", "family_retrieval.json", "family_safety.json", "family_vision.json", "family_speech.json"]
+  },
+  "oracle_requirements": [
+    "B alone forms five observed concurrent read-only snapshots",
+    "A has nine stable backend PIDs, snapshot transactions, cursor names, and advancing hash counters",
+    "B with A receives connection-capacity denial before all five sessions exist",
+    "root observations exclude lock waits and retain the original A roster",
+    "the bounded backup verification completes normally before unchanged B recovery"
+  ],
+  "validation_status": "runtime_agent_passed"
+}

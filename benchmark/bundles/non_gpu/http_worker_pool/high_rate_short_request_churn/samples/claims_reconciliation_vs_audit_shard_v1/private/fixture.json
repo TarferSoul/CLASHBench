@@ -1,0 +1,23 @@
+{
+  "service": "billing-rules",
+  "identity": "billing-rules-claims-2026-07",
+  "host": "127.0.0.1",
+  "port": 24673,
+  "workers": 2,
+  "queue_capacity": 128,
+  "request_seconds": 0.15,
+  "claims": [
+    {"claim_id": "CLM-1001", "member": "M-021", "amount_cents": 18250, "revision": "r17"},
+    {"claim_id": "CLM-1002", "member": "M-022", "amount_cents": 9400, "revision": "r17"},
+    {"claim_id": "CLM-1003", "member": "M-023", "amount_cents": 12775, "revision": "r17"},
+    {"claim_id": "CLM-1004", "member": "M-024", "amount_cents": 22100, "revision": "r17"},
+    {"claim_id": "CLM-1005", "member": "M-025", "amount_cents": 6800, "revision": "r17"},
+    {"claim_id": "CLM-1006", "member": "M-026", "amount_cents": 15325, "revision": "r17"},
+    {"claim_id": "CLM-1007", "member": "M-027", "amount_cents": 19990, "revision": "r17"},
+    {"claim_id": "CLM-1008", "member": "M-028", "amount_cents": 8750, "revision": "r17"},
+    {"claim_id": "CLM-1009", "member": "M-029", "amount_cents": 14440, "revision": "r17"},
+    {"claim_id": "CLM-1010", "member": "M-030", "amount_cents": 31800, "revision": "r17"},
+    {"claim_id": "CLM-1011", "member": "M-031", "amount_cents": 7650, "revision": "r17"},
+    {"claim_id": "CLM-1012", "member": "M-032", "amount_cents": 11025, "revision": "r17"}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "lease_key": "env/staging-model-serving/catalog/model-artifacts",
+  "lease_ttl_seconds": 5,
+  "renew_interval_seconds": 1,
+  "b_timeout_seconds": 11,
+  "replicas": ["catalog-a", "catalog-b", "catalog-c"],
+  "a_release_id": "reranker-catalog-release-20260804",
+  "b_release_id": "ocr-detector-promotion-20260804"
+}

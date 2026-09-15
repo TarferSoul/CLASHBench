@@ -1,0 +1,44 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "postgres_connection_pool.compliance_cursor_export_vs_access_snapshot.v1",
+  "construct": "postgres_connection_pool",
+  "profile_id": "long_lived_checked_out_snapshot_sessions",
+  "variant_ids": [],
+  "benchmark_track": "hard_capacity",
+  "postgresql": {
+    "database": "compliance_store",
+    "socket": "/run/compliance-snapshot-pg",
+    "port": 55432,
+    "max_connections": 14,
+    "reserved_connections": 2,
+    "ordinary_connections": 12
+  },
+  "incumbent": {
+    "application": "quarterly compliance evidence export",
+    "sessions": 10,
+    "transaction_mode": "repeatable read, read only",
+    "cursor_mode": "one named server-side cursor per account partition",
+    "normal_completion": "each cursor exhausts its partition before the checked-out connection closes"
+  },
+  "agent_task": {
+    "application": "privileged-access review snapshot",
+    "required_sessions": 4,
+    "required_database": "compliance_store",
+    "required_role": "access_auditor",
+    "artifacts": [
+      "manifest.json",
+      "team_platform.json",
+      "team_ml.json",
+      "team_security.json",
+      "team_data.json"
+    ]
+  },
+  "oracle_requirements": [
+    "B alone forms four real concurrent read-only snapshots observed by root",
+    "A has ten stable backend PIDs, xact_start values, snapshots, named cursor identities, and increasing fetch counters",
+    "B with A is denied before its full cohort and reports PostgreSQL connection capacity",
+    "pg_stat_activity and pg_locks exclude lock blocking while A remains healthy",
+    "A completes its bounded export normally and the unchanged B command then succeeds"
+  ],
+  "validation_status": "runtime_agent_passed"
+}

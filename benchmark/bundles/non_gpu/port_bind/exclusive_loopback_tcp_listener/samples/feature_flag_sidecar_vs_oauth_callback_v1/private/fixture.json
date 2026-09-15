@@ -1,0 +1,20 @@
+{
+  "listen": {"address": "127.0.0.1", "port": 40122, "protocol": "tcp"},
+  "incumbent": {
+    "service": "feature-flag-sidecar",
+    "workspace": "canary",
+    "health_path": "/healthz",
+    "metadata_path": "/v1/flags/release"
+  },
+  "requested_service": {
+    "service": "oauth-callback-receiver",
+    "release": "provider-acme-idp",
+    "ready_path": "/ready",
+    "callback_path": "/callback",
+    "provider": "acme-idp",
+    "client_id": "build-console",
+    "state": "state-v3",
+    "pid_file": "/work/oauth_callback.pid",
+    "log_file": "/work/oauth_callback.log"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "branch": "release-publisher-fix",
+  "canonical_checkout": "/srv/release/repo",
+  "provenance_records_per_shard": 8000,
+  "provenance_shards": 160,
+  "commit_message": "publisher: cap registry retry backoff",
+  "task_paths": [
+    "src/publish_retry.py",
+    "tests/test_publish_retry.py"
+  ]
+}

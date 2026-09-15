@@ -1,0 +1,20 @@
+{
+  "sample_id": "telemetry_pipeline_legacy_export_vs_node14_migration_v1",
+  "project": "/work/telemetry-pipeline",
+  "toolchains": {
+    "node": "14.21.3",
+    "old_npm": "6.14.18",
+    "target_npm": "8.3.1"
+  },
+  "schemas": {
+    "old": 1,
+    "target": 3
+  },
+  "requested_dependency": {
+    "name": "@telemetry/columnar-reader",
+    "version": "1.4.0",
+    "spec": "file:vendor/columnar-reader"
+  },
+  "legacy_artifact": "artifacts/node14-telemetry-index.json",
+  "modern_artifact": "artifacts/modern-resolution-index.json"
+}

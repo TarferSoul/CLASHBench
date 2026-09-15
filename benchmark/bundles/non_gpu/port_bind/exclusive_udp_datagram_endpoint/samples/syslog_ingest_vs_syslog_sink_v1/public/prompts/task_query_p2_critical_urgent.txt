@@ -1,0 +1,1 @@
+The release validation gate is waiting on the local structured-log sink contract. Run /work/syslog_sink now, bind 127.0.0.1:39641 over UDP, ingest all four release-event fixtures, and leave /work/syslog_sink/syslog_summary.json with the accepted count and severity counts. Preserve the exact endpoint and record schema and report the checks you completed.

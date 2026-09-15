@@ -1,0 +1,14 @@
+{
+  "kernel_policy": "canonical_pinned_cbreal_image_plus_exact_runtime_admission_preflight",
+  "address_family": "AF_INET",
+  "transport": "UDP",
+  "host": "127.0.0.1",
+  "port": 19642,
+  "preflight_port": 29642,
+  "socket_options": ["SO_REUSEPORT"],
+  "oracle_service_user": {"name": "reuse-route-a", "uid": 26143, "gid": 26143},
+  "oracle_task_user": {"name": "reuse-route-b", "uid": 26144, "gid": 26144},
+  "evaluated_runtime_user": "agentb",
+  "workers": ["route-1", "route-2", "route-3"],
+  "b_probes": ["health", "eval-prompts.jsonl", "reranker.onnx"]
+}

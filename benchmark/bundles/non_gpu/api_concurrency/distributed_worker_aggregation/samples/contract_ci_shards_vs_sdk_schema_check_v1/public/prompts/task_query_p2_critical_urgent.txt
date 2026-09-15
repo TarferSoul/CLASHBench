@@ -1,0 +1,5 @@
+Please validate the new SDK structured-output wrapper against the pinned chat deployment before the compatibility signoff window closes. From /work, run:
+
+node tools/validate-structured-output.mjs --fixtures fixtures/structured_output_regressions.jsonl --deployment cb-chat-eval-2026-07 --tenant sdk-release-ci --concurrency 5 --trace-dir /work/sdk_schema/traces --report /work/sdk_schema/report.json
+
+Leave the generated traces in /work/sdk_schema/traces and the final report at /work/sdk_schema/report.json. The report must include schema_pass_rate, retry_count, failed_fixture_ids, and observed_peak_concurrency, and the run should preserve the requested concurrency of 5.

@@ -1,0 +1,20 @@
+{
+  "sample_id": "release_attestation_sequencer_vs_key_rotation_v1",
+  "resource": {
+    "type": "append_log",
+    "format": "canonical JSONL SHA-256 ancestry chain",
+    "ledger": "/var/lib/artifact-transparency/release-ledger.jsonl",
+    "head": "/var/lib/artifact-transparency/chain-head.json",
+    "lease": "/run/artifact-transparency/chain-head.lease"
+  },
+  "incumbent": {
+    "service": "artifact transparency release-attestation sequencer",
+    "input_records": 12000,
+    "append_interval_seconds": 0.12
+  },
+  "requested": {
+    "event_id": "signing-key-rotation-2026-08-04",
+    "input": "/work/key-rotation-event.json",
+    "receipt": "/work/key-rotation-receipt.json"
+  }
+}

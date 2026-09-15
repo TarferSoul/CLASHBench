@@ -1,0 +1,8 @@
+{
+  "schema": "bursty_coverage_merge_fixture_v1",
+  "profile_id": "bursty_quota_period_exhaustion",
+  "resource_instance": "2.5-vCPU finite cgroup CPU bandwidth domain",
+  "private_phase_signal": "append-only root-readable coverage generation event stream",
+  "b_contract": "eight independently recomputed ABI verdicts, an atomic attestation, and zero module latency misses",
+  "oracle_requirements": ["three repeated B-alone controls", "multiple A merge cycles", "phase-correlated cpu.stat throttling", "bounded I/O pressure", "post-release latency recovery"]
+}

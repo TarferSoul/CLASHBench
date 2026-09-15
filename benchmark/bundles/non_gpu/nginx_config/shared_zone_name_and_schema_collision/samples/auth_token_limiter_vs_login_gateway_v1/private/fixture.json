@@ -1,0 +1,8 @@
+{
+  "sample_id": "auth_token_limiter_vs_login_gateway_v1",
+  "profile_id": "shared_zone_name_and_schema_collision",
+  "benchmark_track": "state_integrity",
+  "zone": {"name": "auth_shared", "incumbent_size": "1m", "requested_size": "4m", "module": "ngx_http_proxy_module"},
+  "incumbent": {"host": "feature-gateway.internal", "route": "/v1/features/current", "service": "feature-vector-cache"},
+  "requested": {"route": "/v2/audits/latest", "service": "audit-results-cache"}
+}

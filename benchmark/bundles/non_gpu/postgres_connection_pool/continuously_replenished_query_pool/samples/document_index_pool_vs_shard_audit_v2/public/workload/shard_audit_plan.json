@@ -1,0 +1,13 @@
+{
+  "audit_id": "searchops-nightly-index-audit-20260721",
+  "database": "searchops",
+  "role": "index_auditor",
+  "socket": "/run/search-pg",
+  "required_sessions": 4,
+  "shards": [
+    {"name": "0", "shard": 0},
+    {"name": "1", "shard": 1},
+    {"name": "2", "shard": 2},
+    {"name": "3", "shard": 3}
+  ]
+}

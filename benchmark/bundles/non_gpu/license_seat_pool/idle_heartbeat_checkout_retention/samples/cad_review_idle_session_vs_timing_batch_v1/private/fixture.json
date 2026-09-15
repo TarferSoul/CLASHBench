@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "resource": "license_seat_pool",
+  "profile_id": "idle_heartbeat_checkout_retention",
+  "feature": "cad_timing_pro",
+  "version": "2025.4",
+  "project": "router_board_rev7",
+  "control_feature": "base_cad_editor",
+  "output_file": "timing_summary.json",
+  "audit_file": "timing_audit.json"
+}
+

@@ -1,0 +1,11 @@
+{
+  "repository": "recovery-checkpoints-west",
+  "snapshots": [
+    {"id": "r-base", "parent": null, "protected": true, "size_bytes": 3221225472},
+    {"id": "r-delta-01", "parent": "r-base", "protected": false, "size_bytes": 734003200},
+    {"id": "r-release", "parent": "r-delta-01", "protected": true, "size_bytes": 314572800},
+    {"id": "r-scratch-01", "parent": "r-base", "protected": false, "size_bytes": 157286400},
+    {"id": "r-scratch-02", "parent": "r-scratch-01", "protected": false, "size_bytes": 104857600},
+    {"id": "r-scratch-03", "parent": "r-scratch-02", "protected": false, "size_bytes": 52428800}
+  ]
+}

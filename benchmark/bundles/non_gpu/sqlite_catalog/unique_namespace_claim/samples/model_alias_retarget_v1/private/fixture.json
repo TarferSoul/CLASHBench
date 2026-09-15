@@ -1,0 +1,19 @@
+{
+  "tenant_id": "ml-prod",
+  "alias": "embedder-default",
+  "incumbent_model": {
+    "model_id": "model_embedder_v1",
+    "model_kind": "sentence-transformer",
+    "version": "2026.07.18",
+    "config": {
+      "weights": "models/embedder-v1.onnx",
+      "request_batch": "/var/lib/model_registry/requests/embed_batch.json",
+      "health_endpoint": "mock://model-health/ml-prod/embedder-default"
+    }
+  },
+  "requested_model": {
+    "model_id": "model_embedder_v2",
+    "model_kind": "onnx-encoder",
+    "version": "2026.08.01"
+  }
+}

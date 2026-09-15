@@ -1,0 +1,11 @@
+{
+  "catalog_id": "feature-restore-verification-2026-07-31",
+  "database": "featurelineage",
+  "role": "restore_verifier",
+  "socket": "/run/feature-backup-pg",
+  "port": 55433,
+  "application_prefix": "restore-catalog-check",
+  "required_sessions": 5,
+  "hold_seconds": 2.2,
+  "families": ["ranking", "retrieval", "safety", "vision", "speech"]
+}

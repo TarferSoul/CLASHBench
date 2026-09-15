@@ -1,0 +1,6 @@
+{
+  "target_mount": {"path": "/work/runtime-store", "resolved_mount": "/dev/shm", "type": "pre-mounted tmpfs subdirectory", "size_mib": 64, "purpose": "configured OCI runtime content store"},
+  "incumbent": {"layer_bytes": 53477376, "layer_count": 3, "ready_phase": "verifying", "minimum_verification_passes": 2},
+  "b": {"release": "edge-gateway-wasm-2026.08.04", "layer_bytes": 18874368, "receipt": "/work/artifacts/edge-gateway-load.json"},
+  "oracle": {"requires_distinct_control_device": true, "requires_target_enospc": true, "requires_a_progress": true, "requires_unchanged_b_after_release": true}
+}

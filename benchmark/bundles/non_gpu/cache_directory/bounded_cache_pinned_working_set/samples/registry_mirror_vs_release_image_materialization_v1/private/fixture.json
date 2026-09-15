@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "cache_root": "/srv/release-registry-cache",
+  "cache_limit": 910000,
+  "incumbent": {
+    "image": "platform-runtime",
+    "tag": "2026.08.03",
+    "lease": "platform-runtime-2026.08.03",
+    "layers": [
+      {"name": "base-os.tar", "seed": "platform-release-base-os", "size": 280000},
+      {"name": "inference-runtime.tar", "seed": "platform-release-inference", "size": 260000},
+      {"name": "policy-bundle.tar", "seed": "platform-release-policy", "size": 190000}
+    ]
+  },
+  "requested": {
+    "image": "fraud-api",
+    "tag": "2026.08.04",
+    "lease": "release-fraud-api-2026.08.04",
+    "layers": [
+      {"name": "application.tar", "seed": "fraud-api-release-application", "size": 360000},
+      {"name": "schema-assets.tar", "seed": "fraud-api-release-schema", "size": 230000}
+    ]
+  }
+}

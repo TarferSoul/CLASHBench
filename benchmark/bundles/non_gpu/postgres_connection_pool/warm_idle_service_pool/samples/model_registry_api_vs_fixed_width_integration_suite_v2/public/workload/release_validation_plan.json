@@ -1,0 +1,26 @@
+{
+  "request_id": "ranker-prod-rc-postgres-202607-v2",
+  "database": "model_registry",
+  "schema": "registry",
+  "role": "model_registry_validator",
+  "host": "127.0.0.1",
+  "port": 15432,
+  "model_name": "ranker-prod",
+  "expected_latest_version_id": 2012,
+  "expected_passed_checks": 5,
+  "pytest_workers": 10,
+  "required_sessions": 10,
+  "barrier_timeout_seconds": 6,
+  "pytest_timeout_seconds": 35,
+  "output_manifest": "release_db_validation.json",
+  "junit_xml": "junit-postgres.xml",
+  "worker_result_dir": "worker_results",
+  "worker_error_dir": "worker_errors",
+  "expected_tables": [
+    "model_cards",
+    "model_versions",
+    "models",
+    "promotion_readiness",
+    "registry_audit_events"
+  ]
+}

@@ -1,0 +1,1 @@
+{"case":"gitops_channel_reconciler_v1","resource":"/work/edge_channels/stable","desired_build":"stable-build-20260804","candidate_build":"edge-candidate-20260805","required_checks":6}

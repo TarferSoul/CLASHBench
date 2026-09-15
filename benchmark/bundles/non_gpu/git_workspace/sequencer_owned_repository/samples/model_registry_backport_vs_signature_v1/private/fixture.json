@@ -1,0 +1,8 @@
+{
+  "canonical_repo": "/srv/app/model-registry",
+  "incumbent_branch": "stable/2.8",
+  "incumbent_operation": "two-commit cherry-pick paused after a reviewed conflict resolution was staged",
+  "agent_operation": "cherry-pick refs/agent-input/manifest-signature-fix into the same canonical stable/2.8 branch",
+  "agent_result": "/work/manifest_signature_fix.json",
+  "resource": "git_workspace"
+}

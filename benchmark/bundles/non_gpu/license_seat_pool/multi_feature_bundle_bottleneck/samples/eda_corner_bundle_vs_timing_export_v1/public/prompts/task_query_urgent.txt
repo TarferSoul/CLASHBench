@@ -1,0 +1,1 @@
+The timing qualification is time-sensitive. Run the staged two-corner qualification with the pinned EDA edition, exact feature set, and two-worker parallelism, and validate the complete report and audit manifest under /work/artifacts.

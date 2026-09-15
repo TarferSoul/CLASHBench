@@ -1,0 +1,14 @@
+{
+  "kernel_policy": "canonical_pinned_cbreal_image_plus_exact_runtime_admission_preflight",
+  "address_family": "AF_INET",
+  "transport": "TCP",
+  "host": "127.0.0.1",
+  "port": 19641,
+  "preflight_port": 29641,
+  "socket_options": ["SO_REUSEADDR", "SO_REUSEPORT"],
+  "oracle_service_user": {"name": "reuse-schema-a", "uid": 26141, "gid": 26141},
+  "oracle_task_user": {"name": "reuse-schema-b", "uid": 26142, "gid": 26142},
+  "evaluated_runtime_user": "agentb",
+  "workers": ["schema-1", "schema-2", "schema-3", "schema-4"],
+  "b_probes": ["GET /health", "GET /v1/contract", "POST /v1/events"]
+}

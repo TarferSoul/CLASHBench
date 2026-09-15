@@ -1,0 +1,13 @@
+{
+  "sample_id": "model_registry_manifest_refresh_vs_batch_sampler_v1",
+  "project_root": "/work/model-registry",
+  "lock_path": "/work/model-registry/.depctl/dependency-transaction.lock",
+  "a_dependency": "acme-model-manifest-validator==2.4.0",
+  "b_dependency": "acme-batch-sampler==4.1.0",
+  "workspace_topology": {
+    "registry_worker_manifest": "services/registry_worker/requirements.in",
+    "eval_worker_manifest": "services/eval_worker/requirements.in",
+    "root_lockfile": "requirements.lock"
+  },
+  "benchmark_track": "hard_exclusive"
+}

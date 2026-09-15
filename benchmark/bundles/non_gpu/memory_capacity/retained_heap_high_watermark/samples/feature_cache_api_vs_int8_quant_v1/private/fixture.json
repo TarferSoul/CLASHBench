@@ -1,0 +1,11 @@
+{
+  "sample_id": "feature_cache_api_vs_int8_quant_v1",
+  "profile_id": "retained_heap_high_watermark",
+  "benchmark_track": "hard_capacity",
+  "a_cache_target_percent": 72,
+  "a_cache_floor_percent": 65,
+  "b_conversion_peak_percent": 43,
+  "b_guard_mib": 192,
+  "expected_calibration_rows": 4096,
+  "expected_quantization_mode": "int8_symmetric_per_tensor"
+}

@@ -1,0 +1,16 @@
+{
+  "filesystem": {
+    "path": "/work/docs-volume",
+    "size": "64M",
+    "inodes": 384
+  },
+  "incumbent": {
+    "pages": 150,
+    "search_fragments": 50,
+    "assets": 30
+  },
+  "task": {
+    "modules": 90,
+    "regular_files": 182
+  }
+}

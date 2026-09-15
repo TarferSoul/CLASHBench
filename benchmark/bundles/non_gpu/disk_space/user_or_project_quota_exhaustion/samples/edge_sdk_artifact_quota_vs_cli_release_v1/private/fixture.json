@@ -1,0 +1,20 @@
+{
+  "quota_domain": "/dev/shm/edge-sdk-project-quota",
+  "quota_source": "/dev/shm",
+  "quota_mib": 64,
+  "incumbent": {
+    "retention_set": "edgecli-2.4.1-rc3",
+    "retained_bytes": 37748736,
+    "health": "checksum validation and advancing ABI-test heartbeat"
+  },
+  "requested_output": {
+    "path": "/dev/shm/edge-sdk-project-quota/worktree/releases/edgecli-2.4.1",
+    "archive_min_bytes": 16777216,
+    "required_files": [
+      "edgecli-2.4.1.tar",
+      "SBOM.spdx.json",
+      "SHA256SUMS",
+      "release_manifest.json"
+    ]
+  }
+}

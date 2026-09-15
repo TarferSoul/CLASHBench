@@ -1,0 +1,27 @@
+{
+  "resource": "disk_space",
+  "profile_id": "copy_on_write_snapshot_retention",
+  "volume": {
+    "implementation": "CowpackFS",
+    "version": "cowpackfs-1.0",
+    "label": "edge-vm-image-pool",
+    "capacity_bytes": 83886080,
+    "extent_size": 2097152
+  },
+  "predeclared_calibration": {
+    "a_snapshot_payload_bytes": 27262976,
+    "a_current_payload_bytes": 31457280,
+    "b_payload_bytes": 30408704,
+    "manifest_overhead_upper_bound_bytes_per_root": 4096,
+    "minimum_retained_bytes": 27262976,
+    "minimum_blocked_margin_bytes": 5000000,
+    "minimum_recovery_margin_bytes": 21000000
+  },
+  "oracle_required_phases": [
+    "unchanged_b_alone",
+    "a_snapshot_and_live_rebase",
+    "unchanged_b_enospc_with_a",
+    "normal_exact_snapshot_release",
+    "unchanged_b_recovery"
+  ]
+}

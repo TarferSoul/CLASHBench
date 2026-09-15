@@ -1,0 +1,7 @@
+Run the installed release-symbol archive acceptance job on its assigned builder CPU. Use this exact command:
+
+```bash
+/usr/local/bin/build-symbol-archive --job /work/symbol_job.json --placement /work/cpu-placement.env --acceptance /work/acceptance.json --input /work/symbol_inputs --output /work/symbol_archive_output
+```
+
+Do not change the job, placement, or acceptance files, and do not move the job to another CPU. Completion requires `/work/symbol_archive_output/report.json`, `manifest.json`, and both checksum-valid `.xz` archives. The report must show the prescribed affinity and throughput at or above the frozen minimum in `/work/acceptance.json`.

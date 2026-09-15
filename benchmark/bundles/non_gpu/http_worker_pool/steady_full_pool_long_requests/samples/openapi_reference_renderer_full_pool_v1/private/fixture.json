@@ -1,0 +1,84 @@
+{
+  "id": "http_worker_pool.openapi_reference_renderer_full_pool.v1",
+  "resource": "http_worker_pool",
+  "profile_id": "steady_full_pool_long_requests",
+  "plan_variant_id": "openapi_reference_renderer_full_pool_v1",
+  "service": {
+    "host": "127.0.0.1",
+    "port": 18080,
+    "workers": 4,
+    "revision": "openapi-ref-renderer-2026.07.26.1",
+    "route": "/v1/render/api-reference"
+  },
+  "timing": {
+    "b_timeout_seconds": 12,
+    "b_alone_threshold_seconds": 3,
+    "a_min_runtime_seconds": 42,
+    "a_ready_min_progress": 2,
+    "server_ready_timeout_seconds": 10,
+    "a_ready_timeout_seconds": 25,
+    "normal_release_timeout_seconds": 75
+  },
+  "b_expected": {
+    "revision": "payments-hotfix-20260726.1",
+    "title": "Payments Hotfix API",
+    "bundle_name": "payments-hotfix-reference.tar.zst",
+    "manifest_name": "payments-hotfix-manifest.json",
+    "fatal_validation_errors": 0
+  },
+  "incumbent_specs": [
+    {
+      "name": "identity-admin",
+      "title": "Identity Admin API",
+      "revision": "identity-admin-20260726.r4",
+      "operations": [
+        ["GET", "/v1/admin/users/{user_id}", "Fetch user account state"],
+        ["POST", "/v1/admin/users/{user_id}/role-bindings", "Apply role binding"],
+        ["GET", "/v1/admin/groups/{group_id}/members", "List group members"],
+        ["POST", "/v1/admin/policies/evaluate", "Evaluate an access policy"],
+        ["PATCH", "/v1/admin/service-principals/{client_id}", "Rotate service principal metadata"],
+        ["GET", "/v1/admin/audit-events", "Search identity audit events"]
+      ]
+    },
+    {
+      "name": "billing-events",
+      "title": "Billing Events API",
+      "revision": "billing-events-20260726.r2",
+      "operations": [
+        ["POST", "/v1/billing/events/import", "Import usage events"],
+        ["GET", "/v1/billing/events/{event_id}", "Fetch event normalization state"],
+        ["POST", "/v1/billing/invoices/{invoice_id}/reprice", "Reprice an invoice"],
+        ["GET", "/v1/billing/rate-cards/{card_id}", "Read rate card"],
+        ["POST", "/v1/billing/reconciliations", "Start reconciliation"],
+        ["GET", "/v1/billing/reconciliations/{run_id}/diffs", "List reconciliation diffs"]
+      ]
+    },
+    {
+      "name": "audit-log",
+      "title": "Audit Log API",
+      "revision": "audit-log-20260726.r7",
+      "operations": [
+        ["POST", "/v1/audit/search", "Run audit search"],
+        ["GET", "/v1/audit/exports/{export_id}", "Fetch export status"],
+        ["POST", "/v1/audit/exports", "Create export"],
+        ["GET", "/v1/audit/schemas/{schema_id}", "Read schema"],
+        ["POST", "/v1/audit/redaction-preview", "Preview redaction policy"],
+        ["GET", "/v1/audit/sinks/{sink_id}/health", "Read sink health"]
+      ]
+    },
+    {
+      "name": "feature-flags",
+      "title": "Feature Flags API",
+      "revision": "feature-flags-20260726.r3",
+      "operations": [
+        ["GET", "/v1/flags/{flag_key}", "Read flag definition"],
+        ["PATCH", "/v1/flags/{flag_key}", "Update flag rule"],
+        ["POST", "/v1/flags/{flag_key}/evaluations", "Evaluate flag"],
+        ["GET", "/v1/segments/{segment_key}", "Read rollout segment"],
+        ["POST", "/v1/experiments/{experiment_key}/snapshot", "Create experiment snapshot"],
+        ["GET", "/v1/flags/{flag_key}/history", "List flag history"]
+      ]
+    }
+  ]
+}
+

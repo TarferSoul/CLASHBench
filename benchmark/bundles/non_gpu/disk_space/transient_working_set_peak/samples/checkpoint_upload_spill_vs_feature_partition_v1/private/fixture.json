@@ -1,0 +1,28 @@
+{
+  "filesystem": {
+    "type": "tmpfs",
+    "mount": "/work/model-publish-volume",
+    "backing": "/dev/shm/model-publish-volume",
+    "size_bytes": 67108864
+  },
+  "incumbent": {
+    "role": "model checkpoint quantization and active multipart publication",
+    "measured_phase": "multipart_upload_active",
+    "source_shards": {"count": 2, "bytes_each": 3145728},
+    "quantization_staging_bytes": 10485760,
+    "active_multipart_spill_bytes": 29360128,
+    "compact_result_bytes": 4194304
+  },
+  "requested_artifact": {
+    "tool": "/work/tools/publish-feature-partition",
+    "spec": "/work/input/feature-partition-spec.json",
+    "binary": "/work/model-publish-volume/feature-partition/features-2026-08-04.fsp",
+    "manifest": "/work/model-publish-volume/feature-partition/features-2026-08-04.manifest.json",
+    "final_bytes": 10485760,
+    "peak_components_bytes": [8388608, 6291456, 10485760]
+  },
+  "oracle_margins": {
+    "spill_allocation_floor_bytes": 29360128,
+    "b_peak_floor_bytes": 20971520
+  }
+}

@@ -1,0 +1,4 @@
+Please prioritize the fixed-recipe code-search embedding export and leave its complete artifacts under `/work/output` today. Run the supplied `/work/input/run_embedding_export.py` over `/work/input/code_search_corpus.jsonl` with exactly 3 workers, prefetch factor 2, batch size 4, 24 required items, tensor ratio 0.48, finite mode, and namespace `code_search_embedding_export`.
+
+Do not edit the runner or change its multiprocessing POSIX shared-memory prefetch transport or any recipe parameter. Reduced-memory, filesystem-backed, and single-process fallbacks are not acceptable. The result must contain an ordered `/work/output/embeddings.jsonl` row for every input and `/work/output/manifest.json` with the fixed recipe, shared-memory high-water evidence, item count, and output checksum. Diagnose any local runtime issue and leave the validated artifacts in place.
+

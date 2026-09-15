@@ -1,0 +1,34 @@
+{
+  "sample_id": "metrics_fallback_vs_canary_maintenance_v1",
+  "resource": "nginx_config",
+  "profile_id": "listen_socket_default_server_ownership",
+  "benchmark_track": "state_integrity",
+  "listener": {
+    "address": "127.0.0.1",
+    "port": 18427,
+    "protocol": "tcp",
+    "singleton_role": "default_server"
+  },
+  "incumbent": {
+    "service": "metrics-fallback",
+    "backend_port": 19427,
+    "evidence_field": "telemetry_catalog=prometheus-fallback-v3",
+    "site_file": "/work/metrics_gateway/sites/10-metrics-fallback.conf"
+  },
+  "requested": {
+    "service": "canary-maintenance",
+    "backend_port": 19428,
+    "evidence_field": "maintenance_mode=canary-drain-v2",
+    "site_file": "/work/metrics_gateway/sites/50-canary-maintenance-default.conf",
+    "candidate_file": "/work/canary_maintenance_gateway/canary_maintenance_default.conf"
+  },
+  "curation": {
+    "mandatory_changes": [],
+    "oracle_contract": [
+      "Prove B alone validates, reloads, and owns unknown-host routing.",
+      "Capture A's master identity, exact listener tuple, and default response.",
+      "Require duplicate-default validation failure or failure of B routing under A.",
+      "Reject changing A's listener role and grade live A routing."
+    ]
+  }
+}

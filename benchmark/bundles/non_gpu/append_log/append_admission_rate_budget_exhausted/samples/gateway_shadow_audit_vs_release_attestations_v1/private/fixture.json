@@ -1,0 +1,21 @@
+{
+  "sample_id": "gateway_shadow_audit_vs_release_attestations_v1",
+  "profile_id": "append_admission_rate_budget_exhausted",
+  "protocol": "authenticated HTTP JSON append with durable per-event receipt",
+  "collector": {
+    "endpoint": "http://127.0.0.1:43871",
+    "refill_events_per_second": 60,
+    "burst_tokens": 6
+  },
+  "incumbent": {
+    "owner": "gateway-shadow-policy",
+    "useful_work": "route-level candidate authorization-policy decision audit"
+  },
+  "task": {
+    "owner": "release-attestation-check",
+    "fixture_records": 72,
+    "deadline_seconds": 3,
+    "minimum_ingest_eps": 24,
+    "deliverables": ["receipts.jsonl", "report.json"]
+  }
+}

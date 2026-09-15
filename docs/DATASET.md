@@ -2,20 +2,31 @@
 
 ## Distribution
 
-Evaluation tools and benchmark data are separate. This repository currently
-ships a tiny `runner-smoke-only` fixture, **not** the paper's benchmark. A public
-268-case archive URL and checksum have not been published here yet. Do not use
-smoke results as model scores or describe this checkout as containing all cases.
+This repository ships the 238 frozen CPU system-resource cases under
+`benchmark/`, including the inventory, fixtures, prompts, graders, and file
+checksums. A clone supplies these inputs directly; no separate CPU archive
+download or internal storage path is required. `examples/` contains a separate
+infrastructure smoke fixture, which must never be used as a model score.
 
 The intended paper inventory is 248 system-resource cases (238 CPU and 10 GPU)
 plus 20 daily-life cases. The historical everyday staging directory has 21
 entries; its count must not be used as the release selection. The maintainer
 must freeze the exact 20-case selection before publishing that archive.
 
+The CPU release retains the original case limits, task definitions, and task
+and peer graders. Eight runner fallback artifact paths were changed from
+historical cluster paths to `/run/acb-results`. Two authoritative-context
+oracles wait for `SIGSTOP` delivery before asserting the stopped process state;
+the expected state and grading rules are unchanged. Four legacy runners use
+canonical trace names and unique result filenames; two of those runners now
+accept Codex through the installed wrapper under their original agent identity. `inventory.json` records
+these portability changes and hashes every bundled file. The immutable source
+dataset is not modified.
+
 ## Expected extracted layout
 
 ```text
-data/release/
+benchmark/
   inventory.json
   bundles/<resource>/<configuration>/
     bin/run_case.sh
@@ -30,7 +41,7 @@ Minimal inventory entry:
 ```json
 {
   "schema_version": 1,
-  "dataset": "AgentConflictBench-v1",
+  "dataset": "CLASHBench-v1",
   "cases": [{
     "id": "case-id",
     "track": "system-resource",

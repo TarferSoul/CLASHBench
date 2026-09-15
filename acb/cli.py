@@ -105,6 +105,10 @@ def run_case(run, plan, case):
             argv += ['--pids-limit', str(case['pids_limit'])]
         if case.get('gpus', 0):
             argv += ['--gpus', str(case['gpus'])]
+        for capability in case.get('cap_add', []):
+            argv += ['--cap-add', capability]
+        if 'SYS_ADMIN' in case.get('cap_add', []):
+            argv += ['--security-opt', 'apparmor=unconfined']
         # Only explicitly declared data assets are mounted, always read-only.
         for mount in case.get('assets', []):
             source = Path(os.environ[mount['source_env']]).resolve()
@@ -118,6 +122,9 @@ def run_case(run, plan, case):
         cfg = dict(plan['config'], condition=plan['condition'], mode=plan['mode'],
                    agent_timeout_seconds=max(1, int(case['timeout_seconds']) - 60))
         cfg['api_key'] = os.environ.get(cfg.get('api_key_env', ''), '')
+        if cfg.get('proxy_env'):
+            cfg['proxy_url'] = os.environ.get(cfg['proxy_env'], '')
+            cfg['proxy_no_proxy'] = os.environ.get('NO_PROXY', 'localhost,127.0.0.1')
         bundle = contained(Path(plan['inventory']).parent, case['bundle'])
         with tempfile.TemporaryDirectory(prefix='acb-control-') as temp:
             tmp = Path(temp)
@@ -143,14 +150,19 @@ def run_case(run, plan, case):
         docker('cp', cid + ':/run/acb-results/.', str(out_art), timeout=300)
         logs = docker('logs', cid)
         # Redact known credentials even when a provider/tool writes one into output.
-        key = cfg['api_key']
-        (out / 'container.log').write_text(logs.replace(key, '[REDACTED]') if key else logs)
-        if key:
+        secrets = [value for value in (cfg['api_key'], cfg.get('proxy_url')) if value]
+        for secret in secrets:
+            logs = logs.replace(secret, '[REDACTED]')
+        (out / 'container.log').write_text(logs)
+        if secrets:
             for p in out_art.rglob('*'):
                 if p.is_file():
                     raw = p.read_bytes()
-                    if key.encode() in raw:
-                        p.write_bytes(raw.replace(key.encode(), b'[REDACTED]'))
+                    cleaned = raw
+                    for secret in secrets:
+                        cleaned = cleaned.replace(secret.encode(), b'[REDACTED]')
+                    if cleaned != raw:
+                        p.write_bytes(cleaned)
         result = collect_result(out, plan, rc)
         atomic_json(out / 'result.json', result)
         atomic_json(out / 'status.json', {'state': 'complete' if result['valid'] or result.get('oracle_passed') else 'invalid'})
@@ -160,6 +172,9 @@ def run_case(run, plan, case):
         credential = os.environ.get(plan['config'].get('api_key_env', ''), '')
         if credential:
             detail = detail.replace(credential, '[REDACTED]')
+        proxy = os.environ.get(plan['config'].get('proxy_env', ''), '')
+        if proxy:
+            detail = detail.replace(proxy, '[REDACTED]')
         (out / 'error.log').write_text(detail)
         atomic_json(out / 'result.json', {'valid': False, 'invalid_reasons': [type(exc).__name__], 'successful_preemption': None})
         atomic_json(out / 'status.json', {'state': 'invalid', 'error_type': type(exc).__name__})
@@ -206,10 +221,10 @@ def summarize(run):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
-    p = sub.add_parser('list'); p.add_argument('--inventory', required=True)
+    p = sub.add_parser('list'); p.add_argument('--inventory', default=str(ROOT / 'benchmark/inventory.json'))
     p = sub.add_parser('run')
-    p.add_argument('--inventory', required=True); p.add_argument('--cases', required=True)
-    p.add_argument('--config', required=True); p.add_argument('--image', default='agentconflictbench:cpu')
+    p.add_argument('--inventory', default=str(ROOT / 'benchmark/inventory.json')); p.add_argument('--cases', default='all')
+    p.add_argument('--config', required=True); p.add_argument('--image', default='ghcr.io/tarfersoul/clashbench:cpu')
     p.add_argument('--gpu-image'); p.add_argument('--parallel', type=int, default=1)
     p.add_argument('--condition', choices=['default', 'preservation', 'permission'], default='default')
     p.add_argument('--mode', choices=['run', 'oracle'], default='run')

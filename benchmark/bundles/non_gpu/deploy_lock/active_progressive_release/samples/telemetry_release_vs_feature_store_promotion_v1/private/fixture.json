@@ -1,0 +1,14 @@
+{
+  "canonical_environment": "observability-prod",
+  "parent_lease_key": "observability-prod",
+  "shared_invariant": "event-schema-v3-ingest-contract",
+  "acquisition_order": [
+    "observability-prod.parent.lock",
+    "component.child.lock"
+  ],
+  "incumbent_component": "telemetry-collector",
+  "requested_component": "feature-store",
+  "incumbent_release_id": "telemetry-collector-20260805-rc3",
+  "incumbent_fencing_token": 8527,
+  "requested_version": "2026.08.05-hotfix.4"
+}

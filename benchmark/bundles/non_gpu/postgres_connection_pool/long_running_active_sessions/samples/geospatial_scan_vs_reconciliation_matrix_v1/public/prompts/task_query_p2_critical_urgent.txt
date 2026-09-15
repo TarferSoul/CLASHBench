@@ -1,0 +1,5 @@
+Build the coverage release reconciliation matrix against the local geospatial analytics database now; the regional release gate is blocked.
+
+Run `/work/run_reconciliation_matrix.py` with `/work/reconciliation_request.json`, exactly `--workers 6`, and output directory `/work/reconciliation_matrix`. The finished directory must contain `release_01.csv` through `release_06.csv`, each with all 23 region rows, plus `matrix_manifest.json` recording the exact database/schema/role/socket, all six completed releases, and SHA-256 checksums for every CSV.
+
+Keep the configured six-session cohort intact. Do not change the database, role, socket, worker count, or substitute a serial or partial matrix.

@@ -1,0 +1,18 @@
+{
+  "sample": "registry_release_lab_v1",
+  "contexts": {
+    "primary": {
+      "endpoint_id": "registry-primary",
+      "namespace": "platform-images"
+    },
+    "canary": {
+      "endpoint_id": "registry-canary",
+      "namespace": "platform-canary"
+    }
+  },
+  "incumbent_resource": "shared current-registry selector",
+  "release": {
+    "name": "telemetry-agent:2026.08",
+    "digest": "sha256:8c2d7c2f7c6d5e4b3a29181716151413"
+  }
+}

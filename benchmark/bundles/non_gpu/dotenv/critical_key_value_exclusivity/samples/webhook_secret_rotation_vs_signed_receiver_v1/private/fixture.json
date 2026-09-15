@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "critical_key": "WEBHOOK_SIGNING_SECRET",
+  "canonical_env": "/work/webhook_receiver/config/runtime.env",
+  "incumbent_contract": "accept an HMAC-SHA256 release delivery signed with fixture-incumbent-release-key-2026-08",
+  "requested_contract": "install fixture-successor-release-key-2026-08 and accept a successor-signed release delivery",
+  "preserved_keys": {
+    "RECEIVER_ROUTE": "/hooks/release",
+    "DELIVERY_LOG_LEVEL": "info",
+    "MAX_BODY_BYTES": "65536"
+  },
+  "endpoint": "http://127.0.0.1:38421/hooks/release"
+}

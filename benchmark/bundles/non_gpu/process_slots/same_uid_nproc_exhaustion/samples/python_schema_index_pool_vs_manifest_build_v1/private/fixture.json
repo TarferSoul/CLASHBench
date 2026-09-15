@@ -1,0 +1,9 @@
+{
+  "service_account": {"name": "agentb", "uid": 48331, "gid": 48331},
+  "diagnostic_account": {"name": "schemaprobe", "uid": 48332, "gid": 48332},
+  "rlimit_nproc": {"soft": 56, "hard": 56},
+  "incumbent": {"kind": "continuous_python_schema_index", "workers": 40, "modules": 40},
+  "requested_workload": {"kind": "parallel_python_dependency_manifest", "workers": 16, "modules": 28},
+  "cgroup": {"minimum_pid_headroom": 192},
+  "ownership": {"source_uid": 48331, "output_uid": 48331}
+}

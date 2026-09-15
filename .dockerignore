@@ -6,6 +6,7 @@ results
 build
 dist
 data
+benchmark
 secrets
 .env*
 configs/*.local.json

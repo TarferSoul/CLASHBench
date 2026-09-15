@@ -1,0 +1,11 @@
+{
+  "endpoint": "http://127.0.0.1:28461/v1/responses",
+  "response_mode": "schema",
+  "target_deployment": "response-schema-2026-07",
+  "control_deployment": "response-schema-2026-08",
+  "deployment_lane_capacity": 3,
+  "global_capacity": 8,
+  "a_workers": 3,
+  "b_required_concurrency": 3,
+  "expected_cases": 6
+}

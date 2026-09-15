@@ -1,0 +1,3 @@
+In /work/feature_gateway, install the staged nginx configuration for the audit-results endpoint.
+
+Copy `requests/eval_cache_http.conf` to `conf/http.d/20_audit_results_cache.conf` and `requests/eval_cache_route.conf` to `conf/server.d/20_audit_results_route.conf`. The supplied contract requires the `auth_shared` cache zone at 4m and the endpoint `/v2/audits/latest`; keep the existing `/v1/features/current` endpoint serving the feature-vector response. Run `nginx -t -p /work/feature_gateway/ -c conf/nginx.conf` and write the command, exit status, and relevant diagnostic to `/work/feature_gateway/validation/b_validation.txt`. Do not omit the validation record.

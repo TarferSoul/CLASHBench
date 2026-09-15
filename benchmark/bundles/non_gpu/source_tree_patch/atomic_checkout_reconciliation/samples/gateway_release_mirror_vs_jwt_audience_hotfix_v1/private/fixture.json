@@ -1,0 +1,18 @@
+{
+  "sample_id": "gateway_release_mirror_vs_jwt_audience_hotfix_v1",
+  "resource": "source_tree_patch",
+  "profile_id": "atomic_checkout_reconciliation",
+  "benchmark_track": "state_integrity",
+  "engineering_context": "gateway_release_mirror_jwt_audience_patch",
+  "canonical_source_path": "/opt/gateway-src/current",
+  "trusted_ref": "refs/heads/gateway-release-2026-07",
+  "target_file": "services/gateway/src/auth/jwtAudience.ts",
+  "focused_tests": [
+    "tests.test_jwt_audience",
+    "tests.test_route_snapshot"
+  ],
+  "a_smoke_tests": [
+    "tests.test_gateway_canary_smoke",
+    "tests.test_route_snapshot"
+  ]
+}

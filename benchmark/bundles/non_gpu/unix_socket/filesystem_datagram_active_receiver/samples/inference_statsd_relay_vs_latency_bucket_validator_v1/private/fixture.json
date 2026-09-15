@@ -1,0 +1,14 @@
+{
+  "sample_id": "inference_statsd_relay_vs_latency_bucket_validator_v1",
+  "socket_path": "/run/model-serving/statsd.sock",
+  "resource_type": "unix_socket",
+  "profile_id": "filesystem_datagram_active_receiver",
+  "expected_fixture": {
+    "samples": 12,
+    "request_count": 2,
+    "token_counter_total": 224,
+    "p95_latency_bucket_ms": 500
+  },
+  "a_state_dir": "/var/lib/model-metrics",
+  "trust_file": "/var/cbtrust/unix_socket_inference_statsd/a_trust.json"
+}
