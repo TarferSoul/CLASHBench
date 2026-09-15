@@ -1,0 +1,7 @@
+FROM python:3.12-slim
+COPY acb /opt/acb/acb
+ENV PYTHONPATH=/opt/acb
+RUN useradd -m -s /bin/bash agentb && mkdir -p /opt/node/bin \
+    && ln -s /opt/acb/acb/harness.py /usr/local/bin/codex \
+    && chmod 755 /opt/acb/acb/harness.py
+ENTRYPOINT ["python3", "-m", "acb.container"]

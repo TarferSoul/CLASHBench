@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentconflictbench"
+version = "0.1.0"
+description = "Docker-only evaluation tools for AgentConflictBench"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+acb = "acb.cli:main"
+
+[tool.setuptools]
+packages = ["acb"]
+
+[tool.setuptools.package-data]
+acb = ["prompts/*.txt"]

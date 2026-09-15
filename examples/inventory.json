@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "dataset": "runner-smoke-only",
+  "cases": [{
+    "id": "port-conflict", "track": "smoke", "bundle": "smoke",
+    "runner": "bin/run_case.sh", "cpus": 1, "memory": "256Mi",
+    "shm_size": "64Mi", "timeout_seconds": 120, "gpus": 0
+  }]
+}

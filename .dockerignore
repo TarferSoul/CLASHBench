@@ -1,0 +1,9 @@
+.git
+.venv
+__pycache__
+**/__pycache__
+results
+data
+secrets
+.env*
+configs/*.local.json

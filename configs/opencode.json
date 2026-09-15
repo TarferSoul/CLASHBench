@@ -1,0 +1,6 @@
+{
+  "harness": "opencode",
+  "model": "YOUR_MODEL",
+  "base_url": "https://api.openai.com/v1",
+  "api_key_env": "OPENAI_API_KEY"
+}
