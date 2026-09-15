@@ -1,12 +1,16 @@
 """CI integration check; orchestration and evaluated fixture both use Docker."""
+import argparse
 import json
 from pathlib import Path
 import subprocess
 import sys
 import time
 
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--image', default='agentconflictbench:smoke')
+args = parser.parse_args()
 raw = subprocess.check_output([sys.executable, '-m', 'acb.cli', 'run', '--inventory', 'examples/inventory.json',
-                               '--cases', 'all', '--config', 'configs/smoke.json', '--image', 'agentconflictbench:smoke'])
+                               '--cases', 'all', '--config', 'configs/smoke.json', '--image', args.image])
 run = Path(json.loads(raw)['directory'])
 for _ in range(120):
     status = json.loads((run/'status.json').read_text())

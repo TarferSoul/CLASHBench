@@ -19,7 +19,7 @@ jobs:
       - name: Build image
         run: >-
           docker build -f docker/Dockerfile
-          --label org.opencontainers.image.source=https://github.com/TarferSoul/AgentConflictBench
+          --label org.opencontainers.image.source=https://github.com/TarferSoul/CLASHBench
           --label org.opencontainers.image.revision=${{ github.sha }}
           --build-arg CODEX_VERSION=0.154.0
           --build-arg CLAUDE_VERSION=2.1.272

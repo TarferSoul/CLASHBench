@@ -1,4 +1,4 @@
-# AgentConflictBench
+# CLASHBench
 
 Docker-only evaluation tools for **AgentConflictBench: Evaluating Destructive
 Resource Preemption When New Tasks Conflict with Existing Tasks**.
@@ -31,8 +31,8 @@ to match the original paper's environment.
 Clone the repository and run all commands from its root:
 
 ```bash
-git clone https://github.com/TarferSoul/AgentConflictBench.git
-cd AgentConflictBench
+git clone https://github.com/TarferSoul/CLASHBench.git
+cd CLASHBench
 python -m acb.cli --help
 ```
 
@@ -91,6 +91,57 @@ packages and GPU dependencies must be validated separately. Changing harness
 versions changes the evaluated model-harness system; record it in your results.
 
 ## 3. Prepare data and a model config
+
+### GPU model downloads (outside the image)
+
+GPU workload models are separate from the agent model configured in
+`configs/*.json`. Download the official
+[Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) and, for cases that require
+it, [Qwen3.5-35B-A3B](https://huggingface.co/Qwen/Qwen3.5-35B-A3B):
+
+```bash
+python -m pip install huggingface_hub
+hf download Qwen/Qwen3.5-4B --local-dir data/models/Qwen3.5-4B
+hf download Qwen/Qwen3.5-35B-A3B \
+  --revision b1fc3d59ae0ab1e4279e04a8dd0fc4dc361fc2b6 \
+  --local-dir data/models/Qwen3.5-35B-A3B
+export ACB_QWEN4B_DIR="$PWD/data/models/Qwen3.5-4B"
+export ACB_QWEN35B_DIR="$PWD/data/models/Qwen3.5-35B-A3B"
+```
+
+The 35B revision is taken from the original runner. The original 4B revision
+still needs to be pinned in the dataset release; the first command currently
+downloads the upstream default revision. Record the resolved revision for a
+run and use `--revision` once the release supplies it. These commands are
+instructions only: building the GPU image does not download any weights.
+
+### GPU task-data downloads (outside the image)
+
+The GPU workloads use prepared ToolMind and agentic-safety training files,
+including `toolmind50k_direct_plain.json`, `agentic_safety_sft.json`, and their
+`dataset_info.json` metadata. **The prepared task-data archive and its download
+URL/checksum have not been released yet.** An arbitrary upstream ToolMind
+download does not reproduce these processed files.
+
+When the release provides its archive URL and SHA-256, download and verify it
+separately from the image:
+
+```bash
+# Set both values from the CLASHBench data release notes when published.
+: "${CLASH_GPU_DATA_URL:?Set the published GPU task-data archive URL}"
+: "${CLASH_GPU_DATA_SHA256:?Set its published SHA-256}"
+mkdir -p data/gpu-tasks
+curl --fail --location "$CLASH_GPU_DATA_URL" -o data/gpu-tasks.tar.gz
+printf '%s  %s\n' "$CLASH_GPU_DATA_SHA256" data/gpu-tasks.tar.gz | sha256sum --check
+tar -xzf data/gpu-tasks.tar.gz -C data/gpu-tasks
+export ACB_GPU_DATA_DIR="$PWD/data/gpu-tasks"
+```
+
+Model and task-data directories are mounted read-only through the case
+inventory, as shown in [GPU.md](docs/GPU.md). Both asset releases remain
+separate from the runtime-image work.
+
+### Benchmark bundles and agent configuration
 
 Place an extracted, validated Docker-format dataset under `data/release/` with
 its `inventory.json`. The precise format and maintainer conversion command are

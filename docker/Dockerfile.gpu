@@ -1,0 +1,49 @@
+ARG GPU_BASE=registry.h.pjlab.org.cn/ailab-ai4good1-ai4good1_gpu/llamafactory@sha256:d6234225e03515b8a84bbf7946ad696e9e2fb9a48f2d1a8bf10b31236d560531
+FROM node:22.16.0-bookworm-slim AS harnesses
+ARG CODEX_VERSION=0.154.0
+ARG CLAUDE_VERSION=2.1.272
+ARG OPENCODE_VERSION=1.18.31
+RUN npm install --prefix /opt/harness/codex "@openai/codex@$CODEX_VERSION" \
+    && npm install --prefix /opt/harness/claude "@anthropic-ai/claude-code@$CLAUDE_VERSION" \
+    && npm install --prefix /opt/harness/opencode "opencode-ai@$OPENCODE_VERSION"
+
+FROM ${GPU_BASE}
+USER root
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get -o Acquire::http::Timeout=30 -o Acquire::Retries=1 update \
+    && apt-get -o Acquire::http::Timeout=30 -o Acquire::Retries=1 install -y --no-install-recommends \
+       tini sudo git curl ca-certificates jq procps psmisc iproute2 net-tools lsof util-linux \
+    && rm -rf /var/lib/apt/lists/* \
+    && (id agentb >/dev/null 2>&1 || useradd -m -s /bin/bash agentb)
+COPY --from=harnesses /usr/local/bin/node /usr/local/bin/node
+COPY --from=harnesses /opt/harness /opt/harness
+# Sources and binary environments are supplied by build_gpu_context.py.
+# Keep training (torch 2.6 / CUDA 12.4) separate from vLLM (torch 2.10).
+COPY runtime/llamafactory /opt/acb-runtime/llamafactory
+COPY runtime/fastpath /opt/acb-runtime/fastpath
+COPY runtime/vllm /opt/acb-runtime/vllm
+COPY runtime/manifest.json /opt/acb-runtime/manifest.json
+COPY acb /opt/acb/acb
+COPY docker/check_gpu_runtime.py /opt/acb/check_gpu_runtime.py
+RUN mkdir -p /opt/node/bin \
+    && ln -sfn /usr/local/bin/node /opt/node/bin/node \
+    && for cli in codex claude opencode; do \
+         ln -sfn /opt/acb/acb/harness.py /usr/local/bin/$cli; \
+         ln -sfn /opt/acb/acb/harness.py /opt/node/bin/$cli; \
+       done \
+    && chmod 755 /opt/acb/acb/harness.py \
+    && rm -rf /opt/llamafactory /opt/qwen35_fastpath /opt/vllm \
+    && ln -sfn /opt/acb-runtime/llamafactory /opt/llamafactory \
+    && ln -sfn /opt/acb-runtime/fastpath /opt/qwen35_fastpath \
+    && ln -sfn /opt/acb-runtime/vllm /opt/vllm
+ENV PYTHONPATH=/opt/acb:/opt/acb-runtime/fastpath:/opt/acb-runtime/llamafactory/src \
+    DISABLE_VERSION_CHECK=1 \
+    HOST_LF=/opt/acb-runtime/llamafactory \
+    HOST_LLAMAFACTORY=/opt/acb-runtime/llamafactory \
+    HOST_FAST=/opt/acb-runtime/fastpath \
+    HOST_FASTPATH=/opt/acb-runtime/fastpath \
+    HOST_QWEN35_FASTPATH=/opt/acb-runtime/fastpath \
+    HOST_VLLM=/opt/acb-runtime/vllm
+LABEL org.opencontainers.image.source="https://github.com/TarferSoul/CLASHBench"
+WORKDIR /opt/acb
+ENTRYPOINT ["/usr/bin/tini", "--", "/opt/conda/bin/python", "-m", "acb.container"]
