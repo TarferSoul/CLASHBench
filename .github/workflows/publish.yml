@@ -1,0 +1,49 @@
+name: Publish CPU image
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+concurrency:
+  group: publish-cpu
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit checks
+        run: python -m unittest discover -s tests -v
+      - name: Build image
+        run: >-
+          docker build -f docker/Dockerfile
+          --label org.opencontainers.image.source=https://github.com/TarferSoul/AgentConflictBench
+          --label org.opencontainers.image.revision=${{ github.sha }}
+          --build-arg CODEX_VERSION=0.154.0
+          --build-arg CLAUDE_VERSION=2.1.272
+          --build-arg OPENCODE_VERSION=1.18.31
+          -t agentconflictbench:cpu .
+      - name: Verify native harnesses and Docker smoke
+        run: |
+          docker run --rm --entrypoint /opt/harness/codex/node_modules/.bin/codex agentconflictbench:cpu --version
+          docker run --rm --entrypoint /opt/harness/claude/node_modules/.bin/claude agentconflictbench:cpu --version
+          docker run --rm --entrypoint /opt/harness/opencode/node_modules/.bin/opencode agentconflictbench:cpu --version
+          docker tag agentconflictbench:cpu agentconflictbench:smoke
+          python tests/docker_smoke.py
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish tested image
+        env:
+          IMAGE: ghcr.io/tarfersoul/agentconflictbench
+          REVISION: ${{ github.sha }}
+        run: |
+          docker tag agentconflictbench:cpu "$IMAGE:cpu-$REVISION"
+          docker tag agentconflictbench:cpu "$IMAGE:cpu"
+          docker push "$IMAGE:cpu-$REVISION"
+          docker push "$IMAGE:cpu"
+          echo "Published $IMAGE:cpu and $IMAGE:cpu-$REVISION" >> "$GITHUB_STEP_SUMMARY"

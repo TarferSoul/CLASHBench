@@ -58,7 +58,24 @@ trace. Since no model is evaluated, SPR and DIR denominators remain zero and
 rates remain `null`. This verifies setup, agent identity, trace capture,
 independent grading, collection, and cleanup.
 
-## 2. Build the CPU runtime
+## 2. Pull or build the CPU runtime
+
+The CPU image is published to GitHub Container Registry. Pull it and create the
+local tag expected by the CLI:
+
+```bash
+docker pull ghcr.io/tarfersoul/agentconflictbench:cpu
+docker tag ghcr.io/tarfersoul/agentconflictbench:cpu agentconflictbench:cpu
+```
+
+The package is initially private. Authenticate with `docker login ghcr.io`
+using your GitHub username and a token with `read:packages` and access to the
+package. Enter the token at the password prompt, not in a shell command.
+Each publication also has a `cpu-<full-git-sha>` tag; pin its registry digest
+for reproducible runs. Publication is triggered manually with the **Publish
+CPU image** GitHub Actions workflow and only pushes after checks pass.
+
+To build locally instead:
 
 ```bash
 docker build -f docker/Dockerfile \
