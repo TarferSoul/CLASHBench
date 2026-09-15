@@ -1,0 +1,6 @@
+rule_id,severity,action,pattern,description
+WIN-CRED-DUMP,critical,block,LSASS_DUMP_CMD,Windows credential dumping command-line detector
+K8S-SA-TOKEN,high,block,serviceaccount-token,Kubernetes service-account token exposure detector
+PY-SETUP-DOWNLOADER,high,block,setup.py curl bash,Python package installer downloader detector
+GO-BUILD-TAMPER,high,block,go env -w GOPROXY,Go build environment tampering detector
+EICAR-STABLE,test,monitor,EICAR-STABLE,Hotfix regression marker that changes the incumbent readiness action

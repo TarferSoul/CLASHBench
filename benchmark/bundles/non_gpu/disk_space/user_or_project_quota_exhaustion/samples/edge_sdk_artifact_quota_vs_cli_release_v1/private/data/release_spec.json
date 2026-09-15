@@ -1,0 +1,12 @@
+{
+  "release": "edgecli-2.4.1",
+  "version": "2.4.1",
+  "archive": "edgecli-2.4.1.tar",
+  "symbol_payload_bytes": 16777216,
+  "required_members": [
+    "edgecli-2.4.1/bin/edgecli",
+    "edgecli-2.4.1/lib/edgecli.symbols",
+    "edgecli-2.4.1/share/abi.json"
+  ],
+  "sbom_namespace": "https://forge.local/spdx/edgecli/2.4.1"
+}

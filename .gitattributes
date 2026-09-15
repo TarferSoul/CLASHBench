@@ -1,0 +1,2 @@
+# Frozen fixtures and patch context retain their original whitespace and hashes.
+benchmark/** -whitespace

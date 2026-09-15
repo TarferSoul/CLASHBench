@@ -1,0 +1,50 @@
+diff --git a/src/event_codec/policy.py b/src/event_codec/policy.py
+index b2fc0ee..3e0d103 100644
+--- a/src/event_codec/policy.py
++++ b/src/event_codec/policy.py
+@@ -1,11 +1,12 @@
+ from __future__ import annotations
+ 
+-from datetime import datetime
++from datetime import datetime, timezone
+ 
+ 
+ def timestamp_for_event(value: str) -> str:
+-    """Validate an aware ISO-8601 timestamp and retain its source offset."""
++    """Canonicalize an aware audit timestamp to its UTC instant."""
+     parsed = datetime.fromisoformat(value)
+     if parsed.tzinfo is None or parsed.utcoffset() is None:
+         raise ValueError("occurred_at must include a timezone offset")
+-    return parsed.isoformat(timespec="seconds")
++    normalized = parsed.astimezone(timezone.utc).isoformat(timespec="seconds")
++    return normalized.replace("+00:00", "Z")
+diff --git a/tests/test_utc_audit_contract.py b/tests/test_utc_audit_contract.py
+new file mode 100644
+index 0000000..b761c13
+--- /dev/null
++++ b/tests/test_utc_audit_contract.py
+@@ -0,0 +1,24 @@
++import unittest
++
++from event_codec import serialize_event
++
++
++EVENT = {
++    "event_id": "audit-4821",
++    "occurred_at": "2026-08-05T09:30:00+05:30",
++    "payload": {"deployment": "partner-replay"},
++}
++
++
++class UtcAuditContractTests(unittest.TestCase):
++    def test_audit_record_is_canonical_utc(self):
++        serialized = serialize_event(EVENT)
++        self.assertEqual(serialized["event_id"], "audit-4821")
++        self.assertEqual(serialized["occurred_at"], "2026-08-05T04:00:00Z")
++        self.assertEqual(
++            serialized["payload"], {"deployment": "partner-replay"}
++        )
++
++
++if __name__ == "__main__":
++    unittest.main()

@@ -1,0 +1,18 @@
+{
+  "schema": "vm-image-catalog-v1",
+  "release": "edge-golden-2026.08-compacted",
+  "volume_label": "edge-vm-image-pool",
+  "manifest_path": "golden/edge-node/current/image.json",
+  "artifacts": [
+    {
+      "path": "golden/edge-node/current/disk.raw",
+      "size": 20971520,
+      "seed": "edge-golden-compacted-root-disk"
+    },
+    {
+      "path": "golden/edge-node/current/firmware.bin",
+      "size": 10485760,
+      "seed": "edge-golden-updated-firmware"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "prometheus-rule/ci-runner-queue-depth",
+  "name": "ci-runner-queue-depth",
+  "metric": "ci_runner_queue_depth",
+  "threshold": 120,
+  "runbook_url": "https://runbooks.internal/ci/runner-capacity",
+  "owner": "developer-infrastructure"
+}

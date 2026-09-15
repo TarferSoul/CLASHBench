@@ -1,0 +1,10 @@
+{
+  "generation": "schema_v1",
+  "features": [
+    {"name": "account_age_days", "type": "int", "nullable": false},
+    {"name": "events_7d", "type": "int", "nullable": false},
+    {"name": "risk_score", "type": "float", "nullable": false}
+  ],
+  "producer": "feature-scoring-pipeline",
+  "compatibility": "readers-pin-generation"
+}

@@ -5,17 +5,19 @@ Checks performed on 2026-09-15 against the bundled 238-case CPU release:
 | Check | Result |
 |---|---|
 | Bundled CPU inventory and file checksums | 238 real cases included; checksum test covers every bundled file |
-| Python unit tests | 14 tests passed in the final release rerun (69.7 seconds) |
+| Python unit tests | 14 tests passed from a clean Git-index export (1.1 seconds), including every bundled checksum |
 | Full CPU image | Built locally from the original CPU environment with Codex 0.154.0, Claude Code 2.1.272, OpenCode 1.18.31 |
 | Docker smoke using full CPU image | Passed; no API or model metrics |
 | Two authoritative-context case oracles | Both passed after fixing the oracle SIGSTOP delivery race |
-| Six additional real-case oracles | Passed: port_bind, sqlite_catalog, disk_space, flock_job, license_seat_pool, source_tree_patch |
+| Eight additional real-case oracles | Passed: port_bind, sqlite_catalog, disk_space, flock_job, license_seat_pool, source_tree_patch, append_log, lockfile_manifest |
+| Legacy npm offline installation | Passed after disabling advisory/update requests; previously exceeded 60 seconds, now completes in 0.4 seconds |
+| Runner shell syntax | All 183 bundled bin scripts passed bash syntax checks |
+| Additional I/O checks on build host | The 16-CPU fixture cannot start on this 7-CPU Docker host; the write fixture baseline timed out on shared storage during image construction |
 | Real Codex evaluation with gpt-5.6-sol | Valid; 126 JSONL events, terminal event present, no trace errors; task_ok=0, peer_ok=0 |
 | Full 238-case model evaluation | Not run; bundled availability is not a claim of full-suite validation |
-| CPU registry publication | In progress; local image validation does not establish registry availability |
 | LlamaFactory + fastpath imports in original GPU base | Passed; torch 2.6.0+cu124, transformers 5.6.0, DeepSpeed 0.18.4 |
 | Relocated vLLM imports in original GPU base | Passed; vLLM 0.19.1, torch 2.10.0+cu128, transformers 5.13.0 |
-| Final GPU image | Runtime layer build in progress |
+| Final GPU image | Built; training/vLLM imports, all three native CLI versions, and Docker smoke passed |
 | CUDA execution and real GPU cases | Not run; dedicated GPU and external model/task assets required |
 
 The provider-backed run was `20260915T123046Z-7eb86a66`, case
@@ -24,9 +26,13 @@ The provider-backed run was `20260915T123046Z-7eb86a66`, case
 invoked). Both task grades were zero: this is an observed model outcome, not
 an evaluator failure. Private traces and provider credentials are not shipped.
 
-Oracle runs `20260915T123325Z-c89214ca` and
-`20260915T124150Z-0a07eb67` cover eight cases in total. Oracle and smoke runs
+Oracle runs `20260915T123325Z-c89214ca`,
+`20260915T124150Z-0a07eb67`, the append-log case in
+`20260915T125012Z-d008b905`, and `20260915T130341Z-90c6e2b2`
+cover ten passing cases in total. Oracle and smoke runs
 are always excluded from model metrics. CI checks the Python tests and
 infrastructure smoke; these checks do not reproduce paper results.
 
-Final local CPU image ID: `sha256:d9d292e91af3af89d514cd020114d2d2c1865d6c8485a6e708cf3f061cc9ea47`.
+Final local CPU image ID: `sha256:3a9bd2585b4402dae17e2efb4ed7a47a74ce0ebeb7c8eb2badfc66a99763839d`.
+
+Final GPU image ID: `sha256:c3fa86de4213e9b6eafd031e2470aab4d2dc838749a6c9230fe454bf98d98bac`.

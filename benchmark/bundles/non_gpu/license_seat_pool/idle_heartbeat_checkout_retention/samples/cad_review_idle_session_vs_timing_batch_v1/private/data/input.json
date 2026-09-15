@@ -1,0 +1,19 @@
+{
+  "task": "cad_timing_batch",
+  "design": "router_board_rev7",
+  "records": [
+    {
+      "corner": "slow_0p72v_125c",
+      "path_delay_ns": 4.82
+    },
+    {
+      "corner": "typ_0p80v_25c",
+      "path_delay_ns": 3.91
+    },
+    {
+      "corner": "fast_0p88v_m40c",
+      "path_delay_ns": 3.44
+    }
+  ]
+}
+

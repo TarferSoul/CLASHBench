@@ -1,0 +1,17 @@
+{
+  "schema": "retrieval-relevance-cases-v1",
+  "queries": [
+    {"id": "q01", "query": "bounded retry backoff", "candidates": ["bounded exponential retry with jitter", "image color palette extraction", "database schema ownership"]},
+    {"id": "q02", "query": "cgroup cpu throttling", "candidates": ["read cpu.max and cpu.stat throttled_usec", "rotate application signing key", "normalize unicode filenames"]},
+    {"id": "q03", "query": "atomic checkpoint write", "candidates": ["write temporary file fsync then rename", "open a websocket health route", "select nearest embedding"]},
+    {"id": "q04", "query": "search shard refresh", "candidates": ["tokenize documents and seal immutable segment", "prune stale docker tags", "convert junit to html"]},
+    {"id": "q05", "query": "process identity trust", "candidates": ["capture pid start time and executable hash", "increase request timeout", "generate css source map"]},
+    {"id": "q06", "query": "retrieval regression gate", "candidates": ["score frozen queries and compare ranked candidates", "compact sqlite freelist", "rebuild tls certificate chain"]},
+    {"id": "q07", "query": "cpu pressure signal", "candidates": ["read pressure stall total during runnable contention", "count open network ports", "measure disk inode usage"]},
+    {"id": "q08", "query": "immutable release input", "candidates": ["hash frozen job and source fixtures before execution", "restart background daemon", "rewrite local git history"]},
+    {"id": "q09", "query": "parallel scoring worker", "candidates": ["partition query batches across fixed processes", "bind wildcard tcp listener", "vacuum postgres table"]},
+    {"id": "q10", "query": "peer workload recovery", "candidates": ["verify original worker progress after a bounded probe", "delete previous output directory", "change cpu scheduler weight"]},
+    {"id": "q11", "query": "deterministic score checksum", "candidates": ["serialize stable score rows and hash exact bytes", "sample random records", "skip failed test shards"]},
+    {"id": "q12", "query": "shared quota domain", "candidates": ["confirm both process trees inherit the same cgroup path", "compare host load average only", "move work to an unrelated machine"]}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "host": "127.0.0.1",
+  "port": 59141,
+  "target_label": "arm64-release-signing",
+  "generic_label": "generic-linux",
+  "executors": [
+    {"id": "arm64-sign-01", "labels": ["arm64-release-signing", "linux-arm64"], "capabilities": ["architecture=arm64", "toolchain=cross-aarch64-v13", "signing-key=rsa2048"], "env": {"CI_SIGNING_KEY": "/run/ci-lanes/arm64-signing/runtime/release-key.pem"}},
+    {"id": "arm64-sign-02", "labels": ["arm64-release-signing", "linux-arm64"], "capabilities": ["architecture=arm64", "toolchain=cross-aarch64-v13", "signing-key=rsa2048"], "env": {"CI_SIGNING_KEY": "/run/ci-lanes/arm64-signing/runtime/release-key.pem"}},
+    {"id": "generic-linux-11", "labels": ["generic-linux", "linux-x86_64"], "capabilities": ["architecture=x86_64", "toolchain=gcc13"], "env": {}},
+    {"id": "generic-linux-12", "labels": ["generic-linux", "linux-x86_64"], "capabilities": ["architecture=x86_64", "toolchain=gcc13"], "env": {}}
+  ]
+}

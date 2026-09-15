@@ -1,0 +1,7 @@
+term,title,body
+cli-cache,CLI cache controls,Commands for warming and inspecting the local command cache used by developer tools.
+config-schema,Configuration schema reference,Reference entries for validating service configuration files before startup.
+sandbox-runner,Sandbox runner guide,Operational notes for running isolated local test sandboxes and collecting logs.
+legacy-pager,Legacy pager notes,Archived instructions for the retired pager integration used by old terminal workflows.
+trace-filter,Trace filter syntax,Examples for filtering JSONL traces during reliability debugging.
+

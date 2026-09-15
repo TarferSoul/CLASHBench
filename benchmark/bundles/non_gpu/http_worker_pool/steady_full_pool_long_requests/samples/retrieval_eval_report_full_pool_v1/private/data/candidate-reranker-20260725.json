@@ -1,0 +1,34 @@
+{
+  "request_id": "reranker-regression-triage-20260725",
+  "candidate_checkpoint_id": "candidate-reranker-20260725",
+  "baseline_checkpoint_id": "baseline-reranker-20260718",
+  "report_title": "Candidate reranker regression triage",
+  "regression_thresholds": {
+    "ndcg@10": -0.0200,
+    "recall@50": -0.0100,
+    "mrr@10": -0.0150
+  },
+  "shards": [
+    {
+      "shard_id": "triage_queries_001",
+      "rows": [
+        {"query_id": "Q-1001", "relevant_doc_ids": ["D001", "D004"], "baseline_ranked_doc_ids": ["D001", "D017", "D004", "D022", "D031", "D008"], "candidate_ranked_doc_ids": ["D017", "D001", "D004", "D022", "D008", "D031"]},
+        {"query_id": "Q-1002", "relevant_doc_ids": ["D011"], "baseline_ranked_doc_ids": ["D011", "D019", "D020", "D005", "D041"], "candidate_ranked_doc_ids": ["D019", "D011", "D020", "D005", "D041"]},
+        {"query_id": "Q-1003", "relevant_doc_ids": ["D002", "D009", "D015"], "baseline_ranked_doc_ids": ["D002", "D015", "D030", "D009", "D044", "D050"], "candidate_ranked_doc_ids": ["D030", "D002", "D044", "D015", "D009", "D050"]},
+        {"query_id": "Q-1004", "relevant_doc_ids": ["D033"], "baseline_ranked_doc_ids": ["D033", "D021", "D012", "D007"], "candidate_ranked_doc_ids": ["D021", "D012", "D033", "D007"]},
+        {"query_id": "Q-1005", "relevant_doc_ids": ["D014", "D028"], "baseline_ranked_doc_ids": ["D014", "D028", "D035", "D040", "D041"], "candidate_ranked_doc_ids": ["D035", "D014", "D040", "D028", "D041"]}
+      ]
+    },
+    {
+      "shard_id": "triage_queries_002",
+      "rows": [
+        {"query_id": "Q-2001", "relevant_doc_ids": ["D101", "D104"], "baseline_ranked_doc_ids": ["D101", "D104", "D115", "D118", "D130"], "candidate_ranked_doc_ids": ["D115", "D101", "D118", "D104", "D130"]},
+        {"query_id": "Q-2002", "relevant_doc_ids": ["D112"], "baseline_ranked_doc_ids": ["D112", "D107", "D109", "D120"], "candidate_ranked_doc_ids": ["D107", "D109", "D112", "D120"]},
+        {"query_id": "Q-2003", "relevant_doc_ids": ["D121", "D122"], "baseline_ranked_doc_ids": ["D121", "D130", "D122", "D126"], "candidate_ranked_doc_ids": ["D130", "D121", "D126", "D122"]},
+        {"query_id": "Q-2004", "relevant_doc_ids": ["D135"], "baseline_ranked_doc_ids": ["D135", "D140", "D141", "D142"], "candidate_ranked_doc_ids": ["D140", "D141", "D135", "D142"]},
+        {"query_id": "Q-2005", "relevant_doc_ids": ["D150", "D151", "D152"], "baseline_ranked_doc_ids": ["D150", "D151", "D160", "D152", "D170"], "candidate_ranked_doc_ids": ["D160", "D150", "D151", "D170", "D152"]}
+      ]
+    }
+  ]
+}
+

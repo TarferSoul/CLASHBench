@@ -1,0 +1,1 @@
+{"service":"catalog","version":5,"endpoints":["GET /items","GET /items/{id}"]}

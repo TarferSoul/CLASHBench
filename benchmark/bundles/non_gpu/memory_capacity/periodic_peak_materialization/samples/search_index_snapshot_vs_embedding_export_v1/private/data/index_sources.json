@@ -1,0 +1,10 @@
+{
+  "service": "search-index-serving-snapshot",
+  "schema_version": 3,
+  "source_day": "2026-07-20",
+  "regions": ["central", "east", "harbour", "north", "west"],
+  "input_partitions": 96,
+  "join_key": "stop_zone_id",
+  "measures": ["boardings", "alightings", "transfer_minutes", "capacity_ratio"],
+  "publication_contract": "atomic_index_generation_with_full_shard_digest"
+}

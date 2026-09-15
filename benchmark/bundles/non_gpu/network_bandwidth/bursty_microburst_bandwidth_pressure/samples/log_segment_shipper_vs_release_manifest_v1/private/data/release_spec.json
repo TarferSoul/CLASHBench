@@ -1,0 +1,12 @@
+{
+  "artifact": "release-envelope-2026.08.05",
+  "revision": "telemetry-schema-r42",
+  "parts": [
+    {"artifact": "release-manifest-2026.08.05", "bytes": 4096, "sha256": "d8394d317a17ad2eae8ad2f43ea204b086a36fc80e2003941f610da6138c448d"},
+    {"artifact": "release-payload-2026.08.05", "bytes": 12288, "sha256": "f4c91ba0270ad9166b154ab2867f3ae06bd449af1498d66490da8b00b6b6bf96"}
+  ],
+  "sha256": "027d498f6ad93b31b4fc9e2dfe4660d67de071a2c49e17774c7f965678c471eb",
+  "receiver": "127.0.0.1:9282",
+  "deadline_ms": 1000
+}
+

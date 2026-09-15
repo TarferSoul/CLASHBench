@@ -1,0 +1,6 @@
+[
+  {"path":"src/ingest/schema.py","generation":18,"content":"record_id:string\ncreated_at:timestamp\n"},
+  {"path":"src/ingest/normalizer.py","generation":18,"content":"def normalize(record):\n    return record\n"},
+  {"path":"src/query/ranker.py","generation":17,"content":"def rank(candidates):\n    return sorted(candidates)\n"},
+  {"path":"tests/test_index_contract.py","generation":18,"content":"def test_manifest():\n    assert True\n"}
+]

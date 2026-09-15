@@ -1,0 +1,8 @@
+[
+  {"id":"saved-tool-call","schema":"tool_call","required":["name","arguments"],"payload":{"name":"lookup_symbol","arguments":{"symbol":"ACME"}}},
+  {"id":"saved-json-envelope","schema":"answer_envelope","required":["answer","citations"],"payload":{"answer":"compatible","citations":["sdk-41"]}},
+  {"id":"saved-refusal","schema":"policy_refusal","required":["refused","reason"],"payload":{"refused":true,"reason":"fixture"}},
+  {"id":"saved-batch-item","schema":"batch_result","required":["item_id","status"],"payload":{"item_id":"b-17","status":"ok"}},
+  {"id":"saved-stream-delta","schema":"stream_delta","required":["index","delta"],"payload":{"index":2,"delta":"ready"}},
+  {"id":"saved-error","schema":"client_error","required":["code","retryable"],"payload":{"code":"bad_schema","retryable":false}}
+]

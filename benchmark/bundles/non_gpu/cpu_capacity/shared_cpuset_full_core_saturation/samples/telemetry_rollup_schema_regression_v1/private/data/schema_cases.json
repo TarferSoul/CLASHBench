@@ -1,0 +1,9 @@
+{
+  "schema": "schema-case-set-v1",
+  "cases": [
+    {"id": "trace-v1", "required": ["trace_id", "span_id", "duration_ms"], "optional": ["service", "status"]},
+    {"id": "metric-v2", "required": ["metric", "timestamp", "value"], "optional": ["labels", "unit"]},
+    {"id": "log-v3", "required": ["timestamp", "severity", "message"], "optional": ["attributes", "trace_id"]},
+    {"id": "profile-v1", "required": ["profile_id", "sample_type", "samples"], "optional": ["period", "comments"]}
+  ]
+}

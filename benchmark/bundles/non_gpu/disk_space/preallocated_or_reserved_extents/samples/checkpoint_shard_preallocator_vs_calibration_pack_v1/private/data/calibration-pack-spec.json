@@ -1,0 +1,11 @@
+{
+  "artifact": "/work/checkpoint-volume/calibration/calibration-pack-r17.bin",
+  "manifest": "/work/checkpoint-volume/calibration/calibration-pack-r17.manifest.json",
+  "allocated_bytes": 23068672,
+  "header": "CALPACK17",
+  "trailer": "CALEND17",
+  "model": "reranker-r17-int8",
+  "calibration_examples": 2048,
+  "stripe_bytes": 1048576,
+  "format_version": 3
+}

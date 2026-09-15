@@ -1,0 +1,4 @@
+{"event_id":"gateway-approval-7319-1","gateway":"edge-sin-07","policy":"denylist-refresh","decision":"approved","actor":"security-control-plane"}
+{"event_id":"gateway-approval-7319-2","gateway":"edge-sin-07","policy":"mtls-ca-rotation","decision":"approved","actor":"security-control-plane"}
+{"event_id":"gateway-approval-7319-3","gateway":"edge-sin-07","policy":"waf-rule-2026-08","decision":"approved","actor":"security-control-plane"}
+{"event_id":"gateway-approval-7319-4","gateway":"edge-sin-07","policy":"egress-domain-set","decision":"approved","actor":"security-control-plane"}

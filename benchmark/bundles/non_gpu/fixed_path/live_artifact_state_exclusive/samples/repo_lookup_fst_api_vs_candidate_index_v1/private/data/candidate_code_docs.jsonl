@@ -1,0 +1,4 @@
+{"doc_id":"candidate-cache-race-fix","title":"Async cache invalidation race fix","tags":["async","cache","invalidation","race"],"body":"Candidate note for preventing stale promise reuse when invalidation arrives during an async cache refresh."}
+{"doc_id":"candidate-migration-guard","title":"Schema migration rollback guard","tags":["schema","migration","rollback","guard"],"body":"Candidate runbook for blocking unsafe rollback when a schema migration has partially advanced writer contracts."}
+{"doc_id":"candidate-shadow-table-notes","title":"Shadow table notes for schema rollback","tags":["schema","rollback","migration","shadow"],"body":"Candidate reference for keeping a shadow table consistent before reversing a schema migration."}
+{"doc_id":"candidate-ttl-index","title":"TTL index for async cache invalidation","tags":["ttl","async","cache","invalidation"],"body":"Candidate design for an index that makes async cache invalidation durable across worker restarts."}

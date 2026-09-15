@@ -1,0 +1,26 @@
+{
+  "coordinator_url": "http://127.0.0.1:48931",
+  "resource_key": "prod-feature-platform/catalog",
+  "run_id": "catalog-reconcile-payments-8742",
+  "heartbeat_interval_seconds": 0.35,
+  "stages": [
+    {
+      "name": "validate_payment_feature_contracts",
+      "metrics": {"compatibility_checks": 12, "replica_acks": 0, "shadow_queries": 0}
+    },
+    {
+      "name": "replicate_primary_catalog",
+      "metrics": {"compatibility_checks": 24, "replica_acks": 1, "shadow_queries": 0}
+    },
+    {
+      "name": "replicate_secondary_catalogs",
+      "metrics": {"compatibility_checks": 36, "replica_acks": 3, "shadow_queries": 20}
+    },
+    {
+      "name": "validate_consumer_shadow_queries",
+      "metrics": {"compatibility_checks": 48, "replica_acks": 3, "shadow_queries": 100}
+    }
+  ],
+  "loop_stage": "monitor_consumer_compatibility",
+  "loop_increments": {"compatibility_checks": 4, "shadow_queries": 25}
+}

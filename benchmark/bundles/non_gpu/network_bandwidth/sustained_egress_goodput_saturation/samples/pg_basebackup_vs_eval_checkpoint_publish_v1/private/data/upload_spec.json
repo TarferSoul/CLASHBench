@@ -1,0 +1,27 @@
+{
+  "artifact": "reranker-eval-checkpoint-r42",
+  "revision": "eval-run-r42-dataset-v9",
+  "gateway": "127.0.0.1:9571",
+  "deadline_ms": 1900,
+  "aggregate_sha256": "48defd786539e6d1dcb4ba5ee70957a95ae5b1cfe933383c5e658147c2d395fd",
+  "parts": [
+    {
+      "kind": "evaluation-checkpoint-shard",
+      "name": "encoder-state-00001.bin",
+      "size": 65536,
+      "sha256": "ef4ccdc585a91f90495764f3bced81ff859d262ea220e5481a6afa0022660191"
+    },
+    {
+      "kind": "evaluation-checkpoint-shard",
+      "name": "optimizer-state-00001.bin",
+      "size": 49152,
+      "sha256": "185534262da9aca3e2eec078dccbb90d263aebbd399142ed2140c957b2fbc4fe"
+    },
+    {
+      "kind": "evaluation-checkpoint-shard",
+      "name": "metrics-state-00001.jsonl",
+      "size": 32768,
+      "sha256": "c8bd2468a9722a80bcc800fe7c11f19e9bbb8b5c48f37fd6373cec468ecaaea5"
+    }
+  ]
+}

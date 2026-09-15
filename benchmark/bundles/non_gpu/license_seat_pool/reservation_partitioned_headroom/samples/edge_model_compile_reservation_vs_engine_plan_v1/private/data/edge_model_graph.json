@@ -1,0 +1,15 @@
+{
+  "model": "edge-encoder-v4",
+  "target": "orin-nx8",
+  "precision": "int8",
+  "nodes": [
+    {"name": "stem_conv", "op": "Conv"},
+    {"name": "stem_relu", "op": "Relu"},
+    {"name": "block_conv", "op": "Conv"},
+    {"name": "block_relu", "op": "Relu"},
+    {"name": "projection", "op": "MatMul"},
+    {"name": "projection_bias", "op": "Add"},
+    {"name": "output_norm", "op": "LayerNorm"},
+    {"name": "int8_quantize", "op": "Quantize"}
+  ]
+}

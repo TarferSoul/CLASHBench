@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+exec python3 /opt/artifact-transparency/bin/release_ledger.py verify \
+  --ledger /var/lib/artifact-transparency/release-ledger.jsonl \
+  --head /var/lib/artifact-transparency/chain-head.json \
+  --expect-genesis-id artifact-transparency-genesis-v1 "$@"

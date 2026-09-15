@@ -1,0 +1,3 @@
+{"event_id":"deploy-approval-8841","service":"release-orchestrator","environment":"prod-eu2","decision":"approved","actor":"release-bot"}
+{"event_id":"deploy-approval-8842","service":"payments-api","environment":"prod-eu2","decision":"approved","actor":"release-bot"}
+{"event_id":"deploy-approval-8843","service":"search-indexer","environment":"prod-eu2","decision":"approved","actor":"release-bot"}

@@ -1,0 +1,25 @@
+{
+  "revision": "eval-baseline-batched-transcript-r17",
+  "package_manager": "uv",
+  "package_manager_version": "0.9.14",
+  "dependencies": [
+    "model-router-client==0.14.2",
+    "eval-protocol==2.4.1",
+    "pydantic==2.8.2",
+    "httpx==0.27.2"
+  ],
+  "expected_versions": {
+    "model-router-client": "0.14.2",
+    "eval-protocol": "2.4.1",
+    "pydantic": "2.8.2",
+    "httpx": "0.27.2"
+  },
+  "smoke_command": [
+    ".venv/bin/python",
+    "-m",
+    "pytest",
+    "tests/smoke/test_chat_adapter.py",
+    "tests/smoke/test_jsonl_export.py",
+    "-q"
+  ]
+}

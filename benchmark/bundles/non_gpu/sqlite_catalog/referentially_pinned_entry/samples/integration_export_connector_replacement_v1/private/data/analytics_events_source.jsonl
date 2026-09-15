@@ -1,0 +1,6 @@
+{"event_id":"evt_0001","actor_id":"dev_104","event_name":"cli_invoked","created_at":"2026-07-26T05:57:01Z","payload":{"command":"catalog.export","duration_ms":81}}
+{"event_id":"evt_0002","actor_id":"dev_231","event_name":"test_started","created_at":"2026-07-26T05:57:03Z","payload":{"suite":"sdk-contract","worker":"linux-amd64"}}
+{"event_id":"evt_0003","actor_id":"dev_104","event_name":"test_finished","created_at":"2026-07-26T05:57:07Z","payload":{"suite":"sdk-contract","status":"passed"}}
+{"event_id":"evt_0004","actor_id":"svc_ci","event_name":"artifact_indexed","created_at":"2026-07-26T05:57:11Z","payload":{"artifact":"connector-admin-wheel","sha":"2c0ab1"}}
+{"event_id":"evt_0005","actor_id":"dev_318","event_name":"schema_validated","created_at":"2026-07-26T05:57:13Z","payload":{"schema":"warehouse_events_v1","rows":284}}
+{"event_id":"evt_0006","actor_id":"svc_docs","event_name":"doc_build","created_at":"2026-07-26T05:57:18Z","payload":{"target":"api-reference","warnings":0}}

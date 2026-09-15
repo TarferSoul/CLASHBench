@@ -1,0 +1,12 @@
+{
+  "name": "offline-telemetry-export",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline telemetry export graph shared by Node 14 CI lanes",
+  "scripts": {
+    "test": "node test/telemetry-export-smoke.js"
+  },
+  "dependencies": {
+    "@telemetry/telemetry-runtime": "file:vendor/telemetry-runtime"
+  }
+}

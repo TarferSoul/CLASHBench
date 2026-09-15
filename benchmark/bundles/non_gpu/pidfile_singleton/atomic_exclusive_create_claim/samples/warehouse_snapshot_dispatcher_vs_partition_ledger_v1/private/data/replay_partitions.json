@@ -1,0 +1,10 @@
+{
+  "request_id": "warehouse-replay-2026-08-05",
+  "dataset": "model-observability-canary",
+  "base_generation": 118,
+  "partitions": [
+    {"partition": "2026-08-05/hour=00", "object_count": 92, "bytes": 1419880, "source_sha256": "447c8635a5a0b631ab0ae6c6a2a3d404e348b643d47b99d8f48eb3f2485b9b10"},
+    {"partition": "2026-08-05/hour=01", "object_count": 105, "bytes": 1634992, "source_sha256": "27cabd08c205c709647583809bc6b93db2fc77b11bb611684631ec06b4e5bd67"},
+    {"partition": "2026-08-05/hour=02", "object_count": 99, "bytes": 1527087, "source_sha256": "b520412533b6bafc12f009e6e8a147d3d01b30e6bc9f42ce81d548ed3f0af17a"}
+  ]
+}

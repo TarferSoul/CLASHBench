@@ -1,0 +1,26 @@
+{
+  "coordinator_url": "http://127.0.0.1:48947",
+  "resource_key": "edge-prod/trust-policy",
+  "run_id": "mesh-trust-rotation-6191",
+  "heartbeat_interval_seconds": 0.35,
+  "stages": [
+    {
+      "name": "verify_candidate_trust_bundle",
+      "metrics": {"bundle_signatures": 2, "zones_updated": 0, "handshake_samples": 0, "rotation_health_samples": 0}
+    },
+    {
+      "name": "rotate_iad_and_fra_proxies",
+      "metrics": {"bundle_signatures": 2, "zones_updated": 2, "handshake_samples": 32, "rotation_health_samples": 4}
+    },
+    {
+      "name": "rotate_sin_and_syd_proxies",
+      "metrics": {"bundle_signatures": 2, "zones_updated": 4, "handshake_samples": 72, "rotation_health_samples": 8}
+    },
+    {
+      "name": "validate_cross_zone_mtls",
+      "metrics": {"bundle_signatures": 2, "zones_updated": 4, "handshake_samples": 128, "rotation_health_samples": 12}
+    }
+  ],
+  "loop_stage": "monitor_cross_zone_handshakes",
+  "loop_increments": {"handshake_samples": 32, "rotation_health_samples": 4}
+}

@@ -1,0 +1,18 @@
+{
+  "service": "candidate-policy-compat",
+  "policy_version": "candidate-2026.07",
+  "generation_token": "candidate-ci-policy-gen-04",
+  "rules": {
+    "allow_build_deploy": {
+      "decision": "allow",
+      "rule_id": "ci-build-deploy",
+      "reason": "candidate bundle allows signed build-and-deploy checks for the fixture repository"
+    },
+    "canary_dependency_scan": {
+      "decision": "allow",
+      "rule_id": "ci-dependency-canary",
+      "reason": "dependency canary scans are always admitted"
+    }
+  }
+}
+

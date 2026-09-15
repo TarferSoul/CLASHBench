@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "name": "recovery-release",
+  "principal": "recovery-release",
+  "endpoint": "http://127.0.0.1:18641",
+  "account_id": "acct-recovery-release"
+}

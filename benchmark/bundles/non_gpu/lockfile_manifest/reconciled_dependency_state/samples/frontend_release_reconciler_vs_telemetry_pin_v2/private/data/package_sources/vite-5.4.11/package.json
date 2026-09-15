@@ -1,0 +1,9 @@
+{
+  "name": "vite",
+  "version": "5.4.11",
+  "main": "index.js",
+  "bin": {
+    "vite": "index.js"
+  }
+}
+

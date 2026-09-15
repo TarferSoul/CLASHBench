@@ -1,0 +1,13 @@
+{
+  "manager": "FlexLogic R26 local floating manager",
+  "feature": "logic_sim_enterprise",
+  "version": "2026.1",
+  "total_seats": 3,
+  "reservations": [
+    {
+      "identity": "release_signoff",
+      "seats": 1,
+      "purpose": "protected sign-off jobs"
+    }
+  ]
+}

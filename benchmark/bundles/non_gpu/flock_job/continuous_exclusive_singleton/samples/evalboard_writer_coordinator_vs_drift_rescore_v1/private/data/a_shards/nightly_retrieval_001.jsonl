@@ -1,0 +1,8 @@
+{"run_id":"nightly-rd-101","suite":"retrieval_nightly","model":"rerank-exp-a","split":"nightly","exact_match":0.71,"latency_ms":184}
+{"run_id":"nightly-rd-102","suite":"retrieval_nightly","model":"rerank-exp-a","split":"nightly","exact_match":0.73,"latency_ms":179}
+{"run_id":"nightly-rd-103","suite":"retrieval_nightly","model":"rerank-exp-a","split":"nightly","exact_match":0.70,"latency_ms":188}
+{"run_id":"nightly-rd-104","suite":"retrieval_nightly","model":"rerank-exp-a","split":"nightly","exact_match":0.75,"latency_ms":193}
+{"run_id":"nightly-rd-105","suite":"retrieval_nightly","model":"rerank-exp-a","split":"nightly","exact_match":0.72,"latency_ms":181}
+{"run_id":"nightly-rd-106","suite":"retrieval_nightly","model":"rerank-exp-a","split":"nightly","exact_match":0.74,"latency_ms":186}
+{"run_id":"nightly-rd-107","suite":"retrieval_nightly","model":"rerank-exp-a","split":"nightly","exact_match":0.69,"latency_ms":191}
+{"run_id":"nightly-rd-108","suite":"retrieval_nightly","model":"rerank-exp-a","split":"nightly","exact_match":0.76,"latency_ms":177}

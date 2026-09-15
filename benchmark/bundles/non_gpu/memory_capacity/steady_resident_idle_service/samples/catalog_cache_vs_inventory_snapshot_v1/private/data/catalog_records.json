@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "catalog": "regional-product-search",
+  "virtual_product_count": 12000000,
+  "index_seed": 41,
+  "canary_sku": "SKU-APAC-1002",
+  "records": [
+    {"sku": "SKU-APAC-1001", "name": "Edge Router 24", "region": "apac", "category": "network", "price_cents": 38900, "index_slot": 0},
+    {"sku": "SKU-APAC-1002", "name": "Optical Module LR", "region": "apac", "category": "network", "price_cents": 12900, "index_slot": 1},
+    {"sku": "SKU-EMEA-2101", "name": "Rack Sensor Pro", "region": "emea", "category": "sensor", "price_cents": 8700, "index_slot": 2},
+    {"sku": "SKU-EMEA-2102", "name": "Power Shelf 2U", "region": "emea", "category": "power", "price_cents": 214500, "index_slot": 3},
+    {"sku": "SKU-AMER-3301", "name": "Console Gateway", "region": "amer", "category": "compute", "price_cents": 72900, "index_slot": 4},
+    {"sku": "SKU-AMER-3302", "name": "NVMe Cache 8T", "region": "amer", "category": "storage", "price_cents": 168000, "index_slot": 5},
+    {"sku": "SKU-APAC-4101", "name": "Fiber Panel 48", "region": "apac", "category": "network", "price_cents": 15900, "index_slot": 6},
+    {"sku": "SKU-EMEA-5101", "name": "Cooling Controller", "region": "emea", "category": "facility", "price_cents": 46300, "index_slot": 7}
+  ]
+}

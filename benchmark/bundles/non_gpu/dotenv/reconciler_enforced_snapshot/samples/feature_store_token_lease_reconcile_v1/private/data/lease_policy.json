@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "issuer": "local-feature-store-fixture",
+  "hmac_key": "fs-token-fixture-v2-root-owned-issuer-key",
+  "token_prefix": "fslease",
+  "incumbent_audience": "incumbent-exporter",
+  "scoped_audience": "scoped-backfill"
+}

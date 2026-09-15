@@ -1,0 +1,13 @@
+{
+  "manager": "EdgeCodegen 2026.2 floating manager",
+  "feature": "edge_codegen_pro",
+  "version": "2026.2",
+  "total_seats": 2,
+  "reservations": [
+    {
+      "identity": "safety_validation",
+      "seats": 1,
+      "purpose": "protected safety-validation compiler jobs"
+    }
+  ]
+}

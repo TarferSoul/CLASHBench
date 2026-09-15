@@ -1,0 +1,8 @@
+{
+  "principal": "incident-deployer@recovery",
+  "cluster": "recovery-control",
+  "namespace": "recovery-serving",
+  "lease_id": "recovery-breakglass-session",
+  "endpoint": "http://127.0.0.1:18641",
+  "managed_by": "recovery-operations"
+}

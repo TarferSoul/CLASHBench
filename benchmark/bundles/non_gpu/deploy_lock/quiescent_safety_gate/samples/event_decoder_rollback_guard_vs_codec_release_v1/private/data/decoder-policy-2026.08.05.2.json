@@ -1,0 +1,10 @@
+{
+  "component": "event-decoder-policy",
+  "version": "2026.08.05.2",
+  "digest": "sha256:b6933bef1b5245cd35bf0567a78cf2a3531a2214d063beffde46ac28bdb1300f",
+  "signature": "release-signature-decoder-policy-2026.08.05.2",
+  "schema_epoch": 1200,
+  "accepted_wire_versions": [1, 2, 3],
+  "unknown_field_action": "quarantine",
+  "checksum_mode": "canonical-json-v3"
+}

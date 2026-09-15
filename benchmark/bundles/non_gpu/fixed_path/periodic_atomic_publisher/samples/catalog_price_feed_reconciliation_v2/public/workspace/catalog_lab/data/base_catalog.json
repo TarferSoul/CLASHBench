@@ -1,0 +1,12 @@
+{
+  "schema": "catalog.base.v1",
+  "catalog_revision": "catalog-base-r42",
+  "currency": "USD",
+  "prices": {
+    "SKU-0007": "12.34",
+    "SKU-0142": "17.40",
+    "SKU-2718": "271.75",
+    "SKU-4242": "8.80",
+    "SKU-9001": "30.50"
+  }
+}

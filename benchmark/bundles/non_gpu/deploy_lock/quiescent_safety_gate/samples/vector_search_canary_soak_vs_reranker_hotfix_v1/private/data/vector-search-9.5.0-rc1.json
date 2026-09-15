@@ -1,0 +1,7 @@
+{
+  "component": "vector-search-api",
+  "version": "9.5.0-rc1",
+  "digest": "sha256:ca0f00af4ff4b4d09d852197bfacd28548f54df5052721c46271b1da11ac786a",
+  "signature": "release-signature-vector-search-9.5.0-rc1",
+  "change": "parallel shard fanout with deterministic score merging"
+}

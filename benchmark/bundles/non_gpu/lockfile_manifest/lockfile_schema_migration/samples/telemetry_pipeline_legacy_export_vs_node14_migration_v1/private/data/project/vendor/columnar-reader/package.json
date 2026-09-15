@@ -1,0 +1,8 @@
+{
+  "name": "@telemetry/columnar-reader",
+  "version": "1.4.0",
+  "main": "index.js",
+  "peerDependencies": {
+    "@telemetry/telemetry-runtime": "^5.0.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "source-symbol-catalog-v1",
+  "repository": "vector-sdk",
+  "revision": "7f3a92b",
+  "partition_count": 128,
+  "packages": [
+    "core", "transport", "retry", "auth", "codec", "telemetry",
+    "storage", "scheduler", "stream", "search", "schema", "runtime"
+  ]
+}
+

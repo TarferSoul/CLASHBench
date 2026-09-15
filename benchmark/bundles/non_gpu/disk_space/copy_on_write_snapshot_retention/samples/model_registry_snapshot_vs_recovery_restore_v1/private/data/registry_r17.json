@@ -1,0 +1,18 @@
+{
+  "schema": "ml-registry-root-v1",
+  "release": "vision-encoder-r17-live-current",
+  "volume_label": "ml-registry-recovery-pool",
+  "manifest_path": "registry/vision-encoder/current/manifest.json",
+  "artifacts": [
+    {
+      "path": "registry/vision-encoder/current/model.bin",
+      "size": 18874368,
+      "seed": "vision-encoder-r17-bf16-weights"
+    },
+    {
+      "path": "registry/vision-encoder/current/tokenizer.bin",
+      "size": 2097152,
+      "seed": "vision-encoder-r17-tokenizer"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{"partition": "p0", "account_id": "acct-001", "account_age_days": 812, "events_7d": 14, "risk_score": 0.18}
+{"partition": "p1", "account_id": "acct-002", "account_age_days": 91, "events_7d": 3, "risk_score": 0.71}
+{"partition": "p2", "account_id": "acct-003", "account_age_days": 1440, "events_7d": 38, "risk_score": 0.09}
+{"partition": "p3", "account_id": "acct-004", "account_age_days": 26, "events_7d": 22, "risk_score": 0.63}
+{"partition": "p4", "account_id": "acct-005", "account_age_days": 407, "events_7d": 7, "risk_score": 0.34}
+{"partition": "p5", "account_id": "acct-006", "account_age_days": 223, "events_7d": 19, "risk_score": 0.44}

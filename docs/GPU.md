@@ -30,10 +30,20 @@ variables point to distinct packaged source directories so a case can recreate
 these links without deleting the installed source. Native agent adapters remain
 under `/opt/node/bin` and `/usr/local/bin`.
 
+## Use the runtime image
+
+```bash
+docker pull ghcr.io/tarfersoul/clashbench:gpu
+```
+
+This image contains the training/inference software and native agent tools.
+Model weights, processed training data, and GPU evaluation inventories are
+separate inputs. The bundled CPU quickstart uses the CPU image.
+
 ## Maintainer build
 
-The build currently requires access to the original base image and the three
-original runtime directories. Consumers will use the published image; weights
+The build requires access to the original base image and the three
+original runtime directories. Consumers can pull the runtime image; weights
 and task data are downloaded independently as described in the README.
 
 ```bash
@@ -57,8 +67,10 @@ The first stage creates the local `clashbench:gpu-runtime` image. After it has
 completed, set `CLASH_REUSE_GPU_RUNTIME=1` to retry the final image build without
 transferring the runtime again. The final build uses PJLab's Ubuntu Jammy proxy
 (`http://mirrors.i.h.pjlab.org.cn/repository/apt-jammy-proxy/ubuntu/`) and forwards
-HTTP(S)/NO_PROXY build arguments. It requires network access to PJLab; pass
-`--build-arg APT_MIRROR=...` to use another Ubuntu mirror outside the cluster.
+HTTP(S)/NO_PROXY build arguments. PJLab hosts bypass the external proxy, and
+apt connects directly to its PJLab mirror. The build requires network access
+to PJLab; pass `--build-arg APT_MIRROR=...` to use another Ubuntu mirror outside
+the cluster.
 Do not reuse the runtime image after changing its source dependencies.
 
 The default base is pinned by digest in the Dockerfile. `--build-arg GPU_BASE=...`
@@ -113,7 +125,7 @@ The runtime image alone does not convert those runners.
 python -m acb.cli run \
   --inventory data/release/inventory.json --cases GPU_CASE_ID \
   --config configs/codex.local.json \
-  --image agentconflictbench:cpu --gpu-image clashbench:gpu \
+  --image ghcr.io/tarfersoul/clashbench:cpu --gpu-image ghcr.io/tarfersoul/clashbench:gpu \
   --parallel 1
 ```
 

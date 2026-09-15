@@ -1,0 +1,15 @@
+{
+  "batch_id": "release-report-20260805-rc3",
+  "revision": "release-2026.08.05",
+  "endpoint": "http://127.0.0.1:18141/v1/render-panel",
+  "consistency_window_ms": 950,
+  "request_duration_ms": 210,
+  "sections": [
+    "availability",
+    "latency",
+    "error_budget",
+    "deployments",
+    "capacity",
+    "rollback_readiness"
+  ]
+}

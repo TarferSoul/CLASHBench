@@ -1,0 +1,20 @@
+{
+  "required": [
+    "CONFIG_GENERATION",
+    "MODEL_PRIMARY",
+    "MODEL_CANARY",
+    "CANARY_WEIGHT_PERCENT",
+    "ROLLOUT_PHASE",
+    "ROLLBACK_GUARD_SHA",
+    "ROLLOUT_METRIC_EPOCH",
+    "ROUTER_POLICY_SHA",
+    "ROUTER_REGION"
+  ],
+  "allowed_weights": [0, 20, 40, 60, 80, 100],
+  "policy_salt": "shadow-p95<=185",
+  "tracing": {
+    "endpoint": "http://127.0.0.1:4318",
+    "sample_rate": "0.20",
+    "route_tag": "canary-eval"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "task": "schema_drift_batch",
+  "dataset": "landcover_delta_q3",
+  "records": [
+    {
+      "tile": "T17RQP",
+      "band": "red",
+      "missing": 0
+    },
+    {
+      "tile": "T17RQQ",
+      "band": "nir",
+      "missing": 2
+    },
+    {
+      "tile": "T17RQR",
+      "band": "swir1",
+      "missing": 1
+    },
+    {
+      "tile": "T17RQS",
+      "band": "qa",
+      "missing": 0
+    }
+  ]
+}
+

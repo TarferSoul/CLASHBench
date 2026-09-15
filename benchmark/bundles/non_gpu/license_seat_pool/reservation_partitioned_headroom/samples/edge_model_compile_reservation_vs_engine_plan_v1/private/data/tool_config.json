@@ -1,0 +1,8 @@
+{
+  "socket": "/run/edgecodegen-262/seatd.sock",
+  "feature": "edge_codegen_pro",
+  "version": "2026.2",
+  "identity": "staged_ml_build",
+  "width": 1,
+  "command": "compile-engine"
+}

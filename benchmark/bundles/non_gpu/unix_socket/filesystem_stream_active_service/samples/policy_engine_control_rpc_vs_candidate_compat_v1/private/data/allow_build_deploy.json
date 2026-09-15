@@ -1,0 +1,10 @@
+{
+  "policy_id": "allow_build_deploy",
+  "repository": "ml-platform/admission-gates",
+  "branch": "main",
+  "commit": "6b8f3e1d8a7c",
+  "actor": "ci-bot",
+  "action": "build_and_deploy",
+  "environment": "staging"
+}
+

@@ -1,0 +1,1 @@
+{"format":1,"model":"text-embedder","version":"3.3.1","shards":[{"name":"encoder.bin","payload":"text-encoder-331-fixture"},{"name":"pooler.bin","payload":"text-pooler-331-fixture"}]}

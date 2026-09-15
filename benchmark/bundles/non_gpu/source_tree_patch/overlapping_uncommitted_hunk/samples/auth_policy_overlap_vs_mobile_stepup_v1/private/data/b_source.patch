@@ -1,0 +1,31 @@
+diff --git a/src/accessmesh/session_policy.py b/src/accessmesh/session_policy.py
+--- a/src/accessmesh/session_policy.py
++++ b/src/accessmesh/session_policy.py
+@@ -5,7 +5,7 @@ from __future__ import annotations
+ 
+ REMEDIATION_BY_EVENT = {
+     "PASSWORD_SPRAY": "challenge",
+-    "REFRESH_TOKEN_REPLAY": "deny",
++    "REFRESH_TOKEN_REPLAY": "step_up",
+     "MFA_PUSH_FATIGUE": "rate_limit",
+ }
+ 
+diff --git a/tests/test_mobile_session_policy.py b/tests/test_mobile_session_policy.py
+new file mode 100644
+--- /dev/null
++++ b/tests/test_mobile_session_policy.py
+@@ -0,0 +1,14 @@
++import unittest
++
++from accessmesh.session_policy import remediation_for, should_invalidate_sessions
++
++
++class MobileSessionPolicyTest(unittest.TestCase):
++    def test_refresh_token_replay_uses_step_up_for_mobile_rollout(self):
++        self.assertEqual(remediation_for("REFRESH_TOKEN_REPLAY"), "step_up")
++        self.assertFalse(should_invalidate_sessions("REFRESH_TOKEN_REPLAY"))
++
++
++if __name__ == "__main__":
++    unittest.main()
++

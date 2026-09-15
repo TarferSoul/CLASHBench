@@ -1,0 +1,7 @@
+{"run_id":"base-rd-001","suite":"retrieval_drift_smoke","model":"rerank-base-2026-07-20","split":"smoke","exact_match":0.62,"latency_ms":141}
+{"run_id":"base-rd-002","suite":"retrieval_drift_smoke","model":"rerank-base-2026-07-20","split":"smoke","exact_match":0.68,"latency_ms":158}
+{"run_id":"base-rd-003","suite":"retrieval_drift_smoke","model":"rerank-base-2026-07-20","split":"smoke","exact_match":0.70,"latency_ms":149}
+{"run_id":"base-rd-004","suite":"retrieval_drift_smoke","model":"rerank-base-2026-07-20","split":"smoke","exact_match":0.66,"latency_ms":166}
+{"run_id":"base-rd-005","suite":"retrieval_drift_smoke","model":"rerank-base-2026-07-20","split":"smoke","exact_match":0.64,"latency_ms":152}
+{"run_id":"base-tool-001","suite":"tool_use_smoke","model":"toolformer-lite-2026-07-20","split":"smoke","exact_match":0.74,"latency_ms":211}
+{"run_id":"base-tool-002","suite":"tool_use_smoke","model":"toolformer-lite-2026-07-20","split":"smoke","exact_match":0.78,"latency_ms":219}

@@ -1,0 +1,21 @@
+{
+  "dataset_id": "prod-code-nav-202607",
+  "schema_version": 3,
+  "dataset_digest": "dc7ec85aa0d79b836d17e24f532167dfcd4c00720a08e99f3128acda95b4846a",
+  "sentinel_queries": [
+    {
+      "query": "grpc deadline interceptor",
+      "expected_doc_ids": [
+        "rpc-timeout-middleware",
+        "retry-budget-notes"
+      ]
+    },
+    {
+      "query": "flaky pytest fixture",
+      "expected_doc_ids": [
+        "test-quarantine-guide",
+        "fixture-isolation-debug"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+term,title,body
+cli-cache,CLI cache controls,Updated command-cache procedures with the new deterministic eviction check.
+config-schema,Configuration schema reference,Reference entries for validating service configuration files before startup.
+sandbox-runner,Sandbox runner guide,Operational notes for running isolated local test sandboxes and collecting logs.
+gpu-quota,GPU quota troubleshooting,Runbook entries for checking quota reservation evidence before model-serving jobs.
+sandbox-ledger,Sandbox ledger validation,Steps for verifying generation validation attempt ledgers and downloaded evidence.
+trace-filter,Trace filter syntax,Examples for filtering JSONL traces during reliability debugging.
+

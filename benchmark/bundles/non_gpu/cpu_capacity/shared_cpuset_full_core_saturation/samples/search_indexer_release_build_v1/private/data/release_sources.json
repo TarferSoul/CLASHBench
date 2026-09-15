@@ -1,0 +1,9 @@
+{
+  "schema": "release-source-set-v1",
+  "modules": [
+    {"name": "query_parser", "source": "def parse_query(tokens):\n    return [t.casefold() for t in tokens if t.strip()]\n"},
+    {"name": "rank_features", "source": "def score(tf, df, length):\n    return (tf + 1.0) / (df + 2.0) + 1.0 / (length + 3.0)\n"},
+    {"name": "result_merge", "source": "def merge(rows):\n    return sorted(rows, key=lambda row: (-row[1], row[0]))\n"},
+    {"name": "snippet", "source": "def snippet(text, width=96):\n    return ' '.join(text.split())[:width]\n"}
+  ]
+}

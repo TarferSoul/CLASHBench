@@ -1,0 +1,10 @@
+{
+  "batch_id": "release-2026.07.21-rc4",
+  "deadline_ms": 290,
+  "records": [
+    {"id": "audit-release-manifest", "kind": "release_manifest", "release": "2026.07.21-rc4", "result": "verified", "digest": "sha256:6425ac0dab346346247556103b08e59ec39e1d97b187240fce8f1c9e6fd26d77"},
+    {"id": "audit-policy-attestation", "kind": "policy_attestation", "release": "2026.07.21-rc4", "result": "approved", "digest": "sha256:90c12f8c2c6f4f56cb3765fae5559b34a81037ee4efaf71375068df9d93453bf"},
+    {"id": "audit-deployment-window", "kind": "deployment_window", "release": "2026.07.21-rc4", "result": "open", "digest": "sha256:b30e46ce2c815b3d267618d4c609f2c7bf3339c680df5af9cb3aa0fc7c9a8416"},
+    {"id": "audit-sbom-provenance", "kind": "sbom_provenance", "release": "2026.07.21-rc4", "result": "verified", "digest": "sha256:4f90c8155a1f569e39b6b5b3da398d1d3d4ff0ec9795c90a7f4470b9e1a7ea71"}
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "resource_instance": "eda-license-lane-7",
+  "features": {"eda-base-2025": 3, "eda-parallel-2025": 3, "timing-report-export-2025": 1},
+  "a_allocations": {
+    "eda-synthesis-stage": {"eda-base-2025": 1, "eda-parallel-2025": 2},
+    "eda-timing-stage": {"eda-base-2025": 1, "timing-report-export-2025": 1}
+  }
+}

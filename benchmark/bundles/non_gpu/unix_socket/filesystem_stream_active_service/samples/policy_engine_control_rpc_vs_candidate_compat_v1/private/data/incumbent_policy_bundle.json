@@ -1,0 +1,18 @@
+{
+  "service": "policy-engine-v1",
+  "policy_version": "incumbent-2026.07",
+  "generation_token": "ci-policy-prod-gen-17",
+  "rules": {
+    "allow_build_deploy": {
+      "decision": "deny",
+      "rule_id": "ci-prod-approval-required",
+      "reason": "production deploys require a signed approval marker"
+    },
+    "canary_dependency_scan": {
+      "decision": "allow",
+      "rule_id": "ci-dependency-canary",
+      "reason": "dependency canary scans are always admitted"
+    }
+  }
+}
+

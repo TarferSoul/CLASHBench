@@ -10,8 +10,11 @@ on:
         required: true
       variant:
         type: choice
-        options: [cpu, gpu]
+        options: [both, cpu, gpu]
         required: true
+      gpu_image_id:
+        description: Exact GPU image ID when publishing both variants
+        required: false
 permissions:
   contents: read
   packages: write
@@ -23,19 +26,34 @@ jobs:
     env:
       SOURCE_IMAGE: '${{ inputs.image_id }}'
       VARIANT: '${{ inputs.variant }}'
+      GPU_SOURCE_IMAGE: '${{ inputs.gpu_image_id }}'
       DOCKER_CONFIG: '${{ runner.temp }}/clash-docker-auth'
     steps:
       - uses: actions/checkout@v4
       - name: Validate exact image
         run: |
-          test "$(docker image inspect --format '{{.Id}}' "$SOURCE_IMAGE")" = "$SOURCE_IMAGE"
-          for cli in codex claude opencode; do
-            docker run --rm --network none --entrypoint "/opt/harness/$cli/node_modules/.bin/$cli" "$SOURCE_IMAGE" --version
-          done
-          python3 tests/docker_smoke.py --image "$SOURCE_IMAGE"
-          if [ "$VARIANT" = gpu ]; then
-            docker run --rm --network none --entrypoint /opt/conda/bin/python "$SOURCE_IMAGE" /opt/acb/check_gpu_runtime.py
+          manifest="$RUNNER_TEMP/clash-images.tsv"
+          if [ "$VARIANT" = both ]; then
+            printf 'cpu\t%s\ngpu\t%s\n' "$SOURCE_IMAGE" "$GPU_SOURCE_IMAGE" > "$manifest"
+          else
+            printf '%s\t%s\n' "$VARIANT" "$SOURCE_IMAGE" > "$manifest"
           fi
+          while read -r variant source; do
+            test "$(docker image inspect --format '{{.Id}}' "$source")" = "$source"
+            container=$(docker create "$source")
+            trap 'docker rm -f "$container" >/dev/null' EXIT
+            docker cp "$container:/opt/acb/acb" "$RUNNER_TEMP/$variant-acb"
+            diff -r --exclude=__pycache__ acb "$RUNNER_TEMP/$variant-acb"
+            docker rm "$container"
+            trap - EXIT
+            for cli in codex claude opencode; do
+              docker run --rm --network none --entrypoint "/opt/harness/$cli/node_modules/.bin/$cli" "$source" --version
+            done
+            python3 tests/docker_smoke.py --image "$source"
+            if [ "$variant" = gpu ]; then
+              docker run --rm --network none --entrypoint /opt/conda/bin/python "$source" /opt/acb/check_gpu_runtime.py
+            fi
+          done < "$manifest"
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -45,9 +63,12 @@ jobs:
         env:
           REVISION: '${{ github.sha }}'
         run: |
-          target="ghcr.io/tarfersoul/clashbench:$VARIANT"
-          docker tag "$SOURCE_IMAGE" "$target-$REVISION"
-          docker tag "$SOURCE_IMAGE" "$target"
-          docker push "$target-$REVISION"
-          docker push "$target"
-          echo "Published $target from $SOURCE_IMAGE" >> "$GITHUB_STEP_SUMMARY"
+          while read -r variant source; do
+            target="ghcr.io/tarfersoul/clashbench:$variant"
+            docker tag "$source" "$target-$REVISION"
+            docker tag "$source" "$target"
+            docker push "$target-$REVISION"
+            docker push "$target"
+            docker pull "$target"
+            echo "Published $target from $source" >> "$GITHUB_STEP_SUMMARY"
+          done < "$RUNNER_TEMP/clash-images.tsv"

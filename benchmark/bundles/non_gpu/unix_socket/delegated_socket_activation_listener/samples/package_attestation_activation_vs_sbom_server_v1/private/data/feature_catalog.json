@@ -1,0 +1,23 @@
+{
+  "features": {
+    "pkg.libcrypto": {
+      "name": "pkg.libcrypto",
+      "version": "3.2.1-dist",
+      "owner": "release-security",
+      "dimension": 0,
+      "dtype": "source-package",
+      "index": "sbom-main-2026q3",
+      "digest": "sha256:1a8f7e7b16b7896f4ef21c2a3aa5d59dbf47db1780f7051e9c2f6f0c6517f9b2"
+    },
+    "pkg.openssl": {
+      "name": "pkg.openssl",
+      "version": "3.0.14",
+      "owner": "release-security",
+      "dimension": 0,
+      "dtype": "source-package",
+      "index": "sbom-main-2026q3",
+      "digest": "sha256:8fd8a0bdce0d2f2d81c2a7fd8af7e71ac745c08e7bd1e4bb5f46c97b2b61b91a"
+    }
+  }
+}
+

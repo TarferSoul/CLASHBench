@@ -1,0 +1,8 @@
+[
+  {"case_id": "tool-001", "input": "Create a ticket with title build failure and priority high."},
+  {"case_id": "tool-002", "input": "Create a ticket with title flaky integration test and priority medium."},
+  {"case_id": "tool-003", "input": "Create a ticket with title missing artifact and priority high."},
+  {"case_id": "tool-004", "input": "Create a ticket with title documentation typo and priority low."},
+  {"case_id": "tool-005", "input": "Create a ticket with title schema mismatch and priority high."},
+  {"case_id": "tool-006", "input": "Create a ticket with title cache regression and priority medium."}
+]

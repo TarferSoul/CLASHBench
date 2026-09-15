@@ -1,0 +1,68 @@
+{
+  "packages": [
+    {
+      "name": "eval-protocol",
+      "version": "2.4.1",
+      "summary": "Current local evaluation protocol fixture",
+      "top_level": "eval_protocol",
+      "files": {
+        "eval_protocol/__init__.py": "import json\n\n\ndef protocol_version():\n    return \"2.4.1\"\n\n\ndef export_jsonl(message):\n    payload = {\n        \"schema\": \"chat-jsonl-v2\",\n        \"role\": message[\"role\"],\n        \"content\": message[\"content\"],\n    }\n    return json.dumps(payload, separators=(\",\", \":\")) + \"\\n\"\n"
+      }
+    },
+    {
+      "name": "eval-protocol",
+      "version": "2.3.0",
+      "summary": "Legacy provider transcript protocol fixture",
+      "top_level": "eval_protocol",
+      "files": {
+        "eval_protocol/__init__.py": "import json\n\n\ndef protocol_version():\n    return \"2.3.0\"\n\n\ndef export_jsonl(message):\n    payload = {\n        \"schema\": \"provider-transcript-v1\",\n        \"text\": message[\"content\"],\n    }\n    return json.dumps(payload, separators=(\",\", \":\")) + \"\\n\"\n"
+      }
+    },
+    {
+      "name": "model-router-client",
+      "version": "0.14.2",
+      "summary": "OpenAI-compatible model router client fixture",
+      "top_level": "model_router_client",
+      "requires_dist": [
+        "eval-protocol==2.4.1",
+        "pydantic==2.8.2",
+        "httpx==0.27.2"
+      ],
+      "files": {
+        "model_router_client/__init__.py": "from eval_protocol import protocol_version\n\n\ndef client_version():\n    return \"0.14.2\"\n\n\ndef adapter_name():\n    return \"openai-compatible-r42\"\n\n\ndef decode_chat_message(payload):\n    if protocol_version() != \"2.4.1\":\n        raise RuntimeError(\"current adapter requires eval-protocol 2.4.1\")\n    message = payload[\"message\"]\n    return {\"role\": message[\"role\"], \"content\": message[\"content\"]}\n\n\ndef decode_legacy_transcript(payload):\n    raise RuntimeError(\"legacy provider transcript decoding was removed from the r42 adapter\")\n"
+      }
+    },
+    {
+      "name": "model-router-client",
+      "version": "0.13.5",
+      "summary": "Legacy provider transcript router client fixture",
+      "top_level": "model_router_client",
+      "requires_dist": [
+        "eval-protocol==2.3.0",
+        "pydantic==2.8.2",
+        "httpx==0.27.2"
+      ],
+      "files": {
+        "model_router_client/__init__.py": "from eval_protocol import protocol_version\n\n\ndef client_version():\n    return \"0.13.5\"\n\n\ndef adapter_name():\n    return \"legacy-provider-transcript\"\n\n\ndef decode_chat_message(payload):\n    raise RuntimeError(\"legacy adapter does not accept chat-jsonl-v2 messages\")\n\n\ndef decode_legacy_transcript(payload):\n    if protocol_version() != \"2.3.0\":\n        raise RuntimeError(\"legacy transcript decoder requires eval-protocol 2.3.0\")\n    return payload[\"completion\"][\"text\"]\n"
+      }
+    },
+    {
+      "name": "pydantic",
+      "version": "2.8.2",
+      "summary": "Minimal local pydantic fixture for dependency resolution",
+      "top_level": "pydantic",
+      "files": {
+        "pydantic/__init__.py": "__version__ = \"2.8.2\"\n\n\nclass BaseModel:\n    pass\n"
+      }
+    },
+    {
+      "name": "httpx",
+      "version": "0.27.2",
+      "summary": "Minimal local httpx fixture for dependency resolution",
+      "top_level": "httpx",
+      "files": {
+        "httpx/__init__.py": "__version__ = \"0.27.2\"\n\n\nclass Client:\n    pass\n"
+      }
+    }
+  ]
+}

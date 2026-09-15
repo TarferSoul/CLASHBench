@@ -1,0 +1,7 @@
+{
+  "repository": "sdk-gateway",
+  "tag": "v3.8.0-rc1",
+  "channel": "recovery",
+  "commit": "7d91c4be2a6f32dd",
+  "notes": "Candidate with request-replay guard and bounded retry telemetry"
+}

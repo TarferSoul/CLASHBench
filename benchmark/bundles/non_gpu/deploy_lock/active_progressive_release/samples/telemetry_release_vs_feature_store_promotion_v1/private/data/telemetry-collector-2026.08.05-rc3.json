@@ -1,0 +1,7 @@
+{
+  "component": "telemetry-collector",
+  "version": "2026.08.05-rc3",
+  "digest": "sha256:d9aa4f5da09013442558077e52a88c87071afc2856ed544c2fc27aa3cf4382ab",
+  "routing_contract": "event-schema-v3",
+  "signature": "release-signature-telemetry-collector-0804"
+}

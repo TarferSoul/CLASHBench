@@ -1,0 +1,6 @@
+{
+  "revision": "mesh-trust-2026.07-safe",
+  "bundle_digest": "sha256:93b61f0d4a27",
+  "issuer_set": ["root-a", "intermediate-7"],
+  "revoked_serial_set_digest": "sha256:b520ec7f19ad"
+}

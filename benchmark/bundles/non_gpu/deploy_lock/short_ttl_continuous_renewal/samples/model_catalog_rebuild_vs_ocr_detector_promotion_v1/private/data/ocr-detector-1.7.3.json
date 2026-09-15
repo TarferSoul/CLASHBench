@@ -1,0 +1,1 @@
+{"format":1,"model":"ocr-detector","version":"1.7.3","shards":[{"name":"backbone-00.bin","payload":"ocr-173-backbone-shard-zero"},{"name":"backbone-01.bin","payload":"ocr-173-backbone-shard-one"},{"name":"detection-head.bin","payload":"ocr-173-detection-head"}]}

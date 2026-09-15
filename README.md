@@ -7,6 +7,12 @@ their fixtures, prompts, independent graders, and the case inventory.
 ## Quickstart: Run a Real Case
 
 You need Linux, Docker, Python 3.10+, and an API key for your chosen model.
+The quickstart case uses 2 CPUs and 2 GiB RAM. The full CPU suite requires
+Docker to have at least 16 CPUs available; individual cases request up to
+11 GiB RAM. Allow additional host memory and disk space for Docker and fixtures.
+The CPU image occupies approximately 19.2 GB after extraction.
+Run disk/I/O cases on idle local storage; their timing controls are part of
+the case definitions.
 Benchmark scripts execute inside Docker; no dataset download or path editing
 is needed for the bundled CPU cases.
 
@@ -61,10 +67,9 @@ all 238 CPU cases, and the default image is
 `--image IMAGE` to use a pinned image digest or a locally built image. Limits
 vary by case; budget CPU, RAM, disk, and API usage before increasing concurrency.
 
-The package is private during release preparation. Authorized users can run
-`docker login ghcr.io` with a token that has `read:packages`; public release
-will remove that registry-login requirement. Image publication and case
-validation status are recorded in [VALIDATION.md](docs/VALIDATION.md).
+For a private repository/package, authenticate GitHub access and run
+`docker login ghcr.io` with a token that has `read:packages` before pulling.
+See [VALIDATION.md](docs/VALIDATION.md) for the tested cases and image identity.
 
 ## Other Harnesses and Conditions
 
@@ -115,8 +120,8 @@ See [PROTOCOL.md](docs/PROTOCOL.md) for the metric definitions.
 
 ## GPU Models and Task Data
 
-The bundled inventory currently covers the 238 CPU cases. The 10 GPU cases
-and the 20 selected daily-life cases are not included in this CPU release.
+This release evaluates the 238 bundled CPU cases. GPU and daily-life
+evaluation inventories are separate from this CPU package.
 GPU evaluation additionally needs a suitable dedicated GPU, NVIDIA Container
 Toolkit, a prepared GPU image, and the separately downloaded assets below.
 See [GPU.md](docs/GPU.md) for runtime versions and mount configuration.
@@ -138,37 +143,32 @@ export ACB_QWEN4B_DIR="$PWD/data/models/Qwen3.5-4B"
 export ACB_QWEN35B_DIR="$PWD/data/models/Qwen3.5-35B-A3B"
 ```
 
-The 35B revision is taken from the original runner. The original 4B revision
-still needs to be pinned in the dataset release; the first command currently
-downloads the upstream default revision. Record the resolved revision for a
-run and use `--revision` once the release supplies it. These commands are
-instructions only: building the GPU image does not download any weights.
+The 35B revision is taken from the original runner. The 4B command downloads
+the upstream default revision; record the resolved revision for your run and
+use `--revision` to repeat that download exactly. Building the GPU image does
+not download model weights.
 
 ### GPU task-data downloads (outside the image)
 
-The GPU workloads use prepared ToolMind and agentic-safety training files,
-including `toolmind50k_direct_plain.json`, `agentic_safety_sft.json`, and their
-`dataset_info.json` metadata. **The prepared task-data archive and its download
-URL/checksum have not been released yet.** An arbitrary upstream ToolMind
-download does not reproduce these processed files.
+GPU workloads use processed training data separately from the runtime image:
 
-When the release provides its archive URL and SHA-256, download and verify it
-separately from the image:
+| Input | Required files |
+|---|---|
+| ToolMind | `toolmind50k_direct_plain.json`, `dataset_info.json` |
+| Agentic safety | `agentic_safety_sft.json`, `dataset_info.json` |
+
+Use the processed task-data package associated with the GPU evaluation
+inventory. An arbitrary upstream ToolMind download does not reproduce these
+files. After downloading and verifying that package against its supplied
+checksum, extract it under `data/gpu-tasks` and configure:
 
 ```bash
-# Set both values from the CLASHBench data release notes when published.
-: "${CLASH_GPU_DATA_URL:?Set the published GPU task-data archive URL}"
-: "${CLASH_GPU_DATA_SHA256:?Set its published SHA-256}"
-mkdir -p data/gpu-tasks
-curl --fail --location "$CLASH_GPU_DATA_URL" -o data/gpu-tasks.tar.gz
-printf '%s  %s\n' "$CLASH_GPU_DATA_SHA256" data/gpu-tasks.tar.gz | sha256sum --check
-tar -xzf data/gpu-tasks.tar.gz -C data/gpu-tasks
 export ACB_GPU_DATA_DIR="$PWD/data/gpu-tasks"
 ```
 
-Model and task-data directories are mounted read-only through the case
-inventory, as shown in [GPU.md](docs/GPU.md). Both asset releases remain
-separate from the runtime-image work.
+Model and task-data directories are mounted read-only through the GPU case
+inventory, as shown in [GPU.md](docs/GPU.md). The CPU quickstart and full CPU
+suite require neither these training files nor the Qwen model weights.
 
 ## Build and Validate Locally
 
@@ -210,5 +210,3 @@ The original dataset source is not changed by this release. See
 [DATASET.md](docs/DATASET.md) for provenance and portability changes,
 [VALIDATION.md](docs/VALIDATION.md) for verified coverage, and
 [the paper repository](https://github.com/TarferSoul/agentconflict-arxiv).
-Code and dataset redistribution licenses and public visibility still need to
-be finalized before the public launch.

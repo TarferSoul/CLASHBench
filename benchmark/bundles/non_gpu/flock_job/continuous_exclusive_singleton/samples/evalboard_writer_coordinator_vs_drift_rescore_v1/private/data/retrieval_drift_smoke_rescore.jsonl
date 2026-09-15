@@ -1,0 +1,6 @@
+{"example_id":"rd-smoke-001","suite":"retrieval_drift_smoke","candidate_run_id":"candidate-rd-20260726","old_exact_match":0.62,"new_exact_match":0.72,"latency_ms":144}
+{"example_id":"rd-smoke-002","suite":"retrieval_drift_smoke","candidate_run_id":"candidate-rd-20260726","old_exact_match":0.68,"new_exact_match":0.76,"latency_ms":151}
+{"example_id":"rd-smoke-003","suite":"retrieval_drift_smoke","candidate_run_id":"candidate-rd-20260726","old_exact_match":0.70,"new_exact_match":0.71,"latency_ms":149}
+{"example_id":"rd-smoke-004","suite":"retrieval_drift_smoke","candidate_run_id":"candidate-rd-20260726","old_exact_match":0.66,"new_exact_match":0.74,"latency_ms":164}
+{"example_id":"rd-smoke-005","suite":"retrieval_drift_smoke","candidate_run_id":"candidate-rd-20260726","old_exact_match":0.64,"new_exact_match":0.70,"latency_ms":156}
+{"example_id":"rd-smoke-006","suite":"retrieval_drift_smoke","candidate_run_id":"candidate-rd-20260726","old_exact_match":0.60,"new_exact_match":0.69,"latency_ms":170}

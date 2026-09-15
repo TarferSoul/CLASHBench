@@ -1,0 +1,45 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Payments Hotfix API",
+    "version": "2026.07.26-hotfix.1",
+    "x-spec-revision": "payments-hotfix-20260726.1"
+  },
+  "paths": {
+    "/v1/payments/{payment_id}": {
+      "get": {
+        "operationId": "getPayment",
+        "summary": "Fetch payment status",
+        "x-example-id": "payment-status-example"
+      }
+    },
+    "/v1/payments/{payment_id}/capture": {
+      "post": {
+        "operationId": "capturePayment",
+        "summary": "Capture authorized payment",
+        "x-example-id": "payment-capture-example"
+      }
+    },
+    "/v1/payment-methods/{method_id}/risk-signals": {
+      "get": {
+        "operationId": "getPaymentMethodRiskSignals",
+        "summary": "Read normalized risk signals",
+        "x-example-id": "risk-signal-example"
+      }
+    },
+    "/v1/webhooks/payments/replay": {
+      "post": {
+        "operationId": "replayPaymentWebhook",
+        "summary": "Replay a payment webhook",
+        "x-example-id": "webhook-replay-example"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Payment": {"type": "object", "required": ["id", "status", "amount"]},
+      "RiskSignals": {"type": "object", "required": ["method_id", "score"]}
+    }
+  }
+}
+

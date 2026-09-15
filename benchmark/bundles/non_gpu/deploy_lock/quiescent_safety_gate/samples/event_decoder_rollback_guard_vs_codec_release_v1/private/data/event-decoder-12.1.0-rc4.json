@@ -1,0 +1,8 @@
+{
+  "component": "event-decoder",
+  "version": "12.1.0-rc4",
+  "digest": "sha256:63d462dc6debf55b4440ba8640183661da92f3d3e91281ea5451da57476b88e0",
+  "signature": "release-signature-event-decoder-12.1.0-rc4",
+  "schema_epoch": 1201,
+  "change": "wire-v3 envelope support with dual-decode rollback evidence"
+}

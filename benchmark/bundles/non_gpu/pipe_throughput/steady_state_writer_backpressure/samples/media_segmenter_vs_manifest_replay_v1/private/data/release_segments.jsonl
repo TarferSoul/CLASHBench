@@ -1,0 +1,14 @@
+{"segment_id":"seg-001","payload":"camera-a:20260804T134000Z:0001","stream":"camera-a","duration_ms":2000}
+{"segment_id":"seg-002","payload":"camera-a:20260804T134002Z:0002","stream":"camera-a","duration_ms":2000}
+{"segment_id":"seg-003","payload":"camera-a:20260804T134004Z:0003","stream":"camera-a","duration_ms":2000}
+{"segment_id":"seg-004","payload":"camera-a:20260804T134006Z:0004","stream":"camera-a","duration_ms":2000}
+{"segment_id":"seg-005","payload":"camera-a:20260804T134008Z:0005","stream":"camera-a","duration_ms":2000}
+{"segment_id":"seg-006","payload":"camera-b:20260804T134000Z:0001","stream":"camera-b","duration_ms":2000}
+{"segment_id":"seg-007","payload":"camera-b:20260804T134002Z:0002","stream":"camera-b","duration_ms":2000}
+{"segment_id":"seg-008","payload":"camera-b:20260804T134004Z:0003","stream":"camera-b","duration_ms":2000}
+{"segment_id":"seg-009","payload":"camera-b:20260804T134006Z:0004","stream":"camera-b","duration_ms":2000}
+{"segment_id":"seg-010","payload":"camera-b:20260804T134008Z:0005","stream":"camera-b","duration_ms":2000}
+{"segment_id":"seg-011","payload":"audio:mix-20260804T134000Z:0001","stream":"audio","duration_ms":2000}
+{"segment_id":"seg-012","payload":"audio:mix-20260804T134002Z:0002","stream":"audio","duration_ms":2000}
+{"segment_id":"seg-013","payload":"audio:mix-20260804T134004Z:0003","stream":"audio","duration_ms":2000}
+{"segment_id":"seg-014","payload":"audio:mix-20260804T134006Z:0004","stream":"audio","duration_ms":2000}

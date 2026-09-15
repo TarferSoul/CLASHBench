@@ -1,0 +1,4 @@
+{"event_id":"template-1","principal":"svc-indexer","decision":"allow","policy":"workload-identity-v8","source_host":"api-node-17"}
+{"event_id":"template-2","principal":"svc-reporter","decision":"deny","policy":"restricted-export-v3","source_host":"api-node-22"}
+{"event_id":"template-3","principal":"build-runner","decision":"allow","policy":"artifact-read-v5","source_host":"ci-node-09"}
+{"event_id":"template-4","principal":"unknown-client","decision":"deny","policy":"mfa-required-v6","source_host":"edge-node-04"}

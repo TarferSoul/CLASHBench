@@ -1,0 +1,10 @@
+{
+  "artifact": "/work/warehouse-volume/snapshot-index/index-2026-08-04.bin",
+  "manifest": "/work/warehouse-volume/snapshot-index/index-2026-08-04.manifest.json",
+  "allocated_bytes": 29360128,
+  "header": "WAREIDX1",
+  "trailer": "WAREIDXEND",
+  "snapshot": "warehouse-events-2026-08-04T03:00Z",
+  "partition_count": 112,
+  "format_version": 1
+}

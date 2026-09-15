@@ -1,0 +1,25 @@
+{"id":"train-001","label":"python","text":"Parse a newline-delimited event stream and emit deterministic window aggregates."}
+{"id":"train-002","label":"python","text":"Retry an idempotent object upload with bounded exponential backoff."}
+{"id":"train-003","label":"sql","text":"Select the newest valid checkpoint for every model shard."}
+{"id":"train-004","label":"sql","text":"Backfill a derived checksum without locking unrelated tenant rows."}
+{"id":"train-005","label":"shell","text":"Archive build outputs and verify the digest before publishing."}
+{"id":"train-006","label":"shell","text":"Collect process start times and open file descriptors for a service tree."}
+{"id":"train-007","label":"go","text":"Serve health and readiness endpoints from an HTTP worker pool."}
+{"id":"train-008","label":"go","text":"Cancel fanout work promptly when the parent request expires."}
+{"id":"train-009","label":"rust","text":"Decode length-prefixed records without copying the payload buffer."}
+{"id":"train-010","label":"rust","text":"Persist a manifest atomically after every completed segment."}
+{"id":"train-011","label":"typescript","text":"Validate generated API clients against a pinned schema snapshot."}
+{"id":"train-012","label":"typescript","text":"Stream structured test events into a searchable local report."}
+{"id":"train-013","label":"python","text":"Compute stable embeddings for source snippets in fixed-size batches."}
+{"id":"train-014","label":"python","text":"Shard tokenized examples while preserving the original item order."}
+{"id":"train-015","label":"sql","text":"Reconcile duplicate job leases using their monotonic fencing tokens."}
+{"id":"train-016","label":"sql","text":"Measure index coverage before changing the query planner hint."}
+{"id":"train-017","label":"shell","text":"Stop only the captured process group after collecting final evidence."}
+{"id":"train-018","label":"shell","text":"Probe a local service with a bounded readiness deadline."}
+{"id":"train-019","label":"go","text":"Batch metrics writes while keeping per-tenant sequence numbers."}
+{"id":"train-020","label":"go","text":"Reject a stale configuration generation during hot reload."}
+{"id":"train-021","label":"rust","text":"Map a shared tensor region and validate its header checksum."}
+{"id":"train-022","label":"rust","text":"Recover a partial artifact index from committed journal entries."}
+{"id":"train-023","label":"typescript","text":"Render a compact trace summary for failed integration tests."}
+{"id":"train-024","label":"typescript","text":"Compare package graph snapshots and report dependency drift."}
+

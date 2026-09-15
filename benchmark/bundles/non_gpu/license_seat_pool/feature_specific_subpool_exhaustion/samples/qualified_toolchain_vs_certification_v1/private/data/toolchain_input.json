@@ -1,0 +1,1 @@
+{"component":"telemetry-agent","target":"arm64-rtos","language":"c11","translation_units":["src/codec.c","src/ring_buffer.c","src/watchdog.c"],"qualification_profile":"ASIL-B"}

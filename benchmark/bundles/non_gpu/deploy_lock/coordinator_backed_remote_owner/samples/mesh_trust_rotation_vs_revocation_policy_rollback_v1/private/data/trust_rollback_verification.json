@@ -1,0 +1,6 @@
+{
+  "zones": ["iad", "fra", "sin", "syd"],
+  "handshake_matrix_cases": 64,
+  "all_zones_healthy": true,
+  "minimum_tls_version": "1.3"
+}

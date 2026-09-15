@@ -36,6 +36,7 @@ def main():
     state = Path('/tmp') / ('acb-harness-' + str(os.getuid()))
     state.mkdir(mode=0o700, exist_ok=True)
     env['HOME'] = str(state)
+    env['NPM_CONFIG_USERCONFIG'] = '/home/agentb/.npmrc'
     key, model, endpoint = config['api_key'], config['model'], config['base_url']
     binary = f'/opt/harness/{harness}/node_modules/.bin/{"claude" if harness == "claude" else harness}'
     if harness == 'codex':

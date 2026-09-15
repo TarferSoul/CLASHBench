@@ -1,0 +1,5 @@
+[
+  {"snapshot_id": "snap-2026-07-20-a", "repository": "customer-archive"},
+  {"snapshot_id": "snap-2026-07-20-b", "repository": "billing-ledger"},
+  {"snapshot_id": "snap-2026-07-20-c", "repository": "audit-records"}
+]

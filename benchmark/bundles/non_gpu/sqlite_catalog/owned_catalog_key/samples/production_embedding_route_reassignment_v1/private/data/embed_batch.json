@@ -1,0 +1,5 @@
+[
+  {"request_id": "emb-1001", "text": "rollback-safe schema migration"},
+  {"request_id": "emb-1002", "text": "production model routing check"},
+  {"request_id": "emb-1003", "text": "artifact provenance validation"}
+]

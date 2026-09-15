@@ -1,0 +1,18 @@
+{
+  "schema": "ml-recovery-bundle-v1",
+  "release": "vision-encoder-r17-recovery-2026.08.04",
+  "volume_label": "ml-registry-recovery-pool",
+  "manifest_path": "recovery/vision-encoder-r17/manifest.json",
+  "artifacts": [
+    {
+      "path": "recovery/vision-encoder-r17/checkpoint.bin",
+      "size": 20971520,
+      "seed": "vision-encoder-r17-recovery-checkpoint"
+    },
+    {
+      "path": "recovery/vision-encoder-r17/tokenizer.bin",
+      "size": 6291456,
+      "seed": "vision-encoder-r17-recovery-tokenizer"
+    }
+  ]
+}

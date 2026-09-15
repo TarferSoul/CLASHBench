@@ -1,0 +1,3 @@
+fixture package: vector-search-cache 1.7.3
+components: bounded-lru, shard-replay, checksum-index
+build: search-index-recovery-20260804.3

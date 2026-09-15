@@ -1,0 +1,16 @@
+{
+  "name": "segment_bulk_v2",
+  "version": 2,
+  "transport": "segment-bulk-http",
+  "required_columns": [
+    "anonymous_id",
+    "event",
+    "event_time",
+    "properties_json"
+  ],
+  "batch_contract": {
+    "encoding": "jsonl",
+    "max_records": 500,
+    "idempotency_key": "event_time:anonymous_id:event"
+  }
+}

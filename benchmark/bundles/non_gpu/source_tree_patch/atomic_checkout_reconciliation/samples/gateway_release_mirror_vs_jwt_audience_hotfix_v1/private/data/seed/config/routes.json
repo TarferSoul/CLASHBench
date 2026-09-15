@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/public/status",
+    "upstream": "status-api",
+    "methods": ["GET"],
+    "audiences": ["svc:*"]
+  },
+  {
+    "path": "/internal/metrics",
+    "upstream": "metrics-api",
+    "methods": ["GET"],
+    "audiences": ["svc:metrics-reader"]
+  },
+  {
+    "path": "/admin/audit",
+    "upstream": "audit-api",
+    "methods": ["GET", "POST"],
+    "audiences": ["svc:audit-reader"]
+  }
+]

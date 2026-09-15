@@ -1,0 +1,73 @@
+{
+  "segments": [
+    {
+      "segment_id": "catalog-us-east-001",
+      "docs": [
+        {
+          "sku": "AX-410",
+          "title": "Axion waterproof field tablet",
+          "description": "Rugged tablet with barcode sled and SKU AX-410 support for warehouse search tests.",
+          "category": "devices"
+        },
+        {
+          "sku": "BR-220",
+          "title": "Boreal mesh router",
+          "description": "Dual band edge router for store inventory telemetry and mesh diagnostics.",
+          "category": "network"
+        },
+        {
+          "sku": "CN-778",
+          "title": "Cinder thermal receipt printer",
+          "description": "USB and ethernet receipt printer with firmware log export.",
+          "category": "peripherals"
+        }
+      ]
+    },
+    {
+      "segment_id": "catalog-us-west-014",
+      "docs": [
+        {
+          "sku": "DX-900",
+          "title": "Delta noise-canceling headset",
+          "description": "Support center headset with adaptive noise cancellation and replaceable cable.",
+          "category": "audio"
+        },
+        {
+          "sku": "EL-305",
+          "title": "Elara compact labeler",
+          "description": "Thermal label printer optimized for shelf-tag batches and asset labels.",
+          "category": "peripherals"
+        },
+        {
+          "sku": "FK-118",
+          "title": "Falcon kiosk scanner",
+          "description": "Counter scanner with firmware analytics and search event correlation.",
+          "category": "devices"
+        }
+      ]
+    },
+    {
+      "segment_id": "catalog-eu-core-009",
+      "docs": [
+        {
+          "sku": "GM-640",
+          "title": "Garnet mobile payment cradle",
+          "description": "PCI test cradle for mobile checkout devices and charging diagnostics.",
+          "category": "payments"
+        },
+        {
+          "sku": "HY-710",
+          "title": "Hyphen analyzer validation kit",
+          "description": "Fixture kit for SKU hyphenation search regressions and synonym checks.",
+          "category": "search"
+        },
+        {
+          "sku": "IX-512",
+          "title": "Index verification appliance",
+          "description": "Small appliance for replaying search validation queries against staged indexes.",
+          "category": "search"
+        }
+      ]
+    }
+  ]
+}

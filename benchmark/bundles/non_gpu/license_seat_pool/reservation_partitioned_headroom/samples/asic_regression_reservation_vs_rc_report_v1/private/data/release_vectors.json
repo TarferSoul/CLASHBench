@@ -1,0 +1,9 @@
+{
+  "suite": "rc7-gate-smoke",
+  "cases": [
+    {"name": "boot-sequence", "module": "soc_top", "seed": "1001", "assertion": "boot_done"},
+    {"name": "dma-backpressure", "module": "dma_scheduler", "seed": "1002", "assertion": "no_drop"},
+    {"name": "firewall-deny", "module": "axi_firewall", "seed": "1003", "assertion": "deny_logged"},
+    {"name": "interrupt-priority", "module": "interrupt_router", "seed": "1004", "assertion": "priority_order"}
+  ]
+}

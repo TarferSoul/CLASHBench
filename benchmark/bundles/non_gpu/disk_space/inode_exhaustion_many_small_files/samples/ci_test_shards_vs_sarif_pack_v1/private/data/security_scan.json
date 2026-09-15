@@ -1,0 +1,8 @@
+{
+  "scan": "repository-security-2026.08",
+  "partition_prefix": "source-partition",
+  "required_partitions": 80,
+  "rule_set": "secure-default-v5",
+  "format": "sarif-2.1.0",
+  "checksum": "sha256"
+}

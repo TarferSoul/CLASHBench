@@ -1,0 +1,12 @@
+{
+  "identity": "model_cache_service",
+  "feature": "edge_codegen_pro",
+  "version": "2026.2",
+  "width": 1,
+  "kind": "model_compile_queue",
+  "items": [
+    {"model": "vision-backbone-r18", "target": "orin-nx8", "operators": ["Conv", "Relu", "Add", "Quantize"]},
+    {"model": "keyword-spotter-v3", "target": "imx93-npu", "operators": ["Conv", "Relu", "MatMul", "Softmax"]},
+    {"model": "anomaly-encoder-v6", "target": "orin-nano", "operators": ["MatMul", "Add", "LayerNorm", "Quantize"]}
+  ]
+}

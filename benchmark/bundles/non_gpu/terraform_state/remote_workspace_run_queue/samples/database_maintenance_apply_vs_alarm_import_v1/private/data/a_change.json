@@ -1,0 +1,10 @@
+{
+  "change_id": "aurora-parameter-rollout-2026-08-05",
+  "description": "Apply the reviewed Aurora PostgreSQL parameter group and validate all read replicas",
+  "operation": "apply",
+  "desired_outputs": {
+    "db_parameter_revision": "aurora-2026-08-05",
+    "replica_health_regions": 3
+  },
+  "progress_phases": ["parameter_plan", "writer_restart_guard", "replica_validation"]
+}

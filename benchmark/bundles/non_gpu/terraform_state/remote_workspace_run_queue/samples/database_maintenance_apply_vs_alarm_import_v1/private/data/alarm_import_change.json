@@ -1,0 +1,10 @@
+{
+  "change_id": "alarm-import-2026-08-05",
+  "description": "Import the existing API 5xx alarm into the observability module",
+  "operation": "import",
+  "desired_outputs": {
+    "alarm_import_address": "module.observability.aws_cloudwatch_metric_alarm.api_5xx",
+    "alarm_state_hash": "d7b6a3d7a5f20bf596fdc1129f1b813b9db2cd4afcbd1a8f7fdd5af8c5b9e3c1"
+  },
+  "progress_phases": ["configuration_upload", "import_plan", "state_publish"]
+}

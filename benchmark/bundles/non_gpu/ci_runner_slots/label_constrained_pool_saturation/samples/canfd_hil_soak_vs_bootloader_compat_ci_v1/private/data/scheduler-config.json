@@ -1,0 +1,12 @@
+{
+  "host": "127.0.0.1",
+  "port": 59142,
+  "target_label": "canfd-hil-v3",
+  "generic_label": "generic-linux",
+  "executors": [
+    {"id": "canfd-hil-21", "labels": ["canfd-hil-v3", "device-attached"], "capabilities": ["device=canfd-loopback-v3", "firmware=bootloader-7.4", "power-cycle=relay-v2"], "env": {"CI_DEVICE_SOCKET": "/run/ci-lanes/canfd-hil/runtime/device-21.sock"}},
+    {"id": "canfd-hil-22", "labels": ["canfd-hil-v3", "device-attached"], "capabilities": ["device=canfd-loopback-v3", "firmware=bootloader-7.4", "power-cycle=relay-v2"], "env": {"CI_DEVICE_SOCKET": "/run/ci-lanes/canfd-hil/runtime/device-22.sock"}},
+    {"id": "generic-linux-31", "labels": ["generic-linux", "linux-x86_64"], "capabilities": ["architecture=x86_64", "toolchain=gcc13"], "env": {}},
+    {"id": "generic-linux-32", "labels": ["generic-linux", "linux-x86_64"], "capabilities": ["architecture=x86_64", "toolchain=gcc13"], "env": {}}
+  ]
+}

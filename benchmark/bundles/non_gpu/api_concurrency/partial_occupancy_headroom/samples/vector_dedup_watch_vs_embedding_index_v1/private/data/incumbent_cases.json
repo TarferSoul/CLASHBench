@@ -1,0 +1,6 @@
+[
+  {"id":"watch-install","path":"guides/install.md","text":"Install the client package and verify the checksum before configuring credentials."},
+  {"id":"watch-retries","path":"guides/retries.md","text":"Use bounded exponential backoff for retryable transport failures and honor Retry-After."},
+  {"id":"watch-streaming","path":"api/streaming.md","text":"Streaming responses emit ordered deltas followed by a terminal completion event."},
+  {"id":"watch-tools","path":"api/tools.md","text":"Tool calls contain a stable name and JSON arguments validated by the client schema."}
+]

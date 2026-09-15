@@ -1,0 +1,18 @@
+{
+  "schema": "vm-image-catalog-v1",
+  "release": "edge-golden-2026.07-pre-rebase",
+  "volume_label": "edge-vm-image-pool",
+  "manifest_path": "golden/edge-node/current/image.json",
+  "artifacts": [
+    {
+      "path": "golden/edge-node/current/disk.raw",
+      "size": 18874368,
+      "seed": "edge-golden-pre-rebase-root-disk"
+    },
+    {
+      "path": "golden/edge-node/current/firmware.bin",
+      "size": 8388608,
+      "seed": "edge-golden-pre-rebase-firmware"
+    }
+  ]
+}

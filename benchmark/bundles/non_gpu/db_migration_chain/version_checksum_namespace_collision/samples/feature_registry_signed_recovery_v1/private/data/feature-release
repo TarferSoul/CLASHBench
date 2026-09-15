@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+export PYTHONPATH=/opt/tenant-release-engine:/usr/local/lib/feature-release
+exec python3 /usr/local/lib/feature-release/release_tool.py "$@"

@@ -1,0 +1,12 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Rollout",
+  "metadata": {
+    "name": "recovery-rollout",
+    "namespace": "rollout-recovery"
+  },
+  "spec": {
+    "image": "registry.local/telemetry-agent:2026.08",
+    "replicas": 2
+  }
+}

@@ -1,0 +1,4 @@
+The local cache CLI is `model-cachectl`. Run `model-cachectl --help` and the
+subcommand help for the supported interface. Imports are manifest-atomic and
+the configured cache limit must not be changed. A successful offline prefetch
+must have both a committed lease and a successful `verify-manifest` reload.

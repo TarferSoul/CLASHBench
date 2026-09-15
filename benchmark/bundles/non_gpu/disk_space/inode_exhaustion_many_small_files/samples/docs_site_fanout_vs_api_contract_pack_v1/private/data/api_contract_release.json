@@ -1,0 +1,7 @@
+{
+  "release": "sdk-contracts-2026.08",
+  "module_prefix": "sdk-component",
+  "required_modules": 90,
+  "schema_version": 3,
+  "checksum": "sha256"
+}

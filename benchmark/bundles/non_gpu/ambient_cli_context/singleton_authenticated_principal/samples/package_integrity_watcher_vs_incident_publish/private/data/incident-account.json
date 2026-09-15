@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "name": "incident-publisher",
+  "principal": "incident-publisher",
+  "endpoint": "http://127.0.0.1:18642",
+  "account_id": "acct-incident-publisher"
+}

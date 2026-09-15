@@ -1,0 +1,17 @@
+{
+  "batch_id": "dlq-replay-inc-4821",
+  "revision": "dispatcher-2026.08.05.2",
+  "endpoint": "http://127.0.0.1:18172/v1/deliver",
+  "delivery_lease_ms": 850,
+  "request_duration_ms": 165,
+  "events": [
+    "evt-4821-001",
+    "evt-4821-002",
+    "evt-4821-003",
+    "evt-4821-004",
+    "evt-4821-005",
+    "evt-4821-006",
+    "evt-4821-007",
+    "evt-4821-008"
+  ]
+}

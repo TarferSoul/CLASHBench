@@ -1,0 +1,11 @@
+{
+  "schema": "embedding-quantization-job-v1",
+  "input_path": "/work/embedding_seeds.json",
+  "output_dir": "/work/quantized-catalog",
+  "repeat_count": 10,
+  "required_vector_count": 300,
+  "dimensions": 64,
+  "optimization_rounds": 500,
+  "deadline_seconds": 6.0
+}
+

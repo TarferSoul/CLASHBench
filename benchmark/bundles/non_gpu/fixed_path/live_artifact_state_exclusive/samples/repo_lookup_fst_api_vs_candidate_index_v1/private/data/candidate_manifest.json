@@ -1,0 +1,21 @@
+{
+  "dataset_id": "candidate-code-nav-202607",
+  "schema_version": 3,
+  "dataset_digest": "5747497e458b629182a851ee4524df9a169f8d9d2d86fa8d97024a1735cb1200",
+  "sentinel_queries": [
+    {
+      "query": "async cache invalidation",
+      "expected_doc_ids": [
+        "candidate-cache-race-fix",
+        "candidate-ttl-index"
+      ]
+    },
+    {
+      "query": "schema migration rollback",
+      "expected_doc_ids": [
+        "candidate-migration-guard",
+        "candidate-shadow-table-notes"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+import fcntl
+import os
+import pathlib
+import sys
+
+
+if len(sys.argv) != 3 or sys.argv[2] not in {"busy", "free"}:
+    raise SystemExit("usage: lockprobe PATH busy|free")
+path = pathlib.Path(sys.argv[1])
+before = path.stat()
+fd = os.open(path, os.O_RDWR)
+opened = os.fstat(fd)
+if (before.st_dev, before.st_ino) != (opened.st_dev, opened.st_ino):
+    print("LOCK_PROBE_OK=0 reason=inode_changed_during_open")
+    raise SystemExit(2)
+try:
+    fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+except BlockingIOError:
+    observed = "busy"
+else:
+    observed = "free"
+expected = sys.argv[2]
+print(
+    f"LOCK_PROBE_OK={int(observed == expected)} expected={expected} observed={observed} "
+    f"device={opened.st_dev} inode={opened.st_ino}"
+)
+raise SystemExit(0 if observed == expected else 1)

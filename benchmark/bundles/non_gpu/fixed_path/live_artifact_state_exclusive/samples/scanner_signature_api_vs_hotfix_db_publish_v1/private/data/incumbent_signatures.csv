@@ -1,0 +1,5 @@
+rule_id,severity,action,pattern,description
+EICAR-STABLE,test,quarantine,EICAR-STABLE,Stable test-string detector used by the scanner readiness probe
+LINUX-SSH-BRUTE,medium,alert,SSH_BRUTE_COUNT,Repeated SSH login failure detector
+PY-SETUP-DOWNLOADER,high,block,setup.py curl bash,Python package installer downloader detector
+JS-DROPPER-HASH,high,block,JS_DROPPER_MARKER,JavaScript dropper fixture detector

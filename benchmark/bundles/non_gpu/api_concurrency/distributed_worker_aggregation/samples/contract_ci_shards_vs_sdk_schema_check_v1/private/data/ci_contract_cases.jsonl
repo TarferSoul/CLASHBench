@@ -1,0 +1,36 @@
+{"id":"contract-001","area":"schema_output","name":"strict invoice object","request":{"schema":"invoice_v3","input":"total with currency and due date"},"assertions":["json_object","required_fields","no_markdown"]}
+{"id":"contract-002","area":"tool_call","name":"single weather tool call","request":{"tool":"lookup_weather","arguments":{"city":"Austin","unit":"fahrenheit"}},"assertions":["tool_name","argument_shape","no_extra_keys"]}
+{"id":"contract-003","area":"retry","name":"idempotent retry marker","request":{"operation":"chat_retry","retry_after_ms":250},"assertions":["same_case_hash","retry_header_preserved"]}
+{"id":"contract-004","area":"streaming_header","name":"stream content type","request":{"stream":true,"accept":"text/event-stream"},"assertions":["first_event_role","request_id_header"]}
+{"id":"contract-005","area":"schema_output","name":"nullable enum slot","request":{"schema":"deployment_rollout_v1","input":"nullable region"},"assertions":["enum_valid","null_allowed"]}
+{"id":"contract-006","area":"tool_call","name":"nested issue triage tool","request":{"tool":"classify_issue","arguments":{"labels":["bug","sdk"],"severity":"medium"}},"assertions":["array_arguments","severity_enum"]}
+{"id":"contract-007","area":"retry","name":"timeout retry keeps body","request":{"operation":"timeout_replay","body_hash":"f12a"},"assertions":["body_hash_match","attempt_count"]}
+{"id":"contract-008","area":"streaming_header","name":"chunk ordering","request":{"stream":true,"case":"ordered_chunks"},"assertions":["monotonic_index","finish_reason"]}
+{"id":"contract-009","area":"schema_output","name":"tool result summary","request":{"schema":"tool_summary_v2","input":"multiple tool outputs"},"assertions":["required_fields","integer_counts"]}
+{"id":"contract-010","area":"tool_call","name":"parallel tool decision","request":{"tool":"route_request","arguments":{"targets":["docs","billing"]}},"assertions":["target_list","confidence_float"]}
+{"id":"contract-011","area":"retry","name":"429 retry classification","request":{"operation":"rate_limit_retry","retry_after_ms":500},"assertions":["retryable_error","backoff_bucket"]}
+{"id":"contract-012","area":"streaming_header","name":"usage trailer parse","request":{"stream":true,"case":"usage_trailer"},"assertions":["usage_tokens","trailer_seen"]}
+{"id":"contract-013","area":"schema_output","name":"date normalization","request":{"schema":"release_window_v1","input":"next Tuesday 15:00 UTC"},"assertions":["iso_datetime","timezone"]}
+{"id":"contract-014","area":"tool_call","name":"empty optional args","request":{"tool":"search_docs","arguments":{"query":"streaming callbacks"}},"assertions":["optional_absent","query_string"]}
+{"id":"contract-015","area":"retry","name":"connection reset replay","request":{"operation":"socket_reset","body_hash":"a991"},"assertions":["same_request_id_family","payload_hash"]}
+{"id":"contract-016","area":"streaming_header","name":"model header pin","request":{"stream":true,"case":"deployment_pin"},"assertions":["deployment_header","model_match"]}
+{"id":"contract-017","area":"schema_output","name":"array item discriminator","request":{"schema":"sdk_event_batch_v2","input":"mixed event array"},"assertions":["discriminator","item_count"]}
+{"id":"contract-018","area":"tool_call","name":"escaped string argument","request":{"tool":"open_file","arguments":{"path":"src/client/schema.ts"}},"assertions":["escaped_path","tool_name"]}
+{"id":"contract-019","area":"retry","name":"client token reuse","request":{"operation":"client_token","token":"ctok-019"},"assertions":["token_preserved","attempt_count"]}
+{"id":"contract-020","area":"streaming_header","name":"heartbeat interval","request":{"stream":true,"case":"heartbeat"},"assertions":["heartbeat_seen","no_empty_final"]}
+{"id":"contract-021","area":"schema_output","name":"numeric bounds","request":{"schema":"latency_bucket_v1","input":"p50 p95 p99"},"assertions":["number_type","bounds"]}
+{"id":"contract-022","area":"tool_call","name":"boolean argument retention","request":{"tool":"set_feature_flag","arguments":{"enabled":false}},"assertions":["boolean_false","no_string_bool"]}
+{"id":"contract-023","area":"retry","name":"retry budget exhausted event","request":{"operation":"budget_event","budget":2},"assertions":["budget_count","final_error_shape"]}
+{"id":"contract-024","area":"streaming_header","name":"role delta compacting","request":{"stream":true,"case":"role_delta"},"assertions":["single_role","delta_sequence"]}
+{"id":"contract-025","area":"schema_output","name":"schema refusal wrapper","request":{"schema":"safety_response_v1","input":"invalid structured request"},"assertions":["refusal_field","no_partial_object"]}
+{"id":"contract-026","area":"tool_call","name":"tool choice none","request":{"tool":"none","arguments":{}},"assertions":["no_tool_calls","finish_reason"]}
+{"id":"contract-027","area":"retry","name":"retry telemetry headers","request":{"operation":"header_capture","headers":["x-request-id","retry-after"]},"assertions":["header_case","trace_link"]}
+{"id":"contract-028","area":"streaming_header","name":"stream cancellation contract","request":{"stream":true,"case":"cancel_after_first_delta"},"assertions":["cancel_ack","no_late_chunks"]}
+{"id":"contract-029","area":"schema_output","name":"unicode field values","request":{"schema":"locale_case_v1","input":"localized names"},"assertions":["utf8_roundtrip","json_object"]}
+{"id":"contract-030","area":"tool_call","name":"tool error envelope","request":{"tool":"execute_sql","arguments":{"query":"select 1"}},"assertions":["error_envelope","safe_message"]}
+{"id":"contract-031","area":"retry","name":"retry after fractional seconds","request":{"operation":"fractional_backoff","retry_after_ms":125},"assertions":["rounded_delay","retryable_error"]}
+{"id":"contract-032","area":"streaming_header","name":"final usage accounting","request":{"stream":true,"case":"final_usage"},"assertions":["completion_tokens","prompt_tokens"]}
+{"id":"contract-033","area":"schema_output","name":"additionalProperties false","request":{"schema":"strict_options_v1","input":"unknown option"},"assertions":["no_extra_keys","schema_valid"]}
+{"id":"contract-034","area":"tool_call","name":"multi-step plan tool","request":{"tool":"plan_migration","arguments":{"steps":3}},"assertions":["step_count","tool_name"]}
+{"id":"contract-035","area":"retry","name":"stream retry disabled","request":{"operation":"stream_retry_policy","stream":true},"assertions":["no_replay","policy_marker"]}
+{"id":"contract-036","area":"streaming_header","name":"empty content final","request":{"stream":true,"case":"empty_final"},"assertions":["finish_reason","no_parse_error"]}

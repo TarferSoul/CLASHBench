@@ -1,0 +1,9 @@
+{
+  "schema": "native-sdk-abi-matrix-input-v1",
+  "release": "vector-sdk-5.1.0",
+  "case_count": 48,
+  "case_prefix": "abi-case",
+  "modules": ["core", "transport", "retry", "auth", "codec", "telemetry"],
+  "source_epoch": 1720000000
+}
+

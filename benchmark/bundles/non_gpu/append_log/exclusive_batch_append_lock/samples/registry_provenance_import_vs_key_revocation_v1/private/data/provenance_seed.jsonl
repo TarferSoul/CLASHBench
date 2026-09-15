@@ -1,0 +1,4 @@
+{"builder":"buildkit-prod-3","package":"auth-sdk","source_digest":"sha256:71a3b3f3b80fa49a42dabcfb3c57c4991a5e34932bfd26992b63cab74c8a9cb1","version_prefix":"8.4"}
+{"builder":"release-bazel-7","package":"event-router","source_digest":"sha256:76b8c6641dcd3d1b066b475b316a06377c6fe5e8473609dfd0a8f1d54d22d551","version_prefix":"12.8"}
+{"builder":"wheel-publisher-2","package":"feature-store-client","source_digest":"sha256:bdc13fe63ab8b7644566197e58df5111442dcad5c405013540016707182265fe","version_prefix":"5.19"}
+{"builder":"release-bazel-4","package":"policy-engine","source_digest":"sha256:0a3440eab5a514a371335a0b28a68c84254cef7ae82ac924072794916291a43d","version_prefix":"3.11"}

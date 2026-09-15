@@ -1,0 +1,9 @@
+{
+  "artifact": "ci-toolchain-2026.08.04",
+  "revision": "buildfarm-linux-amd64-r17",
+  "bytes": 12288,
+  "sha256": "a1cdb4f4926729ddb5018b2d41dba2437bc9cd5bcabfc9d8dadaf0067be5ae66",
+  "receiver": "127.0.0.1:9281",
+  "deadline_ms": 1100
+}
+

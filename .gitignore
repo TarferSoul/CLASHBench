@@ -11,3 +11,5 @@ data/
 dist/
 build/
 configs/*.local.json
+# Frozen benchmark fixtures include data/build directories and example env files.
+!benchmark/**

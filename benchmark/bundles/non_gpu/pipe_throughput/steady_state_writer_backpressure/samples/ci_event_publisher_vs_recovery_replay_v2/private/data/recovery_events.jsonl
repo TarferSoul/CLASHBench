@@ -1,0 +1,16 @@
+{"event_id":"build-001","payload":"compile-api:linux-amd64:ok","kind":"build","attempt":1}
+{"event_id":"build-002","payload":"compile-worker:linux-amd64:ok","kind":"build","attempt":1}
+{"event_id":"test-001","payload":"unit-auth:184-tests:pass","kind":"test","attempt":1}
+{"event_id":"test-002","payload":"unit-storage:96-tests:pass","kind":"test","attempt":1}
+{"event_id":"test-003","payload":"integration-events:42-tests:pass","kind":"test","attempt":1}
+{"event_id":"lint-001","payload":"ruff:services:clean","kind":"lint","attempt":1}
+{"event_id":"lint-002","payload":"mypy:workers:clean","kind":"lint","attempt":1}
+{"event_id":"artifact-001","payload":"oci-digest:sha256:ci-a1","kind":"artifact","attempt":1}
+{"event_id":"artifact-002","payload":"sbom:digest:ci-b2","kind":"artifact","attempt":1}
+{"event_id":"deploy-001","payload":"staging-rollout:10-percent","kind":"deploy","attempt":1}
+{"event_id":"deploy-002","payload":"staging-health:green","kind":"deploy","attempt":1}
+{"event_id":"audit-001","payload":"policy:provenance-verified","kind":"audit","attempt":1}
+{"event_id":"audit-002","payload":"policy:signing-key-current","kind":"audit","attempt":1}
+{"event_id":"recovery-001","payload":"checkpoint:2026-08-04T13:40Z","kind":"recovery","attempt":1}
+{"event_id":"recovery-002","payload":"checkpoint:cursor-7781","kind":"recovery","attempt":1}
+{"event_id":"release-001","payload":"release-candidate:ci-2026.08.04","kind":"release","attempt":1}

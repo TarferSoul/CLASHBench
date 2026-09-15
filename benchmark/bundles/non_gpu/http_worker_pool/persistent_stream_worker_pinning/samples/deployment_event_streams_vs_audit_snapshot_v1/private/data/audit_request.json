@@ -1,0 +1,11 @@
+{
+  "revision": "release-2026.07.26-rc3",
+  "environments": [
+    "staging-us",
+    "staging-eu",
+    "prod-us",
+    "prod-eu"
+  ],
+  "endpoint": "http://127.0.0.1:18174"
+}
+

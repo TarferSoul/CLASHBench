@@ -1,0 +1,25 @@
+{
+  "records": [
+    {"artifact_id": "gateway", "build_id": "build-701", "source": "services/gateway", "builder": "release-linux"},
+    {"artifact_id": "identity", "build_id": "build-702", "source": "services/identity", "builder": "release-linux"},
+    {"artifact_id": "events", "build_id": "build-703", "source": "services/events", "builder": "release-linux"},
+    {"artifact_id": "scheduler", "build_id": "build-704", "source": "services/scheduler", "builder": "release-linux"},
+    {"artifact_id": "search", "build_id": "build-705", "source": "services/search", "builder": "release-linux"},
+    {"artifact_id": "billing", "build_id": "build-706", "source": "services/billing", "builder": "release-linux"},
+    {"artifact_id": "audit", "build_id": "build-707", "source": "services/audit", "builder": "release-linux"},
+    {"artifact_id": "notifier", "build_id": "build-708", "source": "services/notifier", "builder": "release-linux"},
+    {"artifact_id": "migrations", "build_id": "build-709", "source": "db/migrations", "builder": "release-linux"},
+    {"artifact_id": "console", "build_id": "build-710", "source": "web/console", "builder": "release-node"},
+    {"artifact_id": "cli", "build_id": "build-711", "source": "tools/cli", "builder": "release-go"},
+    {"artifact_id": "sdk-python", "build_id": "build-712", "source": "sdk/python", "builder": "release-python"},
+    {"artifact_id": "sdk-typescript", "build_id": "build-713", "source": "sdk/typescript", "builder": "release-node"},
+    {"artifact_id": "policy", "build_id": "build-714", "source": "security/policy", "builder": "release-linux"},
+    {"artifact_id": "telemetry", "build_id": "build-715", "source": "services/telemetry", "builder": "release-linux"},
+    {"artifact_id": "rollout", "build_id": "build-716", "source": "deploy/rollout", "builder": "release-linux"},
+    {"artifact_id": "operator", "build_id": "build-717", "source": "deploy/operator", "builder": "release-go"},
+    {"artifact_id": "schema", "build_id": "build-718", "source": "contracts/schema", "builder": "release-linux"},
+    {"artifact_id": "docs", "build_id": "build-719", "source": "docs/reference", "builder": "release-node"},
+    {"artifact_id": "smoke", "build_id": "build-720", "source": "tests/smoke", "builder": "release-python"}
+  ]
+}
+

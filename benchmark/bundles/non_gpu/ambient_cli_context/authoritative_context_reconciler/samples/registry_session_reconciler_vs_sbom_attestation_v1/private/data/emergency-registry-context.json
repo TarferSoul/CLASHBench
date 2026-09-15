@@ -1,0 +1,8 @@
+{
+  "principal": "supply-chain-responder@recovery",
+  "organization": "platform-recovery",
+  "channel": "quarantine",
+  "lease_id": "emergency-supply-chain-session",
+  "endpoint": "http://127.0.0.1:18642",
+  "managed_by": "supply-chain-response"
+}

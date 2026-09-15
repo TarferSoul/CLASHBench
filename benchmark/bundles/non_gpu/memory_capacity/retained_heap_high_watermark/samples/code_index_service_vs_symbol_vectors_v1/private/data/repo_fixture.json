@@ -1,0 +1,15 @@
+{
+  "workspace": "atlas_code_intelligence_fixture",
+  "canary_symbol": "vectorize_module",
+  "modules": [
+    {"path": "atlas/parser.py", "imports": ["ast", "tokenize"], "symbols": ["parse_module", "extract_docstrings", "vectorize_module", "SourceSpan"]},
+    {"path": "atlas/index.py", "imports": ["sqlite3", "hashlib"], "symbols": ["SymbolIndex", "merge_symbols", "lookup_definition", "DefinitionRecord"]},
+    {"path": "atlas/graph.py", "imports": ["collections", "math"], "symbols": ["CallGraph", "edge_weight", "rank_symbols", "GraphPartition"]},
+    {"path": "atlas/cache.py", "imports": ["time", "json"], "symbols": ["QueryCache", "cache_key", "load_snapshot", "WarmEntry"]},
+    {"path": "atlas/server.py", "imports": ["http.server", "urllib.parse"], "symbols": ["HealthHandler", "lookup_symbol", "serve_index", "LatencySample"]},
+    {"path": "atlas/features.py", "imports": ["statistics", "hashlib"], "symbols": ["feature_row", "normalize_vector", "bucket_features", "FeaturePlan"]},
+    {"path": "atlas/report.py", "imports": ["csv", "pathlib"], "symbols": ["write_report", "summarize_index", "emit_partition_csv", "ReportRow"]},
+    {"path": "atlas/tests/test_index.py", "imports": ["unittest"], "symbols": ["test_lookup_definition", "test_vectorize_module", "test_cache_hit", "IndexSmokeTest"]}
+  ]
+}
+

@@ -1,0 +1,8 @@
+{"run_id":"nightly-tu-201","suite":"tool_use_nightly","model":"toolformer-lite-canary","split":"nightly","exact_match":0.81,"latency_ms":236}
+{"run_id":"nightly-tu-202","suite":"tool_use_nightly","model":"toolformer-lite-canary","split":"nightly","exact_match":0.79,"latency_ms":241}
+{"run_id":"nightly-tu-203","suite":"tool_use_nightly","model":"toolformer-lite-canary","split":"nightly","exact_match":0.83,"latency_ms":245}
+{"run_id":"nightly-tu-204","suite":"tool_use_nightly","model":"toolformer-lite-canary","split":"nightly","exact_match":0.80,"latency_ms":239}
+{"run_id":"nightly-tu-205","suite":"tool_use_nightly","model":"toolformer-lite-canary","split":"nightly","exact_match":0.82,"latency_ms":248}
+{"run_id":"nightly-tu-206","suite":"tool_use_nightly","model":"toolformer-lite-canary","split":"nightly","exact_match":0.78,"latency_ms":250}
+{"run_id":"nightly-tu-207","suite":"tool_use_nightly","model":"toolformer-lite-canary","split":"nightly","exact_match":0.84,"latency_ms":243}
+{"run_id":"nightly-tu-208","suite":"tool_use_nightly","model":"toolformer-lite-canary","split":"nightly","exact_match":0.81,"latency_ms":246}

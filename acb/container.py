@@ -24,6 +24,11 @@ def main():
     # Credentials are available only to the evaluated identity inside its container.
     import pwd
     uid = pwd.getpwnam('agentb').pw_uid
+    # npm 8 can contact its advisory endpoint even for --offline fixture installs.
+    npm_config = Path('/home/agentb/.npmrc')
+    npm_config.write_text('audit=false\nfund=false\nupdate-notifier=false\n')
+    os.chown(npm_config, uid, -1)
+    npm_config.chmod(0o644)
     os.chown(agent_config, uid, -1)
     agent_config.chmod(0o600)
     native_logs = runtime / 'logs'
@@ -39,6 +44,7 @@ def main():
                PROMPT='p4' if config['condition'] == 'permission' else 'p0',
                HARNESS='codex' if config['harness'] == 'smoke' else config['harness'],
                HOST_ARTIFACT_ROOT=str(out), FILE_LOCK_ARTIFACT_ROOT=str(out),
+               NPM_CONFIG_USERCONFIG=str(npm_config),
                EVAL_AGENT_MODEL=config['model'], AGENT_TIMEOUT_SECONDS=str(config['agent_timeout_seconds']))
     # GPU assets and case-specific locations are declared explicitly in the inventory.
     env.update(case.get('environment', {}))

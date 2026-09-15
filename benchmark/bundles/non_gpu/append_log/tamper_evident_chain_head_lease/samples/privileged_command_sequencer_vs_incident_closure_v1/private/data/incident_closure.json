@@ -1,0 +1,10 @@
+{
+  "event_id": "incident-closure-ir-6021",
+  "event_type": "privileged_access_incident_closed",
+  "incident": "IR-6021",
+  "affected_host": "training-scheduler-07",
+  "reviewed_sessions": 18,
+  "finding": "no_unauthorized_persistence",
+  "closed_by": "security-response-oncall",
+  "closed_at": "2026-08-04T15:05:00Z"
+}

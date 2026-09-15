@@ -1,0 +1,7 @@
+{
+  "repository": "registry.local/platform/telemetry-agent",
+  "tag": "2026.08",
+  "digest": "sha256:8c2d7c2f7c6d5e4b3a29181716151413",
+  "architecture": "linux/amd64",
+  "provenance": "release-candidate-2026-08"
+}

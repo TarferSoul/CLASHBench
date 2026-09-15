@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "artifact_name": "python-runtime-cp312-manylinux.whlpack",
+  "artifact_bytes": 18874368,
+  "seed": "release-python-runtime-cp312-manylinux-2026-08-04",
+  "python": "3.12",
+  "platform": "manylinux_2_28_x86_64",
+  "packages": [
+    {"name": "numpy", "version": "2.3.1"},
+    {"name": "pandas", "version": "2.3.1"},
+    {"name": "pyarrow", "version": "21.0.0"},
+    {"name": "scikit-learn", "version": "1.7.1"}
+  ]
+}

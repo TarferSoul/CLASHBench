@@ -1,0 +1,24 @@
+# Streaming API
+
+The API docs preview renders this page before publishing a docs release.
+
+## Overview
+
+Clients call `stream.responses` and receive ordered event chunks.
+
+## Retry Policy
+
+Retryable transport failures use exponential backoff and preserve request ids.
+
+## Retry Policy
+
+The retry helper also retries after a recoverable `response.output_text.delta`
+disconnect.
+
+## Retry Policy
+
+The third repeated section covers legacy `choices[].delta` providers.
+
+## Response & Usage
+
+The usage block is summarized after the final event.

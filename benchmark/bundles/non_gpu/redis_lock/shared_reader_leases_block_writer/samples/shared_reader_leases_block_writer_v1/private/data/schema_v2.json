@@ -1,0 +1,11 @@
+{
+  "generation": "schema_v2",
+  "features": [
+    {"name": "account_age_days", "type": "int", "nullable": false},
+    {"name": "events_7d", "type": "int", "nullable": false},
+    {"name": "risk_score", "type": "float", "nullable": false},
+    {"name": "velocity_1h", "type": "float", "nullable": false}
+  ],
+  "producer": "feature-schema-publisher",
+  "compatibility": "incompatible-additive-generation"
+}

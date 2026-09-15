@@ -1,0 +1,1 @@
+{"format":1,"model":"reranker-multilingual","version":"4.2.0","shards":[{"name":"encoder-00.bin","payload":"reranker-420-encoder-shard-zero"},{"name":"encoder-01.bin","payload":"reranker-420-encoder-shard-one"},{"name":"head.bin","payload":"reranker-420-ranking-head"}]}

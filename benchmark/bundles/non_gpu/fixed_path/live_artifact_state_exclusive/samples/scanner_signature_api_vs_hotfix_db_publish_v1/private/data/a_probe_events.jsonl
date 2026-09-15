@@ -1,0 +1,3 @@
+{"event_id":"scan-001","path":"/srv/app/setup.py","content":"from os import system\nsystem('setup.py curl bash')"}
+{"event_id":"scan-002","path":"/tmp/eicar.txt","content":"EICAR-STABLE"}
+{"event_id":"scan-003","path":"/srv/web/static/app.js","content":"const marker = 'JS_DROPPER_MARKER';"}

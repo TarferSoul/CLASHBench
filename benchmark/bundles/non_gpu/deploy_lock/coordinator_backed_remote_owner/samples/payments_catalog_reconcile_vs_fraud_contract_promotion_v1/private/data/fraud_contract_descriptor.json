@@ -1,0 +1,6 @@
+{
+  "revision": "fraud-features-2026.08.05.2",
+  "schema_digest": "sha256:7d8c4a6b15f2",
+  "compatibility_mode": "BACKWARD_TRANSITIVE",
+  "owner": "fraud-signals"
+}

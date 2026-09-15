@@ -1,0 +1,7 @@
+{
+  "component": "policy-engine",
+  "version": "2026.08.05.2",
+  "digest": "sha256:4e91b7c3d2a68f50e7b4c9d1a3f6e8b2c5d7a9e0f1b3c6d8e2a4f7b9c0d1e3",
+  "signature": "ml-serving-release-signature-policy-engine-known-good",
+  "compatibility_epoch": 42
+}

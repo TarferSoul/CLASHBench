@@ -1,0 +1,19 @@
+[project]
+name = "llm-eval-harness"
+version = "0.7.0"
+description = "Local LLM evaluation harness used for provider adapter validation"
+requires-python = ">=3.10"
+dependencies = [
+  "model-router-client==0.14.2",
+  "eval-protocol==2.4.1",
+  "pydantic==2.8.2",
+  "httpx==0.27.2",
+]
+
+[dependency-groups]
+dev = [
+  "pytest==8.2.2",
+]
+
+[tool.uv]
+package = false

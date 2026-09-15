@@ -1,0 +1,9 @@
+{
+  "format": "feature-partition-v3",
+  "rows": 65536,
+  "column_bytes": 8388608,
+  "dictionary_bytes": 6291456,
+  "final_bytes": 10485760,
+  "output": "/work/model-publish-volume/feature-partition/features-2026-08-04.fsp",
+  "manifest": "/work/model-publish-volume/feature-partition/features-2026-08-04.manifest.json"
+}

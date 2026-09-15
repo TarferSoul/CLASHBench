@@ -1,0 +1,6 @@
+{
+  "catalog_replicas": ["catalog-a", "catalog-b", "catalog-c"],
+  "compatibility_checks": 48,
+  "consumer_suite": "risk-stream-contracts",
+  "consumer_suite_passed": true
+}

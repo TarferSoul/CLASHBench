@@ -1,0 +1,8 @@
+{
+  "resource_instance": "media-license-lane-3",
+  "features": {"finish-engine-r12": 3, "finish-render-r12": 3, "finish-archive-export-r12": 1},
+  "a_allocations": {
+    "media-color-stage": {"finish-engine-r12": 1, "finish-render-r12": 2},
+    "media-archive-stage": {"finish-engine-r12": 1, "finish-archive-export-r12": 1}
+  }
+}

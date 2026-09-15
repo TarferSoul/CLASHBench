@@ -1,0 +1,37 @@
+{
+  "format": "signed-sqlite-release-v1",
+  "namespace": "ml-feature-registry/catalog-schema",
+  "release_id": "FR-RECOVERY-2026.08.2",
+  "version": "M307",
+  "parent": "M306",
+  "migration_id": "M307_feature_registry",
+  "target_checksum": "948d92b64a2dadce6d1013036cb42d88873b7794cab45cc41a17fe76c9ee221b",
+  "signer_key_id": "model-registry-recovery-2026",
+  "engine": {
+    "name": "yoyo-migrations",
+    "version": "9.0.0"
+  },
+  "predecessor": {
+    "version": "M306",
+    "parent": "M305",
+    "migration_id": "M306_feature_base",
+    "checksum": "67f2c663f7b2aa3504a980159b1668204fdfae6bc52aff0e6c968005af34f8e5",
+    "attestation_sha256": "bff039518a223507550682d1e530a5595505c7df9bb60923368d2d1a6a19a60c"
+  },
+  "migrations": [
+    {
+      "id": "M306_feature_base",
+      "file": "M306_feature_base.sql",
+      "sha256": "67f2c663f7b2aa3504a980159b1668204fdfae6bc52aff0e6c968005af34f8e5"
+    },
+    {
+      "id": "M307_feature_registry",
+      "file": "M307_feature_registry.sql",
+      "sha256": "948d92b64a2dadce6d1013036cb42d88873b7794cab45cc41a17fe76c9ee221b"
+    }
+  ],
+  "schema_contract": {
+    "required_column": "feature_artifacts.provenance_digest",
+    "required_table": "provenance_requirement"
+  }
+}

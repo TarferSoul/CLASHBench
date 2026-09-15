@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+exec python3 /opt/privileged-command-audit/bin/command_audit.py verify \
+  --journal /var/lib/privileged-command-audit/command-chain.alog \
+  --head /var/lib/privileged-command-audit/head-checkpoint.json \
+  --expect-genesis-id privileged-command-audit-genesis-v3 "$@"

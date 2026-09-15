@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "artifact_name": "telemetry-validation-042.arrowpack",
+  "artifact_bytes": 20971520,
+  "seed": "telemetry-validation-split-042-features-2026-08-04",
+  "dataset": "telemetry-events-v6",
+  "split": "validation-042",
+  "feature_columns": ["service_id", "latency_ms", "error_rate", "cpu_pct", "request_class"]
+}

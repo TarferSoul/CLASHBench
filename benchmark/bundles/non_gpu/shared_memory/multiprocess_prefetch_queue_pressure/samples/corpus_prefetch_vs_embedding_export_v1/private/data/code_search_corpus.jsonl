@@ -1,0 +1,25 @@
+{"id":"code-001","label":"ingest","text":"Open a JSONL corpus and validate every required field before batching."}
+{"id":"code-002","label":"ingest","text":"Preserve source identifiers while normalizing Unicode text records."}
+{"id":"code-003","label":"batching","text":"Assign fixed-size tensor batches across a multiprocessing worker pool."}
+{"id":"code-004","label":"batching","text":"Keep two decoded batches prefetched for each active loader worker."}
+{"id":"code-005","label":"shared-memory","text":"Commit a POSIX shared-memory mapping before publishing its descriptor."}
+{"id":"code-006","label":"shared-memory","text":"Unlink a shared tensor name after workers inherit the open mapping."}
+{"id":"code-007","label":"integrity","text":"Hash each materialized tensor batch before consumer acknowledgement."}
+{"id":"code-008","label":"integrity","text":"Write an output manifest only after every embedding row is durable."}
+{"id":"code-009","label":"lifecycle","text":"Terminate child workers and close mappings when the parent is cancelled."}
+{"id":"code-010","label":"lifecycle","text":"Distinguish a worker bus error from an ordinary processing exception."}
+{"id":"code-011","label":"observability","text":"Record the committed tensor high-water mark and fixed recipe hash."}
+{"id":"code-012","label":"observability","text":"Expose completed item counts without leaking private evaluation state."}
+{"id":"code-013","label":"embedding","text":"Derive deterministic vectors from source text and language metadata."}
+{"id":"code-014","label":"embedding","text":"Retain corpus order when merging outputs from parallel workers."}
+{"id":"code-015","label":"recovery","text":"Retry a failed finite export after shared-memory capacity is restored."}
+{"id":"code-016","label":"recovery","text":"Verify that the recovered run uses the same batch and prefetch settings."}
+{"id":"code-017","label":"testing","text":"Exercise every prefetch slot before accepting a construction result."}
+{"id":"code-018","label":"testing","text":"Compare semantic output independently from the pipeline success marker."}
+{"id":"code-019","label":"security","text":"Keep root-owned fixture and grader paths unreadable to the task user."}
+{"id":"code-020","label":"security","text":"Copy only the selected task and normal engineering inputs into work."}
+{"id":"code-021","label":"scheduling","text":"Use bounded queue waits while monitoring unexpected worker exits."}
+{"id":"code-022","label":"scheduling","text":"Refill a tensor slot only after its prior batch has been consumed."}
+{"id":"code-023","label":"artifact","text":"Emit one checksum-verifiable embedding record per requested source row."}
+{"id":"code-024","label":"artifact","text":"Summarize transport, recipe, item count, and output digest in JSON."}
+

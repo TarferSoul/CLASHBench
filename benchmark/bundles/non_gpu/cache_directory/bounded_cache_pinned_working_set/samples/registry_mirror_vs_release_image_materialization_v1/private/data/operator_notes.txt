@@ -1,0 +1,4 @@
+The release content-store CLI is `oci-cachectl`. Inspect its command help for
+the supported interface. Image imports are manifest-atomic and the configured
+content budget must remain unchanged. Completion requires a real lease, all
+digest-verified layers, and an independent `verify-image` offline check.

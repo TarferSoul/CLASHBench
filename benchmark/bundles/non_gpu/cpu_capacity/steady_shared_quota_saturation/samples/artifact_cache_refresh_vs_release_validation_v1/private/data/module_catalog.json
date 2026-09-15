@@ -1,0 +1,24 @@
+{
+  "schema": "telemetry-normalizer-module-catalog-v1",
+  "package": "telemetry_normalizer",
+  "modules": [
+    {"name": "counter_delta", "factor": 3, "offset": 11},
+    {"name": "histogram_bucket", "factor": 5, "offset": 17},
+    {"name": "span_duration", "factor": 7, "offset": 23},
+    {"name": "metric_label", "factor": 11, "offset": 29},
+    {"name": "trace_sampler", "factor": 13, "offset": 31},
+    {"name": "resource_merge", "factor": 17, "offset": 37},
+    {"name": "event_clock", "factor": 19, "offset": 41},
+    {"name": "rate_window", "factor": 23, "offset": 43},
+    {"name": "gauge_rescale", "factor": 29, "offset": 47},
+    {"name": "attribute_filter", "factor": 31, "offset": 53},
+    {"name": "log_severity", "factor": 37, "offset": 59},
+    {"name": "exemplar_link", "factor": 41, "offset": 61},
+    {"name": "service_identity", "factor": 43, "offset": 67},
+    {"name": "temporality_map", "factor": 47, "offset": 71},
+    {"name": "summary_quantile", "factor": 53, "offset": 73},
+    {"name": "batch_partition", "factor": 59, "offset": 79},
+    {"name": "schema_upgrade", "factor": 61, "offset": 83},
+    {"name": "payload_digest", "factor": 67, "offset": 89}
+  ]
+}

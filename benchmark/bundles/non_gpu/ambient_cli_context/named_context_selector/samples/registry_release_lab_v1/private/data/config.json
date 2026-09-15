@@ -1,0 +1,15 @@
+{
+  "current": "primary",
+  "contexts": {
+    "primary": {
+      "endpoint_id": "registry-primary",
+      "namespace": "platform-images",
+      "endpoint_dir": "endpoints/primary"
+    },
+    "canary": {
+      "endpoint_id": "registry-canary",
+      "namespace": "platform-canary",
+      "endpoint_dir": "endpoints/canary"
+    }
+  }
+}

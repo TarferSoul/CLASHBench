@@ -1,0 +1,18 @@
+{
+  "schema": "vm-rescue-appliance-v1",
+  "release": "edge-rescue-2026.08.04",
+  "volume_label": "edge-vm-image-pool",
+  "manifest_path": "rescue/edge-node-2026.08/appliance.json",
+  "artifacts": [
+    {
+      "path": "rescue/edge-node-2026.08/disk.raw",
+      "size": 23068672,
+      "seed": "edge-rescue-appliance-root-disk"
+    },
+    {
+      "path": "rescue/edge-node-2026.08/cloud-init.seed",
+      "size": 7340032,
+      "seed": "edge-rescue-appliance-cloud-init"
+    }
+  ]
+}

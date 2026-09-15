@@ -1,0 +1,10 @@
+{
+  "dataset_id": "tool-use-eval-2026-08-04",
+  "seed": "tool-use-eval-token-stream-v3",
+  "output_dir": "/work/ml_artifacts/eval_dataset",
+  "shard_count": 4,
+  "shard_bytes": 9437184,
+  "total_bytes": 37748736,
+  "record_count": 49152,
+  "format": "fixed-width-token-blocks-v1"
+}

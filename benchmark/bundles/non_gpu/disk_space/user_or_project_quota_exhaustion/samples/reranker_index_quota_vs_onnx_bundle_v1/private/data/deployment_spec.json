@@ -1,0 +1,17 @@
+{
+  "bundle_id": "reranker-v7-int8-onnx",
+  "source_checkpoint": "reranker-v7-step-24000",
+  "onnx_file": "reranker.int8.onnx",
+  "onnx_bytes": 20971520,
+  "opset": 18,
+  "quantization": "symmetric-int8-per-channel",
+  "calibration_rows": 4096,
+  "required_files": [
+    "reranker.int8.onnx",
+    "tokenizer.json",
+    "quantization.json",
+    "calibration_report.json",
+    "checksums.sha256",
+    "bundle_manifest.json"
+  ]
+}

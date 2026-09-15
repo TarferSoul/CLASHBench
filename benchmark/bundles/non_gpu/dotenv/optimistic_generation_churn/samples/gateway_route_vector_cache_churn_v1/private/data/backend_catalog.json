@@ -1,0 +1,7 @@
+{
+  "backends": [
+    {"name": "edge-a", "host": "127.0.0.1", "port": 18101, "base_weight": 40},
+    {"name": "edge-b", "host": "127.0.0.1", "port": 18102, "base_weight": 35},
+    {"name": "edge-c", "host": "127.0.0.1", "port": 18103, "base_weight": 25}
+  ]
+}

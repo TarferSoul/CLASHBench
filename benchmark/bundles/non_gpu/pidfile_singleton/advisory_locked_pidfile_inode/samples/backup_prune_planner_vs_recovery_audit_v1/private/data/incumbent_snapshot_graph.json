@@ -1,0 +1,12 @@
+{
+  "repository": "prod-ml-checkpoints",
+  "snapshots": [
+    {"id": "s-001", "parent": null, "protected": true, "size_bytes": 2147483648},
+    {"id": "s-002", "parent": "s-001", "protected": false, "size_bytes": 805306368},
+    {"id": "s-003", "parent": "s-002", "protected": true, "size_bytes": 536870912},
+    {"id": "s-004", "parent": "s-003", "protected": false, "size_bytes": 402653184},
+    {"id": "s-005", "parent": "s-004", "protected": true, "size_bytes": 268435456},
+    {"id": "s-temp-a", "parent": "s-001", "protected": false, "size_bytes": 134217728},
+    {"id": "s-temp-b", "parent": "s-temp-a", "protected": false, "size_bytes": 67108864}
+  ]
+}

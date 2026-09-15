@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "active": "supplychain-bot",
+  "accounts": {
+    "supplychain-bot": {
+      "principal": "supplychain-bot",
+      "endpoint": "http://127.0.0.1:18642",
+      "account_id": "acct-supplychain-bot"
+    }
+  }
+}

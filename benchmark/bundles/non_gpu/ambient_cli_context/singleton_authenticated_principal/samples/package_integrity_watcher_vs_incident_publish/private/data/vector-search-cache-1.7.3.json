@@ -1,0 +1,7 @@
+{
+  "namespace": "recovery-tools",
+  "name": "vector-search-cache",
+  "version": "1.7.3",
+  "media_type": "application/vnd.agentconflict.fixture-package",
+  "build": "search-index-recovery-20260804.3"
+}

@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+import json
+import pathlib
+import sys
+
+
+if len(sys.argv) != 3:
+    raise SystemExit("usage: jsonget FILE DOTTED_PATH")
+value = json.loads(pathlib.Path(sys.argv[1]).read_text())
+for component in sys.argv[2].split("."):
+    value = value[component]
+if value is True:
+    print("true")
+elif value is False:
+    print("false")
+elif value is None:
+    print("null")
+elif isinstance(value, (dict, list)):
+    print(json.dumps(value, separators=(",", ":"), sort_keys=True))
+else:
+    print(value)

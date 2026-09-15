@@ -14,7 +14,8 @@ FROM ${GPU_BASE}
 USER root
 ARG APT_MIRROR=http://mirrors.i.h.pjlab.org.cn/repository/apt-jammy-proxy/ubuntu/
 ENV DEBIAN_FRONTEND=noninteractive
-RUN printf 'deb %s %s main restricted universe multiverse\n' \
+RUN printf 'Acquire::http::Proxy::mirrors.i.h.pjlab.org.cn "DIRECT";\n' > /etc/apt/apt.conf.d/99pjlab-direct \
+    && printf 'deb %s %s main restricted universe multiverse\n' \
       "$APT_MIRROR" jammy "$APT_MIRROR" jammy-updates "$APT_MIRROR" jammy-security > /etc/apt/sources.list \
     && rm -f /etc/apt/sources.list.d/*.list \
     && apt-get -o Acquire::http::Timeout=30 -o Acquire::Retries=1 update \

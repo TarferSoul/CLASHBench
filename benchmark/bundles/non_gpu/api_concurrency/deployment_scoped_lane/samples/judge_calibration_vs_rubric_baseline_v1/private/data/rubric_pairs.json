@@ -1,0 +1,6 @@
+[
+  {"item_id": "pair-01", "reference": "The cache key includes model and schema version.", "candidate": "The cache key includes both the model and schema version."},
+  {"item_id": "pair-02", "reference": "Retries use capped exponential backoff with jitter.", "candidate": "Retries use exponential backoff."},
+  {"item_id": "pair-03", "reference": "The migration is transactional and idempotent.", "candidate": "The migration is transactional and can be run repeatedly."},
+  {"item_id": "pair-04", "reference": "Metrics distinguish admission rejection from transport failure.", "candidate": "Metrics report all requests that did not complete."}
+]

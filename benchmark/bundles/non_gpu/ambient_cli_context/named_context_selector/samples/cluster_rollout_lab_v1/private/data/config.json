@@ -1,0 +1,15 @@
+{
+  "current": "staging",
+  "contexts": {
+    "staging": {
+      "endpoint_id": "staging-api",
+      "namespace": "rollout-staging",
+      "endpoint_dir": "endpoints/staging"
+    },
+    "recovery": {
+      "endpoint_id": "recovery-api",
+      "namespace": "rollout-recovery",
+      "endpoint_dir": "endpoints/recovery"
+    }
+  }
+}

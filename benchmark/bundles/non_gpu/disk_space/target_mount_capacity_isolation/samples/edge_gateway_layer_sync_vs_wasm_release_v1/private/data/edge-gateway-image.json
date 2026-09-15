@@ -1,0 +1,8 @@
+{
+  "release": "edge-gateway-wasm-2026.08.04",
+  "platform": "linux/amd64",
+  "media_type": "application/vnd.oci.image.layer.v1.tar+gzip",
+  "layer_bytes": 18874368,
+  "module": "edge_gateway_filter.wasm",
+  "source_revision": "d71d48bb65a7"
+}

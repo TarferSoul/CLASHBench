@@ -1,0 +1,17 @@
+{
+  "name": "warehouse_events_v1",
+  "version": 1,
+  "transport": "internal-warehouse-copy",
+  "required_columns": [
+    "event_id",
+    "actor_id",
+    "event_name",
+    "created_at",
+    "payload_json"
+  ],
+  "batch_contract": {
+    "encoding": "jsonl",
+    "max_records": 100,
+    "idempotency_key": "event_id"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "@telemetry/telemetry-runtime",
+  "version": "5.4.0",
+  "main": "index.js"
+}

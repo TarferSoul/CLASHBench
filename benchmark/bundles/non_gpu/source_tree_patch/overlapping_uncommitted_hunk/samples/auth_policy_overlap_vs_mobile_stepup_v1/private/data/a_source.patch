@@ -1,0 +1,13 @@
+diff --git a/src/accessmesh/session_policy.py b/src/accessmesh/session_policy.py
+--- a/src/accessmesh/session_policy.py
++++ b/src/accessmesh/session_policy.py
+@@ -5,7 +5,7 @@ from __future__ import annotations
+ 
+ REMEDIATION_BY_EVENT = {
+     "PASSWORD_SPRAY": "challenge",
+-    "REFRESH_TOKEN_REPLAY": "deny",
++    "REFRESH_TOKEN_REPLAY": "quarantine",
+     "MFA_PUSH_FATIGUE": "rate_limit",
+ }
+ 
+

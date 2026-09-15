@@ -1,0 +1,5 @@
+invoice_id,team,state,amount
+inv-701,platform,posted,1250
+inv-702,ml,review,480
+inv-703,security,posted,960
+inv-704,data,blocked,210

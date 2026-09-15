@@ -1,0 +1,5 @@
+event_id,component,severity
+evt-1001,ingest,info
+evt-1002,queue,warning
+evt-1003,storage,critical
+evt-1004,api,info

@@ -1,0 +1,123 @@
+#!/usr/bin/env python3
+import argparse
+import fcntl
+import hashlib
+import json
+import os
+import pathlib
+import sys
+import time
+
+
+def atomic_json(path, value):
+    path = pathlib.Path(path)
+    tmp = path.with_name(path.name + f".tmp.{os.getpid()}")
+    with tmp.open("w") as handle:
+        json.dump(value, handle, sort_keys=True, indent=2)
+        handle.write("\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+    os.replace(tmp, path)
+
+
+def audit(message):
+    path = pathlib.Path(os.environ.get("CATALOG_AUDIT_PATH", "/run/release_catalog/publisher.log"))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a") as handle:
+        handle.write(f"{time.time():.6f} uid={os.getuid()} {message}\n")
+
+
+def acquire(fd, timeout):
+    deadline = time.monotonic() + timeout
+    while True:
+        try:
+            fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            return True
+        except BlockingIOError:
+            if time.monotonic() >= deadline:
+                return False
+            time.sleep(0.1)
+
+
+def publish(args):
+    if os.getuid() == 0:
+        print("catalogctl refuses root publication", file=sys.stderr)
+        return 70
+    staging = pathlib.Path(args.staging)
+    files = sorted(path for path in staging.iterdir() if path.is_file())
+    if not files:
+        print(f"STAGING_EMPTY path={staging}", file=sys.stderr)
+        return 71
+    lock_path = pathlib.Path(args.lock)
+    before = lock_path.stat()
+    fd = os.open(lock_path, os.O_RDWR)
+    opened = os.fstat(fd)
+    if (before.st_dev, before.st_ino) != (opened.st_dev, opened.st_ino):
+        print("LOCK_IDENTITY_CHANGED during open", file=sys.stderr)
+        return 72
+    if not acquire(fd, args.lock_timeout):
+        audit(f"publish_busy release={args.release_id} lock_dev={opened.st_dev} lock_ino={opened.st_ino}")
+        print(
+            f"LOCK_BUSY path={args.lock} timeout={args.lock_timeout:g} device={opened.st_dev} inode={opened.st_ino}",
+            file=sys.stderr,
+        )
+        return 73
+
+    entries = []
+    for path in files:
+        payload = path.read_bytes()
+        entries.append({
+            "name": path.name,
+            "bytes": len(payload),
+            "sha256": hashlib.sha256(payload).hexdigest(),
+        })
+    catalog_path = pathlib.Path(args.catalog)
+    catalog = json.loads(catalog_path.read_text())
+    releases = [item for item in catalog.get("releases", []) if item.get("release_id") != args.release_id]
+    release = {
+        "release_id": args.release_id,
+        "published_at_unix": time.time(),
+        "publisher_uid": os.getuid(),
+        "files": entries,
+    }
+    releases.append(release)
+    next_catalog = dict(catalog)
+    next_catalog["generation"] = int(catalog.get("generation", 0)) + 1
+    next_catalog["releases"] = releases
+    next_catalog["last_transaction"] = args.release_id
+    receipt = {
+        "schema_version": 1,
+        "release_id": args.release_id,
+        "catalog": str(catalog_path),
+        "catalog_generation": next_catalog["generation"],
+        "lock_device": opened.st_dev,
+        "lock_inode": opened.st_ino,
+        "files": entries,
+    }
+    atomic_json(catalog_path, next_catalog)
+    atomic_json(args.receipt, receipt)
+    audit(f"publish_ok release={args.release_id} generation={next_catalog['generation']} files={len(entries)}")
+    print(
+        f"PUBLISH_OK release={args.release_id} generation={next_catalog['generation']} files={len(entries)} receipt={args.receipt}"
+    )
+    return 0
+
+
+def main():
+    parser = argparse.ArgumentParser(prog="catalogctl")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+    pub = subparsers.add_parser("publish")
+    pub.add_argument("--staging", required=True)
+    pub.add_argument("--catalog", required=True)
+    pub.add_argument("--lock", required=True)
+    pub.add_argument("--release-id", required=True)
+    pub.add_argument("--receipt", required=True)
+    pub.add_argument("--lock-timeout", type=float, default=5.0)
+    args = parser.parse_args()
+    if args.command == "publish":
+        return publish(args)
+    return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

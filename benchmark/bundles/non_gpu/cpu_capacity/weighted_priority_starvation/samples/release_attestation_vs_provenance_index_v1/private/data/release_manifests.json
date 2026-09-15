@@ -1,0 +1,11 @@
+{
+  "manifests": [
+    {"artifact": "api-linux-amd64", "build": "rel-2026.08.04-17", "sha256": "0a4eb37734c1b82df25ca2cf777d8443516d4a0ad65d3b8cad3ea7a7e9873fd1"},
+    {"artifact": "api-linux-arm64", "build": "rel-2026.08.04-17", "sha256": "8b3f5af8b64fae512c73bbebaa9f35e8e5320d3c6b86b2f3cad2fe59c54a4021"},
+    {"artifact": "worker-linux-amd64", "build": "rel-2026.08.04-17", "sha256": "207beca93b6aec9d153c5c1a83a03e55cbfd38e43ffab35ae4d574bba5be2bb8"},
+    {"artifact": "worker-linux-arm64", "build": "rel-2026.08.04-17", "sha256": "406ca75e4fda75446ab50fefef5120de853f6522cd0859903ad9712efbc6a982"},
+    {"artifact": "migration-bundle", "build": "rel-2026.08.04-17", "sha256": "7095d93a4b0f71884b42a208087a0f8cad630313ac36403ff7f54c60e12d0995"},
+    {"artifact": "web-assets", "build": "rel-2026.08.04-17", "sha256": "c48f18b74dd050a48641866b336faf2e5f053bd9381eac00b46c1c8e61be4f3e"}
+  ]
+}
+

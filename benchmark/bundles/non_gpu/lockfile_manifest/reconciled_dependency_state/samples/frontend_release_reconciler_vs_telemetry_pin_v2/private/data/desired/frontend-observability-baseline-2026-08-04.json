@@ -1,0 +1,24 @@
+{
+  "revision": "frontend-observability-baseline-2026-08-04",
+  "project_name": "frontend-console",
+  "dependencies": {
+    "@vitejs/plugin-react": "file:../local-registry/vitejs-plugin-react-4.3.4.tgz",
+    "react": "file:../local-registry/react-18.3.1.tgz",
+    "react-dom": "file:../local-registry/react-dom-18.3.1.tgz",
+    "vite": "file:../local-registry/vite-5.4.11.tgz"
+  },
+  "expected_versions": {
+    "@vitejs/plugin-react": "4.3.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vite": "5.4.11"
+  },
+  "smoke_command": [
+    "npm",
+    "run",
+    "test:smoke",
+    "--",
+    "--suite",
+    "security-baseline"
+  ]
+}

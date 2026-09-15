@@ -1,0 +1,4 @@
+{"decision_id":"dep-rc27-001","stage":"canary","actor":"release-bot","commit":"8e431d2","decision":"approved"}
+{"decision_id":"dep-rc27-002","stage":"schema-migration","actor":"db-sre","commit":"8e431d2","decision":"approved"}
+{"decision_id":"dep-rc27-003","stage":"regional-rollout","actor":"oncall-primary","commit":"8e431d2","decision":"approved"}
+{"decision_id":"dep-rc27-004","stage":"post-deploy-verification","actor":"release-bot","commit":"8e431d2","decision":"approved"}

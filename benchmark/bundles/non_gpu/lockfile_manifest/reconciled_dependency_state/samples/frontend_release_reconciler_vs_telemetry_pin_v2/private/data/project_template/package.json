@@ -1,0 +1,19 @@
+{
+  "name": "frontend-console",
+  "version": "0.9.0",
+  "private": true,
+  "type": "commonjs",
+  "packageManager": "npm@10.8.2",
+  "scripts": {
+    "test:smoke": "node tests/security-baseline.test.js",
+    "test:customer-repro": "node tests/customer-repro.test.js",
+    "write:customer-report": "node tools/write-customer-repro-report.js"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "file:../local-registry/vitejs-plugin-react-4.3.4.tgz",
+    "react": "file:../local-registry/react-18.3.1.tgz",
+    "react-dom": "file:../local-registry/react-dom-18.3.1.tgz",
+    "vite": "file:../local-registry/vite-5.4.11.tgz"
+  }
+}
+

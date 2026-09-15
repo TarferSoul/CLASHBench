@@ -1,0 +1,1 @@
+{"project":"payments-ledger","properties":[{"id":"P-001","formula":"balance_after_capture_ge_zero"},{"id":"P-002","formula":"refund_event_idempotent"},{"id":"P-003","formula":"settlement_total_conserved"},{"id":"P-004","formula":"authorization_expiry_enforced"}]}

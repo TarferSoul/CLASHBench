@@ -1,0 +1,10 @@
+{
+  "service_name": "inference-gateway",
+  "release_revision": "igw-stable-20260726",
+  "model_api_base_url": "http://127.0.0.1:7311/stable",
+  "routing_table_sha": "stable-20260726-a",
+  "gateway_profile": "standard",
+  "route_smoke_key": "local-route-smoke-key-20260726",
+  "schema_version": 1
+}
+

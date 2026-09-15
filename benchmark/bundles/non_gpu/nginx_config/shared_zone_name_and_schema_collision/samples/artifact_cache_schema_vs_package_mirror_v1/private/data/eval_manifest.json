@@ -1,0 +1,8 @@
+{
+  "evaluation_id": "package-eval-20260804-042",
+  "model": "vision-embedder-2026-08-04",
+  "suite": "artifact-integrity-smoke",
+  "state": "passed",
+  "score": 0.997,
+  "generated_at": "2026-08-04T11:40:00Z"
+}

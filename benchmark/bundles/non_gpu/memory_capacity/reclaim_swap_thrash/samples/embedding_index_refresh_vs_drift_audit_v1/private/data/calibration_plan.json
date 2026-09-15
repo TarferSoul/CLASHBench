@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "job_name": "embedding_index_recall_calibration",
+  "state_mib": 1845,
+  "input_mib": 896,
+  "input_seed": 61,
+  "page_stride_bytes": 4096,
+  "scan_chunk_mib": 8,
+  "checkpoint_schema": "embedding_calibration_checkpoint_v1"
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "release-provenance-job-v1",
+  "input_path": "/work/release_records.json",
+  "output_dir": "/work/provenance-export",
+  "repeat_count": 20,
+  "required_record_count": 400,
+  "hash_rounds": 5000,
+  "deadline_seconds": 6.0
+}
+

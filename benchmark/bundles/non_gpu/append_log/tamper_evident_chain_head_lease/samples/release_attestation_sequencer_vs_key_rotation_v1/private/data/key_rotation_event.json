@@ -1,0 +1,9 @@
+{
+  "event_id": "signing-key-rotation-2026-08-04",
+  "event_type": "release_signing_key_rotated",
+  "repository": "model-serving/runtime-images",
+  "old_key_id": "release-ed25519-2025q4",
+  "new_key_id": "release-ed25519-2026q3",
+  "activation": "2026-08-04T14:30:00Z",
+  "approval_ticket": "SEC-18427"
+}

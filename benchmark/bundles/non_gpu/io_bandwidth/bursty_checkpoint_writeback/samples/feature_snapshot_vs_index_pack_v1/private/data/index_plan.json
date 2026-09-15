@@ -1,0 +1,12 @@
+{
+  "index_id": "docs-search-2026-07-21-r3",
+  "shard_mb": 16,
+  "shards": [
+    {"path": "documents-00.jsonl"},
+    {"path": "documents-01.jsonl"},
+    {"path": "documents-02.jsonl"},
+    {"path": "documents-03.jsonl"},
+    {"path": "documents-04.jsonl"},
+    {"path": "documents-05.jsonl"}
+  ]
+}

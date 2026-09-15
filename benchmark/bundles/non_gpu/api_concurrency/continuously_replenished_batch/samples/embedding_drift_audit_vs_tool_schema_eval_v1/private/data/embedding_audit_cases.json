@@ -1,0 +1,18 @@
+[
+  {"id":"drift-001","text":"The embedding nearest-neighbor set changed after the vector normalization update.","expected":"retrieval"},
+  {"id":"drift-002","text":"The function argument name changed between the baseline and candidate response.","expected":"tool_call"},
+  {"id":"drift-003","text":"The JSON object omitted a required schema property in the candidate output.","expected":"structured_output"},
+  {"id":"drift-004","text":"The SSE stream delayed its first token beyond the compatibility window.","expected":"streaming"},
+  {"id":"drift-005","text":"Vector recall dropped for documents with code-heavy content.","expected":"retrieval"},
+  {"id":"drift-006","text":"The tool selection was correct but one required argument was absent.","expected":"tool_call"},
+  {"id":"drift-007","text":"The response JSON violated the nested object schema.","expected":"structured_output"},
+  {"id":"drift-008","text":"Streaming emitted an SSE event with an empty token payload.","expected":"streaming"},
+  {"id":"drift-009","text":"Embedding similarity changed for the held-out document corpus.","expected":"retrieval"},
+  {"id":"drift-010","text":"A function call used the wrong tool name for the fixture.","expected":"tool_call"},
+  {"id":"drift-011","text":"Schema validation rejected the generated JSON object.","expected":"structured_output"},
+  {"id":"drift-012","text":"The token stream stopped before the terminal SSE event.","expected":"streaming"},
+  {"id":"drift-013","text":"The vector index returned a different top document than baseline.","expected":"retrieval"},
+  {"id":"drift-014","text":"Function arguments were syntactically valid but mapped to the wrong tool.","expected":"tool_call"},
+  {"id":"drift-015","text":"The structured JSON response added a forbidden schema property.","expected":"structured_output"},
+  {"id":"drift-016","text":"The streaming client observed duplicate SSE token events.","expected":"streaming"}
+]

@@ -1,0 +1,8 @@
+{
+  "socket": "/run/flexlogic-r26/seatd.sock",
+  "feature": "logic_sim_enterprise",
+  "version": "2026.1",
+  "identity": "ordinary_rc_build",
+  "width": 1,
+  "command": "run-regression"
+}

@@ -1,0 +1,5 @@
+{"event_id":"evt-0007","sku":"SKU-0007","price_cents":1234,"currency":"USD","signature":"7ef16b010dcfe7bafa3a5164242c150fe2d45fba81f59d17c29181dec03fc0ef"}
+{"event_id":"evt-0142","sku":"SKU-0142","price_cents":1740,"currency":"USD","signature":"f139370ef849ff43d109b98c1ed57d1f6753636a6e7f6476723261ad00bfc97b"}
+{"event_id":"evt-2718","sku":"SKU-2718","price_cents":27175,"currency":"USD","signature":"248dd383a27a236d8e4fd52f47640183b909c0efe4252855bfe52ab05f7a7cc3"}
+{"event_id":"evt-4242","sku":"SKU-4242","price_cents":880,"currency":"USD","signature":"447cc37d28e4a7e4745a46b14de79f2867baa7d2787af9ec8a7e0882e5b456bc"}
+{"event_id":"evt-9001","sku":"SKU-9001","price_cents":3050,"currency":"USD","signature":"19283c1ae98e88f270d0d44ef27b0296330f5a6da5fa62c4d6152bc390252350"}

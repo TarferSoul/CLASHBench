@@ -1,0 +1,10 @@
+{
+  "name": "docs-preview-mdx-renderer-fixture",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test:slugger": "python3 tests/test_heading_slug.py",
+    "preview:api": "python3 tools/render_preview.py docs/api/streaming.mdx build/api/streaming.html",
+    "preview:health": "python3 tools/check_preview_health.py build/api/streaming.html"
+  }
+}

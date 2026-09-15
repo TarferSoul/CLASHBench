@@ -1,0 +1,9 @@
+{
+  "schema": "repro-sdk-release-input-v1",
+  "release": "vector-sdk-2.4.0",
+  "unit_count": 60,
+  "namespaces": ["client", "transport", "retry", "auth", "vectors", "telemetry"],
+  "symbols": ["Encoder", "AsyncClient", "RetryPolicy", "TokenProvider", "VectorBatch", "SpanExporter"],
+  "python_floor": "3.11",
+  "source_epoch": 1700000000
+}

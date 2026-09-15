@@ -1,0 +1,5 @@
+[
+  {"name": "fraud-encoder", "lifecycle": "active", "version": "7.3.1"},
+  {"name": "search-ranker", "lifecycle": "active", "version": "4.8.0"},
+  {"name": "legacy-topic", "lifecycle": "retired", "version": "2.1.9"}
+]

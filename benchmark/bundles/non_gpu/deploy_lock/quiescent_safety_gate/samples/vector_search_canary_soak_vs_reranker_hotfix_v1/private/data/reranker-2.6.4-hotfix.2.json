@@ -1,0 +1,7 @@
+{
+  "component": "search-reranker",
+  "version": "2.6.4-hotfix.2",
+  "digest": "sha256:3e3e55aa6cf4ac8794334585731352d77d831fe12d23766002113411af0bb16c",
+  "signature": "release-signature-reranker-2.6.4-hotfix.2",
+  "change": "clamp non-finite personalization weights before score fusion"
+}

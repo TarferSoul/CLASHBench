@@ -1,0 +1,7 @@
+{
+  "feature_snapshot": "fraud-encoder-2026-08-04",
+  "model_family": "online-risk-encoder",
+  "artifact_sha256": "b0f4f6c02d8d1c441a05f09c5f4e70a16c7b5e87f4d9398e07f8b0e4a9b5a111",
+  "revision": "2026.08.04.2",
+  "updated_at": "2026-08-04T08:20:00Z"
+}

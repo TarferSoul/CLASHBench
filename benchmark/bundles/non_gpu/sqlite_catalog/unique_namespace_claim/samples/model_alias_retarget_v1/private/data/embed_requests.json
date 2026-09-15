@@ -1,0 +1,5 @@
+[
+  {"request_id": "ticket-1042", "text": "rotate the signing key after the canary"},
+  {"request_id": "ticket-1043", "text": "rebuild the vector index manifest"},
+  {"request_id": "ticket-1044", "text": "verify model provenance metadata"}
+]

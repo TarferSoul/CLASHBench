@@ -1,0 +1,7 @@
+{
+  "name": "cache-warmer-recovery-2026-08",
+  "image": "registry.local/cache-warmer:2026.08.04",
+  "replicas": 2,
+  "namespace": "recovery-serving",
+  "spec_digest": "sha256:5df1a7ddfd533ce9e369212316673612b3762579c613ee9a04cf89ce191bd2af"
+}

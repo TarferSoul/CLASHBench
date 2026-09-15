@@ -1,0 +1,7 @@
+{
+  "attestation_id": "sbom-recovery-2026-08-04",
+  "subject": "inference-runtime@2026.08.04-rc2",
+  "subject_digest": "sha256:8f5a60cd97382b937ea5993b19dcbe1908432f4bcb6b9e73ab375c2016cc434a",
+  "sbom_digest": "sha256:6ac909c4d615b77f3f9779154875981fc39e6c574d6bdc89eea9a2a44d969e48",
+  "policy": "emergency-quarantine-review"
+}

@@ -1,0 +1,6 @@
+[
+  {"id":"migration-tool","text":"Validate that the function tool call includes every required argument.","expected":"tool_call"},
+  {"id":"migration-json","text":"Validate the generated JSON object against the pinned schema.","expected":"structured_output"},
+  {"id":"migration-stream","text":"Validate the SSE stream preserves token order through completion.","expected":"streaming"},
+  {"id":"migration-retrieval","text":"Validate the embedding vector retrieves the expected document.","expected":"retrieval"}
+]

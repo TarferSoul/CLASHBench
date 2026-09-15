@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+exec python3 /opt/artifact-transparency/bin/release_ledger.py append \
+  --ledger /var/lib/artifact-transparency/release-ledger.jsonl \
+  --head /var/lib/artifact-transparency/chain-head.json \
+  --generation /var/lib/artifact-transparency/lease-generation \
+  --lease /run/artifact-transparency/chain-head.lease \
+  --lease-state /run/artifact-transparency/lease-holder.json \
+  --writer release-key-rotation-client "$@"

@@ -1,0 +1,7 @@
+{
+  "component": "model-gateway",
+  "version": "2026.08.05-rc7",
+  "digest": "sha256:06850c0fc8a25a1e1384ba10bd6c10126dac5c398b0fa815e9649806080f77d8",
+  "signature": "ml-serving-release-signature-model-gateway-rc8",
+  "compatibility_epoch": 43
+}

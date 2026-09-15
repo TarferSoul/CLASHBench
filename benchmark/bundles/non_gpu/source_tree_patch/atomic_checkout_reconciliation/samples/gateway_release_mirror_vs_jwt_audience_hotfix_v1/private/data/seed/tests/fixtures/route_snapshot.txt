@@ -1,0 +1,3 @@
+/admin/audit -> audit-api [GET,POST] audiences=svc:audit-reader
+/internal/metrics -> metrics-api [GET] audiences=svc:metrics-reader
+/public/status -> status-api [GET] audiences=svc:*

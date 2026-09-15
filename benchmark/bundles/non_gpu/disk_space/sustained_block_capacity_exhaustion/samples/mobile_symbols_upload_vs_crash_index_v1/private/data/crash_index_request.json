@@ -1,0 +1,10 @@
+{
+  "index_id": "mobile-crash-triage-2026-08-04",
+  "seed": "android-native-crash-payload-v4",
+  "output_db": "/work/symbol_store/crash_index/incidents.sqlite",
+  "row_count": 304,
+  "payload_bytes": 39845888,
+  "minimum_allocated_bytes": 39845888,
+  "lookup_service": "checkout-api",
+  "schema_version": 7
+}

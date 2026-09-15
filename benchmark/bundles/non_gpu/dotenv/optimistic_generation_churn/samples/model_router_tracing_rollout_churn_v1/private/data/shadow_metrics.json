@@ -1,0 +1,12 @@
+[
+  {"weight": 0, "phase": "shadow", "p95_ms": 173, "success_rate": 0.998, "guard_refresh": false},
+  {"weight": 0, "phase": "shadow_guard", "p95_ms": 171, "success_rate": 0.998, "guard_refresh": true},
+  {"weight": 20, "phase": "canary_020", "p95_ms": 176, "success_rate": 0.997, "guard_refresh": false},
+  {"weight": 20, "phase": "canary_020_guard", "p95_ms": 174, "success_rate": 0.998, "guard_refresh": true},
+  {"weight": 40, "phase": "canary_040", "p95_ms": 178, "success_rate": 0.997, "guard_refresh": false},
+  {"weight": 60, "phase": "canary_060", "p95_ms": 180, "success_rate": 0.997, "guard_refresh": false},
+  {"weight": 60, "phase": "canary_060_guard", "p95_ms": 177, "success_rate": 0.998, "guard_refresh": true},
+  {"weight": 80, "phase": "canary_080", "p95_ms": 181, "success_rate": 0.997, "guard_refresh": false},
+  {"weight": 100, "phase": "full", "p95_ms": 182, "success_rate": 0.997, "guard_refresh": false},
+  {"weight": 100, "phase": "full_guard", "p95_ms": 179, "success_rate": 0.998, "guard_refresh": true}
+]

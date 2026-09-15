@@ -1,0 +1,6 @@
+{
+  "queue": "model-event-replay",
+  "contract_version": 3,
+  "sources": ["registry-audit", "promotion-history"],
+  "deduplication_key": "model_revision"
+}

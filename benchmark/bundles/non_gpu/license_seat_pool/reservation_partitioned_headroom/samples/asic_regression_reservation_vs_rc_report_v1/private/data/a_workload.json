@@ -1,0 +1,13 @@
+{
+  "identity": "nightly_verification",
+  "feature": "logic_sim_enterprise",
+  "version": "2026.1",
+  "width": 2,
+  "kind": "verification_queue",
+  "items": [
+    {"module": "axi_firewall", "seed": "7f3a", "assertions": 184},
+    {"module": "dma_scheduler", "seed": "9c21", "assertions": 227},
+    {"module": "reset_controller", "seed": "31be", "assertions": 96},
+    {"module": "interrupt_router", "seed": "d044", "assertions": 141}
+  ]
+}

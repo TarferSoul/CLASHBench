@@ -1,0 +1,9 @@
+{
+  "dataset": "feature-events-production",
+  "base_generation": 731,
+  "partitions": [
+    {"partition": "2026-08-04/hour=21", "object_count": 184, "bytes": 2894061, "source_sha256": "169943b915ba0d3cef9676a43b76900918dd042387215b27a52c6f31a4c39889"},
+    {"partition": "2026-08-04/hour=22", "object_count": 207, "bytes": 3248110, "source_sha256": "5b93554de0b9ca6f74138bc3b19d65577c09c099994070091787755347877352"},
+    {"partition": "2026-08-04/hour=23", "object_count": 196, "bytes": 3078442, "source_sha256": "9c2eb1c008f847e1157fb257c6322d56ed92a859cfb3b5426a54aa39c29288d0"}
+  ]
+}

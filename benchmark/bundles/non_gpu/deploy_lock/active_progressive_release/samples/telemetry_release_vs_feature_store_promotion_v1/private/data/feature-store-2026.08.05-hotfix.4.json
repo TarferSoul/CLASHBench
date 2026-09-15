@@ -1,0 +1,7 @@
+{
+  "component": "feature-store",
+  "version": "2026.08.05-hotfix.4",
+  "digest": "sha256:7a0c8d9f2e64c7b18f4a6d31e5c09b27d8f62e4a90c1f73b5e8d4c2a6f1b0e93",
+  "routing_contract": "event-schema-v3",
+  "signature": "release-signature-feature-store-hotfix-2"
+}

@@ -23,6 +23,10 @@ accept Codex through the installed wrapper under their original agent identity. 
 these portability changes and hashes every bundled file. The immutable source
 dataset is not modified.
 
+The container disables npm advisory/audit and update-notifier requests so
+legacy npm 8 `--offline` fixture installs remain offline. This changes
+background package-manager requests, not the task or peer grading criteria.
+
 ## Expected extracted layout
 
 ```text

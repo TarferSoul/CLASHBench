@@ -1,0 +1,9 @@
+{
+  "batch_id": "oncall-node-17-20260721T0425Z",
+  "deadline_ms": 210,
+  "records": [
+    {"id": "alert-node17-disk-latency", "kind": "priority_alert", "severity": "critical", "service": "order-index", "summary": "node-17 disk latency above 80 ms", "dedupe_key": "order-index:node-17:disk-latency"},
+    {"id": "alert-node17-queue-age", "kind": "priority_alert", "severity": "critical", "service": "order-index", "summary": "oldest indexing item exceeds 12 minutes", "dedupe_key": "order-index:node-17:queue-age"},
+    {"id": "alert-node17-replica-lag", "kind": "priority_alert", "severity": "high", "service": "order-index", "summary": "read replica lag exceeds 45 seconds", "dedupe_key": "order-index:node-17:replica-lag"}
+  ]
+}

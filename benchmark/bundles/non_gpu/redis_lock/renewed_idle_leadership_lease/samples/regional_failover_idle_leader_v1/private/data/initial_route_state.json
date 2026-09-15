@@ -1,0 +1,13 @@
+{
+  "region": "us-east-1",
+  "route_epoch": 41,
+  "active_region": "us-east-1-primary",
+  "desired_region": "us-east-1-primary",
+  "primary_health": "passing",
+  "primary_sample_id": "health-us-east-1-primary-20260726T060000Z",
+  "standby_lag_ms": 220,
+  "standby_pool": "warm",
+  "router_config_version": "api-router-us-east-1-20260726.1",
+  "smoke_endpoint": "http://api-router.us-east-1.local/healthz"
+}
+

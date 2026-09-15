@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "generation_key": "CONFIG_GENERATION",
+  "required_route_fields": [
+    "API_BACKEND_SET",
+    "ACTIVE_BACKEND_COUNT",
+    "ROUTING_TABLE_SHA",
+    "DISCOVERY_OBSERVED_AT"
+  ],
+  "vector_cache_required_values": {
+    "FEATURE_VECTOR_CACHE": "enabled",
+    "VECTOR_CACHE_TTL_SECONDS": "180",
+    "CACHE_NAMESPACE": "search-smoke"
+  }
+}
