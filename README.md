@@ -16,6 +16,21 @@ prompts, and a deterministic end-to-end smoke fixture. **The full benchmark
 archive and a validated GPU image are not published here yet.** See
 [dataset preparation](docs/DATASET.md) and [GPU prerequisites](docs/GPU.md).
 
+### What can I run now?
+
+| Path | Ready to run from this checkout? | Required inputs |
+|---|---|---|
+| Docker smoke (Section 1) | Yes | Docker; builds from a public base, no API key or downloaded data |
+| Real CPU evaluation | Not yet as a standalone release | Validated benchmark bundle with `inventory.json`, CPU image, and provider config/key |
+| Real GPU evaluation | Not yet | Validated GPU image and benchmark bundle, model weights, prepared task data, and a suitable GPU |
+
+**For a fresh clone, start with Section 1.** The later evaluation commands are
+for use after the listed inputs are available. This repository does not yet
+provide `data/release/inventory.json` or a downloadable full benchmark archive.
+The CPU GHCR package is private; authorized users can pull it, or build locally
+using Section 2. GPU task-data download commands require the release URL and
+checksum, which are still pending.
+
 The smoke fixture is not a benchmark case and cannot produce paper metrics.
 Harness versions below are pinned for the portable runner; they are not claimed
 to match the original paper's environment.
