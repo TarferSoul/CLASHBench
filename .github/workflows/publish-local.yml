@@ -27,8 +27,9 @@ jobs:
       SOURCE_IMAGE: '${{ inputs.image_id }}'
       VARIANT: '${{ inputs.variant }}'
       GPU_SOURCE_IMAGE: '${{ inputs.gpu_image_id }}'
-      DOCKER_CONFIG: '${{ runner.temp }}/clash-docker-auth'
     steps:
+      - name: Isolate registry credentials
+        run: echo "DOCKER_CONFIG=$RUNNER_TEMP/clash-docker-auth" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - name: Validate exact image
         run: |
