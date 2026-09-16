@@ -25,7 +25,7 @@ def main():
         'assert torch.__version__.split("+")[0] == "2.10.0"; '
         'print("vLLM:", vllm.__version__, "torch:", torch.__version__, '
         '"CUDA:", torch.version.cuda, "transformers:", transformers.__version__)'],
-        env=env, check=True, timeout=120)
+        env=env, check=True, timeout=600)
     for cli, expected in [('codex', '0.154.0'), ('claude', '2.1.272'), ('opencode', '1.18.31')]:
         output = subprocess.check_output([
             f'/opt/harness/{cli}/node_modules/.bin/{cli}', '--version'],

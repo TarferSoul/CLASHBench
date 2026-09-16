@@ -35,4 +35,4 @@ infrastructure smoke; these checks do not reproduce paper results.
 
 Final local CPU image ID: `sha256:3a9bd2585b4402dae17e2efb4ed7a47a74ce0ebeb7c8eb2badfc66a99763839d`.
 
-Final GPU image ID: `sha256:c3fa86de4213e9b6eafd031e2470aab4d2dc838749a6c9230fe454bf98d98bac`.
+Final GPU image ID: `sha256:871247c83b4c52ea6b24ec59a8fc4b0fec026c3f9d083d8b70641886d66f92cb`.

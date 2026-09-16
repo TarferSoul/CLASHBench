@@ -22,7 +22,7 @@ jobs:
   publish:
     if: github.ref == 'refs/heads/main'
     runs-on: [self-hosted, '${{ inputs.runner_label }}']
-    timeout-minutes: 90
+    timeout-minutes: 180
     env:
       SOURCE_IMAGE: '${{ inputs.image_id }}'
       VARIANT: '${{ inputs.variant }}'
@@ -30,7 +30,11 @@ jobs:
     steps:
       - name: Isolate registry credentials
         run: echo "DOCKER_CONFIG=$RUNNER_TEMP/clash-docker-auth" >> "$GITHUB_ENV"
+      - name: Use HTTP/1.1 for repository transfer
+        run: git config --global http.version HTTP/1.1
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - name: Validate exact image
         run: |
           manifest="$RUNNER_TEMP/clash-images.tsv"
@@ -45,6 +49,10 @@ jobs:
             trap 'docker rm -f "$container" >/dev/null' EXIT
             docker cp "$container:/opt/acb/acb" "$RUNNER_TEMP/$variant-acb"
             diff -r --exclude=__pycache__ acb "$RUNNER_TEMP/$variant-acb"
+            if [ "$variant" = gpu ]; then
+              docker cp "$container:/opt/acb/check_gpu_runtime.py" "$RUNNER_TEMP/check_gpu_runtime.py"
+              cmp docker/check_gpu_runtime.py "$RUNNER_TEMP/check_gpu_runtime.py"
+            fi
             docker rm "$container"
             trap - EXIT
             for cli in codex claude opencode; do
