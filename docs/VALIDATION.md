@@ -36,3 +36,9 @@ infrastructure smoke; these checks do not reproduce paper results.
 Final local CPU image ID: `sha256:3a9bd2585b4402dae17e2efb4ed7a47a74ce0ebeb7c8eb2badfc66a99763839d`.
 
 Final GPU image ID: `sha256:871247c83b4c52ea6b24ec59a8fc4b0fec026c3f9d083d8b70641886d66f92cb`.
+
+Registry publication and authenticated pull-back passed in [GitHub Actions](https://github.com/TarferSoul/CLASHBench/actions/runs/35087489121).
+A fresh GitHub clone passed all 14 tests and the quickstart real-case oracle using the published CPU image.
+
+- CPU: `ghcr.io/tarfersoul/clashbench@sha256:d68219ea75e6d2c6fc6df7d5730ca493342ce04e8197a1ae0eff452726be96f4`
+- GPU: `ghcr.io/tarfersoul/clashbench@sha256:99282747965966b43f98efaf9524355e82b992b6c1e56fe85dbd3c09bf3c311c`
