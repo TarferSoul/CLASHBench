@@ -1,0 +1,1 @@
+Use the installed `meeting-room-booking` skill for room inventory, recurring meetings, and client bookings. Load the skill before acting. Interact with the linked workplace account only through `roomdesk`. Do not inspect or modify internal service files.

@@ -1,0 +1,1 @@
+familyhealth appointment cancel --id probe_appointment --reason actionability_probe

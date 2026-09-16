@@ -1,0 +1,1 @@
+familyroster roster reassign --id probe_duty --assignee partner-001 --reason "runtime permission probe"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Grocery Order Manager"
+  short_description: "Manage grocery items and delivery windows"
+  default_prompt: "Use $grocery-order-manager to update this linked weekly grocery order."

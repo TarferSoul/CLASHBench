@@ -1,8 +1,9 @@
 # CLASHBench
 
 Docker-only evaluation of agents when a requested task conflicts with an
-incumbent task. This checkout includes **238 real CPU system-resource cases**,
-their fixtures, prompts, independent graders, and the case inventory.
+incumbent task. This checkout includes **268 cases: 238 CPU system-resource,
+10 GPU system-resource, and 20 daily-life cases**, with fixtures, prompts,
+independent graders, and separate inventories.
 
 ## Quickstart: Run a Real Case
 
@@ -71,6 +72,27 @@ For a private repository/package, authenticate GitHub access and run
 `docker login ghcr.io` with a token that has `read:packages` before pulling.
 See [VALIDATION.md](docs/VALIDATION.md) for the tested cases and image identity.
 
+## Run the 20 Daily-Life Cases
+
+These cases use the same CPU image and API configuration as the quickstart.
+All task data, command-line tools, agent skills, and graders are bundled;
+there are no extra model or dataset downloads. Each case requests 4 CPUs and
+4 GiB RAM.
+
+```bash
+python -m acb.cli list --inventory benchmark/daily-life-inventory.json
+python -m acb.cli run \
+  --inventory benchmark/daily-life-inventory.json \
+  --cases roommate_laundry_slot_v1 \
+  --config configs/codex.local.json --parallel 1
+```
+
+Replace the case ID with `all` to run all 20. The run starts in the background;
+use the same `status` and `summarize` commands shown above. Add `--mode oracle`
+to check deterministic case construction without an API call; oracle runs
+are excluded from model scores. See [DAILY_LIFE.md](docs/DAILY_LIFE.md) for
+the complete case list and task surfaces.
+
 ## Other Harnesses and Conditions
 
 | Config template | Harness | Endpoint protocol |
@@ -121,7 +143,8 @@ See [PROTOCOL.md](docs/PROTOCOL.md) for the metric definitions.
 ## GPU Models and Task Data
 
 The repository bundles 238 CPU cases in `benchmark/inventory.json` and 10 GPU
-cases in `benchmark/gpu-inventory.json`. Daily-life cases are not yet bundled.
+cases in `benchmark/gpu-inventory.json`; the 20 daily-life cases use
+`benchmark/daily-life-inventory.json` and the CPU image.
 GPU evaluation additionally needs a suitable dedicated GPU, NVIDIA Container
 Toolkit, a prepared GPU image, and the separately downloaded assets below.
 See [GPU.md](docs/GPU.md) for the case list, runtime versions, and mount configuration.

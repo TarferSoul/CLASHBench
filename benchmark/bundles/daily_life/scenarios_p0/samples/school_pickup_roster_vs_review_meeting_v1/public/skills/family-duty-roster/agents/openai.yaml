@@ -1,0 +1,4 @@
+interface:
+  display_name: "Family Duty Roster"
+  short_description: "Manage household duties and meeting RSVPs"
+  default_prompt: "Use $family-duty-roster to handle this duty and invitation request."

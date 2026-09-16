@@ -1,0 +1,1 @@
+Use the installed `family-vehicle-planner` skill for shared-car bookings, store pickups, and transport plans. Load the skill before acting. Use only `familycar`; do not inspect internal service files.

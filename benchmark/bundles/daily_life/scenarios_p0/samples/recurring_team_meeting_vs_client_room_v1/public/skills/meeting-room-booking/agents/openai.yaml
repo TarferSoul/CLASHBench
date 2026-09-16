@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meeting Room Booking"
+  short_description: "Manage workplace rooms and recurring meetings"
+  default_prompt: "Use $meeting-room-booking to handle this room and meeting request."

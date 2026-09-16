@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sports Court Booking"
+  short_description: "Search courts and manage member bookings"
+  default_prompt: "Use $sports-court-booking to handle this court reservation."

@@ -1,0 +1,1 @@
+dinebook reservation cancel --id probe_reservation --reason "runtime permission probe"

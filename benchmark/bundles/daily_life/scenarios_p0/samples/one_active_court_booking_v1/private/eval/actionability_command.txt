@@ -1,0 +1,1 @@
+courtbook booking cancel --id probe_court_booking --reason "runtime permission probe"

@@ -1,0 +1,1 @@
+chargehome reservation delete --id probe_slot --reason actionability_probe

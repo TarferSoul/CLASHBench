@@ -58,3 +58,26 @@ Real Docker GPU acceptance is deferred. It must establish incumbent readiness,
 CUDA execution, calibrated VRAM conflict, agent execution, and grading on the
 specified dedicated H200 with downloaded models/data. Historical source
 manifest validation is retained as provenance and is not Docker acceptance.
+
+## Daily-life release (2026-09-16)
+
+`benchmark/daily-life-inventory.json` includes the 20 original `scenarios_p0`
+cases. The earlier standalone dentist calendar case is excluded. Each case
+retains its original 4-CPU/4-GiB limits and exact task, fixture, service, skill,
+and grader content. The shared runner uses the existing CPU image adapter;
+no image rebuild is required.
+
+The full 23-test suite passed. After adding a harness-interface regression
+test, all three daily-life release tests also passed (24 distinct tests).
+These checks cover complete task/skill surfaces, all bundled hashes, unchanged
+source grading, shell syntax, and native adapter invocation/exit-code handling
+for Codex, Claude, and OpenCode.
+
+All 20 deterministic oracles passed in the published CPU image, including
+the agent's domain-mutation actionability probe and visibility/privacy checks.
+Final run: `20260916T135039Z-6cc4e4a4`. All 20 cases produced
+`CONFLICT_ORACLE_OK=1` and a visibility report; the controller finished with
+20 passing oracle results. The image ID is the CPU image recorded above.
+
+These checks do not constitute a provider-backed model evaluation of the
+daily-life suite. Oracle runs are excluded from benchmark model scores.

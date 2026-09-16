@@ -1,0 +1,1 @@
+laundrybook slot transfer --id probe_slot --reason actionability_probe

@@ -2,17 +2,25 @@
 
 ## Distribution
 
-This repository ships 238 frozen CPU and 10 GPU system-resource cases under
+This repository ships 238 frozen CPU and 10 GPU system-resource cases, plus
+20 daily-life cases, under
 `benchmark/`, including separate inventories, fixtures, prompts, graders, and file
 checksums. A clone supplies these inputs directly; no separate CPU archive
 download or internal storage path is required. `examples/` contains a separate
 infrastructure smoke fixture, which must never be used as a model score.
 
-The intended paper inventory is 248 system-resource cases (238 CPU and 10 GPU)
+The bundled inventory is 248 system-resource cases (238 CPU and 10 GPU)
 plus 20 daily-life cases. The historical everyday staging directory has 21
 entries: 20 newer cases under `scenarios_p0/samples` and an earlier standalone
-calendar case. The 20-case group exists in the source, but is not yet bundled
-or connected to a release inventory here.
+calendar case. `benchmark/daily-life-inventory.json` selects exactly the 20-case
+group and excludes the earlier calendar case. The shared bundle contains each
+case's original business service, fixture, command-line tool, agent skill,
+prompts, deterministic oracle, and independent graders. Only the shared runner
+is adapted: it calls the image's configured native harness, uses a non-login
+shell for its actionability probe, defaults artifacts to `/run/acb-results`,
+and applies the same visibility/privacy checks in oracle and agent modes.
+Original and release hashes record this distinction. Case CPU/RAM limits are
+preserved; the Docker timeout is 960 seconds with a 900-second agent budget.
 
 The GPU inventory is `benchmark/gpu-inventory.json`. Its runners use the
 packaged runtime, read-only external model/data mounts, and configured native

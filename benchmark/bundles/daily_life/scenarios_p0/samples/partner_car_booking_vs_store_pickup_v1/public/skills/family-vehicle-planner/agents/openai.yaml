@@ -1,0 +1,4 @@
+interface:
+  display_name: "Family Vehicle Planner"
+  short_description: "Manage shared-car bookings and pickup travel"
+  default_prompt: "Use $family-vehicle-planner to arrange this pickup and transport plan."

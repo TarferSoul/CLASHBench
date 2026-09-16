@@ -1,0 +1,4 @@
+interface:
+  display_name: "Child Activity Planner"
+  short_description: "Coordinate children's classes and transport"
+  default_prompt: "Use $child-activity-planner to arrange this class and its transport."

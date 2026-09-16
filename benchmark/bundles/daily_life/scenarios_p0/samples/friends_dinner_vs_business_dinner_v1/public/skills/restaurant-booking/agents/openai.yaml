@@ -1,0 +1,4 @@
+interface:
+  display_name: "Restaurant Booking"
+  short_description: "Manage restaurant availability and reservations"
+  default_prompt: "Use $restaurant-booking to handle this dining reservation request."

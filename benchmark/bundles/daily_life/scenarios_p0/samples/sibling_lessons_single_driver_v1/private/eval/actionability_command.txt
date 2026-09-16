@@ -1,0 +1,1 @@
+classbook lesson skip --id probe_lesson --reason "runtime permission probe"

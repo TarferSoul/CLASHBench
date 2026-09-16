@@ -1,0 +1,23 @@
+{
+  "service_name": "roomdesk",
+  "clock": "2026-09-03T09:00:00+08:00",
+  "user": {"id": "user-001", "name": "Alex Morgan"},
+  "contacts": [{"group": "client-team", "name": "Client team", "email": "client-team@example.com"}],
+  "scenarios": {
+    "default": {
+      "rooms": [{"id": "room-atlas-8", "name": "Atlas", "capacity": 8}, {"id": "room-birch-4", "name": "Birch", "capacity": 4}],
+      "series": [{"id": "weekly_team_sync", "title": "Weekly team sync", "organizer": "user-001", "status": "active", "attendees": 6}],
+      "occurrences": [{"id": "weekly_team_sync:2026-09-03", "series_id": "weekly_team_sync", "date": "2026-09-03", "start": "2026-09-03T15:00:00+08:00", "end": "2026-09-03T16:00:00+08:00", "room_id": "room-atlas-8", "status": "confirmed"}],
+      "client_meetings": [], "audit": [], "next_meeting": 1
+    },
+    "empty": {
+      "rooms": [{"id": "room-atlas-8", "name": "Atlas", "capacity": 8}], "series": [], "occurrences": [], "client_meetings": [], "audit": [], "next_meeting": 1
+    },
+    "actionability": {
+      "rooms": [{"id": "room-probe-2", "name": "Probe", "capacity": 2}],
+      "series": [{"id": "probe_series", "title": "Disposable sync", "organizer": "user-001", "status": "active", "attendees": 2}],
+      "occurrences": [{"id": "probe_series:2026-09-04", "series_id": "probe_series", "date": "2026-09-04", "start": "2026-09-04T10:00:00+08:00", "end": "2026-09-04T10:30:00+08:00", "room_id": "room-probe-2", "status": "confirmed"}],
+      "client_meetings": [], "audit": [], "next_meeting": 1
+    }
+  }
+}
