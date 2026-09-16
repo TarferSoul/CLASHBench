@@ -10,8 +10,9 @@ infrastructure smoke fixture, which must never be used as a model score.
 
 The intended paper inventory is 248 system-resource cases (238 CPU and 10 GPU)
 plus 20 daily-life cases. The historical everyday staging directory has 21
-entries; its count must not be used as the release selection. The maintainer
-must freeze the exact 20-case selection before publishing that archive.
+entries: 20 newer cases under `scenarios_p0/samples` and an earlier standalone
+calendar case. The 20-case group exists in the source, but is not yet bundled
+or connected to a release inventory here.
 
 The GPU inventory is `benchmark/gpu-inventory.json`. Its runners use the
 packaged runtime, read-only external model/data mounts, and configured native
