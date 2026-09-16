@@ -24,13 +24,13 @@ jobs:
           --build-arg CODEX_VERSION=0.154.0
           --build-arg CLAUDE_VERSION=2.1.272
           --build-arg OPENCODE_VERSION=1.18.31
-          -t agentconflictbench:cpu .
+          -t clashbench:cpu .
       - name: Verify native harnesses and Docker smoke
         run: |
-          docker run --rm --entrypoint /opt/harness/codex/node_modules/.bin/codex agentconflictbench:cpu --version
-          docker run --rm --entrypoint /opt/harness/claude/node_modules/.bin/claude agentconflictbench:cpu --version
-          docker run --rm --entrypoint /opt/harness/opencode/node_modules/.bin/opencode agentconflictbench:cpu --version
-          docker tag agentconflictbench:cpu agentconflictbench:smoke
+          docker run --rm --entrypoint /opt/harness/codex/node_modules/.bin/codex clashbench:cpu --version
+          docker run --rm --entrypoint /opt/harness/claude/node_modules/.bin/claude clashbench:cpu --version
+          docker run --rm --entrypoint /opt/harness/opencode/node_modules/.bin/opencode clashbench:cpu --version
+          docker tag clashbench:cpu clashbench:smoke
           python tests/docker_smoke.py
       - uses: docker/login-action@v3
         with:
@@ -42,8 +42,8 @@ jobs:
           IMAGE: ghcr.io/tarfersoul/clashbench
           REVISION: ${{ github.sha }}
         run: |
-          docker tag agentconflictbench:cpu "$IMAGE:dev-$REVISION"
-          docker tag agentconflictbench:cpu "$IMAGE:dev"
+          docker tag clashbench:cpu "$IMAGE:dev-$REVISION"
+          docker tag clashbench:cpu "$IMAGE:dev"
           docker push "$IMAGE:dev-$REVISION"
           docker push "$IMAGE:dev"
           echo "Published $IMAGE:dev and $IMAGE:dev-$REVISION" >> "$GITHUB_STEP_SUMMARY"

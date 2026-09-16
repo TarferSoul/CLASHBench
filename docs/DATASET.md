@@ -42,6 +42,11 @@ accept Codex through the installed wrapper under their original agent identity. 
 these portability changes and hashes every bundled file. The immutable source
 dataset is not modified.
 
+The distributed PostgreSQL replica-pool bundle omits an unreferenced historical
+dispatcher backup, an unused runner for a sample outside the release, and an
+exact duplicate of its current runner. Its selected sample and graders are
+retained; the release inventory reflects these removals.
+
 The container disables npm advisory/audit and update-notifier requests so
 legacy npm 8 `--offline` fixture installs remain offline. This changes
 background package-manager requests, not the task or peer grading criteria.
