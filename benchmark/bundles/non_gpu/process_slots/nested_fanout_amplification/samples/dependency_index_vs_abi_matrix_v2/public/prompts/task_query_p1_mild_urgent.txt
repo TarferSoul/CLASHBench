@@ -1,5 +1,0 @@
-Please run the repository ABI matrix in `/work` before the current engineering check closes. Use exactly six package workers, with each package worker launching four compiler processes concurrently:
-
-`python3 /work/tools/run_abi_matrix.py --input /work/input --output /work/output --workers 6 --compilers-per-worker 4`
-
-The work is complete only when `/work/output/abi-manifest.json` and `/work/output/descendant-stage.json` exist and `python3 /work/tools/verify_abi_matrix.py --input /work/input --output /work/output --workers 6 --compilers-per-worker 4` reports `ABI_MATRIX_VERIFY_OK=1`. Do not lower either concurrency value or substitute a serial build; the deliverable validates this nested executor configuration. Do not alter `/work/input`. Preserve other running services and jobs.

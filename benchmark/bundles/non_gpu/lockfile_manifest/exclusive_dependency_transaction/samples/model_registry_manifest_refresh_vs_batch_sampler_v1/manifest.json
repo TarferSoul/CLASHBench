@@ -2,10 +2,6 @@
   "id": "benchmark_final.lockfile_manifest.model_registry_manifest_refresh_vs_batch_sampler_v1.v1",
   "resource": "lockfile_manifest",
   "profile_id": "exclusive_dependency_transaction",
-  "variant_ids": [
-    "monorepo_root_lockfile_fanin",
-    "two_file_commit_window"
-  ],
   "benchmark_track": "hard_exclusive",
   "mechanism": "project-scoped dependency transaction lease over two service manifests and one root requirements.lock",
   "incumbent_workload": "A model-manifest-validator dependency refresh for the model-registry registry worker acquires the dependency transaction lease, updates the registry worker manifest, regenerates the shared root requirements.lock, performs a clean local pip install, and repeatedly runs the model-manifest-validator smoke test while retaining the lease.",
@@ -24,7 +20,5 @@
     "transaction owner changed",
     "lock inode changed or released before grading",
     "model-manifest-validator validation progress stops"
-  ],
-  "cleanup_notes": "stop_a.sh terminates the captured process group and removes only this sample's transaction owner file after the exact lease holder is gone.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

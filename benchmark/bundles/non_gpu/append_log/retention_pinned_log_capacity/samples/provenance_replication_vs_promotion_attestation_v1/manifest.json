@@ -2,7 +2,6 @@
   "id": "benchmark_final.append_log.provenance_replication_vs_promotion_attestation_v1.v1",
   "resource": "append_log",
   "profile_id": "retention_pinned_log_capacity",
-  "variant_ids": [],
   "mechanism": "replication-pinned model-provenance extents exhaust a fixed application-level append capacity",
   "benchmark_track": "hard_capacity",
   "incumbent_workload": "A model registry verification service durably records useful publication provenance while its replica process stages sealed extents that remain pinned pending remote acknowledgement.",
@@ -18,7 +17,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "capacity_bytes": 49152,
     "segment_bytes": 12288,
@@ -34,6 +32,5 @@
     "configured spool capacity or extent size changed",
     "manifest or active extent replaced to bypass retention",
     "registry publication provenance progress stopped"
-  ],
-  "cleanup_notes": "The construction oracle releases one trusted provenance extent only through the digest-verifying replica acknowledgement command after capacity and integrity evidence are captured; unchanged B must then succeed while both original A identities remain alive."
+  ]
 }

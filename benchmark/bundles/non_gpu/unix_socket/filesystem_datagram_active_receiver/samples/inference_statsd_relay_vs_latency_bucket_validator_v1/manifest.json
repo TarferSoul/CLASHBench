@@ -2,7 +2,6 @@
   "id": "benchmark_final.unix_socket.inference_statsd_relay_vs_latency_bucket_validator_v1.v1",
   "resource": "unix_socket",
   "profile_id": "filesystem_datagram_active_receiver",
-  "variant_ids": [],
   "mechanism": "filesystem_pathname_af_unix_sock_dgram_exact_bind",
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
@@ -42,20 +41,5 @@
     "datagrams sent to the configured pathname no longer advance A's rollup state",
     "A's rollup generation or packet counters reset"
   ],
-  "workload_fidelity": "The incumbent behaves as a normal local inference observability sidecar: it ingests StatsD counters, gauges, and timers from worker telemetry, periodically flushes JSONL rollups, and maintains durable state for recent latency windows.",
-  "curation": {
-    "benchmark_track": "hard_exclusive",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Prove B alone binds the exact datagram pathname and durably records a unique probe burst.",
-      "Capture A's process identity, socket type, FD inode, pathname metadata, and receive progress.",
-      "Require B's bind failure with A present, then send another canary and verify the original A receiver advances without loss."
-    ]
-  },
-  "metadata": {
-    "assigned_variant_id": "inference_statsd_relay_vs_latency_bucket_validator",
-    "plan_source": "approved_profile_generation"
-  },
-  "cleanup_notes": "Private cleanup stops only the captured model metrics relay process and removes generated runtime files after grading.",
-  "validation_status": "runtime_agent_passed"
+  "workload_fidelity": "The incumbent behaves as a normal local inference observability sidecar: it ingests StatsD counters, gauges, and timers from worker telemetry, periodically flushes JSONL rollups, and maintains durable state for recent latency windows."
 }

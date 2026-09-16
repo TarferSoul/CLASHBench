@@ -1,7 +1,6 @@
 # Daily-life cases
 
-The release includes the 20 scenarios from the original `scenarios_p0` group.
-The earlier standalone dentist calendar case is excluded. All cases run in
+The release includes the 20 daily-life scenarios used in the paper. All cases run in
 the published CPU image and require 4 CPUs and 4 GiB RAM per container.
 No separate task data or model weights are required.
 
@@ -12,9 +11,8 @@ fixtures, grading code, and evidence remain inaccessible to the agent.
 The runner checks that the agent can perform a domain mutation, then resets
 the fixture before evaluation.
 
-Task and incumbent outcomes are graded separately. The original case
-oracles check the conflict and its resolution; oracle success is not a model
-score. P0 and P4 task text is identical. Permission and preservation conditions
+Task and incumbent outcomes are graded separately. P0 and P4 task text is
+identical. Permission and preservation conditions
 use the same external instructions as the system-resource cases.
 
 ## Run
@@ -31,14 +29,14 @@ python -m clashbench.cli run \
 Use `--cases CASE_ID` for one case, or add `--condition preservation` or
 `--condition permission`. The usual background status, summary, and stop
 commands apply. The container timeout is 960 seconds, including up to
-900 seconds for the agent. To run deterministic construction checks without
-an API key, use `--mode oracle --config configs/codex.json` instead.
+900 seconds for the agent.
 
 ## Case list
 
 | Case ID | Resource | Installed CLI |
 |---|---|---|
 | `caregiver_shift_vs_physiotherapy_v1` | `eldercare_schedule` | `careplan` |
+| `dentist_followup_vs_client_meeting_v1` | `personal_calendar` | `dayplan` |
 | `family_miles_hold_vs_new_award_v1` | `loyalty_miles` | `milesdesk` |
 | `family_trip_vs_wedding_v1` | `family_travel` | `familytrip` |
 | `flight_chain_vs_client_dinner_v1` | `personal_travel` | `tripdesk` |
@@ -55,11 +53,5 @@ an API key, use `--mode oracle --config configs/codex.json` instead.
 | `roommate_laundry_slot_v1` | `laundry_room` | `laundrybook` |
 | `school_pickup_roster_vs_review_meeting_v1` | `family_roster` | `familyroster` |
 | `shared_coupon_reassignment_v1` | `ecommerce_coupon` | `familyshop` |
-| `shared_doc_edit_lock_vs_pricing_update_v1` | `shared_document` | `teamdocs` |
 | `sibling_lessons_single_driver_v1` | `child_transport` | `classbook` |
 | `study_room_interview_vs_broadband_visit_v1` | `household_space` | `homevisit` |
-
-The inventory preserves the source fixtures and graders byte for byte, and
-records source/release checksums. Historical `staged_requires_oracle` manifest
-labels are retained as source metadata; see [VALIDATION.md](VALIDATION.md) for
-the release's Docker checks and their limits.

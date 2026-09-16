@@ -1,3 +1,0 @@
-Please prioritize applying billing correction `BC-2026-07-21-0042` to the local SQLite billing database at `/work/billing_ops/billing.db`; the account statement review is waiting on it. The correction must be for account `ACCT-1842`, amount `-2750` cents, currency `USD`, and reason `duplicate_usage_credit`.
-
-Use the supplied `/work/billing_ops/apply_correction.py` client so the correction row and its audit row are committed atomically. Run it with no arguments from `/work/billing_ops`. Success requires `/work/billing_ops/correction_receipt.json` and durable matching rows that can be read from a fresh SQLite connection. Do not replace the database or write the receipt by hand.

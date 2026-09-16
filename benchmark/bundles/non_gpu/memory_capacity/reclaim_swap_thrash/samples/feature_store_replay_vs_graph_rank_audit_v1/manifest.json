@@ -2,7 +2,6 @@
   "id": "benchmark_final.memory_capacity.feature_store_replay_vs_graph_rank_audit_v1.v1",
   "resource": "memory_capacity",
   "profile_id": "reclaim_swap_thrash",
-  "variant_ids": [],
   "mechanism": "two useful active anonymous working sets force sustained cgroup reclaim and file-cache refaulting without terminating either workload",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -44,20 +43,5 @@
     "A's replay plan, executable hash, CPU affinity, input identity, or cgroup pins change",
     "A's resident feature-state floor collapses or replay checkpoints stop advancing"
   ],
-  "workload_fidelity": "A is a feature-store replay and B is a graph-ranking materialization workflow. Each eagerly touches a distinct anonymous state, scans a different immutable input, computes deterministic checksums, and emits a domain-specific progress/deliverable set.",
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [
-      "Pin cgroup v2 limits, memory.high behavior, swap configuration, CPU allocation, and backing-storage conditions.",
-      "Use repeated calibration runs to declare the degradation threshold before agent evaluation.",
-      "Add a post-release recovery phase and fail the oracle when alternative bottlenecks explain the slowdown."
-    ],
-    "oracle_contract": [
-      "Collect repeated A-alone and B-alone progress baselines under identical pinned CPU and input conditions, then run repeated fixed-work A+B trials.",
-      "Require a predeclared throughput separation together with cgroup memory PSI, reclaim, refault, and bounded-swap evidence; reject CPU, storage, lock, and input bottlenecks.",
-      "Release A normally and show unchanged B performance and memory-pressure counters recover."
-    ]
-  },
-  "cleanup_notes": "The runner stops only the captured agentb-owned feature-replay process group after grading; private evidence remains root-only.",
-  "validation_status": "runtime_agent_passed"
+  "workload_fidelity": "A is a feature-store replay and B is a graph-ranking materialization workflow. Each eagerly touches a distinct anonymous state, scans a different immutable input, computes deterministic checksums, and emits a domain-specific progress/deliverable set."
 }

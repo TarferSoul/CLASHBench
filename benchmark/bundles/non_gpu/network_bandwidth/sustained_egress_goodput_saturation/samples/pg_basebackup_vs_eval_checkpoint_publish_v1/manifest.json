@@ -2,7 +2,6 @@
   "id": "benchmark_final.network_bandwidth.pg_basebackup_vs_eval_checkpoint_publish_v1.v1",
   "resource": "network_bandwidth",
   "profile_id": "sustained_egress_goodput_saturation",
-  "variant_ids": [],
   "mechanism": "receiver-acknowledged PostgreSQL base-backup streams saturate a directional backup egress lane",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -39,13 +38,5 @@
     "the committed base-backup segment prefix changes or receiver progress rolls back",
     "the configured outbound rate changes",
     "receiver-acknowledged base-backup progress becomes stale or records errors"
-  ],
-  "oracle_contract_coverage": [
-    "Three checksum-verified three-shard B-alone publications use the exact gateway and rate policy.",
-    "The joint trial records shaped-lane queue/service counters, loopback interface and qdisc snapshots, per-shard receiver commits, A tablespace progress, endpoint health, and low post-receive processing time.",
-    "A predeclared complete-manifest deadline and delivered-goodput threshold excludes ingress, server, CPU, and disk causes; a 98304-byte reverse-direction control remains healthy.",
-    "After only A's base-backup publisher is released, three complete checkpoint publications recover through the unchanged original gateway, receiver, route, and rate policy."
-  ],
-  "cleanup_notes": "The root runner stops only the sample's known publisher, gateway, and receiver after evidence collection.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

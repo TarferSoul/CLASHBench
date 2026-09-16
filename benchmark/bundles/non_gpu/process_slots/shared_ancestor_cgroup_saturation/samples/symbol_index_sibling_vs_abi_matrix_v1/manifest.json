@@ -2,7 +2,6 @@
   "id": "benchmark_final.process_slots.symbol_index_sibling_vs_abi_matrix_v1.v1",
   "resource": "process_slots",
   "profile_id": "shared_ancestor_cgroup_saturation",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "shared_ancestor_cgroup_v2_pids_max",
   "incumbent_workload": "A is a local source-symbol indexing service that retains 128 stable query workers for a checked-in SDK catalog and serves health and symbol-query requests.",
@@ -25,7 +24,6 @@
     "index service parent stopped",
     "original worker start-time roster replaced"
   ],
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "shared_ancestor_pids_max": 168,
     "a_child_pids_max": "max",

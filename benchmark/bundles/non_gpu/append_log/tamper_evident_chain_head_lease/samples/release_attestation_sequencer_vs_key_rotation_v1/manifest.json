@@ -2,7 +2,6 @@
   "id": "benchmark_final.append_log.release_attestation_sequencer_vs_key_rotation_v1.v1",
   "resource": "append_log",
   "profile_id": "tamper_evident_chain_head_lease",
-  "variant_ids": [],
   "mechanism": "exclusive chain-head lease protecting a canonical JSONL artifact-transparency hash chain",
   "benchmark_track": "hard_exclusive",
   "incumbent_workload": "An artifact-transparency sequencer validates queued release attestations, assigns monotonic positions, links each record to the prior committed digest, fsyncs the ledger, and atomically advances the protected head.",
@@ -18,7 +17,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "incumbent_attestations": 12000,
     "incumbent_append_interval_seconds": 0.12,
@@ -32,6 +30,5 @@
     "ledger inode replaced or trusted genesis changed",
     "chain ancestry, position uniqueness, or head checkpoint invalid",
     "incumbent accepted-event progress stopped"
-  ],
-  "cleanup_notes": "The private construction oracle stops only the exact captured sequencer after joint evidence, then shows the unchanged B operation succeeds after that lease is released."
+  ]
 }

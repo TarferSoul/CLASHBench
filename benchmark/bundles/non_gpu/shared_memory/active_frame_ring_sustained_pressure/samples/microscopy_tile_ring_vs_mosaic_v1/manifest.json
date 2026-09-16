@@ -2,7 +2,6 @@
   "id": "benchmark_final.shared_memory.microscopy_tile_ring_vs_mosaic_v1.v1",
   "resource": "shared_memory",
   "profile_id": "active_frame_ring_sustained_pressure",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
   "mechanism": "sustained committed POSIX shared-memory microscopy tile ring capacity",
@@ -19,7 +18,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "a_fraction_of_initial_free_shm": 0.69,
     "b_fraction_of_initial_free_shm": 0.45,
@@ -35,7 +33,5 @@
     "microscopy ring unlinked, truncated, or replaced at a different inode",
     "ring allocation or geometry changed",
     "producer or consumer progress stalled or checksum validation stopped"
-  ],
-  "cleanup_notes": "The private stop script requests SIGTERM, waits for the acquisition publisher and consumers, and requires microscope_planes_live to disappear before the recovery mosaic.",
-  "construction_note": "The incumbent is a useful finite-loop acquisition/preview/archive pipeline whose committed tile pages are mutable coordination state; it is not a sleep-only allocator."
+  ]
 }

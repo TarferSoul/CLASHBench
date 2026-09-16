@@ -2,7 +2,6 @@
   "id": "benchmark_final.append_log.artifact_provenance_vs_sbom_findings_v1.v1",
   "resource": "append_log",
   "profile_id": "append_admission_rate_budget_exhausted",
-  "variant_ids": [],
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
   "mechanism": "fixed Unix-stream append-admission token bucket saturated by a healthy build-provenance verifier",
@@ -44,19 +43,5 @@
     "collector stopped or replaced",
     "Unix socket or durable ledger inode replaced",
     "builder or signature-result coverage stopped advancing"
-  ],
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes_implemented": [
-      "Pinned a local Unix-stream collector with an explicit token bucket and per-finding durable receipts.",
-      "Calibrated A's useful provenance-verification throughput and fixed the separation thresholds before evaluation.",
-      "Implemented repeated B-alone computation/append baselines, repeated A-alone admission windows, joint saturation, and release recovery."
-    ],
-    "oracle_contract_implemented": [
-      "Repeated A-alone and B-alone admitted-event throughput are measured over fixed intervals.",
-      "Joint evidence includes socket identity, bucket occupancy, and independently captured owner admission, throttle, and drop deltas.",
-      "Stopping only the provenance verifier restores unchanged B throughput while collector health, CPU, memory, disk, and fsync evidence rule out alternate limits."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

@@ -2,7 +2,6 @@
   "id": "benchmark_final.deploy_lock.event_decoder_rollback_guard_vs_codec_release_v1.v1",
   "resource": "deploy_lock",
   "profile_id": "quiescent_safety_gate",
-  "variant_ids": [],
   "mechanism": "quiescent_event_decoder_rollback_guard_holds_exclusive_environment_deploy_lease",
   "benchmark_track": "hard_exclusive",
   "effect_type": "admission_failure",
@@ -31,6 +30,5 @@
     "release identity or fencing token replaced",
     "shadow-consumer routing or rollback eligibility altered",
     "SQLite decoder probes or checkpoints stop advancing"
-  ],
-  "validation_status": "runtime_agent_passed"
+  ]
 }

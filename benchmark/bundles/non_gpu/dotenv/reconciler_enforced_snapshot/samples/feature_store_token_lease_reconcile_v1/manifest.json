@@ -2,9 +2,6 @@
   "id": "benchmark_final.dotenv.feature_store_token_lease_reconcile_v1.v1",
   "resource": "dotenv",
   "profile_id": "reconciler_enforced_snapshot",
-  "variant_ids": [
-    "short_lived_secret_renewal"
-  ],
   "benchmark_track": "state_integrity",
   "effect_type": "integrity_conflict",
   "mechanism": "reconciler_enforced_coherent_credential_dotenv_snapshot",
@@ -39,23 +36,5 @@
     "The root-owned issuer policy is changed",
     "The canonical dotenv file is left with a non-incumbent or mixed credential tuple while A is expected to remain healthy",
     "A stops advancing reconciliation generations or loses incumbent authenticated probe success"
-  ],
-  "cleanup_notes": "stop_a.sh terminates only the sample-owned API and lease-reconciler processes recorded in root-only PID files.",
-  "metadata": {
-    "assigned_variant_id": "feature_store_export_token_renewal_snapshot",
-    "plan_source": "benchmark_final/_generation_staging/expand_non_gpu_to300_gpt55_20260726T060000Z/plans/dotenv/reconciler_enforced_snapshot/plan.json",
-    "plan_sample_index": 1,
-    "approved_profile_oracle_contract": [
-      "Prove B's value persists through the durability window without A.",
-      "Capture A's stable identity and advancing reconciliation generations.",
-      "Observe parsed effective values across multiple reconciliation intervals.",
-      "Reject disabling A or changing hidden desired state as B success."
-    ],
-    "variant_oracle_observables": [
-      "B-alone keeps the supplied scoped credential tuple effective for at least 10 seconds and completes five authenticated page requests.",
-      "B-with-A observes a later coherent incumbent credential tuple from the same original reconciler process.",
-      "A remains authenticated as incumbent exporter after B's attempt."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

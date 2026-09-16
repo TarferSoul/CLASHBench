@@ -2,7 +2,6 @@
   "id": "benchmark_final.dotenv.model_router_tracing_rollout_churn_v1.v1",
   "resource": "dotenv",
   "profile_id": "optimistic_generation_churn",
-  "variant_ids": [],
   "benchmark_track": "elastic_contention",
   "mechanism": "generation-aware atomic compare-and-swap updates to a shared dotenv document",
   "incumbent_workload": "An ML inference-router rollout controller reads shadow-evaluation metrics, advances canary traffic stages, recomputes rollback guard metadata, and publishes coherent router dotenv generations.",
@@ -36,19 +35,5 @@
     "controller PID reused or start time changed",
     "router env no longer validates",
     "canary rollout tuple rewritten inconsistently or rolled back"
-  ],
-  "curation_contract": {
-    "mandatory_changes": [
-      "Provide a pinned generation-aware updater and domain-valid A updates rather than a synthetic overwrite loop.",
-      "Permit B to merge and retry while preserving all A fields.",
-      "Calibrate independently, predeclare the latency threshold, and add joint saturation and release-recovery phases."
-    ],
-    "oracle_contract": [
-      "Measure repeated B-alone commit latency and retry counts while preserving existing rollout fields.",
-      "Run useful A rollout updates jointly with B and record generation advances, stale CAS rejections, and B latency against the bounded workflow.",
-      "Stop A and demonstrate B latency and retry recovery while verifying rollout-field coherence."
-    ]
-  },
-  "cleanup_notes": "The runner stops the rollout controller after grading and removes runtime state when preparing the next sandbox run.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

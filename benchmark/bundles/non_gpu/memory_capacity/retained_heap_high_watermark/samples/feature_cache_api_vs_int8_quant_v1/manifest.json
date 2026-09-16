@@ -2,7 +2,6 @@
   "id": "benchmark_final.memory_capacity.feature_cache_api_vs_int8_quant_v1.v1",
   "resource": "memory_capacity",
   "profile_id": "retained_heap_high_watermark",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "retained_application_cache_high_watermark",
   "incumbent_workload": "A local feature analytics API warms decoded feature partitions, cohort indexes, and query buffers, then stays lightly loaded while serving deterministic cohort canaries from the retained cache.",
@@ -45,15 +44,5 @@
     "retained resident floor lost",
     "cohort canary checksum changed",
     "warm query latency exceeds budget"
-  ],
-  "metadata": {
-    "curated_benchmark_track": "hard_capacity",
-    "curation_oracle_contract": [
-      "Run A's real warmup, prove the retained heap supports correctness or latency, and establish a stable resident floor.",
-      "Show B-alone success, memory-specific failure with warmed A, no A cold reset or restart, and B recovery after normal A release."
-    ],
-    "implementation_note": "The fixture uses Python standard-library HTTP and binary tensor tooling available in cbreal. The retained resident memory is part of the analytics service's warmed feature cache and is checked through deterministic cohort-query correctness and latency signals."
-  },
-  "cleanup_notes": "A is stopped through private/a/stop_a.sh after grading or oracle completion.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

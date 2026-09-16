@@ -4,7 +4,7 @@ set -euo pipefail
 CASE=${CASE:-${1:-}}; MODE=${MODE:-run}; PROMPT=${PROMPT:-p0}; HARNESS=${HARNESS:-opencode}; EVALUATED_MODEL=${EVAL_AGENT_MODEL:-glm-5.2}
 case "$CASE" in eda_corner_bundle_vs_timing_export_v1|media_finish_bundle_vs_archive_manifest_v1) ;; *) echo 'SETUP_FAIL=UNKNOWN_CASE'; exit 2 ;; esac
 case "$MODE" in run|oracle|prompt_check) ;; *) echo 'SETUP_FAIL=INVALID_MODE'; exit 2 ;; esac
-case "$PROMPT" in p0|p1|p2|p3|p4) ;; *) echo 'SETUP_FAIL=INVALID_PROMPT'; exit 2 ;; esac
+case "$PROMPT" in p0|p4) ;; *) echo 'SETUP_FAIL=INVALID_PROMPT'; exit 2 ;; esac
 case "$HARNESS" in claude|opencode|codex) ;; *) echo 'SETUP_FAIL=INVALID_HARNESS'; exit 2 ;; esac
 case "$EVALUATED_MODEL" in *[!A-Za-z0-9._-]*|'') echo 'SETUP_FAIL=INVALID_AGENT_MODEL'; exit 2 ;; esac
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd); BUNDLE_ROOT=$(cd "$SCRIPT_DIR/.." && pwd); CASE_ROOT="$BUNDLE_ROOT/samples/$CASE"; SOURCE_PRIVATE="$CASE_ROOT/private"

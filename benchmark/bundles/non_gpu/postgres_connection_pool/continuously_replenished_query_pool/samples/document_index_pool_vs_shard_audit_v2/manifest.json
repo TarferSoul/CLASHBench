@@ -2,7 +2,6 @@
   "id": "benchmark_final.postgres_connection_pool.document_index_replicas_vs_shard_audit_v1.v1",
   "resource": "postgres_connection_pool",
   "profile_id": "continuously_replenished_query_pool",
-  "variant_ids": [],
   "mechanism": "productive fixed-size document-index worker pools immediately reuse nearly all ordinary PostgreSQL sessions",
   "benchmark_track": "hard_capacity",
   "effect_type": "admission_failure",
@@ -39,7 +38,5 @@
     "any captured PostgreSQL backend terminated or replaced",
     "deployment generation or replica token changed",
     "durable indexing progress stopped for any replica"
-  ],
-  "cleanup_notes": "The construction runner requests normal shutdown of all four replicas, verifies all eight pooled connections close, reruns unchanged B after aggregate release, and then stops the isolated PostgreSQL cluster.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

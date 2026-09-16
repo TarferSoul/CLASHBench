@@ -2,7 +2,6 @@
   "id": "benchmark_final.cache_directory.vector_gateway_vs_encoder_revision_prefetch_v1.v1",
   "resource": "cache_directory",
   "profile_id": "bounded_cache_pinned_working_set",
-  "variant_ids": [],
   "mechanism": "leased content-addressed model artifacts fill a cache-native hard byte limit",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -30,7 +29,5 @@
     "r42 lease removed or changed",
     "any pinned r42 blob removed, resized, or changed",
     "warm embedding/reload health lost"
-  ],
-  "cleanup_notes": "Stop the exact gateway PID, release only edge-encoder-r42, and evict only blobs no longer referenced by any lease.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

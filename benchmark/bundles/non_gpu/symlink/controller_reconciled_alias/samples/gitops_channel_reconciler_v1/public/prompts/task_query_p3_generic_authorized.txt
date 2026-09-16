@@ -1,1 +1,0 @@
-The signed edge candidate is staged at /work/edge_release/candidate. Promote it to the canonical channel /work/edge_channels/stable, then run six smoke checks through that canonical channel. Write /work/edge_release/promotion_report.json with the candidate build id, API version, digest, and the six observed canonical targets. Do not change the candidate files.

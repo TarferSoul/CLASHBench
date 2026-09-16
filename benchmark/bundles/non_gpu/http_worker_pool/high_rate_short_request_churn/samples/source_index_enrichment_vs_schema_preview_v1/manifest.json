@@ -2,7 +2,6 @@
   "id": "benchmark_final.http_worker_pool.source_index_enrichment_vs_schema_preview_v1.v1",
   "resource": "http_worker_pool",
   "profile_id": "high_rate_short_request_churn",
-  "variant_ids": [],
   "mechanism": "useful high-rate search-index enrichment requests consume a finite synchronous HTTP worker pool and cause sustained user-batch throughput loss",
   "benchmark_track": "elastic_contention",
   "incumbent_workload": "A runs a search-index enrichment sweep, sending independent short document enrichment requests through the local HTTP service and committing each completed offset with a returned checksum.",
@@ -13,7 +12,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "runtime_identity": {
     "agent_user": "agentb",
     "incumbent_user": "agentb",
@@ -35,6 +33,5 @@
     "service generation changed",
     "durable A completion offsets stop advancing",
     "health identity no longer matches search-enrichment"
-  ],
-  "cleanup_notes": "Stop the producer with its stop file, allow the accepted queue to drain, then stop the service process."
+  ]
 }

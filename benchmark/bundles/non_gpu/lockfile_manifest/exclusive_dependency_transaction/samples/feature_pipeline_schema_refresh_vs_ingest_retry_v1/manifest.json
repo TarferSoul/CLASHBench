@@ -2,10 +2,6 @@
   "id": "benchmark_final.lockfile_manifest.feature_pipeline_schema_refresh_vs_ingest_retry_v1.v1",
   "resource": "lockfile_manifest",
   "profile_id": "exclusive_dependency_transaction",
-  "variant_ids": [
-    "monorepo_root_lockfile_fanin",
-    "two_file_commit_window"
-  ],
   "benchmark_track": "hard_exclusive",
   "mechanism": "project-scoped dependency transaction lease over two service manifests and one root requirements.lock",
   "incumbent_workload": "A schema-codegen dependency refresh for the feature-pipeline schema worker acquires the dependency transaction lease, updates the schema worker manifest, regenerates the shared root requirements.lock, performs a clean local pip install, and repeatedly runs the schema-codegen smoke test while retaining the lease.",
@@ -24,7 +20,5 @@
     "transaction owner changed",
     "lock inode changed or released before grading",
     "schema-codegen validation progress stops"
-  ],
-  "cleanup_notes": "stop_a.sh terminates the captured process group and removes only this sample's transaction owner file after the exact lease holder is gone.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

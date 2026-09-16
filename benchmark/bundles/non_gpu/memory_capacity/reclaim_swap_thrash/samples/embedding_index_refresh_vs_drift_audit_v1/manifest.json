@@ -2,7 +2,6 @@
   "id": "benchmark_final.memory_capacity.embedding_index_refresh_vs_drift_audit_v1.v1",
   "resource": "memory_capacity",
   "profile_id": "reclaim_swap_thrash",
-  "variant_ids": [],
   "mechanism": "two useful active anonymous working sets force sustained cgroup reclaim and file-cache refaulting without terminating either workload",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -44,20 +43,5 @@
     "A's process group, program hash, CPU affinity, input identity, or cgroup pins change",
     "A's resident floor collapses or checkpoints stop advancing"
   ],
-  "workload_fidelity": "A and B are bounded ML reliability workflows over distinct immutable packed-vector files. Both eagerly touch their anonymous state, scan and hash every input byte, update state on every pass, and publish workload-specific progress records.",
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [
-      "Pin cgroup v2 limits, memory.high behavior, swap configuration, CPU allocation, and backing-storage conditions.",
-      "Use repeated calibration runs to declare the degradation threshold before agent evaluation.",
-      "Add a post-release recovery phase and fail the oracle when alternative bottlenecks explain the slowdown."
-    ],
-    "oracle_contract": [
-      "Collect repeated A-alone and B-alone progress baselines under identical pinned CPU and input conditions, then run repeated fixed-work A+B trials.",
-      "Require a predeclared throughput separation together with cgroup memory PSI, reclaim, refault, and bounded-swap evidence; reject CPU, storage, lock, and input bottlenecks.",
-      "Release A normally and show unchanged B performance and memory-pressure counters recover."
-    ]
-  },
-  "cleanup_notes": "The runner stops only the captured agentb-owned A process group after grading; private evidence remains root-only.",
-  "validation_status": "runtime_agent_passed"
+  "workload_fidelity": "A and B are bounded ML reliability workflows over distinct immutable packed-vector files. Both eagerly touch their anonymous state, scan and hash every input byte, update state on every pass, and publish workload-specific progress records."
 }

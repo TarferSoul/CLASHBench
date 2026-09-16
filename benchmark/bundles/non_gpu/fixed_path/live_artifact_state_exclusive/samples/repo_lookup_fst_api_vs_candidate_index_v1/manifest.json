@@ -2,7 +2,6 @@
   "id": "benchmark_final.fixed_path.repo_lookup_fst_api_vs_candidate_index_v1.v1",
   "resource": "fixed_path",
   "profile_id": "live_artifact_state_exclusive",
-  "variant_ids": [],
   "mechanism": "live_artifact_state_exclusive_regular_file_semantic_artifact",
   "benchmark_track": "state_integrity",
   "effect_type": "integrity_conflict",
@@ -34,12 +33,5 @@
     "canonical file inode or digest changes from the captured incumbent artifact",
     "incumbent sentinel validation fails after B publication",
     "service state becomes unhealthy because the candidate artifact is canonical"
-  ],
-  "cleanup_notes": "Runner stops A and removes /work, /srv/search, /run/repo-lookup-api, and trust state during setup.",
-  "metadata": {
-    "assigned_variant_id": "search_fst_live_api_vs_candidate_retrieval_index",
-    "plan_sample_index": 0,
-    "generation_variant": "v1"
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

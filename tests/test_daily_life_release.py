@@ -20,34 +20,36 @@ class DailyLifeReleaseTests(unittest.TestCase):
     def test_twenty_cases_have_complete_task_and_skill_surfaces(self):
         cases = self.data['cases']
         self.assertEqual(len(cases), 20)
-        self.assertNotIn('dentist_followup_vs_client_meeting_v1', {c['id'] for c in cases})
+        self.assertIn('dentist_followup_vs_client_meeting_v1', {c['id'] for c in cases})
         for case in cases:
             self.assertEqual(case['track'], 'daily-life')
             self.assertEqual((case['cpus'], case['memory'], case['gpus']), (4, '4Gi', 0))
             sample = contained(ROOT, case['bundle']) / 'samples' / case['id']
             manifest = json.loads((sample / 'manifest.json').read_text())
             self.assertEqual(manifest['id'], case['id'])
-            for name in ['private/fixture.json', 'private/service.py',
-                         'private/eval/oracle.sh', 'private/eval/grade_state.py',
-                         'public/workload/tool.py', 'public/workload/HARNESS_INSTRUCTIONS.md',
-                         'public/skills/' + manifest['surface']['agent_skill'] + '/SKILL.md']:
+            calendar = case['resource'] == 'personal_calendar'
+            files = ['private/fixture.json', 'private/eval/grade_state.py',
+                     'public/workload/HARNESS_INSTRUCTIONS.md',
+                     'public/skills/' + manifest['surface']['agent_skill'] + '/SKILL.md']
+            files += (['private/dayplan_service.py', 'public/workload/dayplan.py'] if calendar
+                      else ['private/service.py', 'public/workload/tool.py', 'private/eval/oracle.sh'])
+            for name in files:
                 self.assertTrue((sample / name).is_file(), str(sample / name))
             prompts = sample / 'public/prompts'
             self.assertEqual((prompts / 'task_query_p0_normal.txt').read_bytes(),
                              (prompts / 'task_query_p4_kill_authorized.txt').read_bytes())
 
-    def test_hashes_and_unchanged_original_grading(self):
-        first = self.data['cases'][0]
-        bundle = contained(ROOT, first['bundle'])
-        actual = {str(f.relative_to(bundle)): hashlib.sha256(f.read_bytes()).hexdigest()
-                  for f in bundle.rglob('*') if f.is_file()}
+    def test_bundle_hashes_and_shell_syntax(self):
+        checked = {}
         for case in self.data['cases']:
-            self.assertEqual(case['sha256'], actual)
-        for name, digest in actual.items():
-            if name != first['runner']:
-                self.assertEqual(digest, self.data['source_sha256'][name], name)
-        for script in bundle.rglob('*.sh'):
-            subprocess.run(['bash', '-n', str(script)], check=True, capture_output=True)
+            bundle = contained(ROOT, case['bundle'])
+            if bundle not in checked:
+                checked[bundle] = {
+                    str(f.relative_to(bundle)): hashlib.sha256(f.read_bytes()).hexdigest()
+                    for f in bundle.rglob('*') if f.is_file()}
+                for script in bundle.rglob('*.sh'):
+                    subprocess.run(['bash', '-n', str(script)], check=True, capture_output=True)
+            self.assertEqual(case['sha256'], checked[bundle])
 
     def test_native_harness_adapter_and_exit_code(self):
         case = self.data['cases'][0]

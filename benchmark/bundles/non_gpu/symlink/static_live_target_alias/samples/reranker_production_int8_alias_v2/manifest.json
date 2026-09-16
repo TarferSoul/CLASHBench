@@ -2,7 +2,6 @@
   "id": "benchmark_final.symlink.reranker_production_int8_alias_v2.v1",
   "resource": "symlink",
   "profile_id": "static_live_target_alias",
-  "variant_ids": [],
   "benchmark_track": "state_integrity",
   "mechanism": "A live reranker API repeatedly dereferences /srv/reranker/models/production while B must atomically publish a different verified model bundle at that exact symlink pathname.",
   "incumbent_workload": "A local AI evaluation reranker service listens on 127.0.0.1:8127, serves /health and /rerank from /srv/reranker/models/production, and appends provenance-bearing batch summaries to a service ledger while reopening tokenizer, calibration, labels, and model-card files through that alias.",
@@ -38,7 +37,5 @@
     "service health reports candidate model identity",
     "A ledger contains mixed model or calibration IDs",
     "original service process was stopped, restarted, or replaced"
-  ],
-  "cleanup_notes": "The runner stops the local reranker service after grading and the sandbox submitter stops the sandbox.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

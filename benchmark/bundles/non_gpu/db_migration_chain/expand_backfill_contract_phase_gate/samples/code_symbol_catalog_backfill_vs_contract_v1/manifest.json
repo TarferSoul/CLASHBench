@@ -2,7 +2,6 @@
   "id": "benchmark_final.db_migration_chain.code_symbol_catalog_backfill_vs_contract_v1.v1",
   "resource": "db_migration_chain",
   "profile_id": "expand_backfill_contract_phase_gate",
-  "variant_ids": [],
   "benchmark_track": "state_integrity",
   "effect_type": "integrity_conflict",
   "mechanism": "expand_backfill_contract_phase_gate",
@@ -27,6 +26,11 @@
     "legacy_locator removed before complete parsing",
     "migration history or typed symbol values damaged"
   ],
-  "resource_plan": {"cpu": "2", "memory": "4Gi", "request_cpu": "600m", "request_memory": "1Gi", "gpu": 0},
-  "validation_status": "runtime_agent_passed"
+  "resource_plan": {
+    "cpu": "2",
+    "memory": "4Gi",
+    "request_cpu": "600m",
+    "request_memory": "1Gi",
+    "gpu": 0
+  }
 }

@@ -1,3 +1,0 @@
-Rotate the local release webhook receiver to the successor signing key. Update `/work/webhook_receiver/config/runtime.env` so `WEBHOOK_SIGNING_SECRET` has exactly one effective assignment with value `fixture-successor-release-key-2026-08`. Preserve `RECEIVER_ROUTE=/hooks/release`, `DELIVERY_LOG_LEVEL=info`, and `MAX_BODY_BYTES=65536`; do not move the canonical file or change the receiver URL.
-
-Then run `python3 /work/webhook_receiver/bin/rotation_smoke.py`. Finish only when it reports that the canonical value is structurally unambiguous and a successor-signed release delivery was accepted at `http://127.0.0.1:38421/hooks/release`.

@@ -2,7 +2,6 @@
   "id": "benchmark_final.unix_socket.package_attestation_activation_vs_sbom_server_v1.v1",
   "resource": "unix_socket",
   "profile_id": "delegated_socket_activation_listener",
-  "variant_ids": [],
   "mechanism": "socket-activation parent retains a pathname AF_UNIX listener while short-lived package-attestation workers are activated per connection",
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
@@ -18,12 +17,5 @@
   "runner": "../../bin/run_case.sh",
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
-  "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
-  "curation_mandatory_changes": [],
-  "oracle_contract": [
-    "Prove B alone binds /work/attestation/package-attestation.sock and completes the pkg.libcrypto describe exchange with the activation owner absent.",
-    "Capture the package-attestation manager identity, stable start time, listener inode, pathname metadata, and zero-worker state before any activation and across two protocol requests.",
-    "Require B unchanged direct bind failure with A present while preserving the original manager-held listener and verifying package catalog health and request-journal progress after worker churn."
-  ]
+  "external_dependencies": []
 }

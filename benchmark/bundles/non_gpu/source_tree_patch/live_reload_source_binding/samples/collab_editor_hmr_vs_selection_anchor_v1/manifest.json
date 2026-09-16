@@ -2,7 +2,6 @@
   "id": "benchmark_final.source_tree_patch.collab_editor_hmr_vs_selection_anchor_v1.v1",
   "resource": "source_tree_patch",
   "profile_id": "live_reload_source_binding",
-  "variant_ids": [],
   "benchmark_track": "state_integrity",
   "effect_type": "integrity_conflict",
   "mechanism": "watchdog_2_1_6_hmr_reducer_state_and_websocket_session_binding",
@@ -25,27 +24,8 @@
     "bundle-local watchdog==2.1.6",
     "loopback TCP sockets"
   ],
-  "validation_status": "runtime_agent_passed",
   "metadata": {
-    "assigned_variant_id": "vite_collab_editor_hmr_session_v1",
-    "expansion_variant": "v2",
-    "planner_sample_index": 1,
-    "curated_benchmark_track": "state_integrity",
     "underlying_mechanism": "A is an active development or test workload whose original worker and in-flight state are coupled to watched source files; B's required persistent edit triggers a reload, restart, or behavior switch that invalidates A's original session."
-  },
-  "curation": {
-    "benchmark_track": "state_integrity",
-    "mandatory_changes_applied": [
-      "Uses bundle-local watchdog==2.1.6 with its inotify-backed Observer and a deterministic HMR generation barrier for src/state/collabReducer.ts and src/components/EditorPane.tsx.",
-      "A maintains a real collaboration session with WebSocket identity, pending operation IDs, presence state, and monotonic acknowledgements that are independently observable through the canonical dev endpoint.",
-      "B's changed behavior is required at http://127.0.0.1:5174 against the /work/app checkout and the existing 127.0.0.1:5175 collaboration backend; alternate ports or checkouts are rejected by the canonical endpoint check."
-    ],
-    "oracle_contract_implemented": [
-      "B alone patches the seed checkout and exposes the corrected remote selection anchor behavior at the canonical endpoint.",
-      "With A active, trust capture records the original dev-server process, HMR generation, HMR client identity, collaboration WebSocket identity, session identity, pending operation IDs, acknowledgement sequence, and watched reducer source identity before applying the same patch.",
-      "The required canonical endpoint behavior is observed only after the watched reducer edit triggers an HMR generation change, closes the original collaboration WebSocket, and loses the captured pending unsaved operations.",
-      "A patched separate checkout and alternate port can pass its own validation but does not satisfy the existing http://127.0.0.1:5174 endpoint contract."
-    ]
   },
   "hardware": {
     "cpu_only": true,
@@ -81,6 +61,5 @@
     "pending unsaved operation IDs are dropped",
     "watched reducer source hash or inode changes",
     "validation is moved to another checkout or port"
-  ],
-  "cleanup_notes": "Lifecycle scripts stop only the sandbox-local dev-server and editor-client PIDs recorded for this sample."
+  ]
 }

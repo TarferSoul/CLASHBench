@@ -2,13 +2,6 @@
   "id": "benchmark_final.io_bandwidth.checkpoint_audit_vs_model_shard_load_smoke_v1.v1",
   "resource": "io_bandwidth",
   "profile_id": "steady_sequential_read_saturation",
-  "variant_ids": [],
-  "assigned_variant_id": "checkpoint_audit_vs_model_shard_load_smoke",
-  "generation_metadata": {
-    "expansion_variant": "v2",
-    "plan_sample_index": 1,
-    "assigned_variant_id": "checkpoint_audit_vs_model_shard_load_smoke"
-  },
   "benchmark_track": "elastic_contention",
   "mechanism": "steady direct sequential read saturation on the artifact filesystem backing independent checkpoint trees",
   "incumbent_workload": "A model-registry audit process running as agentb reads fixture safetensors-like checkpoint and optimizer shards in large direct-I/O passes, validates shard headers and tensor offsets, computes selected tensor-window digests, records audited shard and byte counters, and publishes a heartbeat for the current checkpoint id.",
@@ -53,21 +46,5 @@
     "audited shard or byte counters regressed",
     "audit heartbeat stopped advancing",
     "completed shard digest validation failed"
-  ],
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [
-      "Choose a workload and filesystem/device combination with supported nondestructive direct reads or equivalent uncached extents.",
-      "Predeclare repeated-trial thresholds and reject trials with materially different physical-read evidence.",
-      "Resolve both workloads to the same physical device and preserve independent logical files and integrity checks."
-    ],
-    "oracle_contract": [
-      "Use supported direct I/O or independent equivalent uncached extents without dropping caches or disturbing A.",
-      "Run repeated B-alone and A+B trials on the same physical device with a threshold fixed during fixture calibration.",
-      "Require comparable physical-read sector counts and record queueing, device throughput, B semantic progress, and healthy A verification progress while excluding CPU, memory, capacity, and integrity failures.",
-      "Release A and demonstrate unchanged B read throughput recovers."
-    ]
-  },
-  "cleanup_notes": "private/a/stop_a.sh terminates the original audit process group after grading or construction evidence collection.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

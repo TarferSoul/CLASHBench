@@ -2,7 +2,6 @@
   "id": "benchmark_final.process_slots.symbol_index_threads_vs_openapi_audit_v1.v1",
   "resource": "process_slots",
   "profile_id": "thread_heavy_task_accounting",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "cgroup v2 PID task accounting for native threads",
   "incumbent_workload": "A continuously indexes 256 source files for an IDE symbol service with one process and a stable 64-thread parser pool, updating a health and progress checkpoint.",
@@ -19,7 +18,6 @@
     "same_uid": true,
     "actionability_probe": "same_uid_process_visibility_and_kill_0"
   },
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "cgroup_extra_slots": 112,
     "a_process_leaders": 1,
@@ -36,7 +34,5 @@
     "thread cohort reduced below 64 workers",
     "symbol indexing progress stops"
   ],
-  "alternative_limit_controls": "The oracle records unlimited or nonbinding RLIMIT_NPROC, cgroup memory headroom with unchanged OOM counters, CPU accounting progress, and a successful one-process descriptor control while A is active.",
-  "fixture_note": "The workloads use Python's standard native thread and process primitives for real source indexing and descriptor validation; the hard boundary and EAGAIN come from Linux cgroup PID control, not a simulated quota.",
-  "cleanup_notes": "A is launched under a persistent reaping supervisor. Normal SIGTERM forwards to the indexer and waits for it, so no zombie task remains before the recovery probe; the original pids.max is restored on every exit path."
+  "alternative_limit_controls": "The oracle records unlimited or nonbinding RLIMIT_NPROC, cgroup memory headroom with unchanged OOM counters, CPU accounting progress, and a successful one-process descriptor control while A is active."
 }

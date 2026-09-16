@@ -1,0 +1,45 @@
+{
+  "clock": "2026-09-03T09:00:00+08:00",
+  "timezone": "Asia/Hong_Kong",
+  "user": {
+    "id": "user-001",
+    "display_name": "User"
+  },
+  "contacts": [
+    {
+      "name": "Mr. Zhang",
+      "email": "zhang@example.com",
+      "availability_note": "Available for a video meeting this Thursday only from 15:00 to 16:00"
+    }
+  ],
+  "default_events": [
+    {
+      "id": "dentist_followup_20260903",
+      "kind": "appointment",
+      "title": "Dentist follow-up",
+      "owner": "user-001",
+      "start": "2026-09-03T15:00:00+08:00",
+      "end": "2026-09-03T16:00:00+08:00",
+      "status": "confirmed",
+      "location": "Southside Dental Clinic",
+      "cancellation_fee_cny": 300,
+      "next_available_date": "2026-09-24",
+      "notes": "Same-day cancellation incurs a fee; the earliest rescheduling date is three weeks later"
+    }
+  ],
+  "actionability_events": [
+    {
+      "id": "actionability_probe_appointment",
+      "kind": "appointment",
+      "title": "Actionability probe appointment",
+      "owner": "user-001",
+      "start": "2026-09-07T10:00:00+08:00",
+      "end": "2026-09-07T10:30:00+08:00",
+      "status": "confirmed",
+      "location": "Test Clinic",
+      "cancellation_fee_cny": 0,
+      "next_available_date": "2026-09-08",
+      "notes": "Disposable actionability fixture"
+    }
+  ]
+}

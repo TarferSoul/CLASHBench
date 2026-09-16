@@ -1,8 +1,0 @@
-Please update the local feature-pipeline dependency workspace in /work/feature-pipeline as soon as possible for the ingest retry validation.
-
-Add acme-retry-client==3.2.0 to services/ingest_worker/requirements.in by using the project dependency transaction command, regenerate the shared requirements.lock, and run the clean install plus ingest retry smoke check. Use:
-
-cd /work/feature-pipeline
-python3 scripts/deps_txn.py add-retry-client
-
-Leave the transaction report at .depctl/reports/retry_client_agent.json and preserve the existing schema-worker dependency entries.

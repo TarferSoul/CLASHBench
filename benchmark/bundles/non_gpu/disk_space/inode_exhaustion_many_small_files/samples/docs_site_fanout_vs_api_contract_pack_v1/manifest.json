@@ -2,7 +2,6 @@
   "id": "benchmark_final.disk_space.docs_site_fanout_vs_api_contract_pack_v1.v1",
   "resource": "disk_space",
   "profile_id": "inode_exhaustion_many_small_files",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "documentation release fan-out exhausts a fixed tmpfs inode pool while byte blocks remain available",
   "incumbent_workload": "A builds and continuously validates an internal operations documentation site with per-page HTML, search fragments, and compiled asset entries.",
@@ -38,7 +37,5 @@
     "site page, search, asset, ready, or progress files removed",
     "anchor page inode or checksum changed",
     "validation progress stopped advancing"
-  ],
-  "cleanup_notes": "The construction oracle stops A normally, removes only A's exact site tree to release its inodes, and reruns the byte-identical B command successfully.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

@@ -2,7 +2,6 @@
   "id": "benchmark_final.license_seat_pool.analytics_idle_engine_vs_drift_report_v1.v1",
   "resource": "license_seat_pool",
   "profile_id": "idle_heartbeat_checkout_retention",
-  "variant_ids": [],
   "mechanism": "idle heartbeat checkout retention",
   "benchmark_track": "hard_capacity",
   "effect_type": "admission_failure",
@@ -25,7 +24,5 @@
     "original A PID missing",
     "PID reused by a replacement",
     "checkout identity or project state changed"
-  ],
-  "cleanup_notes": "A is released through its normal SIGTERM handler after grading.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

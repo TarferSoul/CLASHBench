@@ -2,7 +2,6 @@
   "id": "benchmark_final.deploy_lock.model_catalog_rebuild_vs_ocr_detector_promotion_v1.v1",
   "resource": "deploy_lock",
   "profile_id": "short_ttl_continuous_renewal",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "short_ttl_model_catalog_deploy_lease_continuous_renewal",
   "incumbent_workload": "A model-channel supervisor continuously renews a five-second staging-model-serving catalog deploy lease while a separate publisher verifies reranker shards, materializes content-addressed blobs, rebuilds and signs the catalog, converges three catalog replicas, and records cold-load checks.",
@@ -38,7 +37,5 @@
     "fencing token changed",
     "renewal sequence stopped advancing",
     "catalog signature, replicas, or load checks regressed"
-  ],
-  "cleanup_notes": "Root stops only the trusted A lease holder and publisher after grading; each fresh Sandbox recreates the registry and catalogs.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dayplan Calendar"
+  short_description: "Manage linked calendar events and appointments"
+  default_prompt: "Use $dayplan-calendar to inspect my schedule and handle this calendar request."

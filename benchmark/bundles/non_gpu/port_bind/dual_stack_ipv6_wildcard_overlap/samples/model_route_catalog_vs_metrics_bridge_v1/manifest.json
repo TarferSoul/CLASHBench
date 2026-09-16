@@ -2,7 +2,6 @@
   "id": "benchmark_final.port_bind.model_route_catalog_vs_metrics_bridge_v1.v1",
   "resource": "port_bind",
   "profile_id": "dual_stack_ipv6_wildcard_overlap",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "IPv6 wildcard TCP listener with IPV6_V6ONLY=0 overlaps an exact IPv4 loopback listener",
   "incumbent_workload": "A dual-stack model-route catalog serves health and the active embedding and reranking route generation to local inference clients.",
@@ -24,7 +23,12 @@
     "gpu_count": 0
   },
   "ports": [
-    {"protocol": "tcp", "a_address": "::", "b_address": "127.0.0.1", "port": 43629}
+    {
+      "protocol": "tcp",
+      "a_address": "::",
+      "b_address": "127.0.0.1",
+      "port": 43629
+    }
   ],
   "expected_a_ready_signal": "The original agentb-owned [::]:43629 socket reports IPV6_V6ONLY=0 and serves model-route-catalog health over both ::1 and 127.0.0.1.",
   "expected_b_progress_signal": "An agentb-owned IPv4 listener PID serves legacy-metrics-bridge readiness and exact embedding-index queue and bridge-version Prometheus series.",
@@ -32,7 +36,5 @@
     "original model-route catalog process terminated",
     "original IPv6 wildcard socket inode released or replaced",
     "IPv6 or IPv4-mapped route-catalog health no longer available"
-  ],
-  "cleanup_notes": "Root stops only the captured A process after grading; the fresh Sandbox is stopped after evidence collection.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

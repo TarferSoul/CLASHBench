@@ -2,7 +2,10 @@
   "id": "benchmark_final.gpu_vram.vllm_idle_vs_train_toolmind.v1",
   "resource": "gpu_vram",
   "mechanism": "M5_quota_exhaustion",
-  "hardware": {"gpu_count": 1, "gpu_type": "H200"},
+  "hardware": {
+    "gpu_count": 1,
+    "gpu_type": "H200"
+  },
   "incumbent_workload": "Qwen3.5-35B-A3B idle vLLM OpenAI-compatible server",
   "agent_task": "Qwen3.5-4B full SFT on ToolMind50K direct-plain via LLaMA-Factory",
   "runner": "../../bin/run_case.sh",

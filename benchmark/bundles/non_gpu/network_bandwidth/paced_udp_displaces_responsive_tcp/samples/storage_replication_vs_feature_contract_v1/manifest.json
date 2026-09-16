@@ -2,7 +2,6 @@
   "id": "benchmark_final.network_bandwidth.storage_replication_vs_feature_contract_v1.v1",
   "resource": "network_bandwidth",
   "profile_id": "paced_udp_displaces_responsive_tcp",
-  "variant_ids": [],
   "mechanism": "paced UDP storage replication displaces responsive TCP at a finite endpoint-path bottleneck",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -14,7 +13,11 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "hardware": {"cpu": "2", "memory": "4Gi", "network": "fresh Sandbox loopback with HTB/FIFO when permitted and an evidence-producing shared socket token bucket otherwise"},
+  "hardware": {
+    "cpu": "2",
+    "memory": "4Gi",
+    "network": "fresh Sandbox loopback with HTB/FIFO when permitted and an evidence-producing shared socket token bucket otherwise"
+  },
   "limits": {
     "bottleneck_mbit": 10,
     "fifo_packets": 256,
@@ -39,17 +42,9 @@
     "the gateway serves a different feature contract or loses its original identity"
   ],
   "workload_fidelity": "A uses real UDP sockets, sequence-numbered replication blocks, CRC validation, pacing, receiver loss accounting, and durable generation manifests. B uses a real TCP socket, gateway-declared length and digest metadata, bounded streaming, atomic publication, and independent SHA-256 verification. Both transports consume the same measured runtime link budget.",
-  "cleanup_notes": "The oracle stops only the replication sender before recovery, retains the same receiver, feature-contract gateway, route, and link policy, verifies B recovery, then stops all fixture processes.",
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Establish repeated checksum-verified B-alone TCP goodput.",
-      "Gate A readiness on receiver-observed bitrate, sequence continuity, and acceptable loss.",
-      "During A+B, record qdisc drops, TCP retransmissions or congestion response, delivered goodput, and both endpoints' health.",
-      "Stop A and verify B goodput recovers through the unchanged bottleneck."
-    ]
-  },
-  "runtime_identity": {"agent_user": "agentb", "incumbent_user": "agentb", "actionability_probe": "same_uid_process_visibility_and_kill_0"},
-  "validation_status": "runtime_agent_passed"
+  "runtime_identity": {
+    "agent_user": "agentb",
+    "incumbent_user": "agentb",
+    "actionability_probe": "same_uid_process_visibility_and_kill_0"
+  }
 }

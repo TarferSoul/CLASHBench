@@ -1,154 +1,48 @@
-# Dataset contract and release packaging
+# Dataset
 
-## Distribution
+CLASHBench contains 268 cases across 55 resources and 175 occupancy
+configurations: 238 CPU system-resource cases, 10 GPU system-resource cases,
+and 20 daily-life cases. Each case pairs an incumbent workload (A) with a new
+agent task (B) that competes for the same resource.
 
-This repository ships 238 frozen CPU and 10 GPU system-resource cases, plus
-20 daily-life cases, under
-`benchmark/`, including separate inventories, fixtures, prompts, graders, and file
-checksums. A clone supplies these inputs directly; no separate CPU archive
-download or internal storage path is required. `examples/` contains a separate
-infrastructure smoke fixture, which must never be used as a model score.
+## Inventories
 
-The bundled inventory is 248 system-resource cases (238 CPU and 10 GPU)
-plus 20 daily-life cases. The historical everyday staging directory has 21
-entries: 20 newer cases under `scenarios_p0/samples` and an earlier standalone
-calendar case. `benchmark/daily-life-inventory.json` selects exactly the 20-case
-group and excludes the earlier calendar case. The shared bundle contains each
-case's original business service, fixture, command-line tool, agent skill,
-prompts, deterministic oracle, and independent graders. Only the shared runner
-is adapted: it calls the image's configured native harness, uses a non-login
-shell for its actionability probe, defaults artifacts to `/run/acb-results`,
-and applies the same visibility/privacy checks in oracle and agent modes.
-Original and release hashes record this distinction. Case CPU/RAM limits are
-preserved; the Docker timeout is 960 seconds with a 900-second agent budget.
+| Inventory | Cases | Image |
+|---|---:|---|
+| `benchmark/inventory.json` | 238 | `ghcr.io/tarfersoul/clashbench:cpu` |
+| `benchmark/gpu-inventory.json` | 10 | `ghcr.io/tarfersoul/clashbench:gpu` |
+| `benchmark/daily-life-inventory.json` | 20 | `ghcr.io/tarfersoul/clashbench:cpu` |
 
-The GPU inventory is `benchmark/gpu-inventory.json`. Its runners use the
-packaged runtime, read-only external model/data mounts, and configured native
-agent adapters. Legacy internal API relays are removed. Each case records
-original source hashes and release hashes; prompts, fixtures, and graders are
-unchanged. The two large training datasets are external downloads. ATBench
-inputs and other small task fixtures are bundled. Three source cases have no
-standalone construction oracle and explicitly reject oracle mode. GPU Docker
-acceptance remains pending; original manifest validation describes historical
-runs, not acceptance of these Docker adapters.
+Each inventory specifies case IDs, bundle paths, resource limits, timeouts,
+and file checksums. GPU entries also specify external model and data mounts.
+See the [README](../README.md) for installation and downloads,
+[GPU cases](GPU.md), and [daily-life cases](DAILY_LIFE.md).
 
-The CPU release retains the original case limits, task definitions, and task
-and peer graders. Eight runner fallback artifact paths were changed from
-historical cluster paths to `/run/acb-results`. Two authoritative-context
-oracles wait for `SIGSTOP` delivery before asserting the stopped process state;
-the expected state and grading rules are unchanged. Four legacy runners use
-canonical trace names and unique result filenames; two of those runners now
-accept Codex through the installed wrapper under their original agent identity. `inventory.json` records
-these portability changes and hashes every bundled file. The immutable source
-dataset is not modified.
-
-The distributed PostgreSQL replica-pool bundle omits an unreferenced historical
-dispatcher backup, an unused runner for a sample outside the release, and an
-exact duplicate of its current runner. Its selected sample and graders are
-retained; the release inventory reflects these removals.
-
-The container disables npm advisory/audit and update-notifier requests so
-legacy npm 8 `--offline` fixture installs remain offline. This changes
-background package-manager requests, not the task or peer grading criteria.
-
-## Expected extracted layout
+## Case layout
 
 ```text
-benchmark/
-  inventory.json
-  bundles/<resource>/<configuration>/
-    bin/run_case.sh
-    samples/<case-id>/
-      manifest.json
-      public/prompts/task_query_p0_normal.txt
-      private/...
+bundles/<resource>/<configuration>/
+  bin/run_case.sh
+  samples/<case-id>/
+    manifest.json
+    public/prompts/
+    public/workload/
+    private/
 ```
 
-Minimal inventory entry:
+The manifest describes the task, incumbent, resource conflict, and runtime
+requirements. Public files are exposed to the evaluated agent; private files
+provide fixtures, incumbent processes, and independent task and peer graders.
+The controller copies the selected bundle into an isolated container and
+applies its inventory limits.
 
-```json
-{
-  "schema_version": 1,
-  "dataset": "CLASHBench-v1",
-  "cases": [{
-    "id": "case-id",
-    "track": "system-resource",
-    "bundle": "bundles/resource/configuration",
-    "runner": "bin/run_case.sh",
-    "resource": "port_bind",
-    "occupancy_configuration": "exclusive_listener",
-    "cpus": 2,
-    "memory": "2Gi",
-    "shm_size": "1Gi",
-    "gpus": 0,
-    "timeout_seconds": 900,
-    "sha256": {"bin/run_case.sh": "REPLACE_WITH_SHA256"}
-  }]
-}
-```
+## Conditions and outcomes
 
-Paths must stay below the inventory directory. Case IDs are unique and use
-letters, numbers, underscores, periods, or hyphens. The host copies each bundle
-into its container; it never executes a case runner on the host. Optional
-`pids_limit` and `environment` declare case-specific resource/runtime settings.
-Do not put credentials in either field.
+The three conditions are `default`, `preservation`, and `permission`.
+The runner uses `p0` task text for default and preservation, and `p4` for
+permission. The harness supplies the corresponding condition instruction.
+See [PROTOCOL.md](PROTOCOL.md) for the instructions and scoring definitions.
 
-## Runner contract
-
-The public package, CLI, and asset variables use `clashbench` / `CLASHBENCH_*`.
-The existing images retain their internal `/opt/acb*`, `/run/acb*`, and
-`acb.container` / `acb.judge_container` transport paths for compatibility.
-Docker builds copy the `clashbench` source into that image-side package.
-These internal paths do not require an old host package or old CLI command.
-
-The controller sets `BENCHMARK_SANDBOX=1`, `CASE`, `MODE`, `PROMPT`, `HARNESS`,
-`HOST_ARTIFACT_ROOT`, and `AGENT_TIMEOUT_SECONDS`. `PROMPT` is `p0` or `p4`;
-Preservation uses `p0` with the external preservation instruction.
-
-A portable runner must:
-
-1. Keep private scripts, trust state, and result directories root-owned and
-   inaccessible to the agent. Start the incumbent using its intended identity.
-2. Verify readiness, health, resource occupancy, and the agent's ability to
-   affect the intended incumbent before invoking the harness.
-3. Stage `/work/TASK.txt` and run `codex`, `claude`, or `opencode` as `agentb`.
-   The installed wrappers select the configured provider/model and emit JSONL.
-4. Capture that stdout in `evidence/agent_trace.txt` and stderr separately.
-5. Write exactly one `result.json` below `HOST_ARTIFACT_ROOT`, with integer
-   `agent_rc`, `task_ok`, and `peer_ok`. Preserve independent grading evidence.
-6. Stop only its own incumbent/fixture processes after grading. Docker removal
-   supplies the final per-run cleanup boundary.
-
-```json
-{"agent_rc": 0, "task_ok": 1, "peer_ok": 0,
- "visibility_ok": 1, "actionability_ok": 1}
-```
-
-Legacy bundles that overwrite the installed CLI wrappers, have no enabled agent
-mode, omit the structured result, or rely on hard-coded external paths need a
-portability adapter before evaluation. This runner fails such attempts rather
-than interpreting them as safe. Do not patch graders or weaken conflicts to
-make a portability test pass.
-
-## Maintainer export
-
-For a local frozen system-resource dataset with `index/samples.tsv`:
-
-```bash
-python -m clashbench.export_dataset \
-  --source /path/to/frozen/dataset \
-  --output data/staging \
-  --cases all
-python -m clashbench.cli list --inventory data/staging/inventory.json
-```
-
-The exporter copies bundles and their exact limits, computes file checksums,
-and leaves source files unchanged. It does not upload anything or claim the
-bundle is portable. Select a small subset first with comma-separated case IDs.
-The output must be a new directory outside the source dataset.
-
-Before distributing a release archive, validate every selected case using its
-Docker oracle and an actual native harness, audit bundled data/third-party
-binary redistribution permissions, remove internal endpoints and absolute
-paths from release metadata, and publish an immutable archive checksum. Keep
-training data and model weights in separately licensed downloads where needed.
+Task success (`task_ok`) and incumbent survival (`peer_ok`) are graded
+independently. Oracle and infrastructure smoke runs are excluded from model
+metrics. Results are written to the selected output directory.

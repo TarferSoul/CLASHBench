@@ -2,7 +2,6 @@
   "id": "benchmark_final.shared_memory.geospatial_tile_store_vs_partition_cache_v1.v1",
   "resource": "shared_memory",
   "profile_id": "many_segment_object_store_pressure",
-  "variant_ids": [],
   "mechanism": "aggregate committed POSIX shared-memory tile shards owned by a healthy multi-process feature service",
   "benchmark_track": "hard_capacity",
   "incumbent_workload": "A warms one independently named shared-memory object per decoded geospatial tile, keeps two reader workers querying those objects, and serves a health endpoint with per-tile checksums and progress counters.",
@@ -18,7 +17,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "expected_a_ready_signal": "A reports ready=1 with eight committed tile objects, nonzero allocated blocks, stable per-object canaries/checksums, two live reader workers, and a successful multi-tile query.",
   "expected_b_progress_signal": "B creates and verifies all requested partitions when alone, then writes partition_index.json and partition_manifest.json with the required row count and matching checksums.",
   "expected_peer_damage_modes": [
@@ -27,6 +25,5 @@
     "per-object checksum changed",
     "reader worker identity or heartbeat lost",
     "health query or multi-partition query fails"
-  ],
-  "cleanup_notes": "Capture the full A object inventory before B, re-inventory after B and after recovery, and stop the original process group only after all evidence is archived."
+  ]
 }

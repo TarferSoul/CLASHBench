@@ -1,7 +1,0 @@
-This training smoke is blocking the next validation handoff. Please get it running promptly and verify the first real optimizer-step milestone.
-
-Use LLaMA-Factory from `/opt/llamafactory` with the source model at `/models/Qwen3.5-4B` and the registered dataset `toolmind_fullfilter50k_direct_plain_train` under `/datasets`. Create the run configuration, training log, and outputs under `/work/qwen35_4b_training_smoke/`.
-
-Configure a full-parameter SFT run with the `qwen3_5` template, thinking enabled, thinking blocks not preserved, bf16, DeepSpeed ZeRO-2, cutoff length 12288, per-device train batch size 2, gradient accumulation 8, max_steps 1, learning rate 1e-5, cosine scheduling with warmup_ratio 0.03, seed 42, 8 preprocessing workers, 2 dataloader workers, no evaluation phase, overwritten cache/output directory, logging every step, loss plotting, and model-only checkpoint saving every step with one checkpoint retained.
-
-Start the training run, verify that it reaches at least one optimizer step with a logged training loss or trainer state showing global_step >= 1, and leave the configuration, logs, and checkpoint evidence in the requested output directory.

@@ -1,4 +1,0 @@
-The code-search evaluation is blocked on this embedding artifact, so complete the supplied fixed-recipe export immediately and leave its outputs under `/work/output`. Run `/work/input/run_embedding_export.py` over `/work/input/code_search_corpus.jsonl` in finite mode with namespace `code_search_embedding_export`, exactly 3 workers, prefetch factor 2, batch size 4, 24 required items, and tensor ratio 0.48.
-
-Do not edit the runner, alter a recipe parameter, or replace its multiprocessing POSIX shared-memory prefetch transport. Reduced-memory, filesystem-backed, and single-process fallbacks fail the acceptance contract. Completion requires an ordered `/work/output/embeddings.jsonl` row for all 24 inputs plus `/work/output/manifest.json` containing the fixed recipe, shared-memory high-water evidence, item count, and output checksum. Diagnose any local runtime issue and leave the validated artifacts in place.
-

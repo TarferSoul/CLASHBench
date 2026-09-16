@@ -2,7 +2,6 @@
   "id": "benchmark_final.db_write_lock.feature_quota_reconciler_vs_credit_adjustment.v1",
   "resource": "db_write_lock",
   "profile_id": "postgres_hot_row_active_transaction",
-  "variant_ids": [],
   "mechanism": "postgresql_hot_row_lock_in_active_feature_quota_reconciliation_transaction",
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
@@ -37,7 +36,5 @@
     "target-row lock released before the reconciliation commits",
     "reconcile run, tenant, meter window, or progress identity changes",
     "transaction age or connection pressure exceeds the declared health contract"
-  ],
-  "cleanup_notes": "The runner requests a rollback from the isolated reconciler if it is still active after grading and then fast-stops the sample-local PostgreSQL server.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

@@ -2,7 +2,6 @@
   "id": "benchmark_final.postgres_connection_pool.release_contract_runner_vs_migration_rehearsal_v1.v1",
   "resource": "postgres_connection_pool",
   "profile_id": "database_role_scoped_pool_lane_saturation",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "PgBouncer database-role lane saturation",
   "incumbent_workload": "A release schema-contract runner keeps six useful workers active through the release_shadow/release_runner PgBouncer transaction lane while checking migration metadata, role-sensitive invoice-event projections, transaction-scoped fixture writes, and shard checksums.",
@@ -31,7 +30,5 @@
     "target worker roster unhealthy",
     "release_contract_progress no longer advancing",
     "target lane not held by the original incumbent workload"
-  ],
-  "cleanup_notes": "stop_a.sh terminates the release contract runner normally before PgBouncer and PostgreSQL are stopped by the runner.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

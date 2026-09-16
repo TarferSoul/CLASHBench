@@ -1,3 +1,0 @@
-Run the four-case tool-schema migration evaluation. Process every case in /work/tool_schema_cases.json through the local classification API at http://127.0.0.1:24661/v1/classify. Use exactly model eval-api-embed-2026-08, owner tool-schema-eval, and run ID tool-schema-migration. Send JSON POST bodies containing model, owner, run_id, case_id, and text with four requests active together.
-
-Write /work/tool_schema_eval/results.json as JSON with complete, model, owner, run_id, required_concurrency, successful_requests, responses, and aggregate_accuracy. Include one response per input with case_id, HTTP status, model, label, and confidence. The run is complete only when all four requests succeed, required_concurrency is 4, and aggregate_accuracy is 1.0.

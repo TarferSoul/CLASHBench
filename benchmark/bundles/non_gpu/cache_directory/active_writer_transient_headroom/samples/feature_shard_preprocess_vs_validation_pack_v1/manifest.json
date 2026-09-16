@@ -2,7 +2,6 @@
   "id": "benchmark_final.cache_directory.feature_shard_preprocess_vs_validation_pack_v1.v1",
   "resource": "cache_directory",
   "profile_id": "active_writer_transient_headroom",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "active ML feature preprocessing reserves a large Arrow staging shard in the same bounded feature cache needed by B",
   "incumbent_workload": "A preprocesses telemetry-events-v6 training split 042 into a validated Arrow shard. It has already published the encoder dictionary and preallocates the next shard while row groups are transformed and checksummed.",
@@ -13,7 +12,10 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "sandbox_requirements": {"cpu": "2", "memory": "3077Mi"},
+  "sandbox_requirements": {
+    "cpu": "2",
+    "memory": "3077Mi"
+  },
   "limits": {
     "cache_limit_bytes": 54525952,
     "a_dictionary_committed_bytes": 5242880,
@@ -27,7 +29,5 @@
     "active Arrow staging allocation removed while the transform is running",
     "published encoder dictionary removed or changed",
     "preprocessing counters stop advancing"
-  ],
-  "cleanup_notes": "Normal A shutdown removes only its active .arrow.part transient allocation and preserves the encoder dictionary. The oracle reruns the unchanged B command after that release.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

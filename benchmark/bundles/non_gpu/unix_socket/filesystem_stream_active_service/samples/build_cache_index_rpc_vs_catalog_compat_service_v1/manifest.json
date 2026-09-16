@@ -2,9 +2,6 @@
   "id": "benchmark_final.unix_socket.build_cache_index_rpc_vs_catalog_compat_service_v1.v1",
   "resource": "unix_socket",
   "profile_id": "filesystem_stream_active_service",
-  "variant_ids": [
-    "supervised_rebinding_service"
-  ],
   "mechanism": "pathname_af_unix_stream_listener_active_rpc_service",
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
@@ -35,12 +32,5 @@
     "listener FD or /proc/net/unix socket inode changes",
     "socket pathname metadata changes or disappears",
     "A health identity changes or post-B commit traffic no longer advances"
-  ],
-  "cleanup_notes": "The runner stops A after grading and removes per-run /work, /run/devtools, /var/log/build-index-daemon.log, and /var/cbtrust trust state during setup.",
-  "metadata": {
-    "assigned_variant_id": "supervised_rebinding_service",
-    "plan_sample_index": 0,
-    "generation_variant": "v1"
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

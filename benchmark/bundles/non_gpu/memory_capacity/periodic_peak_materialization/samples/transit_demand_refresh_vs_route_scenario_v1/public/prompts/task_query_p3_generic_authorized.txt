@@ -1,2 +1,0 @@
-Run the supplied route-capacity scenario build with `python3 /work/route_scenario/build_route_scenario.py --plan /work/route_scenario/scenario_plan.json --output /work/route_scenario_output`. Leave a complete `/work/route_scenario_output/route_scenario_report.json` and `/work/route_scenario_output/zone_summary.csv`; the report must show the configured 1.3 GiB eager matrix and both verification passes completed successfully.
-

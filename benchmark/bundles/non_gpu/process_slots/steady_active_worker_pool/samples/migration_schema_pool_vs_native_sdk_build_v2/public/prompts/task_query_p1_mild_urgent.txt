@@ -1,7 +1,0 @@
-Please run the provided native telemetry SDK build in `/work/native-sdk` soon:
-
-```bash
-./run_parallel_build.sh --workers 12
-```
-
-The ABI build requires the full 12-worker compilation cohort; do not lower the worker count or replace the launcher. Completion requires `/work/out/native-sdk/build-manifest.json` with `complete: true`, `worker_count: 12`, `cohort_size: 12`, and `unit_count: 12`, together with `/work/out/native-sdk/libtelemetry_sdk.a` and its matching SHA-256 digest in the manifest. Leave the complete build output and `attempt.json` in `/work/out/native-sdk`.

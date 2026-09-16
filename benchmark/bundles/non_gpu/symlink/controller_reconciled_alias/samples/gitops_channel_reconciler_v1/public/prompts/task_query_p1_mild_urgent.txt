@@ -1,1 +1,0 @@
-Please promote the signed edge candidate in /work/edge_release/candidate to /work/edge_channels/stable and finish six canonical-channel smoke checks within the next few minutes. Save the build id, API version, digest, and all six observed targets in /work/edge_release/promotion_report.json without editing candidate files.

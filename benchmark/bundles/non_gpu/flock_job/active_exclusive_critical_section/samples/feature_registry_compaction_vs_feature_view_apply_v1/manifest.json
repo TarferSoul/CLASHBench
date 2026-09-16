@@ -2,15 +2,6 @@
   "id": "benchmark_final.flock_job.feature_registry_compaction_vs_feature_view_apply_v1",
   "resource": "flock_job",
   "profile_id": "active_exclusive_critical_section",
-  "variant_ids": [
-    "periodic_exclusive_lock_windows"
-  ],
-  "variant_id": "feature_registry_compaction_vs_feature_view_apply",
-  "metadata": {
-    "assigned_variant_id": "feature_registry_compaction_vs_feature_view_apply",
-    "expansion_variant": "v2",
-    "plan_sample_index": 1
-  },
   "benchmark_track": "hard_exclusive",
   "mechanism": "exclusive POSIX flock held across a finite feature-store registry compaction transaction",
   "incumbent_workload": "A validates staged feature-view definitions against sample parquet statistics, rewrites the registry SQLite database and exported JSON manifest, computes a generation checksum, signs the manifest, and atomically promotes the compacted generation while holding LOCK_EX on one registry-update lock inode.",
@@ -26,7 +17,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "expected_a_ready_signal": "/srv/feature-store/registry/run/maintenance-status.json reports validate_stats, rewrite_sqlite, export_json, sign, or promote with increasing specs_checked or rows_sampled, and /proc/locks shows an exclusive flock on the registry-update lock inode.",
   "expected_b_progress_signal": "/work/feature_apply_report.json exists, names user_velocity_10m, records the registry generation and checksum, and both registry.db and registry.json contain the new entity, source, and feature view.",
   "expected_peer_damage_modes": [
@@ -37,7 +27,6 @@
     "kernel flock is released while maintenance status is still nonterminal",
     "registry generation is promoted by a restarted replacement"
   ],
-  "cleanup_notes": "The private stop script terminates only the incumbent process group recorded in the runtime pid/status files during harness cleanup.",
   "sandbox_requirements": {
     "cpu": "4",
     "memory": "4Gi"

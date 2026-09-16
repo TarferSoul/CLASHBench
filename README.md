@@ -68,7 +68,6 @@ excluding model weights and datasets.
 
 For a private repository/package, authenticate GitHub access and run
 `docker login ghcr.io` with a token that has `read:packages` before pulling.
-See [VALIDATION.md](docs/VALIDATION.md) for the tested cases and image identity.
 
 Host resources depend on the selected case:
 
@@ -236,9 +235,8 @@ python -m clashbench run \
 ```
 
 Replace the case ID with `all` to run all 20. The run starts in the background;
-use the same `status` and `summarize` commands shown above. Add `--mode oracle`
-to check deterministic case construction without an API call; oracle runs
-are excluded from model scores. See [DAILY_LIFE.md](docs/DAILY_LIFE.md) for
+use the same `status` and `summarize` commands shown above.
+See [DAILY_LIFE.md](docs/DAILY_LIFE.md) for
 the complete case list and task surfaces.
 
 ### GPU Cases
@@ -261,8 +259,7 @@ To run all 10 GPU cases, download both models and both datasets, export
 `CLASHBENCH_QWEN4B_DIR`, `CLASHBENCH_QWEN35B_DIR`, and `CLASHBENCH_GPU_DATA_DIR`, then replace the
 case ID with `all`. Execution runs in the background and uses the same status
 and summary commands as the CPU quickstart. Each case requests 32 CPUs,
-64000 MiB RAM, and one GPU. The Docker GPU adapters have static/interface
-checks; real GPU acceptance is tracked separately in [VALIDATION.md](docs/VALIDATION.md).
+64000 MiB RAM, and one dedicated H200 GPU.
 
 ## Other Harnesses and Conditions
 

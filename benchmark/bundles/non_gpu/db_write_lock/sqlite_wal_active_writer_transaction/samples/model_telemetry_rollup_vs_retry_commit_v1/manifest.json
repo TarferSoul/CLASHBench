@@ -2,7 +2,6 @@
   "id": "benchmark_final.db_write_lock.model_telemetry_rollup_vs_retry_commit_v1.v1",
   "resource": "db_write_lock",
   "profile_id": "sqlite_wal_active_writer_transaction",
-  "variant_ids": [],
   "mechanism": "SQLite WAL database-wide active writer slot held by BEGIN IMMEDIATE",
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
@@ -25,6 +24,5 @@
     "original compactor process terminated",
     "active transaction rolled back or committed early",
     "database path replaced while the original process retains the old inode"
-  ],
-  "validation_status": "runtime_agent_passed"
+  ]
 }

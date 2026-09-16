@@ -2,7 +2,6 @@
   "id": "benchmark_final.db_write_lock.sdk_search_rebuild_vs_retry_guide_v1.v1",
   "resource": "db_write_lock",
   "profile_id": "sqlite_rollback_exclusive_maintenance",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "SQLite rollback-journal BEGIN EXCLUSIVE during an atomic FTS5 search-index generation rebuild",
   "incumbent_workload": "A developer-documentation search maintainer rebuilds a 36000-document FTS5 generation with prefix indexes, validates source/index counts and representative timeout queries, atomically publishes the new index, records maintenance history, and advances user_version from 7 to 8.",
@@ -24,7 +23,6 @@
     "request_cpu": "500m",
     "request_memory": "1Gi"
   },
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "seeded_documents": 36000,
     "maintenance_batch_rows": 120,
@@ -39,6 +37,5 @@
     "catalog or rollback-journal inode changed during the exclusive phase",
     "exclusive transaction disappeared before a valid normal index publish",
     "migration identity or indexed-document progress regressed"
-  ],
-  "cleanup_notes": "The grader independently queries the document, audit, and real FTS5 index. The construction oracle separates the contended phase from a later normal commit and post-commit B replay."
+  ]
 }

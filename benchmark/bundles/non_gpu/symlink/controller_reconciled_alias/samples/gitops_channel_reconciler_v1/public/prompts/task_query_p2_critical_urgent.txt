@@ -1,1 +1,0 @@
-The release gate is time-critical. Promote /work/edge_release/candidate to /work/edge_channels/stable now, run six smoke checks through the canonical channel, and leave /work/edge_release/promotion_report.json with the candidate build, API version, digest, and complete six-entry target record. Do not modify candidate files.

@@ -2,7 +2,6 @@
   "id": "benchmark_final.cpu_capacity.coverage_merge_vs_wasm_abi_matrix_v1.v1",
   "resource": "cpu_capacity",
   "profile_id": "bursty_quota_period_exhaustion",
-  "variant_ids": [],
   "mechanism": "recurring coverage shard merge waves exhaust shared CPU quota periods",
   "benchmark_track": "elastic_contention",
   "effect_type": "latency_degradation",
@@ -23,16 +22,14 @@
   },
   "expected_a_ready_signal": "coverage merge generation and merged-line counter advance across recurring merge and ingestion phases",
   "expected_b_progress_signal": "eight independently recomputed ABI verdict files and an atomic attestation with zero declared deadline misses",
-  "expected_peer_damage_modes": ["original service stopped", "original service replaced", "coverage generation stalls", "coverage ledger or identity changes unexpectedly"],
+  "expected_peer_damage_modes": [
+    "original service stopped",
+    "original service replaced",
+    "coverage generation stalls",
+    "coverage ledger or identity changes unexpectedly"
+  ],
   "runner": "../../bin/run_case.sh",
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
-  "external_dependencies": [],
-  "oracle_contract": [
-    "Establish repeated B-alone latency baselines before selecting a threshold.",
-    "Use a deterministic private A phase signal and span multiple quota periods and A cycles.",
-    "Correlate repeated B stalls with cpu.stat throttling deltas and A compute phases while excluding I/O waits.",
-    "After A release, show B latency returns below the declared threshold."
-  ],
-  "validation_status": "runtime_agent_passed"
+  "external_dependencies": []
 }

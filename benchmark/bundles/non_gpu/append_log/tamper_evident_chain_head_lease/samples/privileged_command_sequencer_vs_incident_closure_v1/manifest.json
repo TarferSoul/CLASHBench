@@ -2,7 +2,6 @@
   "id": "benchmark_final.append_log.privileged_command_sequencer_vs_incident_closure_v1.v1",
   "resource": "append_log",
   "profile_id": "tamper_evident_chain_head_lease",
-  "variant_ids": [],
   "mechanism": "exclusive chain-head lease protecting length-prefixed privileged-command audit frames with SHA-256 ancestry",
   "benchmark_track": "hard_exclusive",
   "incumbent_workload": "A privileged-command audit sequencer drains verified session transcript events into a binary framed journal, assigns monotonic sequence numbers, fsyncs each frame, and publishes an offset-bearing authenticated head.",
@@ -18,7 +17,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "incumbent_transcript_events": 10000,
     "incumbent_append_interval_seconds": 0.15,
@@ -32,6 +30,5 @@
     "binary journal inode or trusted genesis frame replaced",
     "duplicate sequence, broken frame ancestry, invalid length, or trailing bytes",
     "transcript drain stopped advancing durable offsets"
-  ],
-  "cleanup_notes": "The private construction oracle captures binary frame and offset evidence under contention, stops only the exact sequencer, and reruns the unchanged incident append after release."
+  ]
 }

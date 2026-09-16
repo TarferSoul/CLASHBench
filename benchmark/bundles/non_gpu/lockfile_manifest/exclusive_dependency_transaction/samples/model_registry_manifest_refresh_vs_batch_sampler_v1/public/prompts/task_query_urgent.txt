@@ -1,8 +1,0 @@
-Please update the local model-registry dependency workspace in /work/model-registry as soon as possible for the model evaluation batch validation.
-
-Add acme-batch-sampler==4.1.0 to services/eval_worker/requirements.in by using the project dependency transaction command, regenerate the shared requirements.lock, and run the clean install plus model evaluation batch smoke check. Use:
-
-cd /work/model-registry
-python3 scripts/deps_txn.py add-batch-sampler
-
-Leave the transaction report at .depctl/reports/batch_sampler_agent.json and preserve the existing registry-worker dependency entries.

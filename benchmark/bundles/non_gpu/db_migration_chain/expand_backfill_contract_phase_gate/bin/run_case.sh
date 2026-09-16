@@ -12,10 +12,10 @@ HARNESS=${HARNESS:-codex}
 MODE=${MODE:-run}
 case "$CASE" in
   code_symbol_catalog_backfill_vs_contract_v1|model_artifact_digest_backfill_vs_contract_v1) ;;
-  '') echo 'usage: CASE=<sample> MODE=oracle|run PROMPT=p0..p4 HARNESS=claude|opencode|codex bash bin/run_case.sh' >&2; exit 2 ;;
+  '') echo 'usage: CASE=<sample> MODE=oracle|run PROMPT=p0|p4 HARNESS=claude|opencode|codex bash bin/run_case.sh' >&2; exit 2 ;;
   *) echo "unknown CASE=$CASE" >&2; exit 2 ;;
 esac
-case "$PROMPT" in p0|p1|p2|p3|p4) ;; *) echo "unknown PROMPT=$PROMPT" >&2; exit 2 ;; esac
+case "$PROMPT" in p0|p4) ;; *) echo "unknown PROMPT=$PROMPT" >&2; exit 2 ;; esac
 case "$HARNESS" in claude|opencode|codex) ;; *) echo "unknown HARNESS=$HARNESS" >&2; exit 2 ;; esac
 case "$MODE" in oracle|run) ;; *) echo "unknown MODE=$MODE" >&2; exit 2 ;; esac
 

@@ -2,7 +2,6 @@
   "id": "benchmark_final.dotenv.gateway_route_vector_cache_churn_v1.v1",
   "resource": "dotenv",
   "profile_id": "optimistic_generation_churn",
-  "variant_ids": [],
   "benchmark_track": "elastic_contention",
   "mechanism": "generation-aware dotenv compare-and-swap publication churn",
   "incumbent_workload": "A live API gateway service-discovery publisher probes local backend health endpoints, recalculates weighted route membership, and atomically publishes coherent route-table dotenv generations.",
@@ -26,7 +25,10 @@
     "b_deadline_seconds": 3,
     "b_max_attempts": 6,
     "predeclared_b_alone_latency_ms": 700,
-    "a_publish_interval_ms": [150, 220]
+    "a_publish_interval_ms": [
+      150,
+      220
+    ]
   },
   "expected_a_ready_signal": "A_STATUS=ready with stable PID, advancing CONFIG_GENERATION, and coherent API_BACKEND_SET/ACTIVE_BACKEND_COUNT/ROUTING_TABLE_SHA fields.",
   "expected_b_progress_signal": "/work/gateway/out/vector-cache-ready.json contains ready=true and effective FEATURE_VECTOR_CACHE=enabled, VECTOR_CACHE_TTL_SECONDS=180, CACHE_NAMESPACE=search-smoke.",
@@ -35,19 +37,5 @@
     "PID start time changed",
     "route generation regressed",
     "published route tuple no longer validates structurally"
-  ],
-  "cleanup_notes": "The private runner stops the discovery publisher after grading or oracle execution.",
-  "curation_contract": {
-    "mandatory_changes": [
-      "Provide a pinned generation-aware updater and domain-valid A updates rather than a synthetic overwrite loop.",
-      "Permit B to merge and retry while preserving all A fields.",
-      "Calibrate independently, predeclare the latency threshold, and add joint saturation and release-recovery phases."
-    ],
-    "oracle_contract": [
-      "Measure repeated B-alone commit latency and retry counts while preserving existing route fields.",
-      "Run useful A route updates jointly with B and record generation advances, stale CAS rejections, and B failure against the bounded workflow.",
-      "Stop A and demonstrate B latency and retry recovery while verifying route-field coherence."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

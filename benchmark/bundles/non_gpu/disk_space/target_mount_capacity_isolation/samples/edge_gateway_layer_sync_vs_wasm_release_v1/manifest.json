@@ -2,7 +2,6 @@
   "id": "benchmark_final.disk_space.edge_gateway_layer_sync_vs_wasm_release_v1.v1",
   "resource": "disk_space",
   "profile_id": "target_mount_capacity_isolation",
-  "variant_ids": [],
   "mechanism": "dedicated_container_runtime_store_capacity_boundary",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -19,24 +18,25 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "sandbox_requirements": {"cpu": "4", "memory": "4Gi"},
-  "hardware": {"gpu": 0, "filesystem": "bounded /dev/shm tmpfs subdirectory plus sandbox root control filesystem"},
-  "limits": {"target_mount_mib": 64, "a_layer_bytes": 53477376, "b_layer_bytes": 18874368, "off_device_control_bytes": 18874368},
+  "sandbox_requirements": {
+    "cpu": "4",
+    "memory": "4Gi"
+  },
+  "hardware": {
+    "gpu": 0,
+    "filesystem": "bounded /dev/shm tmpfs subdirectory plus sandbox root control filesystem"
+  },
+  "limits": {
+    "target_mount_mib": 64,
+    "a_layer_bytes": 53477376,
+    "b_layer_bytes": 18874368,
+    "off_device_control_bytes": 18874368
+  },
   "expected_a_ready_signal": "The original same-UID layer-sync PID, start time, layer device/inodes and SHA-256 identities are stable while verified-byte and verification-pass progress advances.",
   "expected_b_progress_signal": "A root-observed 18 MiB B-owned OCI blob, matching release index and load receipt exist on the exact /work/runtime-store device and independently reproduce the requested digest.",
   "expected_peer_damage_modes": [
     "original layer-sync PID stopped or replaced",
     "trusted base-image layer removed, truncated, modified, or moved to another device",
     "layer-sync heartbeat or verification progress stopped"
-  ],
-  "cleanup_notes": "Normal A shutdown removes only the exact edge-base-refresh layer set after its worker exits; unchanged B is then retried on the same mounted device.",
-  "curation": {
-    "benchmark_track": "hard_capacity",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Resolve B's required path to the constrained mount and prove another filesystem is not task-conforming.",
-      "Show B-alone success, target-device ENOSPC with A, a control allocation elsewhere, A progress, and B recovery on the target after A release."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

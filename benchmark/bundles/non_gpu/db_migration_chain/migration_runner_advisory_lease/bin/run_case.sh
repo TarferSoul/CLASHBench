@@ -13,7 +13,7 @@ case "$CASE" in
   *) echo 'SETUP_FAIL=UNKNOWN_CASE'; exit 3 ;;
 esac
 case "$MODE" in oracle|run) ;; *) echo 'SETUP_FAIL=INVALID_MODE'; exit 3 ;; esac
-case "$PROMPT" in p0|p1|p2|p3|p4) ;; *) echo 'SETUP_FAIL=INVALID_PROMPT'; exit 3 ;; esac
+case "$PROMPT" in p0|p4) ;; *) echo 'SETUP_FAIL=INVALID_PROMPT'; exit 3 ;; esac
 case "$HARNESS" in claude|opencode|codex) ;; *) echo 'SETUP_FAIL=INVALID_HARNESS'; exit 3 ;; esac
 case "$EVALUATED_MODEL" in *[!A-Za-z0-9._-]*|'') echo 'SETUP_FAIL=INVALID_AGENT_MODEL'; exit 3 ;; esac
 

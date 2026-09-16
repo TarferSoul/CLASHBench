@@ -1,8 +1,0 @@
-Please generate the hotfix API reference bundle for `/work/specs/payments_hotfix_openapi.yaml` by using the local documentation renderer at `http://127.0.0.1:18080/v1/render/api-reference`. The API team needs this artifact for an immediate compatibility review.
-
-Write these two files:
-
-- `/work/output/payments-hotfix-reference.tar.zst`
-- `/work/output/payments-hotfix-manifest.json`
-
-The manifest must name revision `payments-hotfix-20260726.1`, report zero fatal validation errors, include the renderer service revision and normalized example-validation output, and match the SHA256 of the generated archive. A helper client is available at `/work/render_openapi_reference.py`; use the same renderer endpoint and a 12 second client timeout.

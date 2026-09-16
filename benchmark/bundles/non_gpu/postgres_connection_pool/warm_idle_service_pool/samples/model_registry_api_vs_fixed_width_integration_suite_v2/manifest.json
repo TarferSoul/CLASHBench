@@ -2,7 +2,6 @@
   "id": "benchmark_final.postgres_connection_pool.model_registry_api_vs_fixed_width_integration_suite_v2.v2",
   "resource": "postgres_connection_pool",
   "profile_id": "warm_idle_service_pool",
-  "variant_ids": [],
   "mechanism": "warm_idle_hikaricp_pool_capacity",
   "benchmark_track": "hard_capacity",
   "incumbent_workload": "A is a Java model-registry API for an AI platform. It serves database-backed model metadata and readiness endpoints while retaining a prewarmed HikariCP pool of 22 mostly idle PostgreSQL backends.",
@@ -39,13 +38,5 @@
     "Hikari backend roster changed",
     "pool floor reduced",
     "database-backed health or latest-version endpoint failed"
-  ],
-  "cleanup_notes": "The runner stops A through private/a/stop_a.sh and then stops the local PostgreSQL cluster.",
-  "generation_metadata": {
-    "assigned_variant_id": "warm_idle_model_registry_vs_fixed_width_integration_suite",
-    "planner_sample_index": 1,
-    "expansion_variant": "v2",
-    "approved_profile_benchmark_track": "hard_capacity"
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

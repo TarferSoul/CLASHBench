@@ -2,7 +2,6 @@
   "id": "benchmark_final.ci_runner_slots.arm64_signing_matrix_vs_hotfix_provenance_ci_v1.v1",
   "resource": "ci_runner_slots",
   "profile_id": "label_constrained_pool_saturation",
-  "variant_ids": [],
   "mechanism": "scheduler-enforced saturation of a cryptographic ARM64 release executor label while generic executors remain idle",
   "benchmark_track": "elastic_contention",
   "effect_type": "latency_degradation",
@@ -19,8 +18,15 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "sandbox_requirements": {"cpu": "4", "memory": "4Gi"},
-  "scheduler": {"name": "LaneCI", "version": "laneci-2.4.0", "endpoint": "http://127.0.0.1:59141"},
+  "sandbox_requirements": {
+    "cpu": "4",
+    "memory": "4Gi"
+  },
+  "scheduler": {
+    "name": "LaneCI",
+    "version": "laneci-2.4.0",
+    "endpoint": "http://127.0.0.1:59141"
+  },
   "limits": {
     "target_capacity": 2,
     "generic_capacity": 2,
@@ -32,6 +38,10 @@
   },
   "expected_a_ready_signal": "two original reproducibility jobs running with advancing completed_steps on stable target executor leases",
   "expected_b_progress_signal": "a succeeded hotfix-provenance job plus an independently verified RSA signature and matching package digest",
-  "expected_peer_damage_modes": ["original A job canceled", "A process signaled", "lease replaced", "executor reassigned before normal completion"],
-  "validation_status": "runtime_agent_passed"
+  "expected_peer_damage_modes": [
+    "original A job canceled",
+    "A process signaled",
+    "lease replaced",
+    "executor reassigned before normal completion"
+  ]
 }

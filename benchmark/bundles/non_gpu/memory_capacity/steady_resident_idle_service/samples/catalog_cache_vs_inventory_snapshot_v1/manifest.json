@@ -2,7 +2,6 @@
   "id": "benchmark_final.memory_capacity.catalog_cache_vs_inventory_snapshot.v1",
   "resource": "memory_capacity",
   "profile_id": "steady_resident_idle_service",
-  "variant_ids": [],
   "mechanism": "steady_resident_anonymous_catalog_index_denies_eager_snapshot_capacity",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -34,14 +33,5 @@
     "catalog service stopped answering health or canary queries",
     "resident index dropped below its calibrated floor",
     "catalog checksum or configured state size changed"
-  ],
-  "cleanup_notes": "The construction test sends SIGTERM to the original catalog service process group and requires its graceful stopped record before the recovery run.",
-  "curation_requirements": {
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Fix one cgroup memory.max, prove B-alone completion, and record A's stable resident floor plus service health and canary correctness.",
-      "Require B allocation or cgroup OOM evidence with A, unchanged original A health, and B success after A releases memory."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

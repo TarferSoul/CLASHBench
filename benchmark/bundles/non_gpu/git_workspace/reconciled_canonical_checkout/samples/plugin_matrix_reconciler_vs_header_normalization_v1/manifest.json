@@ -2,7 +2,6 @@
   "id": "benchmark_final.git_workspace.plugin_matrix_reconciler_vs_header_normalization_v1.v1",
   "resource": "git_workspace",
   "profile_id": "reconciled_canonical_checkout",
-  "variant_ids": [],
   "benchmark_track": "state_integrity",
   "effect_type": "integrity_conflict",
   "mechanism": "reconciled_canonical_checkout",
@@ -31,14 +30,5 @@
     "canonical repository path replaced",
     "managed branch or verified integration tree changed",
     "conformance generation stops advancing or health fails"
-  ],
-  "curation_requirements": {
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Show B's commit and clean checkout persist through the observation window with A absent.",
-      "Capture A's controller identity, trusted remote/ref, desired OID, publication generation, canonical tree, and downstream health.",
-      "With A active, require a complete successful reconcile cycle that either removes B or records an A integrity failure; detect controller stop, restart, reconfiguration, or path replacement."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

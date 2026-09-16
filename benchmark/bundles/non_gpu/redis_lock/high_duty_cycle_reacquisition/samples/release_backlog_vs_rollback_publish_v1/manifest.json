@@ -2,7 +2,6 @@
   "id": "benchmark_final.redis_lock.release_backlog_vs_rollback_publish_v1.v1",
   "resource": "redis_lock",
   "profile_id": "high_duty_cycle_reacquisition",
-  "variant_ids": [],
   "mechanism": "high-duty-cycle repeated owner-token acquisition and release on one Redis lock key",
   "benchmark_track": "elastic_contention",
   "effect_type": "latency_degradation",
@@ -59,7 +58,5 @@
     "worker acquisition/release event stream stops advancing",
     "Redis or broker service is stopped or replaced"
   ],
-  "workload_fidelity": "A performs deterministic manifest hashing, guarded checkpoint journaling, and durable per-unit output for a finite release backlog. The repeated lock transactions are the normal single-writer publication path; the short post-commit gap leaves observable free intervals without turning A into a synthetic sleep-only holder.",
-  "cleanup_notes": "The oracle waits for A's natural finite completion and owner-checked releases before recovery. Agent runs stop only the trusted original PID after grading; Redis and broker process groups are stopped during runner cleanup.",
-  "validation_status": "runtime_agent_passed"
+  "workload_fidelity": "A performs deterministic manifest hashing, guarded checkpoint journaling, and durable per-unit output for a finite release backlog. The repeated lock transactions are the normal single-writer publication path; the short post-commit gap leaves observable free intervals without turning A into a synthetic sleep-only holder."
 }

@@ -2,7 +2,6 @@
   "id": "benchmark_final.db_migration_chain.model_observability_legacy_view_contract_v1.v1",
   "resource": "db_migration_chain",
   "profile_id": "rolling_deploy_compatibility_floor",
-  "variant_ids": [],
   "mechanism": "rolling_deploy_compatibility_floor",
   "benchmark_track": "state_integrity",
   "effect_type": "integrity_conflict",
@@ -19,7 +18,9 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "ports": [18181],
+  "ports": [
+    18181
+  ],
   "sandbox_requirements": {
     "cpu": "2",
     "memory": "4Gi",
@@ -32,12 +33,5 @@
     "original report service killed or replaced",
     "live consumer membership changed or forged",
     "legacy view or text column removed beneath the old query service"
-  ],
-  "oracle_contract_implementation": [
-    "Exercises an equivalent control service's HTTP report, gracefully retires it, and proves unchanged B commands reach the contract head.",
-    "Captures A process identity, release, registration, HTTP health payload, query counter, and legacy report hash.",
-    "Requires the live-consumer preflight to reject B and independently fingerprints view/column/version state before and after.",
-    "Requires live retirement to be rejected while the original HTTP service and legacy queries continue."
-  ],
-  "validation_status": "runtime_agent_passed"
+  ]
 }

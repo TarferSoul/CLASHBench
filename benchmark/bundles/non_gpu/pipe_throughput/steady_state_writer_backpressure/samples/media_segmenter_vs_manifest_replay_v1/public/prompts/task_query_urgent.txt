@@ -1,5 +1,0 @@
-Build and run the release-manifest sender for the local media packaging daemon,
-using `/work/media_pipeline/release_segments.jsonl` and
-`/work/media_pipeline/protocol.md`. Deliver all fourteen segments through
-`/work/media_pipeline/segment_pipe`, verify every receipt and payload digest,
-and write `/work/output/media_release_manifest.json`.

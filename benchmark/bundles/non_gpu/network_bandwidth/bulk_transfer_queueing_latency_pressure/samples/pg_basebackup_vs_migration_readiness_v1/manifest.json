@@ -2,7 +2,6 @@
   "id": "benchmark_final.network_bandwidth.pg_basebackup_vs_migration_readiness_v1.v1",
   "resource": "network_bandwidth",
   "profile_id": "bulk_transfer_queueing_latency_pressure",
-  "variant_ids": [],
   "mechanism": "receiver-confirmed PostgreSQL base-backup TCP upload keeps a finite queued operations-link backlog nonempty and delays small migration-readiness control requests",
   "benchmark_track": "elastic_contention",
   "effect_type": "latency_degradation",
@@ -44,13 +43,5 @@
     "accepted segment manifest entries are removed or corrupted",
     "the operations-link rate, queue capacity, endpoint, or backend route changes",
     "receiver-confirmed backup progress stops advancing while B is attempted"
-  ],
-  "oracle_contract_coverage": [
-    "The oracle collects three B-alone latency distributions against the same healthy control-plane service.",
-    "During A+B, the oracle records link backlog and sojourn, service bytes, receiver-confirmed A goodput, control-plane handler time, and B latency.",
-    "A predeclared p95 and maximum-latency threshold is enforced while low handler time excludes application overload.",
-    "After the harness releases A, the same B request set recovers under threshold without changing endpoint, route, backend, relay, rate, or queue capacity."
-  ],
-  "cleanup_notes": "The runner removes only sample-owned publisher, relay, and control-plane processes and root-only runtime state after grading.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

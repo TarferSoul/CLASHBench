@@ -1,1 +1,0 @@
-The finishing delivery is time-sensitive. Process the staged color-calibration sequence with the pinned engine, exact feature set, and two-render-worker width, and validate the complete archive package and checksum manifest under /work/artifacts.

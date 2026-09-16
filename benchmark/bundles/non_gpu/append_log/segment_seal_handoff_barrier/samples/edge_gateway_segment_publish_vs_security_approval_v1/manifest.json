@@ -2,7 +2,6 @@
   "id": "benchmark_final.append_log.edge_gateway_segment_publish_vs_security_approval.v1",
   "resource": "append_log",
   "profile_id": "segment_seal_handoff_barrier",
-  "variant_ids": [],
   "mechanism": "exclusive generation handoff barrier held while an edge security gateway publishes a sealed segment and next active inode",
   "benchmark_track": "hard_exclusive",
   "incumbent_workload": "A edge-security gateway publisher verifies the final event cursor for generation edge-417, signs and fsyncs its footer, and atomically installs the next ingest generation while append admission is closed.",
@@ -13,7 +12,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "sealing_hold_seconds": 8,
     "construction_b_timeout_seconds": 2,
@@ -27,6 +25,5 @@
     "sealed footer or segment inode replaced or modified",
     "B record written to edge-417's obsolete generation or by raw file edit",
     "barrier lock ownership lost before the publication commit"
-  ],
-  "cleanup_notes": "The oracle waits for A's bounded publication job to complete, verifies the signed footer and new active generation, then runs the unchanged B client to prove release recovery."
+  ]
 }

@@ -2,7 +2,6 @@
   "id": "benchmark_final.http_worker_pool.deployment_event_streams_vs_audit_snapshot_v1.v1",
   "resource": "http_worker_pool",
   "profile_id": "persistent_stream_worker_pinning",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "long-lived server-sent event responses pin every process in a fixed synchronous HTTP worker pool",
   "incumbent_workload": "four deployment-event SSE clients follow staging-us, staging-eu, prod-us, and prod-eu streams from a local release control API, validate monotonic event sequences, and durably persist resume tokens and payload digests",
@@ -46,20 +45,5 @@
     "stream client termination",
     "stream connection replacement",
     "missing or regressed per-environment resume-token state"
-  ],
-  "cleanup_notes": "the oracle closes incumbent stream clients normally to free workers for recovery, then stops the local service; runner cleanup terminates only the captured local release-control service and clients",
-  "curation_applied": {
-    "mandatory_changes": [
-      "the HTTP service is a prefork synchronous implementation with exactly four workers, no threads, no async event loop, and no multiplexed stream handling",
-      "the audit snapshot task must use the same canonical 127.0.0.1:18174 release control API; no alternate endpoint or offline snapshot generator is exposed",
-      "root-only state records tie every active stream to a worker PID, worker start time, client tuple, environment, sequence, heartbeat count, and stream request ID"
-    ],
-    "oracle_contract": [
-      "unchanged B completes through the canonical synchronous server when no A streams occupy workers",
-      "every stable A stream is tied to an authoritative worker slot and advancing heartbeat or durable offset state",
-      "with all slots pinned, B has no audit dispatch record and times out for lack of an available worker while the original streams and server stay healthy",
-      "after normal stream closure, unchanged B immediately acquires a worker and succeeds through the same endpoint"
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

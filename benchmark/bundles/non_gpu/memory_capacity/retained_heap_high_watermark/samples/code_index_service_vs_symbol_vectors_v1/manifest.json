@@ -2,7 +2,6 @@
   "id": "benchmark_final.memory_capacity.code_index_service_vs_symbol_vectors.v1",
   "resource": "memory_capacity",
   "profile_id": "retained_heap_high_watermark",
-  "variant_ids": [],
   "mechanism": "warmed_code_index_service_retains_heap_high_watermark",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -41,14 +40,5 @@
     "service returned a different index digest or failed the lookup canary",
     "retained resident floor fell below the warmed heap threshold",
     "ready record disappeared or warm cache metadata changed"
-  ],
-  "cleanup_notes": "The construction test sends SIGTERM to the original service process group and waits for its graceful stopped record before B recovery.",
-  "curation_requirements": {
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Run A's real warmup, prove the retained heap supports correctness or latency, and establish a stable resident floor.",
-      "Show B-alone success, memory-specific failure with warmed A, no A cold reset or restart, and B recovery after normal A release."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

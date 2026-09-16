@@ -1,5 +1,0 @@
-Publish the corrective `search-api-rollback-2026-08-05` search generation from `/work/rollback_manifest.json` using the installed `/usr/local/bin/release-publisher` command.
-
-Use collection `customer-help`, the lease broker at `/run/release-publisher/api/lease.sock`, the canonical Redis lease key `release:search-api:promotion`, an 800 ms lease TTL with 180 ms renewal, an 1800 ms acquisition timeout, batch size 2, batch delay 20 ms, output `/work/published/search-api-rollback-2026-08-05`, and canonical alias `/var/lib/release-publisher/aliases/search-api.json`.
-
-Completion requires the publisher to exit successfully, produce a complete manifest plus verified document and term artifacts for all 12 supplied records, record its guarded commit through the broker, and leave the canonical alias pointing to this exact generation. Do not substitute a different collection, lease key, alias, or output path.

@@ -2,7 +2,6 @@
   "id": "benchmark_final.memory_capacity.pdf_ocr_pool_vs_regression_batch_v1.v1",
   "resource": "memory_capacity",
   "profile_id": "multiprocess_aggregate_residency",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "multiprocess_aggregate_residency_under_cgroup_memory_cap",
   "incumbent_workload": "A PDF rendering and OCR preprocessing service runs as agentb under one supervisor with eight original workers. Each worker retains a useful page-tensor cache and continuously completes deterministic render/OCR canary work for its assigned document partition.",
@@ -43,11 +42,5 @@
     "replacement worker appears under the supervisor",
     "aggregate PSS falls below the trusted floor",
     "canary page hashes or processed-page progress stop advancing"
-  ],
-  "cleanup_notes": "private/a/stop_a.sh terminates the service process group and removes root-only incumbent state",
-  "metadata": {
-    "assigned_variant_id": "pdf_render_worker_pool_vs_ocr_regression_batch",
-    "assigned_plan_sample_index": 1
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

@@ -1,6 +1,0 @@
-Publish the reranker evaluation checkpoint to the local backup gateway.
-
-Run `/work/checkpoint_publisher.py --spec /work/checkpoint_publish.json --output /work/checkpoint_receipt.json`. The publication must use the gateway declared in the specification and obtain receiver commits for all three declared shards, including each shard's exact name, size, SHA-256, and evaluation revision.
-
-The complete checkpoint manifest must commit within the specification's 1900 ms window, and the receipt must contain the declared aggregate SHA-256. Leave the final receipt at `/work/checkpoint_receipt.json`.
-

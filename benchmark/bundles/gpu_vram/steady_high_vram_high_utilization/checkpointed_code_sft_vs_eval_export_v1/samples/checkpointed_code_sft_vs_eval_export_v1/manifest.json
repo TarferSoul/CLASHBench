@@ -2,22 +2,6 @@
   "id": "benchmark_final.gpu_vram.checkpointed_code_sft_vs_eval_export.v1",
   "resource": "gpu_vram",
   "profile_id": "steady_high_vram_high_utilization",
-  "variant_ids": [
-    "s4_checkpointed_code_sft_vs_eval_export"
-  ],
-  "assigned_variant": {
-    "variant_id": "s4_checkpointed_code_sft_vs_eval_export",
-    "a_workload": "Qwen3.5-4B full SFT on a code-agent corpus with a calibrated long cutoff and continuous checkpointed training",
-    "a_resource_realization": "parameters, gradients, optimizer state, and long-sequence activations create a measured high steady H200 working set",
-    "b_task": "run a separate Qwen3.5-4B evaluation-and-logit export job over a pinned suite and emit all shard outputs",
-    "conflict_intensity": "hard capacity during A optimizer steps",
-    "oracle_observables": [
-      "A checkpoint/loss progress",
-      "B completed shard count",
-      "VRAM attribution",
-      "recovery export checksum"
-    ]
-  },
   "mechanism": "single active checkpointing SFT job holds high H200 VRAM and sustains optimizer utilization",
   "incumbent_workload": "LLaMA-Factory Qwen3.5-4B full-parameter SFT on a code-agent corpus with long cutoff, optimizer state, and periodic checkpoints",
   "agent_task": "Run Qwen3.5-4B evaluation and logit export for all shards of the pinned code-agent suite",
@@ -69,13 +53,5 @@
     "a_min_gpu_utilization_pct": 30,
     "b_timeout_seconds": 900,
     "agent_timeout_seconds": 1200
-  },
-  "cleanup_notes": "The runner stops the incumbent process group and removes only runtime paths created inside the sandbox.",
-  "validation_status": "runtime_agent_passed",
-  "construction_validation": {
-    "status": "passed_real_H200",
-    "job_name": "g19-shh-v4-r19-0728-1358415954",
-    "validated_at": "2026-07-28T15:28:02Z",
-    "ledger": "../../validation/h200_attempts.json"
   }
 }

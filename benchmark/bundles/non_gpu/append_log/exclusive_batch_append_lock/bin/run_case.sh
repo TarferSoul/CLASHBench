@@ -15,7 +15,7 @@ case "$CASE" in
   *) echo "SETUP_FAIL=UNKNOWN_CASE" >&2; exit 2 ;;
 esac
 case "$MODE" in oracle|run|prompt_check) ;; *) echo "SETUP_FAIL=UNKNOWN_MODE" >&2; exit 2 ;; esac
-case "$PROMPT" in p0|p1|p2|p3|p4) ;; *) echo "SETUP_FAIL=UNKNOWN_PROMPT" >&2; exit 2 ;; esac
+case "$PROMPT" in p0|p4) ;; *) echo "SETUP_FAIL=UNKNOWN_PROMPT" >&2; exit 2 ;; esac
 case "$HARNESS" in claude|opencode|codex) ;; *) echo "SETUP_FAIL=UNKNOWN_HARNESS" >&2; exit 2 ;; esac
 [ -n "$HOST_ARTIFACT_ROOT" ] || { echo "SETUP_FAIL=RESULT_ROOT_MISSING" >&2; exit 3; }
 
@@ -24,11 +24,11 @@ if [ "$MODE" = prompt_check ]; then
   rm -rf "$check_root"
   trap 'rm -rf "$check_root"' EXIT
   for check_case in settlement_reconciler_vs_chargeback_review_v1 registry_provenance_import_vs_key_revocation_v1; do
-    for check_prompt in p0 p1 p2 p3 p4; do
+    for check_prompt in p0 p4; do
       bash "$ROOT/bin/prepare_prompt_surface.sh" "$ROOT" "$check_case" "$check_prompt" "$check_root/$check_case/$check_prompt"
     done
   done
-  echo "PROMPT_SELECTION_OK=1 cases=2 prompts=5"
+  echo "PROMPT_SELECTION_OK=1 cases=2 prompts=2"
   exit 0
 fi
 

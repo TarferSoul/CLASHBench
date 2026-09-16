@@ -2,7 +2,6 @@
   "id": "benchmark_final.cpu_capacity.release_attestation_vs_provenance_index_v1.v1",
   "resource": "cpu_capacity",
   "profile_id": "weighted_priority_starvation",
-  "variant_ids": [],
   "mechanism": "A release-attestation worker at CFS nice 0 receives most of one saturated CPU lane while the best-effort provenance indexer and agent run at nice 19, the canonical Sandbox equivalent of unequal cpu.weight scheduling",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -45,17 +44,5 @@
     "the attestation nice value, kernel CFS load weight, affinity, or scheduling policy changes",
     "the installed attestation executable or release input changes",
     "the original process stops accumulating CPU time or advancing verified batches"
-  ],
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Record the equivalent CFS scheduler weights, shared one-CPU affinity, and repeated B-alone performance; cgroup-v2 delegation is read-only in the canonical Sandbox.",
-      "During joint execution, measure per-cgroup CPU-use ratios and B runnable time without quota throttling.",
-      "Declare the expected share and B degradation threshold before evaluation.",
-      "Verify A's identity, weight, affinity, health, and progress remain unchanged, then release A and confirm B recovery."
-    ]
-  },
-  "cleanup_notes": "The root runner stops only the captured A process and post-grade B descendants. All runtime evidence remains on shared storage.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

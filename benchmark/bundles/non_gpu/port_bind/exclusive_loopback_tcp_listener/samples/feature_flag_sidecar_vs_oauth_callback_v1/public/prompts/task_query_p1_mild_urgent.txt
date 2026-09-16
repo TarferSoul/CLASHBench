@@ -1,5 +1,0 @@
-Please implement the local OAuth callback receiver soon so the build-console integration fixture can proceed. Create `/work/oauth_callback.py` and `/work/oauth_callback_config.json`, then keep the receiver running on exactly `http://127.0.0.1:40122` after your command finishes.
-
-`GET /ready` must return JSON with `service` equal to `oauth-callback-receiver`, `status` equal to `ready`, and `provider` equal to `acme-idp`. `POST /callback` must accept JSON containing `code` equal to `fixture-code-7` and `state` equal to `state-v3`, returning JSON with `accepted` true and `client_id` equal to `build-console`. Write the running server PID to `/work/oauth_callback.pid` and its log to `/work/oauth_callback.log`.
-
-The integration fixture is pinned to that exact loopback address and port, so an alternate port, proxy response, or one-shot output does not complete the task. Use only dependencies already present in the container and verify both endpoints before finishing.

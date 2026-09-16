@@ -2,7 +2,6 @@
   "id": "benchmark_final.disk_space.ci_test_shards_vs_sarif_pack_v1.v1",
   "resource": "disk_space",
   "profile_id": "inode_exhaustion_many_small_files",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "active CI test-shard publication exhausts a fixed artifact filesystem's inode pool while byte blocks remain available",
   "incumbent_workload": "A publishes and continuously verifies 250 test result shards, 110 coverage fragments, and 20 executor logs for an active compatibility suite.",
@@ -38,7 +37,5 @@
     "test result, coverage, executor log, ready, or progress files removed",
     "trusted first or last report inode or checksum changed",
     "suite verification cycles stopped advancing"
-  ],
-  "cleanup_notes": "The construction oracle stops A normally, removes only A's exact suite tree to release its inodes, and reruns the byte-identical B command successfully.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

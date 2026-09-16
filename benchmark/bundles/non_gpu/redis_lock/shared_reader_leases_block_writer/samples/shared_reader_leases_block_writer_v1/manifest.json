@@ -2,7 +2,6 @@
   "id": "benchmark_final.redis_lock.shared_reader_leases_block_writer.v1",
   "resource": "redis_lock",
   "profile_id": "shared_reader_leases_block_writer",
-  "variant_ids": [],
   "mechanism": "renewable_shared_reader_leases_block_exclusive_writer",
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
@@ -18,7 +17,9 @@
   "runner": "../../bin/run_case.sh",
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
-  "external_dependencies": ["redis-server from cbreal:latest"],
+  "external_dependencies": [
+    "redis-server from cbreal:latest"
+  ],
   "sandbox_requirements": {
     "cpu": "2",
     "memory": "2Gi",
@@ -27,7 +28,9 @@
   },
   "expected_a_ready_signal": "status_a.sh reports ready=yes with two live owner keys and advancing scoring progress",
   "expected_b_progress_signal": "writer client records a fenced schema-v2 publication and owner-checked release",
-  "expected_peer_damage_modes": ["reader owner deletion", "reader process replacement", "generation switch while readers are active"],
-  "cleanup_notes": "The runner and oracle release owners normally, exercise TTL cleanup for a crashed reader, and stop the local Redis instance on exit.",
-  "validation_status": "runtime_agent_passed"
+  "expected_peer_damage_modes": [
+    "reader owner deletion",
+    "reader process replacement",
+    "generation switch while readers are active"
+  ]
 }

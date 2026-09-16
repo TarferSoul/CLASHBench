@@ -2,7 +2,6 @@
   "id": "benchmark_final.db_write_lock.feature_snapshot_closeout_vs_late_partition_registration_v1.v1",
   "resource": "db_write_lock",
   "profile_id": "postgres_table_wide_batch_lock",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "PostgreSQL SHARE ROW EXCLUSIVE relation lock blocks the requested ROW EXCLUSIVE insert",
   "incumbent_workload": "A feature-store publication worker validates every partition digest and seals snapshot fs-prod-20260804-06 under one table-wide closeout transaction.",
@@ -31,6 +30,5 @@
     "relation lock is released",
     "snapshot identity changes",
     "validation progress stops or enters failed state"
-  ],
-  "validation_status": "runtime_agent_passed"
+  ]
 }

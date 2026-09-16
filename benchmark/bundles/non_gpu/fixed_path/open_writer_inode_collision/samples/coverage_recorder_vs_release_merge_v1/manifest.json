@@ -2,7 +2,6 @@
   "id": "benchmark_final.fixed_path.coverage_recorder_vs_release_merge.v1",
   "resource": "fixed_path",
   "profile_id": "open_writer_inode_collision",
-  "variant_ids": [],
   "benchmark_track": "state_integrity",
   "mechanism": "long-lived LCOV recorder descriptor versus merged release coverage publication",
   "incumbent_workload": "A is a CI regression recorder that keeps /var/lib/ci-coverage/live/coverage.info open and appends valid LCOV records from repeated smoke-test cycles, retaining a monotonic cycle counter and descriptor identity.",
@@ -18,10 +17,15 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "hardware": {"cpu": "3", "memory": "5213Mi"},
+  "hardware": {
+    "cpu": "3",
+    "memory": "5213Mi"
+  },
   "expected_a_ready_signal": "A status reports at least two parsed LCOV records, increasing cycle progress, and descriptor device/inode equal to the canonical path.",
   "expected_b_progress_signal": "The exact path is a stable parser-valid LCOV report with exactly the two merged input sources, aggregated counters, and release-coverage-v1 marker.",
-  "expected_peer_damage_modes": ["canonical inode replacement while A remains alive", "live records stranded on an old descriptor", "duplicate or mixed LCOV records after direct publication"],
-  "cleanup_notes": "The runner stops A after grading and the oracle removes all direct and atomic probe outputs.",
-  "validation_status": "runtime_agent_passed"
+  "expected_peer_damage_modes": [
+    "canonical inode replacement while A remains alive",
+    "live records stranded on an old descriptor",
+    "duplicate or mixed LCOV records after direct publication"
+  ]
 }

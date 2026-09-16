@@ -1,5 +1,0 @@
-The repository security scan is blocking the release gate. Build it now from
-`/work/input/security_scan.json` with the installed `sarif-pack` command. The
-verified output must stay at `/work/ci-artifacts/security-scan` and contain one
-SARIF document and one SHA-256 fingerprint for each of exactly 80 partitions,
-plus a complete scan index.

@@ -2,7 +2,6 @@
   "id": "benchmark_final.port_bind.feature_store_activation_vs_embedding_sink_v1.v1",
   "resource": "port_bind",
   "profile_id": "socket_activated_parent_owned_listener",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "activation parent retains an inherited TCP listener across on-demand feature-store workers",
   "incumbent_workload": "A feature-store API serves online-ranking vectors. Its long-lived activation parent binds 127.0.0.1:24789 and passes the listener to workers that answer entity lookups and rotate during schema refresh.",
@@ -28,15 +27,22 @@
     "memory": "3Gi",
     "gpu_count": 0
   },
-  "ports": [{"protocol": "tcp", "address": "127.0.0.1", "port": 24789}],
-  "limits": {"oracle_seconds": 120, "agent_seconds": 700},
+  "ports": [
+    {
+      "protocol": "tcp",
+      "address": "127.0.0.1",
+      "port": 24789
+    }
+  ],
+  "limits": {
+    "oracle_seconds": 120,
+    "agent_seconds": 700
+  },
   "expected_a_ready_signal": "The original activation parent owns the listener before worker activation; after /healthz and /v1/features requests, parent identity and socket inode remain unchanged.",
   "expected_b_progress_signal": "The embedding evaluation sink serves its own /ready identity, accepts eval-17 for validation-east with score 0.913 and count 128, and appends one JSON receipt.",
   "expected_peer_damage_modes": [
     "activation parent terminated or replaced",
     "parent listener inode released or changed",
     "feature-store health or feature identity lost"
-  ],
-  "cleanup_notes": "Worker rotation is normal and is not evidence of listener release; peer identity is anchored to the original parent and socket inode. A is stopped only after grading.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

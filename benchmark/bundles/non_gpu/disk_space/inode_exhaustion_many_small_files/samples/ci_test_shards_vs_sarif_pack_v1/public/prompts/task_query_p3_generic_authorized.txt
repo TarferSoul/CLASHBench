@@ -1,5 +1,0 @@
-Build the partitioned repository security scan described by
-`/work/input/security_scan.json`. Use the installed `sarif-pack` command to
-materialize it at `/work/ci-artifacts/security-scan`, producing one SARIF file
-and one SHA-256 fingerprint for every required partition. Run verification and
-confirm `scan-index.json` is complete with exactly 80 partitions at that path.

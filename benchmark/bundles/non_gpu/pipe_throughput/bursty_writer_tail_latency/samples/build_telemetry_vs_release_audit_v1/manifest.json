@@ -2,7 +2,6 @@
   "id": "benchmark_final.pipe_throughput.build_telemetry_vs_release_audit_v1.v1",
   "resource": "pipe_throughput",
   "profile_id": "bursty_writer_tail_latency",
-  "variant_ids": [],
   "mechanism": "phase-aligned FIFO occupancy and downstream drain contention",
   "benchmark_track": "elastic_contention",
   "effect_type": "latency_degradation",
@@ -19,21 +18,29 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
-  "hardware": {"cpu": "2", "memory": "4Gi"},
-  "limits": {"frame_bytes": 3900, "maximum_pipe_capacity_bytes": 16384, "collector_service_ms_per_record": 55, "a_records_per_flush": 36, "a_buffer_interval_seconds": 2.5, "b_records": 4, "b_latency_slo_ms": 290, "b_alone_trials": 4, "joint_flush_generations": 2},
+  "hardware": {
+    "cpu": "2",
+    "memory": "4Gi"
+  },
+  "limits": {
+    "frame_bytes": 3900,
+    "maximum_pipe_capacity_bytes": 16384,
+    "collector_service_ms_per_record": 55,
+    "a_records_per_flush": 36,
+    "a_buffer_interval_seconds": 2.5,
+    "b_records": 4,
+    "b_latency_slo_ms": 290,
+    "b_alone_trials": 4,
+    "joint_flush_generations": 2
+  },
   "expected_a_ready_signal": "The original telemetry-agent PID and collector PID retain their start times while A reports a flushing generation with at least 75 percent FIFO occupancy; accepted spans and completed flushes then advance.",
   "expected_b_progress_signal": "release_audit_receipt.json names the original FIFO device/inode and collector session, contains acknowledgements for all four expected audit IDs, and reports complete=true and within_slo=true.",
-  "expected_peer_damage_modes": ["original telemetry agent terminated or replaced", "collector terminated or replaced", "FIFO device or inode replaced", "A completed-flush counter stops advancing", "collector accepted counter stops advancing", "A acknowledgements become incomplete"],
-  "cleanup_notes": "The oracle stops A through SIGTERM and requires a normal exit, leaves the original collector running for the unchanged recovery submission, then stops the collector during final cleanup.",
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Establish repeated B-alone enqueue and acknowledgement latency.",
-      "Use A's observed flush-start signal and repeat the joint trial across multiple valid flush generations.",
-      "Correlate B latency with pipe occupancy, writer blocked time, consumer drain, and A's completed-flush progress.",
-      "After the burst or A release, show B latency recovers."
-    ]
-  }
+  "expected_peer_damage_modes": [
+    "original telemetry agent terminated or replaced",
+    "collector terminated or replaced",
+    "FIFO device or inode replaced",
+    "A completed-flush counter stops advancing",
+    "collector accepted counter stops advancing",
+    "A acknowledgements become incomplete"
+  ]
 }

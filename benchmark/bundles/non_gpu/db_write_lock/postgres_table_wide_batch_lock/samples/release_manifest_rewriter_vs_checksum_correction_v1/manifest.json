@@ -2,7 +2,6 @@
   "id": "benchmark_final.db_write_lock.release_manifest_rewriter_vs_checksum_correction_v1.v1",
   "resource": "db_write_lock",
   "profile_id": "postgres_table_wide_batch_lock",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "PostgreSQL SHARE ROW EXCLUSIVE relation lock blocks the requested ROW EXCLUSIVE update",
   "incumbent_workload": "A release-engineering closeout verifies artifact sizes and checksums and stages verification states for rel-2026.08.04-rc3 in one atomic manifest rewrite.",
@@ -31,6 +30,5 @@
     "relation lock is released",
     "release closeout identity changes",
     "verified-artifact or verified-byte progress regresses"
-  ],
-  "validation_status": "runtime_agent_passed"
+  ]
 }

@@ -1,8 +1,0 @@
-Update the local nginx prefix in `/work/artifact_gateway` for the artifact-registry integration environment.
-
-The release hold backend is already listening on `127.0.0.1:19438`. Install the provided release hold include as `/work/artifact_gateway/sites/50-release-hold-default.conf` so unknown Host headers on `127.0.0.1:18437` are handled by that service as the `default_server`. The candidate include is available at `/work/release_hold_gateway/release_hold_default.conf`.
-
-Acceptance checks:
-- `nginx -t -p /work/artifact_gateway -c conf/nginx.conf` passes.
-- `curl -s -H 'Host: artifact-edge.internal' http://127.0.0.1:18437/` returns JSON with `"service": "release-hold"` and `"marker": "RELEASE_HOLD_DEFAULT_V1"`.
-- The existing `/healthz` endpoint for the local gateway remains available.

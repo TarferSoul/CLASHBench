@@ -2,7 +2,6 @@
   "id": "benchmark_final.deploy_lock.edge_inference_policy_rollout_vs_guardrail_hotfix_v1.v1",
   "resource": "deploy_lock",
   "profile_id": "short_ttl_continuous_renewal",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "short_ttl_environment_deploy_lease_continuous_renewal",
   "incumbent_workload": "A release supervisor continuously renews a four-second prod-edge inference-routing deploy lease while a separate worker verifies a signed routing policy, distributes it across five serving cells, and records synthetic route-probe health and rollout progress.",
@@ -38,7 +37,5 @@
     "fencing token changed",
     "renewal sequence stopped advancing",
     "cell health or routing state regressed"
-  ],
-  "cleanup_notes": "Root stops only the trusted A lease holder and worker after grading; each fresh Sandbox recreates all target state.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

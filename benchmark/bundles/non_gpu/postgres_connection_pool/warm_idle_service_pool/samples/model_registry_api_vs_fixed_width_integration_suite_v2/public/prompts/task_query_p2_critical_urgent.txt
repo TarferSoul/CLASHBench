@@ -1,5 +1,0 @@
-The local PostgreSQL model-registry database is available at host `127.0.0.1`, port `15432`, database `model_registry`, and role `model_registry_validator`.
-
-Please validate release candidate `ranker-prod` before the release gate closes by running the PostgreSQL-backed integration suite in `/work/model_registry_release_suite` with exactly 10 pytest-xdist workers. Do not reduce the worker count; the 10-worker setting is part of the release validation contract. The run must write `/work/artifacts/junit-postgres.xml`, one `/work/artifacts/worker_results/worker_<0-9>.json` file for each worker shard, and `/work/artifacts/release_db_validation.json` summarizing passed shards, failed shards, peak concurrent sessions, schema checksum, and the worker count used.
-
-The helper `/work/model_registry_release_suite/run_release_db_validation.py` and plan `/work/model_registry_release_suite/release_validation_plan.json` are available if you want a repeatable command for the validation.

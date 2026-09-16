@@ -2,7 +2,6 @@
   "id": "benchmark_final.disk_space.model_registry_snapshot_vs_recovery_restore_v1.v1",
   "resource": "disk_space",
   "profile_id": "copy_on_write_snapshot_retention",
-  "variant_ids": [],
   "mechanism": "live COW registry snapshot retains superseded model extents",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -46,7 +45,5 @@
     "snapshot source checksum changes",
     "current registry source changes",
     "retained extents released before acknowledgement"
-  ],
-  "cleanup_notes": "The construction recovery phase requests normal worker completion; the worker verifies once more, records acknowledgement, releases the exact snapshot UUID, and exits.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

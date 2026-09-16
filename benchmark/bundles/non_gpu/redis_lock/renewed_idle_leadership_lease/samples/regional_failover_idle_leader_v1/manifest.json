@@ -2,7 +2,6 @@
   "id": "benchmark_final.redis_lock.regional_failover_idle_leader_v1.v1",
   "resource": "redis_lock",
   "profile_id": "renewed_idle_leadership_lease",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "renewed_redis_failover_controller_leadership_lease",
   "incumbent_workload": "A regional failover-controller service is the elected us-east-1 route-control leader, renews its Redis lease, samples primary health, checks standby freshness, and records no-op reconciliation observations while the primary route is healthy.",
@@ -21,11 +20,6 @@
     "redis-server and redis-cli from cbreal:latest",
     "Python 3 standard library"
   ],
-  "validation_status": "runtime_agent_passed",
-  "metadata": {
-    "assigned_variant_id": "regional_failover_controller_primary_watch_vs_route_reconcile_v1",
-    "planner_sample_index": 1
-  },
   "expected_a_ready_signal": "The controller has a stable PID/start tick, instance id, HTTP health response, leader_epoch, Redis owner token hash, advancing observation and heartbeat counters, fresh primary health samples, and PTTL samples with renewal rises.",
   "expected_b_progress_signal": "The routectl command writes /work/route_reconcile/report.json with reconciled=true, a matching requested_digest, incremented route_epoch, current leader_epoch, active_region, standby_lag_ms, and smoke_check_passed=true, and Redis contains the matching route state plus reconciliation log record.",
   "expected_peer_damage_modes": [
@@ -35,6 +29,5 @@
     "leader_epoch changes before A releases leadership",
     "A's health endpoint fails or observation counters stop advancing",
     "B mutates route_epoch or reconcile_log without acquiring leadership through routectl"
-  ],
-  "cleanup_notes": "The runner stops the controller with SIGTERM so it owner-releases the leader key, then shuts down the local Redis server."
+  ]
 }

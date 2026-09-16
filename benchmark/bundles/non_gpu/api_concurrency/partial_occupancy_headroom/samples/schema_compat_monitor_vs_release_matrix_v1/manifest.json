@@ -2,7 +2,6 @@
   "id": "benchmark_final.api_concurrency.schema_compat_monitor_vs_release_matrix_v1.v1",
   "resource": "api_concurrency",
   "profile_id": "partial_occupancy_headroom",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "tenant concurrency partial occupancy leaves less headroom than B's synchronized cohort",
   "incumbent_workload": "A useful three-worker SDK structured-output compatibility monitor continuously validates archived contract fixtures against struct-json-v3.2.",
@@ -20,13 +19,18 @@
     "b_required_concurrency": 6,
     "remaining_headroom": 5
   },
-  "ports": [18731],
+  "ports": [
+    18731
+  ],
   "runner": "../../bin/run_case.sh",
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
   "expected_a_ready_signal": "three authoritative sdk-compat-monitor admissions plus an increasing completed-items counter",
   "expected_b_progress_signal": "one B-owned cohort with six authoritative overlapping admissions and six matched successful schema traces",
-  "expected_peer_damage_modes": ["original compatibility monitor stopped", "monitor replaced or restarted", "monitor no longer advancing"],
-  "validation_status": "runtime_agent_passed"
+  "expected_peer_damage_modes": [
+    "original compatibility monitor stopped",
+    "monitor replaced or restarted",
+    "monitor no longer advancing"
+  ]
 }

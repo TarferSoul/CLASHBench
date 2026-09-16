@@ -2,7 +2,6 @@
   "id": "benchmark_final.api_concurrency.vector_dedup_watch_vs_embedding_index_v1.v1",
   "resource": "api_concurrency",
   "profile_id": "partial_occupancy_headroom",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "tenant concurrency partial occupancy leaves less headroom than B's synchronized cohort",
   "incumbent_workload": "A useful two-worker documentation near-duplicate watch continuously embeds changed reference pages with embed-docs-v2.",
@@ -20,13 +19,18 @@
     "b_required_concurrency": 6,
     "remaining_headroom": 5
   },
-  "ports": [18772],
+  "ports": [
+    18772
+  ],
   "runner": "../../bin/run_case.sh",
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
   "expected_a_ready_signal": "two authoritative doc-dedup-watch admissions plus an increasing embedded-pages counter",
   "expected_b_progress_signal": "one B-owned cohort with six authoritative overlapping admissions, matched request IDs, and a six-vector index manifest",
-  "expected_peer_damage_modes": ["original documentation dedup watch stopped", "watch replaced or restarted", "watch no longer advancing"],
-  "validation_status": "runtime_agent_passed"
+  "expected_peer_damage_modes": [
+    "original documentation dedup watch stopped",
+    "watch replaced or restarted",
+    "watch no longer advancing"
+  ]
 }

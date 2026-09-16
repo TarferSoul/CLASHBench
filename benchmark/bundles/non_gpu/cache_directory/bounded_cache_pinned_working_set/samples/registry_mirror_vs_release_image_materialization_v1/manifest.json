@@ -2,7 +2,6 @@
   "id": "benchmark_final.cache_directory.registry_mirror_vs_release_image_materialization_v1.v1",
   "resource": "cache_directory",
   "profile_id": "bounded_cache_pinned_working_set",
-  "variant_ids": [],
   "mechanism": "leased OCI release layers fill a separate content store's native maximum-content budget",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -30,7 +29,5 @@
     "platform release lease removed or changed",
     "any pinned platform layer removed, resized, or changed",
     "original manifest or offline-pull health lost"
-  ],
-  "cleanup_notes": "Stop the exact mirror PID, release only platform-runtime-2026.08.03, and evict only layers no longer referenced by another lease.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

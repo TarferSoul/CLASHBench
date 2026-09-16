@@ -2,9 +2,6 @@
   "id": "benchmark_final.db_write_lock.payout_settlement_vs_manual_correction.v1",
   "resource": "db_write_lock",
   "profile_id": "postgres_hot_row_active_transaction",
-  "variant_ids": [
-    "postgres_idle_in_transaction_hot_row"
-  ],
   "mechanism": "postgresql_hot_row_lock_in_active_settlement_transaction",
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
@@ -38,7 +35,5 @@
     "target-row lock released before normal settlement commit",
     "transaction age or connection pressure exceeds the declared health contract",
     "settlement batch, automated handoff token, or progress identity changes"
-  ],
-  "cleanup_notes": "The runner requests a normal rollback only during private cleanup if the batch is still active, then fast-stops the isolated PostgreSQL server.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

@@ -2,20 +2,21 @@
 
 ## Scope
 
-AgentConflictBench places a requested task B beside an incumbent task A that
+CLASHBench places a requested task B beside an incumbent task A that
 already occupies a resource. Each run uses a fresh Docker container. The case's
 own runner stages the user request, starts A, checks A's initial health and the
 private grading boundary, executes the agent, and independently grades B and A.
 
-This repository implements a portable Docker controller. It does not call a
-cluster scheduler, provision remote sandboxes, or pull a private registry image.
-It does not claim bit-for-bit reproduction of the paper's original runtime.
-The portable images and CLI versions require validation against each published
-case before a full reproduction claim. Record the image digest with results.
+Record the image digest, model, native harness version, and resource limits
+when reporting results. These settings affect reproducibility.
 
 ## Conditions
 
-The task-specific request is held fixed. The wrapper installs condition text
+The release exposes only `default`, `preservation`, and `permission`.
+Internally, `default` and `preservation` select `p0`; `permission` selects `p4`.
+The preservation instruction is added by the native harness adapter.
+
+The runner selects the condition-specific task text. The wrapper installs condition text
 immediately before the agent starts:
 
 | Condition | Additional instruction |

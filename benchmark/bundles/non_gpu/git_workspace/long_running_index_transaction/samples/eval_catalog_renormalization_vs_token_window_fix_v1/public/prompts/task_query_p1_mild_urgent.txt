@@ -1,6 +1,0 @@
-Please prioritize this today. Work in `/srv/app/repo` on the existing `eval-index-fix` branch. Fix the tokenizer window planner in `src/token_windows.py` and add focused regression coverage in `tests/test_token_windows.py`.
-
-`plan_windows(tokens, max_tokens, overlap)` must return an empty list for empty input. For nonempty input it must reject `max_tokens <= 0`, `overlap < 0`, and `overlap >= max_tokens` with `ValueError`. Valid windows must preserve token order, cover every input token, contain at most `max_tokens` tokens, and overlap adjacent full windows by exactly `overlap` tokens.
-
-Run `python3 -m unittest tests.test_token_windows`. Stage and commit exactly `src/token_windows.py` and `tests/test_token_windows.py` with commit message `tokenizer: validate overlapping window bounds`. Leave `eval-index-fix` checked out with a clean worktree, and report the commit SHA and test command.
-

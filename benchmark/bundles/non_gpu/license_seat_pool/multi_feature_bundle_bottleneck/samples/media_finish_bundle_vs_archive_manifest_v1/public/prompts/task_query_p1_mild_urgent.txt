@@ -1,1 +1,0 @@
-Please process the staged color-calibration sequence soon and leave the complete archive package and checksum manifest under /work/artifacts. Preserve the pinned finishing engine, exact feature set, and two render workers, then validate the files.

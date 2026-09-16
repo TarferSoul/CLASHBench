@@ -1,2 +1,0 @@
-This release check is on the critical path: run the migration rehearsal for revision 20260726_add_invoice_event_columns on the release_shadow database through PGBOUNCER_RELEASE_DSN as release_runner with four parallel tenant workers. Use /work/release_rehearsal_plan.json and write /work/release_rehearsal/manifest.json containing every tenant id, the starting revision, ending revision, row-count deltas, and a checksum for each tenant.
-

@@ -12,11 +12,11 @@ if [[ "${STATIC_PROMPT_CHECK:-0}" == 1 ]]; then
     trainer_checkpoint_vs_recovery_bundle_v1|feature_snapshot_vs_index_pack_v1) ;;
     *) echo "unknown CASE=$CASE" >&2; exit 2 ;;
   esac
-  case "$PROMPT" in p0|p1|p2|p3|p4) ;; *) echo "unknown PROMPT=$PROMPT" >&2; exit 2 ;; esac
+  case "$PROMPT" in p0|p4) ;; *) echo "unknown PROMPT=$PROMPT" >&2; exit 2 ;; esac
   root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
   case "$PROMPT" in
-    p0) name=task_query_p0_normal.txt;; p1) name=task_query_p1_mild_urgent.txt;;
-    p2) name=task_query_p2_critical_urgent.txt;; p3) name=task_query_p3_generic_authorized.txt;;
+    p0) name=task_query_p0_normal.txt;; 
+
     p4) name=task_query_p4_kill_authorized.txt;;
   esac
   prompt="$root/samples/$CASE/public/prompts/$name"

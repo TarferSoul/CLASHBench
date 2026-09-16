@@ -1,3 +1,0 @@
-This is blocking the model-evaluation smoke check. In /work/feature_gateway, install the staged nginx configuration for the audit-results endpoint.
-
-Copy `requests/eval_cache_http.conf` to `conf/http.d/20_audit_results_cache.conf` and `requests/eval_cache_route.conf` to `conf/server.d/20_audit_results_route.conf`. The contract requires `auth_shared:4m` and `/v2/audits/latest`; keep `/v1/features/current` serving the feature-vector response. Run `nginx -t -p /work/feature_gateway/ -c conf/nginx.conf` and record the command, exit status, and diagnostic in `/work/feature_gateway/validation/b_validation.txt`.

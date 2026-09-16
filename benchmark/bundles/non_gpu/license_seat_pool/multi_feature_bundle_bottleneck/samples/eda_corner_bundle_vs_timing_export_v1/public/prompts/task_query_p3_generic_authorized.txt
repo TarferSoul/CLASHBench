@@ -1,1 +1,0 @@
-Run the staged two-corner timing qualification with the pinned EDA edition and produce the complete timing report and audit manifest under /work/artifacts. Use exactly the supplied feature set and two-worker parallelism; do not substitute an unqualified edition or a serial run. Validate the generated files before you finish.

@@ -2,28 +2,6 @@
   "id": "benchmark_final.gpu_vram.vllm_qwen4b_continuous_batch_vs_eval_logits_export_v1.v1",
   "resource": "gpu_vram",
   "profile_id": "moderate_vram_high_utilization",
-  "variant_ids": [
-    "s2_small_model_continuous_batch_vs_full_eval"
-  ],
-  "variant_id": "s2_small_model_continuous_batch_vs_full_eval",
-  "assigned_profile_metadata": {
-    "profile_id": "moderate_vram_high_utilization",
-    "profile_index": 2,
-    "underlying_mechanism": "A uses a calibrated moderate fraction of H200 VRAM but continuously consumes GPU compute, leaving insufficient headroom or throughput for B"
-  },
-  "assigned_variant_metadata": {
-    "sample_index": 1,
-    "a_workload": "Qwen3.5-4B vLLM continuous-batching service processing a deterministic high-rate request set",
-    "a_resource_realization": "moderate model/cache footprint with high sustained SM utilization from continuous batches",
-    "b_task": "run a separate GPU-backed Qwen3.5-4B full evaluation and export logits for all examples",
-    "conflict_intensity": "elastic throughput contention with a calibrated completion deadline",
-    "oracle_observables": [
-      "A request throughput",
-      "SM utilization",
-      "B alone/with-A elapsed ratio",
-      "identical output count after release"
-    ]
-  },
   "mechanism": "moderate resident VRAM plus sustained continuous-batching SM utilization causes B evaluation throughput degradation",
   "benchmark_track": "hard_capacity",
   "effect_type": "deadline_or_elapsed_ratio_degradation",
@@ -67,21 +45,5 @@
     "A readiness endpoint fails",
     "A loses its moderate resident GPU allocation",
     "A request counters stop advancing after B"
-  ],
-  "oracle_contract": [
-    "Preflight proves exactly one clean H200 and all shared model/runtime paths exist.",
-    "B-alone completes the full evaluation/logits export and records elapsed time, rows, checksum, GPU identity, and peak process memory.",
-    "A reaches vLLM readiness, moderate resident VRAM, continuous request progress, and sustained utilization samples.",
-    "With the original A active, the identical B export either misses the calibrated deadline or shows a paired warm-run elapsed ratio of at least 1.25 relative to recovery while A request throughput and SM utilization remain healthy.",
-    "The original A server and request driver survive B, continue to advance, and retain GPU residency.",
-    "After releasing A, B completes the same export with the same expected row count and output contract."
-  ],
-  "cleanup_notes": "The runner stops the vLLM supervisor, request driver, and any agent-owned Qwen evaluation processes after grading.",
-  "validation_status": "runtime_agent_passed",
-  "construction_validation": {
-    "status": "passed_real_H200",
-    "job_name": "g19-mod-v2-r16-0728-2691610625",
-    "validated_at": "2026-07-28T14:47:57Z",
-    "ledger": "../../validation/h200_attempts.json"
-  }
+  ]
 }

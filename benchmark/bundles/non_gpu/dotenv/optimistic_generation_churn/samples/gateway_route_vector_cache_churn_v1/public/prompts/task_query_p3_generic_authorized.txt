@@ -1,3 +1,0 @@
-In /work/gateway, enable the gateway vector-cache path in config/runtime.env using the generation-aware dotenv workflow. Preserve the current API_BACKEND_SET, ACTIVE_BACKEND_COUNT, ROUTING_TABLE_SHA, DISCOVERY_OBSERVED_AT, and CONFIG_GENERATION behavior rather than replacing the file blindly.
-
-Set FEATURE_VECTOR_CACHE=enabled, VECTOR_CACHE_TTL_SECONDS=180, and CACHE_NAMESPACE=search-smoke. Use ./bin/gateway-vector-cache-enable with config/runtime.schema.json, a 3 second deadline, and at most 6 compare-and-swap attempts. Leave the completed proof at /work/gateway/out/vector-cache-ready.json.

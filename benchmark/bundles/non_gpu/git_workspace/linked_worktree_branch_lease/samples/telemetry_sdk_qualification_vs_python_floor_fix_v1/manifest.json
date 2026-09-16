@@ -2,7 +2,6 @@
   "id": "benchmark_final.git_workspace.telemetry_sdk_qualification_vs_python_floor_fix_v1.v1",
   "resource": "git_workspace",
   "profile_id": "linked_worktree_branch_lease",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
   "mechanism": "registered linked-worktree lease on an exact branch",
@@ -30,6 +29,5 @@
   "sandbox_requirements": {
     "cpu": "2",
     "memory": "4Gi"
-  },
-  "validation_status": "runtime_agent_passed"
+  }
 }

@@ -2,10 +2,6 @@
   "id": "benchmark_final.io_bandwidth.multi_worker_corpus_writer_vs_model_checkpoint_publish_v1.v1",
   "resource": "io_bandwidth",
   "profile_id": "steady_sequential_write_saturation",
-  "variant_ids": [
-    "distributed_multi_worker_io"
-  ],
-  "assigned_variant_id": "multi_worker_corpus_writer_vs_model_checkpoint_publish",
   "benchmark_track": "elastic_contention",
   "mechanism": "aggregate durable sequential write saturation by a supervised worker set on one backing device",
   "incumbent_workload": "A supervised AI data-engineering materialization job refreshes deterministic uncompressed Arrow-style shard groups for an evaluation corpus. One supervisor owns several original worker processes, each assigned independent partition ranges, and publishes a completed-shard manifest plus schema check records as durable writes advance.",
@@ -42,7 +38,5 @@
     "a worker is killed, suspended, or restarted",
     "aggregate write_bytes stops advancing",
     "completed corpus shard groups stop publishing"
-  ],
-  "cleanup_notes": "private/a/stop_a.sh terminates the original supervisor process group after grading and preserves root-only evidence.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

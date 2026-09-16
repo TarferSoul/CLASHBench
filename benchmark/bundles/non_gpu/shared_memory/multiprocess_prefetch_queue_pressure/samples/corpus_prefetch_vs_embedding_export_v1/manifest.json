@@ -2,7 +2,6 @@
   "id": "benchmark_final.shared_memory.corpus_prefetch_vs_embedding_export_v1.v1",
   "resource": "shared_memory",
   "profile_id": "multiprocess_prefetch_queue_pressure",
-  "variant_ids": [],
   "mechanism": "multiprocessing workers retaining actively recycled unlinked POSIX shared-memory tensor prefetch slots",
   "benchmark_track": "hard_capacity",
   "incumbent_workload": "A is a continuously useful language-model corpus tokenization and shard-indexing job. Three multiprocessing loader workers keep two decoded tensor batches each in inherited, already-unlinked POSIX shared-memory mappings while the supervisor verifies batches and appends a durable shard journal.",
@@ -18,7 +17,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "a_tensor_ratio": 0.62,
     "b_tensor_ratio": 0.48,
@@ -35,6 +33,5 @@
     "deleted shared-memory inode replacement, geometry change, truncation, or block deallocation",
     "stalled batch counter",
     "malformed or truncated output shard journal"
-  ],
-  "cleanup_notes": "B probes use independently created auto-named mappings. Stop A only after identity, inode, allocation, journal integrity, and progress evidence are archived; then prove the unchanged B recipe recovers."
+  ]
 }

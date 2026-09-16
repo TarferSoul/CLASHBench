@@ -2,7 +2,6 @@
   "id": "benchmark_final.disk_space.checkpoint_upload_spill_vs_feature_partition_v1.v1",
   "resource": "disk_space",
   "profile_id": "transient_working_set_peak",
-  "variant_ids": [],
   "mechanism": "active_checkpoint_compaction_with_multipart_spill_peak",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -38,15 +37,5 @@
     "spill inode or allocated blocks changed",
     "source or quantization staging altered",
     "multipart progress stopped"
-  ],
-  "cleanup_notes": "The construction oracle requests normal upload acknowledgement, verifies the compact checkpoint result, confirms release of the exact spill file and recovered headroom, then reruns unchanged B.",
-  "curation": {
-    "benchmark_track": "hard_capacity",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Calibrate each workload's peak on the same bounded filesystem and gate B from a measured A phase rather than elapsed sleep.",
-      "Require storage-specific B failure, continued A progress to a valid result, and B success after normal A cleanup."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

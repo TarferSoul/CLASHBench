@@ -2,7 +2,6 @@
   "id": "benchmark_final.disk_space.vm_image_snapshot_vs_rescue_publish_v1.v1",
   "resource": "disk_space",
   "profile_id": "copy_on_write_snapshot_retention",
-  "variant_ids": [],
   "mechanism": "live COW image-pool snapshot retains pre-rebase virtual-disk extents",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -46,7 +45,5 @@
     "snapshot disk or descriptor checksum changes",
     "live golden image changes",
     "retained extents released before export acknowledgement"
-  ],
-  "cleanup_notes": "The construction recovery phase requests normal exporter completion; it performs a final snapshot verification, records remote acknowledgement, releases the exact snapshot UUID, and exits.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

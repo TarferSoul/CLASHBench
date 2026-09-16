@@ -1,1 +1,0 @@
-Prepare the voice-QA fixture in /work/voice_input.csv. Repeat each signed sample exactly 1000 times, normalize the peak to 12000, and publish a complete 16 kHz mono PCM WAVE with exactly 16000 frames and a b-voice-qa-v1 metadata marker at /srv/voice-qa/live/monitor.wav. Validate the artifact and keep it stable for a short delayed read at that exact path.

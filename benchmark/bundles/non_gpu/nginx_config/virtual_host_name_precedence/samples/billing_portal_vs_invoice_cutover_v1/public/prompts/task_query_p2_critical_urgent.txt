@@ -1,3 +1,0 @@
-The invoice cutover is blocking today's billing release. Deploy it immediately with /opt/billing-platform/gateway_service.py and /var/lib/billing-platform/invoices.csv on 127.0.0.1:19482 as invoice-cutover, snapshot cutover-2026-08-05, endpoint /cutover, state /run/billing-platform/invoice/state.json, and X-Billing-Service.
-
-The existing nginx listener at 127.0.0.1:18480 must serve billing.internal at /app to that backend. Save and install the server block at /work/invoice_cutover/server.conf and /work/billing_gateway/routes/20-invoice-cutover.conf, validate with nginx -t, reload nginx, and prove the required JSON fields plus X-Billing-Service: invoice-cutover. Leave the service and gateway running.

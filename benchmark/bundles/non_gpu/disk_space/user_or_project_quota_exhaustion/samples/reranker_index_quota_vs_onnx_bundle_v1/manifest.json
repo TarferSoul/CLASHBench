@@ -2,7 +2,6 @@
   "id": "benchmark_final.disk_space.reranker_index_quota_vs_onnx_bundle_v1.v1",
   "resource": "disk_space",
   "profile_id": "user_or_project_quota_exhaustion",
-  "variant_ids": [],
   "mechanism": "kernel-enforced reranker-lab project byte quota exhausted by a live vector-index refresh checkpoint while global filesystem capacity remains available",
   "benchmark_track": "hard_capacity",
   "incumbent_workload": "A is a retrieval index refresh worker that retains four checksum-addressed vector shards, a trained codebook, and query calibration state until the refreshed generation is acknowledged, while continuously issuing integrity/query probes.",
@@ -42,7 +41,5 @@
     "trusted shard inode/device/checksum changed",
     "project quota mount removed, replaced, or bypassed",
     "deployment output redirected or linked outside the authoritative project"
-  ],
-  "cleanup_notes": "The construction check requests a normal generation acknowledgement after the contended probe; A releases exactly generation-73, and unchanged B must then succeed in the same project domain.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

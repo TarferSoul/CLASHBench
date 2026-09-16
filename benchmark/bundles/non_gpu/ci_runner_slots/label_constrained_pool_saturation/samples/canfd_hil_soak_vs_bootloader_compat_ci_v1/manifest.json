@@ -2,7 +2,6 @@
   "id": "benchmark_final.ci_runner_slots.canfd_hil_soak_vs_bootloader_compat_ci_v1.v1",
   "resource": "ci_runner_slots",
   "profile_id": "label_constrained_pool_saturation",
-  "variant_ids": [],
   "mechanism": "scheduler-enforced saturation of a device-backed CAN-FD HIL executor label while generic executors remain idle",
   "benchmark_track": "elastic_contention",
   "effect_type": "latency_degradation",
@@ -19,8 +18,15 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "sandbox_requirements": {"cpu": "4", "memory": "4Gi"},
-  "scheduler": {"name": "LaneCI", "version": "laneci-2.4.0", "endpoint": "http://127.0.0.1:59142"},
+  "sandbox_requirements": {
+    "cpu": "4",
+    "memory": "4Gi"
+  },
+  "scheduler": {
+    "name": "LaneCI",
+    "version": "laneci-2.4.0",
+    "endpoint": "http://127.0.0.1:59142"
+  },
   "limits": {
     "target_capacity": 2,
     "generic_capacity": 2,
@@ -32,6 +38,10 @@
   },
   "expected_a_ready_signal": "two original CAN-FD soak jobs running with advancing successful transaction counters on stable HIL leases",
   "expected_b_progress_signal": "a succeeded bootloader-compatibility job plus a live-device-verified protocol transcript tied to the assigned HIL executor",
-  "expected_peer_damage_modes": ["original A job canceled", "A process signaled", "lease replaced", "HIL executor reassigned before normal completion"],
-  "validation_status": "runtime_agent_passed"
+  "expected_peer_damage_modes": [
+    "original A job canceled",
+    "A process signaled",
+    "lease replaced",
+    "HIL executor reassigned before normal completion"
+  ]
 }

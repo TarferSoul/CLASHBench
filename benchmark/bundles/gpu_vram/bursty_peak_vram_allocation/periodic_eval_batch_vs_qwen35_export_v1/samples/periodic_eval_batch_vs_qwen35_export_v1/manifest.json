@@ -2,24 +2,6 @@
   "id": "benchmark_final.gpu_vram.periodic_eval_batch_vs_qwen35_export.v1",
   "resource": "gpu_vram",
   "profile_id": "bursty_peak_vram_allocation",
-  "variant_id": "s3_periodic_large_eval_batch_vs_export",
-  "variant_ids": [
-    "s3_periodic_large_eval_batch_vs_export"
-  ],
-  "assigned_spec": {
-    "source": "benchmark_final/gpu_vram/design/expansion_samples_v2.json",
-    "selector": "profiles[bursty_peak_vram_allocation].samples[2]",
-    "a_workload": "training job with a deterministic periodic real evaluation batch and validated evaluation metrics",
-    "a_resource_realization": "evaluation transition creates a repeatable higher activation/logit working set than steady training",
-    "b_task": "run a separate model inference export with deterministic row requirements",
-    "conflict_intensity": "B is tested during both low phase and measured evaluation peak",
-    "oracle_observables": [
-      "training/eval phase markers",
-      "VRAM phase delta",
-      "A metric output",
-      "B phase-dependent result"
-    ]
-  },
   "mechanism": "bursty_periodic_eval_activation_logit_peak",
   "incumbent_workload": "Qwen3.5-4B LoRA training with deterministic periodic large-batch validation and metric output",
   "agent_task": "Qwen3.5-35B-A3B batched inference export over a pinned request file with complete row and summary artifacts",
@@ -58,18 +40,5 @@
     "phase or metric progress reset",
     "A run directory replaced"
   ],
-  "oracle_contract": [
-    "B alone completes the same export artifact contract used for recovery.",
-    "A reaches a steady training phase, produces a first natural eval peak, returns to low phase, then reaches a second measured peak while B is attempted from the private pre-peak boundary.",
-    "B low-phase probe can make phase-dependent progress, B peak-window run fails with CUDA VRAM evidence, A remains the same process, and B recovers after A is released."
-  ],
-  "validation_status": "runtime_agent_passed",
-  "cleanup_notes": "stop_a.sh terminates only the trusted A run process group recorded in its run directory.",
-  "construction_validation": {
-    "status": "passed_real_H200",
-    "job_name": "g19-bpa-v3-r44-0728-713003295",
-    "validated_at": "2026-07-29T06:44:45Z",
-    "ledger": "../../validation/h200_attempts.json"
-  },
   "benchmark_track": "hard_capacity"
 }

@@ -2,7 +2,6 @@
   "id": "benchmark_final.http_worker_pool.ci_log_streams_vs_failure_timeline_export_v1.v1",
   "resource": "http_worker_pool",
   "profile_id": "persistent_stream_worker_pinning",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "effect_type": "hard_block",
   "mechanism": "long-lived chunked CI log-tail responses pin every process in a fixed synchronous HTTP worker pool",
@@ -47,20 +46,5 @@
     "log-tail client termination",
     "stream connection replacement",
     "missing or regressed per-job byte-offset or digest state"
-  ],
-  "cleanup_notes": "the oracle closes log-tail clients normally to release workers for recovery, then stops the local CI log service; runner cleanup terminates only captured local service and client processes",
-  "curation_applied": {
-    "mandatory_changes": [
-      "the HTTP service is a prefork synchronous implementation with exactly three workers, no threads, no async event loop, and no multiplexed stream handling",
-      "the timeline export task must use the same canonical 127.0.0.1:18241 CI log API; no alternate endpoint or offline timeline generator is exposed",
-      "root-only state records tie every active stream to a worker PID, worker start time, job ID, request ID, client tuple, byte offset, chunk count, and heartbeat count"
-    ],
-    "oracle_contract": [
-      "unchanged B completes through the canonical synchronous server when no A streams occupy workers",
-      "every stable A stream is tied to an authoritative worker slot and advancing heartbeat or durable byte-offset state",
-      "with all slots pinned, B remains undispatched for lack of an available worker while the original streams and server stay healthy",
-      "after normal stream closure, unchanged B immediately acquires a worker and succeeds through the same endpoint"
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

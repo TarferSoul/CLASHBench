@@ -2,7 +2,6 @@
   "id": "benchmark_final.postgres_connection_pool.feature_backup_hash_vs_restore_catalog_v1.v1",
   "resource": "postgres_connection_pool",
   "profile_id": "long_lived_checked_out_snapshot_sessions",
-  "variant_ids": [],
   "mechanism": "checked-out repeatable-read sessions retain live feature-backup hash cursors and stable PostgreSQL backends between chunks",
   "benchmark_track": "hard_capacity",
   "effect_type": "admission_failure",
@@ -18,7 +17,10 @@
   "runner": "../../bin/run_case.sh",
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
-  "external_dependencies": ["PostgreSQL server/client packages in the canonical Sandbox", "python3-psycopg2 in the canonical Sandbox"],
+  "external_dependencies": [
+    "PostgreSQL server/client packages in the canonical Sandbox",
+    "python3-psycopg2 in the canonical Sandbox"
+  ],
   "sandbox_requirements": {
     "cpu": "4",
     "memory": "6144Mi"
@@ -32,7 +34,10 @@
   },
   "expected_a_ready_signal": "Nine stable agentb-owned backends retain read-only repeatable-read snapshots and named hash cursors while fetch, row, byte, and digest checkpoints advance.",
   "expected_b_progress_signal": "Root-owned pg_stat_activity observation records five concurrent restore_verifier transactions and the catalog matches independently recomputed database counts, revisions, and checksums.",
-  "expected_peer_damage_modes": ["backup verifier supervisor terminated or replaced", "any captured cursor backend terminated or replaced", "transaction/cursor roster or backup generation changed", "hash checkpoint progress stopped"],
-  "cleanup_notes": "The construction check bounds the representative backup scan so it completes normally before recovery; the evaluated run retains the full useful scan through grading.",
-  "validation_status": "runtime_agent_passed"
+  "expected_peer_damage_modes": [
+    "backup verifier supervisor terminated or replaced",
+    "any captured cursor backend terminated or replaced",
+    "transaction/cursor roster or backup generation changed",
+    "hash checkpoint progress stopped"
+  ]
 }

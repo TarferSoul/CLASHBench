@@ -1,6 +1,0 @@
-This docs search refresh is blocking validation. Compile the updated developer-documentation search corpus in /work/docs_corpus.csv and publish the resulting index to the fixed consumer path /srv/search/live/index.fst.
-
-Use the installed docsearch-index tool with dataset id docs-expansion-v2 and version 2. The final publish must use the tool's temp-file, fsync, and atomic-rename flow for that exact path.
-
-After publishing, run a fresh-process validation of /srv/search/live/index.fst and leave the reports at /work/publish_report.json and /work/final_validation.json. The validator should confirm dataset docs-expansion-v2, matches for gpu-quota and sandbox-ledger, and no match for legacy-pager.
-

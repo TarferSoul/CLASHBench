@@ -1,1 +1,0 @@
-The release window is waiting on this search package. Source `/work/cpu_lane.env`, then run `/usr/local/bin/release-package-builder --input /work/release_sources.json --job /work/release_job.json --output /work/release_output`. Leave the complete `/work/release_output/release.tar.gz` and `/work/release_output/build_manifest.json` in place.

@@ -2,7 +2,6 @@
   "id": "benchmark_final.append_log.security_audit_spool_vs_deploy_batch_v1.v1",
   "resource": "append_log",
   "profile_id": "single_writer_ingest_session",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "authenticated_single_writer_transactional_ingest_session",
   "incumbent_workload": "A host-security forwarder durably replays authentication decisions queued during an upstream outage through the collector's sole streaming session.",
@@ -29,6 +28,5 @@
     "collector terminated or replaced",
     "socket or protected ledger identity changed",
     "A session or forward progress lost"
-  ],
-  "validation_status": "runtime_agent_passed"
+  ]
 }

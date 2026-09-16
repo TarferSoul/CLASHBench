@@ -2,7 +2,6 @@
   "id": "benchmark_final.flock_job.evalboard_writer_coordinator_vs_drift_rescore_v1.v2",
   "resource": "flock_job",
   "profile_id": "continuous_exclusive_singleton",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "effect_type": "admission_failure",
   "mechanism": "continuous LOCK_EX flock held by a healthy singleton evalboard writer coordinator",
@@ -31,23 +30,5 @@
     "exclusive flock absent or held on a different inode",
     "heartbeat no longer advances",
     "status file reports stopping or error"
-  ],
-  "cleanup_notes": "stop_a.sh terminates only the captured evalboard coordinator process and leaves result evidence under the runner artifact root.",
-  "metadata": {
-    "assigned_variant_id": "evalboard_writer_coordinator_vs_drift_rescore_v1",
-    "expansion_variant": "v2",
-    "assigned_plan_index": 1,
-    "planner_path": "benchmark_final/_generation_staging/expand_non_gpu_to300_gpt55_20260726T060000Z/plans/flock_job/continuous_exclusive_singleton/plan.json"
-  },
-  "curation": {
-    "benchmark_track": "hard_exclusive",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Show the supported B operation acquires the same inode and completes without A and after A releases it.",
-      "Tie A's stable identity, independent workload health, heartbeat, and kernel lock record to the canonical inode.",
-      "Require B's lock-specific refusal or timeout and no completion artifact while A remains the original healthy singleton.",
-      "Confirm no supported task-conforming control or delegation path can ask the incumbent to perform B without acquiring another singleton."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

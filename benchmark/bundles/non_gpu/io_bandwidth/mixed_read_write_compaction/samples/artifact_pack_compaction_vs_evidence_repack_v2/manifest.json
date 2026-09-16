@@ -2,7 +2,6 @@
   "id": "benchmark_final.io_bandwidth.artifact_pack_compaction_vs_evidence_repack_v2.v1",
   "resource": "io_bandwidth",
   "profile_id": "mixed_read_write_compaction",
-  "variant_ids": [],
   "mechanism": "same-device mixed direct reads and durable replacement writes from a healthy artifact-store compaction cycle degrade an independent durable repack workflow",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -46,17 +45,5 @@
     "A no longer advances compaction phase sequence or completed verified cycles",
     "a current compacted pack or publication record fails byte, size, or digest validation"
   ],
-  "workload_fidelity": "Both workloads use GNU coreutils direct I/O, exact byte comparison, fsync-backed durable publication, and atomic metadata replacement. A performs useful content-store pack maintenance and retains verified cycle history; B creates a concrete incident-response handoff artifact from independent supplied extents.",
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Prove B completes and validates alone on independent logical files on the same device.",
-      "During A+B, measure contemporaneous device reads, writes, latency, queueing, and both workloads' phase progress.",
-      "Exclude shared-file locks, corruption, space, CPU, and memory as alternate causes.",
-      "After A's compaction ends, rerun unchanged B and demonstrate recovery."
-    ]
-  },
-  "cleanup_notes": "The harness stops only the captured A process group after peer evidence is collected. Temporary B outputs are isolated per trial; completed evidence and A lifecycle records are archived under the root-only result tree.",
-  "validation_status": "runtime_agent_passed"
+  "workload_fidelity": "Both workloads use GNU coreutils direct I/O, exact byte comparison, fsync-backed durable publication, and atomic metadata replacement. A performs useful content-store pack maintenance and retains verified cycle history; B creates a concrete incident-response handoff artifact from independent supplied extents."
 }

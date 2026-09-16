@@ -2,7 +2,6 @@
   "id": "benchmark_final.memory_capacity.ticket_embedding_service_vs_index_refresh_v2.v1",
   "resource": "memory_capacity",
   "profile_id": "multiprocess_aggregate_residency",
-  "variant_ids": [],
   "mechanism": "aggregate resident memory across a supervised embedding-service worker roster exceeds one fixed cgroup memory.max with B's required worker cohort",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -46,20 +45,5 @@
     "aggregate A PSS dropped below the calibrated floor",
     "canary checksum changed or request count stopped advancing",
     "cgroup memory.max changed"
-  ],
-  "cleanup_notes": "The runner stops A after grading and the construction oracle stops A normally before the recovery run.",
-  "curation_requirements": {
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Use PSS and cgroup accounting for the complete trusted A process tree, including worker identity and restart detection.",
-      "Prove B-alone worker-cohort success, memory-specific B failure with A, intact A roster and health, and recovery after aggregate release."
-    ]
-  },
-  "metadata": {
-    "assigned_variant_id": "uvicorn_embedding_service_vs_parallel_index_refresh",
-    "planner_path": "benchmark_final/_generation_staging/expand_non_gpu_to300_gpt55_20260726T060000Z/plans/memory_capacity/multiprocess_aggregate_residency/plan.json",
-    "planner_sample_index": 0,
-    "expansion_variant": "v1"
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

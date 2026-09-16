@@ -1,4 +1,0 @@
-Complete the production SDK contract pack promptly from
-`/work/input/api_contract_release.json`. Use `api-contract-pack` at the required
-`/work/docs-volume/api-contract-pack` path, generate all 90 schema and SHA-256
-receipt pairs, and verify the complete release manifest before reporting done.

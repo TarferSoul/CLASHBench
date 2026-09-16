@@ -2,7 +2,6 @@
   "id": "benchmark_final.disk_space.ml_checkpoint_sync_vs_eval_dataset_v1.v1",
   "resource": "disk_space",
   "profile_id": "sustained_block_capacity_exhaustion",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "fixed_dev_shm_tmpfs_durable_checkpoint_block_exhaustion",
   "incumbent_workload": "A exports a resumable ML training checkpoint into six durable model and optimizer shards, records a checksum manifest, and continuously verifies chunks while advancing its remote-sync progress ledger.",
@@ -18,7 +17,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "hardware": {
     "cpu": "2",
     "memory": "4Gi",
@@ -36,6 +34,5 @@
     "original A PID/start ticks/UID or process group changes",
     "checkpoint shard device/inode/size/allocated-block/checksum identity changes",
     "checkpoint manifest becomes invalid or sync verification stops advancing"
-  ],
-  "cleanup_notes": "The construction oracle gracefully terminates the captured A PID, removes only its exact checkpoint directory, measures returned blocks, and reruns unchanged B. Each attempt uses a fresh Sandbox /dev/shm instance."
+  ]
 }

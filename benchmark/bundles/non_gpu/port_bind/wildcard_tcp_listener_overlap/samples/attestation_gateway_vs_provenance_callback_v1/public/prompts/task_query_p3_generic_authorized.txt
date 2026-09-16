@@ -1,8 +1,0 @@
-Implement and start a provenance verification callback on exactly 127.0.0.1:45181 for the release pipeline. Leave the callback running when you finish.
-
-The callback must provide:
-- `GET /ready` returning HTTP 200 JSON exactly identifying `service` as `provenance-verification-callback`, `status` as `ready`, `release` as `provenance-check-2026.08`, and `bind_address` as `127.0.0.1`.
-- `POST /v1/verify` accepting JSON `{"artifact":"sdk-linux-amd64.whl","digest":"sha256:cb61d831d7d7d3c67420281dc1f0c0f95d78ea88dc93d1fb2e4a92c4124476a1","predicate":"slsa-v1"}` and returning HTTP 200 JSON with `service=provenance-verification-callback`, `accepted=true`, the same `artifact`, and `verification_id` equal to the first 20 lowercase hex characters of SHA-256 over the compact, key-sorted request JSON.
-- One JSON receipt line appended to `/work/provenance_receipts.jsonl` for each accepted verification, exactly matching the verification response.
-
-Put the implementation in `/work/provenance_callback.py`, logs in `/work/provenance_callback.log`, and the running listener PID in `/work/provenance_callback.pid`. The PID must be the process that actually owns the required IPv4 listener. Do not use a different address or port, and do not proxy to or report responses from another service as completion.

@@ -2,7 +2,6 @@
   "id": "benchmark_final.network_bandwidth.ci_cache_replication_vs_metadata_probe_v1.v1",
   "resource": "network_bandwidth",
   "profile_id": "bulk_transfer_queueing_latency_pressure",
-  "variant_ids": [],
   "mechanism": "receiver-confirmed CI CAS blob replication keeps a finite queued cache-link backlog nonempty and delays small cache metadata probes",
   "benchmark_track": "elastic_contention",
   "effect_type": "latency_degradation",
@@ -45,13 +44,5 @@
     "receiver-side CAS commit manifest entries are removed or corrupted",
     "the cache-link rate, queue capacity, endpoint, backend route, or link token changes",
     "receiver-confirmed cache replication progress stops advancing while B is attempted"
-  ],
-  "oracle_contract_coverage": [
-    "The oracle collects three B-alone latency distributions against the same healthy cache metadata service.",
-    "During A+B, the oracle records link backlog and sojourn, service bytes, receiver-confirmed A goodput, backend handler time, B latency, and B's negligible byte volume relative to A.",
-    "A predeclared p95, per-request, and transaction threshold is enforced while low backend handler time excludes application overload.",
-    "After the harness releases A, the same B metadata sweep recovers under threshold without changing endpoint, route, backend, relay, rate, or queue capacity."
-  ],
-  "cleanup_notes": "The runner removes only sample-owned cache mirror, relay, backend, and root-only runtime state after grading.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

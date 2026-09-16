@@ -2,9 +2,6 @@
   "id": "benchmark_final.unix_socket.policy_engine_control_rpc_vs_candidate_compat_v1.v1",
   "resource": "unix_socket",
   "profile_id": "filesystem_stream_active_service",
-  "variant_ids": [
-    "filesystem_stream_idle_healthy_service"
-  ],
   "mechanism": "pathname_af_unix_stream_listener_idle_policy_rpc_service",
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
@@ -36,12 +33,5 @@
     "socket pathname metadata changes or disappears",
     "A health identity or generation token changes",
     "post-B evaluate RPC no longer advances under the original listener"
-  ],
-  "cleanup_notes": "The runner stops A after grading and removes per-run /work, /run/security, /var/lib/policy-engine, /var/log/policy-engine-daemon.log, and /var/cbtrust trust state during setup.",
-  "metadata": {
-    "assigned_variant_id": "policy_decision_control_rpc_idle_healthy_stream",
-    "plan_sample_index": 1,
-    "generation_variant": "v2"
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

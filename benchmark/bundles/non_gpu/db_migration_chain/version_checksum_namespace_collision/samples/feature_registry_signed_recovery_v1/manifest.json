@@ -2,7 +2,6 @@
   "id": "benchmark_final.db_migration_chain.feature_registry_signed_recovery_v1.v1",
   "resource": "db_migration_chain",
   "profile_id": "version_checksum_namespace_collision",
-  "variant_ids": [],
   "benchmark_track": "state_integrity",
   "effect_type": "integrity_conflict",
   "mechanism": "signed version-parent-checksum namespace collision under pinned yoyo-migrations 9.0.0",
@@ -27,7 +26,5 @@
     "mainline M307 schema or catalog artifacts rewritten",
     "canonical catalog database inode replaced",
     "projection checkpoint or catalog digest progress lost"
-  ],
-  "cleanup_notes": "The runner stops only the exact projection-worker process group it started after private grading.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

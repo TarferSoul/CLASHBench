@@ -2,7 +2,6 @@
   "id": "benchmark_final.cpu_capacity.search_index_refresh_vs_relevance_regression_v1.v1",
   "resource": "cpu_capacity",
   "profile_id": "steady_shared_quota_saturation",
-  "variant_ids": [],
   "mechanism": "A productive search-index refresh keeps aggregate demand at a finite two-vCPU cpu.max budget while B runs an independently observed parallel retrieval relevance gate in the same cgroup",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -44,17 +43,5 @@
     "the installed A executable or input digest changes",
     "the index batch and segment counters stop advancing",
     "the incumbent state or products are removed or rewritten"
-  ],
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Collect repeated B-alone throughput or completion baselines inside the exact cpu.max domain.",
-      "During A+B, record cpu.stat throttling deltas, CPU pressure, per-cgroup CPU use, and both workloads' progress.",
-      "Use a predeclared degradation threshold with memory, PID, I/O, and input failures excluded.",
-      "Release A and show B performance and quota-throttling pressure recover."
-    ]
-  },
-  "cleanup_notes": "The runner stops only the captured same-UID A process group after grading. Sandbox teardown provides the final isolation boundary.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

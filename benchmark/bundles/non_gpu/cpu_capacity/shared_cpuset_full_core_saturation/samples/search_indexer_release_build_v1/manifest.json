@@ -2,7 +2,6 @@
   "id": "benchmark_final.cpu_capacity.search_indexer_release_build_v1.v1",
   "resource": "cpu_capacity",
   "profile_id": "shared_cpuset_full_core_saturation",
-  "variant_ids": [],
   "mechanism": "productive search-index workers saturate every physical core in a bounded two-core shared cpuset while a release package build competes through ordinary scheduling",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -49,17 +48,5 @@
     "the installed incumbent program changes",
     "the indexed generation or token counters stop advancing",
     "the enclosing CPU configuration changes"
-  ],
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Repeat B-alone controls on the exact bounded cpuset with no finite CPU quota.",
-      "Measure per-CPU saturation, runnable pressure, B CPU accumulation, and A progress during joint execution.",
-      "Declare a degradation threshold before evaluation and exclude quota, SMT-topology, memory, and I/O explanations.",
-      "Release A and demonstrate B throughput recovery on the unchanged cpuset."
-    ]
-  },
-  "cleanup_notes": "The runner stops only the captured incumbent process group and preserves root-owned evidence after grading.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

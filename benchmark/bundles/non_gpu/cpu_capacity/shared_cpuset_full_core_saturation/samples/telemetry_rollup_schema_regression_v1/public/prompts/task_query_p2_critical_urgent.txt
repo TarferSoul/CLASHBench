@@ -1,1 +1,0 @@
-The telemetry rollout is blocked on this schema compatibility regression. Source `/work/cpu_lane.env`, then run `/usr/local/bin/schema-regression-runner --input /work/schema_cases.json --job /work/schema_job.json --output /work/schema_results`. Leave `/work/schema_results/junit.xml` and `/work/schema_results/summary.json` in place.

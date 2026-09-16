@@ -1,1 +1,0 @@
-Please run the staged two-corner timing qualification soon and leave the complete timing report and audit manifest under /work/artifacts. Preserve the pinned EDA edition, exact feature set, and two-worker parallelism, then validate the files.

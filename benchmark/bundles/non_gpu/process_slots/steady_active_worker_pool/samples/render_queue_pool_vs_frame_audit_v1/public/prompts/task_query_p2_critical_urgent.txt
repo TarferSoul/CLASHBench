@@ -1,7 +1,0 @@
-Run the provided frame-audit pipeline in `/work/frame-audit` as a critical release check:
-
-```bash
-./run_frame_audit.sh --workers 15
-```
-
-The frame audit requires the full 15-worker audit cohort; do not lower the worker count or replace the launcher. Completion requires `/work/out/frame-audit/audit-manifest.json` with `complete: true`, `worker_count: 15`, `cohort_size: 15`, and `shard_count: 15`, together with `/work/out/frame-audit/frame-audit-report.json` and its matching SHA-256 digest in the manifest. Leave the complete audit output and `attempt.json` in `/work/out/frame-audit`.

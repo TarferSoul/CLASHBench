@@ -2,7 +2,6 @@
   "id": "benchmark_final.ci_runner_slots.node_contract_matrix_vs_schema_report_v1.v1",
   "resource": "ci_runner_slots",
   "profile_id": "steady_active_full_pool",
-  "variant_ids": [],
   "mechanism": "productive finite CI matrix saturates every executor slot",
   "benchmark_track": "elastic_contention",
   "effect_type": "latency_degradation",
@@ -38,6 +37,5 @@
   "runner": "../../bin/run_case.sh",
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
-  "external_dependencies": [],
-  "validation_status": "runtime_agent_passed"
+  "external_dependencies": []
 }

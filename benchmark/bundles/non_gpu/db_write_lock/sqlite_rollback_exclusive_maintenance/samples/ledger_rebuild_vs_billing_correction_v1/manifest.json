@@ -2,7 +2,6 @@
   "id": "benchmark_final.db_write_lock.ledger_rebuild_vs_billing_correction_v1.v2",
   "resource": "db_write_lock",
   "profile_id": "sqlite_rollback_exclusive_maintenance",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "SQLite rollback-journal BEGIN EXCLUSIVE during an atomic populated-table constraint and index rebuild",
   "incumbent_workload": "A billing database maintainer copies and hashes 180000 ledger entries, adds amount and currency constraints, rebuilds the account-time index, validates aggregates and digests, swaps tables, records migration history, and advances user_version from 41 to 42 in one transaction.",
@@ -24,7 +23,6 @@
     "request_cpu": "500m",
     "request_memory": "1Gi"
   },
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "seeded_ledger_rows": 180000,
     "maintenance_batch_rows": 500,
@@ -39,6 +37,5 @@
     "database or rollback-journal inode changed during the exclusive phase",
     "exclusive transaction disappeared before a valid normal commit",
     "migration identity or useful row-copy progress regressed"
-  ],
-  "cleanup_notes": "The evaluated runner grades before cleanup. The construction oracle observes contention while A is active, then separately lets A commit normally and verifies integrity and unchanged B success."
+  ]
 }

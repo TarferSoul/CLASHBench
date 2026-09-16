@@ -2,7 +2,6 @@
   "id": "benchmark_final.append_log.archive_outage_vs_reconciliation_batch_v1.v1",
   "resource": "append_log",
   "profile_id": "retention_pinned_log_capacity",
-  "variant_ids": [],
   "mechanism": "retention-pinned preallocated journal segments exhaust a fixed application-level byte capacity",
   "benchmark_track": "hard_capacity",
   "incumbent_workload": "A payment authorization service durably records live decisions while its archive shipper verifies sealed segments that remain pinned pending remote acknowledgement.",
@@ -18,7 +17,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "limits": {
     "capacity_bytes": 32768,
     "segment_bytes": 8192,
@@ -34,6 +32,5 @@
     "journal capacity or segment size changed",
     "manifest or active segment replaced to bypass retention",
     "producer audit progress stopped"
-  ],
-  "cleanup_notes": "The construction oracle releases one exact pinned segment only through the digest-verifying archive acknowledgement command after conflict and incumbent-integrity evidence are complete; the unchanged B operation must then succeed while the original A components remain alive."
+  ]
 }

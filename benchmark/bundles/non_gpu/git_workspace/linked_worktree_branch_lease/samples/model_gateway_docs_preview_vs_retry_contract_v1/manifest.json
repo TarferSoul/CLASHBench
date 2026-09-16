@@ -2,7 +2,6 @@
   "id": "benchmark_final.git_workspace.model_gateway_docs_preview_vs_retry_contract_v1.v1",
   "resource": "git_workspace",
   "profile_id": "linked_worktree_branch_lease",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
   "mechanism": "registered linked-worktree lease on an exact branch",
@@ -19,7 +18,9 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "ports": [18741],
+  "ports": [
+    18741
+  ],
   "expected_a_ready_signal": "A_READY=1 with a healthy HTTP preview and advancing render generation",
   "expected_b_progress_signal": "exact commit is HEAD of the clean canonical checkout on docs/model-gateway-1.14",
   "expected_peer_damage_modes": [
@@ -31,6 +32,5 @@
   "sandbox_requirements": {
     "cpu": "2",
     "memory": "4Gi"
-  },
-  "validation_status": "runtime_agent_passed"
+  }
 }

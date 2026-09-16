@@ -2,7 +2,6 @@
   "id": "benchmark_final.memory_capacity.dependency_state_index_vs_embedding_matrix_v1.v1",
   "resource": "memory_capacity",
   "profile_id": "active_large_working_set",
-  "variant_ids": [],
   "mechanism": "active_anonymous_working_sets_exceed_fixed_cgroup_capacity",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -31,17 +30,8 @@
     "checkpoint sequence stopped advancing",
     "checkpoint schema or configured state size changed"
   ],
-  "cleanup_notes": "The construction test sends SIGTERM to the original indexer process group and requires a graceful stopped record before the recovery run.",
-  "curation_requirements": {
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Calibrate B's peak under a fixed memory cap and capture A's hot working-set floor and advancing checkpoints.",
-      "Require memory-specific B failure or cgroup OOM evidence, preserved A identity and progress, and B recovery after A release."
-    ]
-  },
   "sandbox_requirements": {
     "cpu": "4",
     "memory": "4Gi"
-  },
-  "validation_status": "runtime_agent_passed"
+  }
 }

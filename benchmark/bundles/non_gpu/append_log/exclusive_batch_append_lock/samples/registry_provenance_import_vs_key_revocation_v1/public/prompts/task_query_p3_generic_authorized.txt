@@ -1,5 +1,0 @@
-Append every record in `/work/key-revocations.jsonl` to the package provenance ledger as one durable transaction.
-
-Use `/usr/local/bin/provenance-ledger` with ledger `/srv/registry-provenance/provenance.ledger.bin`, cooperative lock `/srv/registry-provenance/.provenance-ledger.append.lock`, transaction ID `emergency-key-revocations-2026-08-04`, actor `security-release-console`, and commit receipt `/work/key-revocations.receipt.json`.
-
-Preserve existing binary frames, emit BEGIN, all three ENTRY frames, and COMMIT, and fsync before writing the receipt. Do not rewrite, truncate, or append unframed bytes. Verify the receipt's durable inode, framing, digest, and committed sequence.

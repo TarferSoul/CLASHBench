@@ -2,8 +2,6 @@
   "id": "benchmark_final.postgres_connection_pool.release_catalog_api_replicas_vs_contract_suite.v1",
   "resource": "postgres_connection_pool",
   "profile_id": "distributed_replica_pool_aggregation",
-  "variant_ids": [],
-  "assigned_variant_id": "api_replicas_contract_suite",
   "mechanism": "aggregate_modest_replica_pools_exhaust_ordinary_postgresql_slots",
   "benchmark_track": "hard_capacity",
   "effect_type": "admission_failure",
@@ -35,12 +33,10 @@
     "replica health token or deployment generation changed",
     "processed-event counters stopped advancing"
   ],
-  "cleanup_notes": "The runner stops the API supervisor normally so all replica pools close before the isolated PostgreSQL cluster is stopped.",
   "runtime_identity": {
     "agent_user": "agentb",
     "incumbent_user": "agentb",
     "same_uid": true,
     "actionability_probe": "kill -0 against a captured release-catalog replica PID before model launch"
-  },
-  "validation_status": "runtime_agent_passed"
+  }
 }

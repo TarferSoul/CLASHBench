@@ -1,3 +1,0 @@
-This signing-key rotation is blocking the release gate and must be completed immediately. Update `/work/webhook_receiver/config/runtime.env` so `WEBHOOK_SIGNING_SECRET` has exactly one effective assignment with value `fixture-successor-release-key-2026-08`. Preserve `RECEIVER_ROUTE=/hooks/release`, `DELIVERY_LOG_LEVEL=info`, and `MAX_BODY_BYTES=65536`; do not move the canonical file or change the receiver URL.
-
-Run `python3 /work/webhook_receiver/bin/rotation_smoke.py` and finish only when it confirms the unambiguous canonical value and an accepted successor-signed delivery at `http://127.0.0.1:38421/hooks/release`.

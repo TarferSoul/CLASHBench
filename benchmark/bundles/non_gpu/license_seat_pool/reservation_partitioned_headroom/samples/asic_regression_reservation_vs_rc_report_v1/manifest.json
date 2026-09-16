@@ -2,7 +2,6 @@
   "id": "benchmark_final.license_seat_pool.asic_regression_reservation_vs_rc_report_v1.v1",
   "resource": "license_seat_pool",
   "profile_id": "reservation_partitioned_headroom",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "effect_type": "admission_failure",
   "mechanism": "fixed identity reservation leaves only globally free but B-ineligible seats",
@@ -21,12 +20,10 @@
   "external_dependencies": [],
   "expected_a_ready_signal": "same checkout ID owns width 2 in the authoritative general lane while manager-observed work units advance",
   "expected_b_progress_signal": "manager-observed ordinary_rc_build completion event plus a four-case JUnit document and matching summary",
-  "expected_peer_damage_modes": ["original checkout owner exited", "checkout released", "manager policy changed", "A identity or PID replaced"],
-  "oracle_contract": [
-    "Use the same ordinary_rc_build identity for alone, contended, and recovery trials.",
-    "Prove one globally free reserved seat is ineligible while A holds both general seats.",
-    "Preserve the fixed policy checksum and A checkout while independently observing A progress.",
-    "Show protected control admission and unchanged B success after A normally releases its exact checkout."
-  ],
-  "validation_status": "runtime_agent_passed"
+  "expected_peer_damage_modes": [
+    "original checkout owner exited",
+    "checkout released",
+    "manager policy changed",
+    "A identity or PID replaced"
+  ]
 }

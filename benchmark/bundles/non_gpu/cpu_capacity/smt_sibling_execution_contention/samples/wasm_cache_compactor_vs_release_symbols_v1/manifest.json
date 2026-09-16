@@ -2,7 +2,6 @@
   "id": "benchmark_final.cpu_capacity.wasm_cache_compactor_vs_release_symbols_v1.v1",
   "resource": "cpu_capacity",
   "profile_id": "smt_sibling_execution_contention",
-  "variant_ids": [],
   "mechanism": "productive workloads on disjoint SMT sibling logical CPUs contend for one physical core's execution and cache resources",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -42,21 +41,5 @@
     "the compactor UID, command line, process group, executable, or exact affinity changes",
     "the verified cache ledger stops advancing or its latest archive becomes invalid",
     "the placement topology or cgroup CPU limit changes"
-  ],
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [
-      "Use a real deployment placement constraint that makes B's assigned logical CPU non-substitutable.",
-      "Declare unsupported topology or unstable frequency and thermal conditions as setup failures.",
-      "Calibrate a repeated-trial separation margin before agent evaluation and exclude memory, I/O, quota, and neighboring-load effects."
-    ],
-    "oracle_contract": [
-      "Gate the fixture on verified SMT sibling topology and enforce non-overlapping logical-CPU affinity within one physical core.",
-      "Establish warmed, repeated B-alone throughput baselines, then repeat with healthy A pinned to the sibling using a threshold fixed during calibration.",
-      "Record topology, affinity, frequency or thermal stability, and IPC or cache-pressure evidence where available; reject unsupported or unstable runs.",
-      "Release A from the sibling and show unchanged B throughput recovers."
-    ]
-  },
-  "cleanup_notes": "The runner stops only the captured incumbent process group and preserves root-only downloaded evidence.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

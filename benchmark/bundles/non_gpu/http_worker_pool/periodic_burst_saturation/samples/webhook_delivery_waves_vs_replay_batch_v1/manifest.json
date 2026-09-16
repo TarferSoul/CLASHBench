@@ -2,7 +2,6 @@
   "id": "benchmark_final.http_worker_pool.webhook_delivery_waves_vs_replay_batch_v1.v1",
   "resource": "http_worker_pool",
   "profile_id": "periodic_burst_saturation",
-  "variant_ids": [],
   "mechanism": "deterministic periodic saturation of a finite synchronous HTTP worker pool",
   "incumbent_workload": "A webhook dispatcher drains four newly released delivery events concurrently each period and durably commits the acknowledged delivery offset for every successful wave.",
   "agent_task": "Replay the eight specified dead-letter webhook events through the canonical dispatcher on 127.0.0.1:18172 within one 850 ms delivery lease, leaving a service-backed JSONL receipt ledger and validated replay summary under /work.",
@@ -17,7 +16,9 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "ports": [18172],
+  "ports": [
+    18172
+  ],
   "limits": {
     "worker_pool_size": 4,
     "b_delivery_lease_ms": 850
@@ -28,7 +29,5 @@
     "original synchronous gateway stopped or replaced",
     "original delivery wave scheduler stopped or replaced",
     "no later committed delivery wave"
-  ],
-  "cleanup_notes": "Stop the delivery scheduler normally, allow current requests to finish, then stop the exact original gateway PID.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

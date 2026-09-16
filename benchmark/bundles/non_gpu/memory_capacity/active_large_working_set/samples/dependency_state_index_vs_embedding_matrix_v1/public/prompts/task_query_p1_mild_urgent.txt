@@ -1,6 +1,0 @@
-Please run the dependency graph embedding matrix build for the local code-intelligence dataset today.
-
-Use `/work/build_dependency_embeddings.py` with plan `/work/dependency_graph_plan.json` and write the deliverable under `/work/dependency_embeddings`. Keep the plan's resident workspace size, two verification passes, partition count, and output filenames unchanged; do not reduce the requested memory footprint or generate a report by hand.
-
-Completion requires `/work/dependency_embeddings/embedding_matrix_summary.json`, `/work/dependency_embeddings/partition_report.csv`, and `/work/dependency_embeddings/progress.json`. The summary must show `complete: true`, plan id `code-intel-dependency-graph-2026-07`, the configured resident MiB, all verification passes completed, and a peak RSS at or above the plan's minimum. Verify the files before reporting completion.
-

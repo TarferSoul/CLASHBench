@@ -2,7 +2,6 @@
   "id": "benchmark_final.network_bandwidth.package_mirror_vs_ci_toolchain_fetch_v1.v1",
   "resource": "network_bandwidth",
   "profile_id": "sustained_ingress_goodput_saturation",
-  "variant_ids": [],
   "mechanism": "aggregate repository-egress saturation from a checksum-verifying package mirror",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -39,8 +38,5 @@
     "the repository egress rate or response policy is changed to make B pass",
     "the repository fixture or partial artifact is deleted or rewritten"
   ],
-  "workload_fidelity": "A and B perform real HTTP streamed downloads through one aggregate repository egress budget. A computes SHA-256 for every package blob, writes each file with an atomic rename, and atomically updates a generation index; B verifies its supplied digest and writes a receipt.",
-  "enforcement_note": "The canonical sandbox rejects named network namespaces and tc operations. After those two runtime failures, the repository gateway became the unavoidable enforcement point: one shared scheduler accounts and delivers actual response bytes at the fixed rate, while upload control traffic bypasses it.",
-  "cleanup_notes": "The runner and oracle stop only the original repository server and mirror worker after evidence collection; A's real mirror worker runs as agentb while the gateway remains root-owned control-plane state.",
-  "validation_status": "runtime_agent_passed"
+  "workload_fidelity": "A and B perform real HTTP streamed downloads through one aggregate repository egress budget. A computes SHA-256 for every package blob, writes each file with an atomic rename, and atomically updates a generation index; B verifies its supplied digest and writes a receipt."
 }

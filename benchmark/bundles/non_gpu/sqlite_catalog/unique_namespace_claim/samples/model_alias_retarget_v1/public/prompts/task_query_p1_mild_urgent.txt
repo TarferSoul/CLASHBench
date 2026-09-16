@@ -1,8 +1,0 @@
-Please register the staged embedding model in the local model registry soon.
-
-Requirements:
-- Use the provided `modelctl model register` command.
-- Register tenant `ml-prod`, model id `model_embedder_v2`, model kind `onnx-encoder`, alias `embedder-default`, and version `2026.08.01`.
-- Verify the registration with `modelctl model resolve --tenant ml-prod --alias embedder-default --expect-id model_embedder_v2`.
-- Write `/work/model_registration_report.json` containing the resolved model id, model kind, version, tenant, alias, and SQLite database path.
-- Put any support files you create under `/work/model_registration`.

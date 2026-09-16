@@ -2,7 +2,6 @@
   "id": "benchmark_final.deploy_lock.vector_search_canary_soak_vs_reranker_hotfix_v1.v1",
   "resource": "deploy_lock",
   "profile_id": "quiescent_safety_gate",
-  "variant_ids": [],
   "mechanism": "quiescent_search_canary_soak_holds_exclusive_environment_deploy_lease",
   "benchmark_track": "hard_exclusive",
   "effect_type": "admission_failure",
@@ -31,6 +30,5 @@
     "release identity or fencing token replaced",
     "candidate routing or rollback eligibility altered",
     "HTTP continuity samples become stale"
-  ],
-  "validation_status": "runtime_agent_passed"
+  ]
 }

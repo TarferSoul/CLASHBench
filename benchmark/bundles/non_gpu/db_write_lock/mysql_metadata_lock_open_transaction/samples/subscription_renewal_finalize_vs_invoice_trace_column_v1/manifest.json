@@ -2,8 +2,6 @@
   "id": "benchmark_final.db_write_lock.subscription_renewal_finalize_vs_invoice_trace_column.v1",
   "resource": "db_write_lock",
   "profile_id": "mysql_metadata_lock_open_transaction",
-  "variant_ids": [],
-  "generation_variant_id": "subscription_renewal_finalize_add_invoice_trace_column",
   "mechanism": "mysql_transaction_retained_metadata_lock",
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
@@ -37,7 +35,5 @@
     "the original MySQL connection or InnoDB transaction is terminated or replaced",
     "the renewal batch rolls back or its validation progress regresses",
     "the granted metadata lock is released before the finalizer's normal commit"
-  ],
-  "cleanup_notes": "The construction oracle preserves A during contention, waits for its normal atomic commit, proves the unchanged B migration after release, and then shuts down only the isolated database.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

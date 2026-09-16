@@ -2,14 +2,6 @@
   "id": "benchmark_final.flock_job.wheelhouse_cache_reconciler_vs_oneshot_repair_v1.v1",
   "resource": "flock_job",
   "profile_id": "continuous_exclusive_singleton",
-  "variant_ids": [
-    "aliased_path_same_inode"
-  ],
-  "metadata": {
-    "assigned_variant_id": "wheelhouse_cache_reconciler_vs_oneshot_repair_v1",
-    "expansion_variant": "v1",
-    "plan_sample_index": 0
-  },
   "benchmark_track": "hard_exclusive",
   "mechanism": "continuous singleton controller holds LOCK_EX on one wheelhouse cache lock inode while a one-shot repair command attempts the documented path alias",
   "incumbent_workload": "A long-lived wheelhouse cache reconciler verifies incoming wheel SHA256 sidecars, publishes PEP 503 project indexes, updates the wheelhouse manifest, records last_index_hash, and keeps a heartbeat status file while holding the singleton flock.",
@@ -41,7 +33,5 @@
     "wheelhouse manifest generation changed while the singleton remains active",
     "last_index_hash changed outside the reconciler lifecycle",
     "status heartbeat or process identity regressed"
-  ],
-  "cleanup_notes": "The private stop script terminates only the PID recorded for the incumbent reconciler in /run/wheelhouse-cache/reconciler.pid.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

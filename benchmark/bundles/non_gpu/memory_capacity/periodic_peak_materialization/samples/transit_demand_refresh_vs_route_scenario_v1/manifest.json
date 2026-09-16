@@ -2,7 +2,6 @@
   "id": "benchmark_final.memory_capacity.transit_demand_refresh_vs_route_scenario.v1",
   "resource": "memory_capacity",
   "profile_id": "periodic_peak_materialization",
-  "variant_ids": [],
   "mechanism": "phase_gated_old_and_new_materialization_exceeds_fixed_cgroup_capacity",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -38,14 +37,5 @@
     "published resident view dropped below its baseline floor",
     "generation sequence stopped advancing",
     "committed generation checksum or source configuration changed"
-  ],
-  "cleanup_notes": "The construction test stops the original refresh process group with SIGTERM only after overlap and post-peak recovery evidence are complete.",
-  "curation_requirements": {
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Observe at least two natural A peaks and start B from an explicit private phase plus measured memory threshold.",
-      "Correlate memory-specific B failure to the peak, validate A's generation, and show B success after A's peak occupancy is released."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

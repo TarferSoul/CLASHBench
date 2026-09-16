@@ -1,2 +1,0 @@
-Please apply the staged realtime feature view in `/work/staged-feature-views/user_velocity_10m.yaml` to the local feature-store registry using the supported `featurectl registry apply` workflow today. Validate that the registry contains the new entity, source, and feature view, then write `/work/feature_apply_report.json` with the applied object names, registry generation, checksum, and validation status.
-

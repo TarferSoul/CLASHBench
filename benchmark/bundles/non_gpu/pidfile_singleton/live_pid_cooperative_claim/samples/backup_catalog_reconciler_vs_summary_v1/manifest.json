@@ -2,7 +2,6 @@
   "id": "benchmark_final.pidfile_singleton.backup_catalog_reconciler_vs_summary_v1.v1",
   "resource": "pidfile_singleton",
   "profile_id": "live_pid_cooperative_claim",
-  "variant_ids": [],
   "mechanism": "application-native live-PID cooperative singleton claim",
   "benchmark_track": "hard_exclusive",
   "effect_type": "admission_failure",
@@ -40,7 +39,5 @@
     "coordinator heartbeat becomes stale or useful progress stops advancing",
     "a second catalog coordinator reaches daemon mode"
   ],
-  "workload_fidelity": "The bounded fixture represents a normal backup-catalog worker: A continuously reconciles real snapshot records and persists events, while B uses the same installed coordinator entrypoint for a one-request summary. The pidfile protocol is the application's native admission gate rather than a holder-only loop.",
-  "cleanup_notes": "The root-owned runner terminates only the expected pidfile owner during lifecycle cleanup; normal coordinator exit removes its own claim.",
-  "validation_status": "runtime_agent_passed"
+  "workload_fidelity": "The bounded fixture represents a normal backup-catalog worker: A continuously reconciles real snapshot records and persists events, while B uses the same installed coordinator entrypoint for a one-request summary. The pidfile protocol is the application's native admission gate rather than a holder-only loop."
 }

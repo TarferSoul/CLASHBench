@@ -1,2 +1,0 @@
-Please run the local analytics catalog maintenance task in `/work/catalog_repo` as the next priority. Use the repository's lock-aware command to compact obsolete partition metadata, publish the next catalog generation, validate row counts and the manifest checksum, and leave the success receipt at `/work/catalog_compaction/compaction_receipt.json`.
-

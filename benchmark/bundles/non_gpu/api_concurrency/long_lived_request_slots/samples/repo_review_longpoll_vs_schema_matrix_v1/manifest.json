@@ -2,7 +2,6 @@
   "id": "benchmark_final.api_concurrency.repo_review_longpoll_vs_schema_matrix_v1.v1",
   "resource": "api_concurrency",
   "profile_id": "long_lived_request_slots",
-  "variant_ids": [],
   "mechanism": "pinned-deployment hard API concurrency ledger occupied by four advancing long-form NDJSON review requests",
   "benchmark_track": "hard_capacity",
   "incumbent_workload": "A is a repository review pipeline that keeps four long schema-constrained code analyses open on the pinned review deployment, validates incremental findings, and updates per-revision checkpoints.",
@@ -18,7 +17,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "sandbox_requirements": {
     "cpu": "2",
     "memory": "3Gi"
@@ -37,6 +35,5 @@
     "any captured A analysis ID disappears before grading",
     "any A token index stops advancing",
     "the pinned review gateway identity or capacity ledger is reset"
-  ],
-  "cleanup_notes": "Release the original A pipeline, prove its four slots close, and rerun the unchanged three-repository matrix on the same pinned gateway generation."
+  ]
 }

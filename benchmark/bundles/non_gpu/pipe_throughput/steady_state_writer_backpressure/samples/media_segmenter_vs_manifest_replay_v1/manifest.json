@@ -2,7 +2,6 @@
   "id": "benchmark_final.pipe_throughput.media_segmenter_vs_manifest_replay_v1.v1",
   "resource": "pipe_throughput",
   "profile_id": "steady_state_writer_backpressure",
-  "variant_ids": [],
   "mechanism": "steady multi-producer FIFO writer backpressure against a fixed-rate media packaging daemon",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -37,7 +36,5 @@
     "packaging daemon terminated or replaced",
     "segment pipe device or inode replaced",
     "segmenter packaging progress stops or its checkpoint regresses"
-  ],
-  "cleanup_notes": "Normal cleanup sends SIGTERM to the original segmenter and packaging daemon after grading. The oracle stops only A before its recovery replay and confirms the same consumer and FIFO remain in use.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

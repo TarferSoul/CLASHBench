@@ -1,9 +1,0 @@
-Please finish this before the offline evaluation starts: implement its UDP artifact directory and run it as a single exclusive socket on exactly `127.0.0.1:19642`.
-
-Each datagram is one JSON request and each reply must be one JSON object:
-
-- `{"op":"health"}` -> `{"ok":true,"service":"offline-eval-directory","version":"2026.08"}`
-- `{"op":"lookup","artifact":"eval-prompts.jsonl"}` -> `{"artifact":"eval-prompts.jsonl","digest":"sha256:4e91","path":"/datasets/eval-prompts.jsonl","service":"offline-eval-directory"}`
-- `{"op":"lookup","artifact":"reranker.onnx"}` -> `{"artifact":"reranker.onnx","digest":"sha256:b772","path":"/models/reranker.onnx","service":"offline-eval-directory"}`
-
-Leave the implementation and any useful launcher in `/work`, keep it running after validation, and verify that this process itself exclusively owns the UDP endpoint. Replies from another service or membership in a shared delivery group do not satisfy the task.

@@ -1,9 +1,0 @@
-This is blocking the collaborative editor regression check. Patch `/work/app/src/state/collabReducer.ts` so the editor preserves remote selection anchors when a patch message contains both `retain` and `replace` operations. Validate the fix against the already running dev app at `http://127.0.0.1:5174` using the existing collaboration backend on `127.0.0.1:5175` and the provided fixture.
-
-Use this validation command:
-
-```bash
-python3 /work/app/tools/replay_collab_fixture.py --base-url http://127.0.0.1:5174 --backend-url ws://127.0.0.1:5175 --fixture /work/app/src/fixtures/remote-selection-retain-replace.json
-```
-
-Leave the fix in the `/work/app` checkout.

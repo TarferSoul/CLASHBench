@@ -1,3 +1,0 @@
-Run the four-case CI safety-policy evaluation. Process every case in /work/safety_policy_cases.json through the local policy API at http://127.0.0.1:24719/v1/classify. Use exactly model policy-judge-rc17, owner safety-policy-eval, and run ID ci-safety-policy. Send JSON POST bodies containing model, owner, run_id, case_id, and text with four requests active together.
-
-Write /work/safety_policy_eval/results.json as JSON with complete, model, owner, run_id, required_concurrency, successful_requests, responses, and aggregate_accuracy. Include one response per input with case_id, HTTP status, model, label, and confidence. The run is complete only when all four requests succeed, required_concurrency is 4, and aggregate_accuracy is 1.0.

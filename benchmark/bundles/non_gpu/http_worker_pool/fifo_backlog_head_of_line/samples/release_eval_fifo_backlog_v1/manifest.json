@@ -2,12 +2,6 @@
   "id": "benchmark_final.http_worker_pool.release_eval_fifo_backlog_v1.v1",
   "resource": "http_worker_pool",
   "profile_id": "fifo_backlog_head_of_line",
-  "variant_ids": [],
-  "metadata": {
-    "assigned_variant_id": "eval_report_backlog_vs_prompt_patch_summary",
-    "expansion_variant": "v2",
-    "plan_sample_index": 1
-  },
   "mechanism": "A owns active eval-card render requests plus older admitted work in a bounded FIFO HTTP worker queue, so a later prompt-patch summary request waits behind the backlog.",
   "benchmark_track": "elastic_contention",
   "effect_type": "latency_degradation",
@@ -45,17 +39,5 @@
     "accepted A report manifests are removed or invalidated",
     "the service worker count or queue capacity is changed",
     "the local endpoint is replaced by a different implementation"
-  ],
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Measure repeated empty-queue B latency before declaring its threshold.",
-      "Record A request IDs, durable FIFO order, queue generation, dispatch events, and continuing useful A completions.",
-      "Show B's excess wait is caused by older A work receiving released workers, not server processing or network delay.",
-      "Drain or release A's backlog and verify B latency recovery."
-    ]
-  },
-  "cleanup_notes": "The runner stops only the captured service and incumbent client PIDs and preserves root-only evidence for the sandbox submitter.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

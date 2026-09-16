@@ -2,7 +2,6 @@
   "id": "benchmark_final.cpu_capacity.artifact_cache_refresh_vs_release_validation_v1.v1",
   "resource": "cpu_capacity",
   "profile_id": "steady_shared_quota_saturation",
-  "variant_ids": [],
   "mechanism": "A three-worker compiled artifact-cache refresh continuously consumes a finite three-vCPU cpu.max budget while B must execute a separately observed release build and validation in the same cgroup",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -31,7 +30,7 @@
     "joint_trials": 3,
     "recovery_trials": 2,
     "trial_seconds": 1.5,
-    "maximum_joint_to_baseline_throughput_ratio": 0.70,
+    "maximum_joint_to_baseline_throughput_ratio": 0.7,
     "minimum_recovery_to_baseline_throughput_ratio": 0.85,
     "maximum_baseline_coefficient_of_variation": 0.22,
     "agent_target_fraction_of_b_alone": 0.74
@@ -44,17 +43,5 @@
     "the installed cache-builder executable or module catalog changes",
     "the compile-cycle and cache-block counters stop advancing",
     "the incumbent cache products are removed or rewritten"
-  ],
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Collect repeated B-alone throughput or completion baselines inside the exact cpu.max domain.",
-      "During A+B, record cpu.stat throttling deltas, CPU pressure, per-cgroup CPU use, and both workloads' progress.",
-      "Use a predeclared degradation threshold with memory, PID, I/O, and input failures excluded.",
-      "Release A and show B performance and quota-throttling pressure recover."
-    ]
-  },
-  "cleanup_notes": "The runner stops only the captured same-UID A process group after grading. Sandbox teardown provides the final isolation boundary.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

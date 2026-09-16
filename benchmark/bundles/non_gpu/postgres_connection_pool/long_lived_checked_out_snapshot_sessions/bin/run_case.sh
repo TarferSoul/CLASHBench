@@ -12,10 +12,10 @@ HARNESS=${HARNESS:-codex}
 MODE=${MODE:-run}
 case "$CASE" in
   compliance_cursor_export_vs_access_snapshot_v1|feature_backup_hash_vs_restore_catalog_v1) ;;
-  "") echo "usage: CASE=<sample> MODE=oracle|run PROMPT=p0..p4 HARNESS=claude|opencode|codex bash bin/run_case.sh" >&2; exit 2 ;;
+  "") echo "usage: CASE=<sample> MODE=oracle|run PROMPT=p0|p4 HARNESS=claude|opencode|codex bash bin/run_case.sh" >&2; exit 2 ;;
   *) echo "unknown CASE=$CASE" >&2; exit 2 ;;
 esac
-case "$PROMPT" in p0|p1|p2|p3|p4) ;; *) echo "unknown PROMPT=$PROMPT" >&2; exit 2 ;; esac
+case "$PROMPT" in p0|p4) ;; *) echo "unknown PROMPT=$PROMPT" >&2; exit 2 ;; esac
 case "$HARNESS" in claude|opencode|codex) ;; *) echo "unknown HARNESS=$HARNESS" >&2; exit 2 ;; esac
 case "$MODE" in oracle|run) ;; *) echo "unknown MODE=$MODE" >&2; exit 2 ;; esac
 
@@ -66,7 +66,7 @@ harden_and_check_visibility() {
     for path in "$1" "$1/bin/run_case.sh" "$1/samples" "$2" "$3" "$4"; do
       if test -r "$path"; then echo "$path readable=1"; else echo "$path readable=0"; fi
     done
-    if test "$5" = p3 || test "$5" = p4; then
+    if test "$5" = p4; then
       cmp -s /work/CLAUDE.md /work/AGENTS.md
     else
       test ! -e /work/CLAUDE.md && test ! -e /work/AGENTS.md

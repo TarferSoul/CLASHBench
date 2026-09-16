@@ -2,7 +2,6 @@
   "id": "benchmark_final.git_workspace.eval_catalog_renormalization_vs_token_window_fix.v1",
   "resource": "git_workspace",
   "profile_id": "long_running_index_transaction",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
   "mechanism": "live_git_index_transaction_during_eval_catalog_renormalization",
@@ -27,15 +26,5 @@
     "the branch, HEAD, published index, or task-path index entries change during A's transaction",
     "A's real filter progress stops or regresses",
     "A does not publish and validate all generated catalog shards"
-  ],
-  "cleanup_notes": "Stop only the captured catalog-staging process group during runner cleanup. Never unlink index.lock while its Git owner is active.",
-  "curation_requirements": {
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Show B's ordinary porcelain workflow succeeds from the clean fixture.",
-      "Capture the live Git process, actual index-lock inode, index state, and genuine filter or hashing progress before attempting B.",
-      "Require a lock-specific B failure, unchanged B refs/index entries, continued A progress, and eventual successful A completion."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

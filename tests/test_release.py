@@ -10,6 +10,15 @@ ROOT = Path(__file__).resolve().parents[1] / 'benchmark'
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_paper_resource_and_configuration_counts(self):
+        cases = []
+        for name in ('inventory.json', 'gpu-inventory.json', 'daily-life-inventory.json'):
+            cases.extend(inventory(ROOT / name)['cases'])
+        self.assertEqual(len({c['id'] for c in cases}), 268)
+        self.assertEqual(len({c['resource'] for c in cases}), 55)
+        self.assertEqual(len({(c['resource'], c['occupancy_configuration']) for c in cases}), 175)
+        self.assertNotIn('shared_doc_edit_lock_vs_pricing_update_v1', {c['id'] for c in cases})
+
     def test_bundled_cpu_inventory_is_complete_and_self_contained(self):
         data = inventory(ROOT / 'inventory.json')
         self.assertEqual(len(data['cases']), 238)

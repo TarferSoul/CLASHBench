@@ -1,5 +1,0 @@
-Implement and run the recovery-event replay client for the local CI event
-collector, using `/work/ci_events/recovery_events.jsonl` and
-`/work/ci_events/protocol.md`. Send all sixteen events through
-`/work/ci_events/events.fifo`, verify every receipt and payload digest, and
-write the complete report to `/work/output/ci_recovery_report.json`.

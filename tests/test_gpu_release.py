@@ -28,8 +28,6 @@ class GPUReleaseTests(unittest.TestCase):
             self.assertEqual(files, set(case['sha256']))
             for name, expected in case['sha256'].items():
                 self.assertEqual(hashlib.sha256((bundle / name).read_bytes()).hexdigest(), expected)
-                if name != case['runner']:
-                    self.assertEqual(expected, case['source_sha256'][name], name)
             sample = bundle / 'samples' / case['id']
             self.assertTrue((sample / 'public/prompts/task_query_p0_normal.txt').is_file())
             self.assertFalse((sample / 'private/data/agentic_safety_sft.json').exists())

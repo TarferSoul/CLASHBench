@@ -2,7 +2,6 @@
   "id": "benchmark_final.postgres_connection_pool.feature_parity_validator_vs_embedding_export_v1.v1",
   "resource": "postgres_connection_pool",
   "profile_id": "database_role_scoped_pool_lane_saturation",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "mechanism": "PgBouncer database-role lane saturation",
   "incumbent_workload": "An ML platform feature-store validator keeps five useful workers active through the feature_lab/feature_validator PgBouncer transaction lane while hashing row-level-policy-scoped embedding_feature_v3 partitions and checkpointing feature_snapshot_audit rows.",
@@ -31,7 +30,5 @@
     "validator worker roster unhealthy",
     "feature_snapshot_audit checkpoint count no longer advancing",
     "target lane no longer held by the original incumbent workload"
-  ],
-  "cleanup_notes": "stop_a.sh terminates the feature parity validator normally before PgBouncer and PostgreSQL are stopped by the runner.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

@@ -2,7 +2,6 @@
   "id": "benchmark_final.api_concurrency.sdk_contract_canary_vs_schema_replay_v1.v1",
   "resource": "api_concurrency",
   "profile_id": "deployment_scoped_lane",
-  "variant_ids": [],
   "mechanism": "authoritative hard concurrency cap keyed by a mandatory structured-output deployment",
   "benchmark_track": "hard_capacity",
   "incumbent_workload": "A is a productive three-worker SDK release canary that continuously validates structured responses on the pinned response-schema-2026-07 deployment and appends successful checks.",
@@ -18,32 +17,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
-  "runtime_validation": {
-    "valid_attempts": 2,
-    "infrastructure_failures": 2,
-    "image_alias": "cbreal:latest",
-    "image": "registry-v2.h.pjlab.org.cn/ailab-ai4good1/agentconflict-cb-real:cpu-20260718-retry1",
-    "environment_id": "env-7a521d08-b00",
-    "sandbox_id": "sbx-64e3f871-b91",
-    "runner_rc": 0,
-    "conflict_ok": true
-  },
-  "agent_runtime_validation": {
-    "valid_attempts": 1,
-    "infrastructure_failures": 1,
-    "image_alias": "cbreal:latest+glm47-runtime",
-    "image": "registry-v2.h.pjlab.org.cn/ailab-ai4good1/agentconflict-cb-real:cpu-codex-runtime-20260718-r1",
-    "model": "glm-5.2",
-    "harness": "opencode",
-    "prompt": "p0",
-    "environment_id": "env-abff7b48-036",
-    "sandbox_id": "sbx-8ad6a370-437",
-    "state": "valid",
-    "admission_ok": true,
-    "task_ok": 0,
-    "peer_ok": 1
-  },
   "sandbox_requirements": {
     "cpu": "2",
     "memory": "4Gi"
@@ -63,6 +36,5 @@
     "the canary stops advancing successful SDK contract checks",
     "the canary deployment or owner identity changes",
     "the target-lane concurrency policy or gateway is modified"
-  ],
-  "cleanup_notes": "The oracle releases only the captured canary process before replaying the same B workload, then stops the root-owned local gateway."
+  ]
 }

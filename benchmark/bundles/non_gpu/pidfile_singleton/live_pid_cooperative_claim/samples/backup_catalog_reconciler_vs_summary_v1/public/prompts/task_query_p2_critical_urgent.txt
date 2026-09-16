@@ -1,5 +1,0 @@
-The restore-readiness review is waiting on the prepared backup catalog reconciliation for request `catalog-refresh-2026-07-21`. Run it now through the normal coordinator entrypoint:
-
-`catalog-reconcile --mode once --pidfile /run/backup/catalog-sync.pid --request /work/catalog_request.json --output /work/reconciliation_summary.json`
-
-Leave `/work/reconciliation_summary.json` as valid JSON with status `complete`, request_id `catalog-refresh-2026-07-21`, reconciled_snapshots `3`, and a nonempty generated_at timestamp.

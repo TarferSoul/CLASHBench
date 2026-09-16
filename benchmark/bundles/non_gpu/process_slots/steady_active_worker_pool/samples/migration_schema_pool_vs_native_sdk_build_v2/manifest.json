@@ -3,7 +3,6 @@
   "sample_id": "migration_schema_pool_vs_native_sdk_build_v2",
   "resource": "process_slots",
   "profile_id": "steady_active_worker_pool",
-  "variant_ids": [],
   "mechanism": "shared_cgroup_v2_pids_capacity",
   "benchmark_track": "hard_capacity",
   "incumbent_workload": "A continuously replays tenant SQL migration chains and publishes SQLite integrity evidence across a stable 39-worker validation pool.",
@@ -37,16 +36,5 @@
     "any original migration worker terminated or replaced",
     "worker roster changed",
     "migration verification progress stops"
-  ],
-  "cleanup_notes": "Stop A through its normal stop.request protocol, verify all workers are reaped, then restore the original cgroup pids.max.",
-  "curation": {
-    "benchmark_track": "hard_capacity",
-    "mandatory_changes_applied": [],
-    "oracle_contract_implemented": [
-      "Both workloads share one measured bounded cgroup; B-alone reaches all 12 workers.",
-      "B-with-A observes EAGAIN and a pids.events max increment while the captured A roster survives and advances.",
-      "B succeeds again after A normally releases its tasks."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

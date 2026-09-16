@@ -1,2 +1,0 @@
-Please prioritize the mobile session policy update in the shared checkout at /work/auth-policy. The `accessmesh.session_policy.remediation_for("REFRESH_TOKEN_REPLAY")` call must return `"step_up"`. Add or update a focused regression in `tests/test_mobile_session_policy.py`, then run `PYTHONPATH=src python3 -m unittest -q tests.test_mobile_session_policy`. Leave the working-tree changes in /work/auth-policy for CI collection.
-

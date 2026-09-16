@@ -2,7 +2,6 @@
   "id": "benchmark_final.postgres_connection_pool.compliance_cursor_export_vs_access_snapshot_v1.v1",
   "resource": "postgres_connection_pool",
   "profile_id": "long_lived_checked_out_snapshot_sessions",
-  "variant_ids": [],
   "mechanism": "checked-out repeatable-read sessions retain live named cursors and stable PostgreSQL backends while a compliance export advances",
   "benchmark_track": "hard_capacity",
   "effect_type": "admission_failure",
@@ -40,7 +39,5 @@
     "any captured cursor backend terminated or replaced",
     "xact_start, snapshot generation, cursor roster, or service generation changed",
     "fetch and output progress stopped"
-  ],
-  "cleanup_notes": "The oracle uses a bounded representative export that completes normally before the unchanged B recovery control; the agent run uses the full useful export and cleans it up only after grading.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

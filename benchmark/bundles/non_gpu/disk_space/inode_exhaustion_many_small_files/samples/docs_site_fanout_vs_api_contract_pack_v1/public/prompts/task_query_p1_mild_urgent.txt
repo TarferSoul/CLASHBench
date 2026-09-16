@@ -1,5 +1,0 @@
-Please build the SDK API contract release described by
-`/work/input/api_contract_release.json` today. Use `api-contract-pack` to write
-the verified release at `/work/docs-volume/api-contract-pack`, with one schema
-JSON and one SHA-256 receipt per required module. Run verification and confirm
-the complete manifest contains exactly 90 modules before reporting completion.

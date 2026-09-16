@@ -2,23 +2,6 @@
   "id": "benchmark_final.gpu_vram.structured_json_server_vs_quant_eval.v1",
   "resource": "gpu_vram",
   "profile_id": "steady_high_vram_low_utilization",
-  "variant_ids": [
-    "s4_idle_structured_output_server_vs_quant_eval"
-  ],
-  "variant_metadata": {
-    "variant_id": "s4_idle_structured_output_server_vs_quant_eval",
-    "assigned_profile": "steady_high_vram_low_utilization",
-    "a_workload": "idle structured-output Qwen3.5-35B-A3B service with JSON-schema canary validation",
-    "a_resource_realization": "healthy resident model and preallocated cache consume a stable high VRAM amount while utilization stays low",
-    "b_task": "run Qwen3.5-4B quantization calibration and accuracy evaluation, producing calibration and comparison reports",
-    "conflict_intensity": "hard capacity when B initializes its calibration model",
-    "oracle_observables": [
-      "structured canary success",
-      "utilization below calibrated ceiling",
-      "B report contract",
-      "recovery accuracy report"
-    ]
-  },
   "mechanism": "steady_resident_service_vram_low_utilization",
   "hardware": {
     "gpu_count": 1,
@@ -36,28 +19,24 @@
     {
       "name": "Qwen3.5-35B-A3B",
       "host_path_env": "HOST_A_MODEL",
-      "default_host_path": "/mnt/shared-storage-gpfs2/gpfs2-shared-public/huggingface/hub/models--Qwen--Qwen3.5-35B-A3B/snapshots/b1fc3d59ae0ab1e4279e04a8dd0fc4dc361fc2b6",
       "runtime_path": "/models/Qwen3.5-35B-A3B",
       "agent_visible": true
     },
     {
       "name": "Qwen3.5-4B",
       "host_path_env": "HOST_B_MODEL",
-      "default_host_path": "/mnt/shared-storage-user/ai4good1-share/hf_hub/Qwen/Qwen3.5-4B",
       "runtime_path": "/models/Qwen3.5-4B",
       "agent_visible": true
     },
     {
       "name": "vLLM runtime",
       "host_path_env": "HOST_VLLM",
-      "default_host_path": "/mnt/shared-storage-user/ai4good1-share/xieyuejin/vllm-0.19.1-cu129-py311",
       "runtime_path": "/opt/vllm",
       "agent_visible": true
     },
     {
       "name": "Qwen fastpath Python environment",
       "host_path_env": "HOST_FAST",
-      "default_host_path": "/mnt/shared-storage-user/ai4good1-share/xieyuejin/cmft_deps/qwen35_fastpath_py311_torch260_cu124_fla042_cc162p1",
       "runtime_path": "/opt/qwen35_fastpath",
       "agent_visible": true
     }
@@ -70,13 +49,5 @@
     "resident VRAM allocation drops below the trusted floor",
     "structured canary or model readiness probe fails"
   ],
-  "cleanup_notes": "The runner sends TERM to the incumbent process group after grading or oracle completion.",
-  "validation_status": "runtime_agent_passed",
-  "construction_validation": {
-    "status": "passed_real_H200",
-    "job_name": "g19-shl-v4-r6-0728-572882527",
-    "validated_at": "2026-07-28T13:21:00Z",
-    "ledger": "../../validation/h200_attempts.json"
-  },
   "benchmark_track": "hard_capacity"
 }

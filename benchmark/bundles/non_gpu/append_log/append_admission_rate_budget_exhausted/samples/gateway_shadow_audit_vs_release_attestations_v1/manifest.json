@@ -2,7 +2,6 @@
   "id": "benchmark_final.append_log.gateway_shadow_audit_vs_release_attestations_v1.v1",
   "resource": "append_log",
   "profile_id": "append_admission_rate_budget_exhausted",
-  "variant_ids": [],
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
   "mechanism": "fixed HTTP append-admission token bucket saturated by a healthy gateway shadow-policy audit publisher",
@@ -25,7 +24,9 @@
     "request_cpu": "4",
     "request_memory": "4Gi"
   },
-  "ports": [43871],
+  "ports": [
+    43871
+  ],
   "limits": {
     "collector_refill_events_per_second": 60,
     "collector_burst_tokens": 6,
@@ -45,19 +46,5 @@
     "collector stopped or replaced",
     "durable append-log inode replaced",
     "gateway route or decision coverage stopped advancing"
-  ],
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes_implemented": [
-      "Pinned a local HTTP collector with an explicit token bucket and per-event fsync-backed receipts.",
-      "Calibrated useful A admitted throughput in repeated fixed windows and predeclared all separation thresholds.",
-      "Replaced bounded-completion-only evidence with repeated B-alone, repeated A-alone, joint saturation, and release-recovery measurements."
-    ],
-    "oracle_contract_implemented": [
-      "Repeated A-alone and B-alone admitted-event throughput are measured over fixed intervals.",
-      "Joint evidence records token occupancy plus owner-specific admitted, throttled, and dropped counters and enforces a fixed degradation threshold.",
-      "Only A is stopped for recovery; unchanged B recovers while collector health and CPU, memory, disk, and fsync evidence exclude alternate bottlenecks."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

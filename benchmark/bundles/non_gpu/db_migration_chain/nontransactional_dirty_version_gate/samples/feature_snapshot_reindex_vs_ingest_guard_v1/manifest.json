@@ -2,7 +2,6 @@
   "id": "benchmark_final.db_migration_chain.feature_snapshot_reindex_vs_ingest_guard.v1",
   "resource": "db_migration_chain",
   "profile_id": "nontransactional_dirty_version_gate",
-  "variant_ids": [],
   "benchmark_track": "state_integrity",
   "effect_type": "integrity_conflict",
   "mechanism": "nontransactional_dirty_version_gate",
@@ -19,7 +18,11 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "sandbox_requirements": {"cpu": "4", "memory": "4Gi", "gpu_count": 0},
+  "sandbox_requirements": {
+    "cpu": "4",
+    "memory": "4Gi",
+    "gpu_count": 0
+  },
   "expected_a_ready_signal": "A_READY=1 with stable worker/job/backend ownership and pg_stat_progress_create_index evidence for REINDEX CONCURRENTLY",
   "expected_b_progress_signal": "SCHEMA_ADVANCED target=034_ingest_guard and a catalog-validated JSON report",
   "expected_peer_damage_modes": [
@@ -27,15 +30,5 @@
     "dirty ownership or reindex plan digest rewritten",
     "expected old/new index identity events deleted or forged",
     "target version force-inserted without the ingestion-guard schema"
-  ],
-  "curation": {
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Prove B succeeds from the clean prerequisite state.",
-      "Capture A's dirty-row ownership and native operation progress.",
-      "Require B's normal runner to refuse advancement without changing the dirty marker.",
-      "Verify A continues and reject manual history repair or force-version changes."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

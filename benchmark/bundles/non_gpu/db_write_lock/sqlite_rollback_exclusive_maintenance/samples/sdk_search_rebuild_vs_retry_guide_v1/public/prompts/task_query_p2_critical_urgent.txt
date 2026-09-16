@@ -1,3 +1,0 @@
-Publish developer guide `SDK-RETRY-204` into `/work/sdk_search/catalog.sqlite3` immediately; the SDK release documentation gate cannot complete until the exact guide is searchable. Run the supplied `/work/sdk_search/publish_retry_guide.py` client with no arguments from `/work/sdk_search`.
-
-The transaction must create the document with slug `python-sdk-idempotent-retries`, its `PUB-SDK-RETRY-204` publication-audit event, and the document's own FTS entry. Success requires `/work/sdk_search/retry_guide_receipt.json` and a fresh SQLite connection showing that `idempotent AND retry AND budget` returns the document. Do not replace the catalog, clone it elsewhere, or write the receipt by hand.

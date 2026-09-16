@@ -1,5 +1,0 @@
-Please install the lab integration CA bundle for the legacy edge-auth client in this container soon; another check is waiting on the fixed trust path.
-
-Use `certs/mozilla_subset.pem` and `certs/lab_auth_ca.pem` to build the combined trust bundle at `/etc/edge/trust/current.pem`. Then run the provided validator for `https://legacy-auth.local` and write the report to `reports/legacy_tls.json`.
-
-The validator must read `/etc/edge/trust/current.pem` after its delayed stability check. Keep the final bundle at that exact path with mode `0644`; do not use `SSL_CERT_FILE`, a sidecar CA path, or a modified validator.

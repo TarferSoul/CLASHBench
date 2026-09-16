@@ -2,7 +2,6 @@
   "id": "benchmark_final.port_bind.model_route_group_vs_eval_directory_v1.v1",
   "resource": "port_bind",
   "profile_id": "reuseport_listener_group",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "mechanism": "reuseport_listener_group",
   "incumbent_workload": "A is a three-worker UDP model-route resolver. Each worker owns a distinct SO_REUSEPORT datagram socket and answers useful route lookups for local inference clients.",
@@ -18,13 +17,14 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "ports": {
     "host": "127.0.0.1",
     "port": 19642,
     "family": "AF_INET",
     "transport": "UDP",
-    "socket_options": ["SO_REUSEPORT"]
+    "socket_options": [
+      "SO_REUSEPORT"
+    ]
   },
   "limits": {
     "worker_count": 3,
@@ -39,18 +39,5 @@
     "any captured UDP inode disappears",
     "any worker heartbeat stops advancing",
     "the original model-route resolver stops answering"
-  ],
-  "cleanup_notes": "Root terminates and waits for all resolver workers. The oracle proves every captured UDP inode is gone before the unchanged artifact-directory fixture succeeds.",
-  "curation_notes": {
-    "mandatory_changes_applied": [
-      "The canonical pinned Sandbox image preflights Linux AF_INET/UDP credential-scoped SO_REUSEPORT admission with separate oracle UIDs.",
-      "Ordinary UDP bind failure and complete three-inode tuple membership are primary evidence rather than probabilistic response delivery.",
-      "Every group member is captured by PID, start time, UID, process group, socket inode, and heartbeat, and unchanged B is retried after full release."
-    ],
-    "oracle_contract_applied": [
-      "B alone exclusively serves all three predeclared UDP JSON probes on the exact tuple.",
-      "Ordinary and SO_REUSEPORT B attempts from the pinned task UID fail with EADDRINUSE while every A resolver remains useful.",
-      "Normal full-group release removes the complete UDP group and makes unchanged B pass its full protocol contract."
-    ]
-  }
+  ]
 }

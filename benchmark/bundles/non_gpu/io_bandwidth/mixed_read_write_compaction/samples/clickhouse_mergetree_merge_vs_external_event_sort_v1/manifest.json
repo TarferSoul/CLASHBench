@@ -2,10 +2,6 @@
   "id": "benchmark_final.io_bandwidth.clickhouse_mergetree_merge_vs_external_event_sort_v1.v2",
   "resource": "io_bandwidth",
   "profile_id": "mixed_read_write_compaction",
-  "variant_id": "clickhouse_mergetree_merge_vs_external_event_sort_v1",
-  "variant_ids": [
-    "distributed_multi_worker_io"
-  ],
   "mechanism": "A ClickHouse-style MergeTree maintenance service runs a normal multi-worker part-merge cycle that reads existing part files and writes durable replacement part directories while B externally sorts independent event partitions on the same backing filesystem.",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -47,20 +43,5 @@
     "query probes over the incumbent part catalog fail",
     "A's data directory is moved away from the device backing B's scratch path"
   ],
-  "workload_fidelity": "The base sandbox does not ship a ClickHouse server. This sample therefore uses a bounded local MergeTree-compatible maintenance harness with real filesystem part directories, checksums, primary-index marks, merge task IDs, background worker PIDs, semantic query probes, atomic publication, and durable mixed read/write I/O. It preserves the approved storage mechanism without introducing a scheduler, quota service, or control plane.",
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Prove B completes and validates alone on independent logical files on the same device.",
-      "During A+B, measure contemporaneous device reads, writes, latency, queueing, and both workloads' phase progress.",
-      "Exclude shared-file locks, corruption, space, CPU, and memory as alternate causes.",
-      "After A's compaction ends, rerun unchanged B and demonstrate recovery."
-    ],
-    "variant_oracle_contract": [
-      "The distributed worker topology is assigned to mixed_read_write_compaction and records aggregate worker and device evidence."
-    ]
-  },
-  "cleanup_notes": "The runner stops only the captured incumbent process group during cleanup and stores validation evidence under the root-owned artifact archive.",
-  "validation_status": "runtime_agent_passed"
+  "workload_fidelity": "The base sandbox does not ship a ClickHouse server. This sample therefore uses a bounded local MergeTree-compatible maintenance harness with real filesystem part directories, checksums, primary-index marks, merge task IDs, background worker PIDs, semantic query probes, atomic publication, and durable mixed read/write I/O. It preserves the approved storage mechanism without introducing a scheduler, quota service, or control plane."
 }

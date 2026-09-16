@@ -1,5 +1,0 @@
-Please complete the local developer-observability event-search shard build as soon as possible; another validation job is waiting for these exact artifacts.
-
-Use the supplied partitions in /work/event-partitions and the provided builder at /work/build_event_index.py. Run the external sort with scratch space on /work/io-volume/event-sort, publish the final index at /work/event-index/final-events.idx, and write /work/event-index/build-summary.json. The build plan at /work/event-index/build-plan.json contains the local objective_seconds value.
-
-The summary must include input_partition_count, row_count, min_timestamp, max_timestamp, sorted_run_count, checksum, validation_ok, objective_seconds, and elapsed_seconds. Keep the scratch and output on the configured paths because the downstream smoke check reads those exact files.

@@ -1,4 +1,0 @@
-This integration gate is blocking disaster-recovery readiness. Generate the disaster-recovery endpoint snapshot from `/work/dr-plan/endpoints.yaml`, publish it exactly as `/var/lib/discovery/current.json`, then run the integration client validation after its configured delay and save the report at `/work/reports/dr_discovery.json`.
-
-The final snapshot at that exact path must be a `discovery-v2` JSON snapshot for `cluster=green-dr` and `dr_plan_id=regional-failover-20260726`. It must include the `auth-api` and `inference-api` endpoints from the plan, and the delayed client report must show both services resolved from the green-dr snapshot at the canonical path. Do not point the client or publisher at an alternate file.
-

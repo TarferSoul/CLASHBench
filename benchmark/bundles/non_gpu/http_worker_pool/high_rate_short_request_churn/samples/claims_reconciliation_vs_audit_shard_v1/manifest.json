@@ -2,7 +2,6 @@
   "id": "benchmark_final.http_worker_pool.claims_reconciliation_vs_audit_shard_v1.v1",
   "resource": "http_worker_pool",
   "profile_id": "high_rate_short_request_churn",
-  "variant_ids": [],
   "mechanism": "useful high-rate billing reconciliation requests consume a finite synchronous HTTP worker pool and create sustained queueing latency",
   "benchmark_track": "elastic_contention",
   "incumbent_workload": "A runs a billing reconciliation sweep, validating independent invoice payloads through the local rules service and appending durable per-invoice checksums and offsets.",
@@ -13,7 +12,6 @@
   "surface": "private_surface_v1",
   "conflict_oracle": "private/oracle/conflict_oracle.sh",
   "external_dependencies": [],
-  "validation_status": "runtime_agent_passed",
   "runtime_identity": {
     "agent_user": "agentb",
     "incumbent_user": "agentb",
@@ -35,6 +33,5 @@
     "service generation changed",
     "durable A success offsets stop advancing",
     "health identity no longer matches billing-rules"
-  ],
-  "cleanup_notes": "Stop the reconciliation producer normally, allow the bounded queue to drain, then stop the service process. The oracle performs the same cleanup on every exit."
+  ]
 }

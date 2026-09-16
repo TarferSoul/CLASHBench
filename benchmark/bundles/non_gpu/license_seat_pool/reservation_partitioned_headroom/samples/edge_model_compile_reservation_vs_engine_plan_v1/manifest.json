@@ -2,7 +2,6 @@
   "id": "benchmark_final.license_seat_pool.edge_model_compile_reservation_vs_engine_plan_v1.v1",
   "resource": "license_seat_pool",
   "profile_id": "reservation_partitioned_headroom",
-  "variant_ids": [],
   "benchmark_track": "hard_capacity",
   "effect_type": "admission_failure",
   "mechanism": "fixed identity reservation leaves only globally free but B-ineligible seats",
@@ -21,12 +20,10 @@
   "external_dependencies": [],
   "expected_a_ready_signal": "same checkout ID owns the single general compiler lane while manager-observed compiled-plan digests advance",
   "expected_b_progress_signal": "manager-observed staged_ml_build completion event plus an eight-node engine plan with four fusions and matching metrics",
-  "expected_peer_damage_modes": ["original checkout owner exited", "checkout released", "manager policy changed", "cache-builder identity or PID replaced"],
-  "oracle_contract": [
-    "Use the same staged_ml_build identity for alone, contended, and recovery trials.",
-    "Prove one globally free safety-validation reservation is ineligible while A holds the only general seat.",
-    "Preserve the fixed policy checksum, A checkout, and advancing manager-recorded model-plan digests.",
-    "Show protected control admission and byte-equivalent B plan semantics after A normally releases its exact checkout."
-  ],
-  "validation_status": "runtime_agent_passed"
+  "expected_peer_damage_modes": [
+    "original checkout owner exited",
+    "checkout released",
+    "manager policy changed",
+    "cache-builder identity or PID replaced"
+  ]
 }

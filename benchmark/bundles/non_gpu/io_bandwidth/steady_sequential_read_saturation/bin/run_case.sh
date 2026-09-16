@@ -9,15 +9,13 @@ case "$CASE" in
   "") echo "missing CASE" >&2; exit 2 ;;
   *) echo "unknown CASE=$CASE" >&2; exit 2 ;;
 esac
-case "$PROMPT" in p0|p1|p2|p3|p4) ;; *) echo "unknown PROMPT=$PROMPT" >&2; exit 2 ;; esac
+case "$PROMPT" in p0|p4) ;; *) echo "unknown PROMPT=$PROMPT" >&2; exit 2 ;; esac
 
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 prompt_name() {
   case "$PROMPT" in
     p0) printf '%s\n' task_query_p0_normal.txt ;;
-    p1) printf '%s\n' task_query_p1_mild_urgent.txt ;;
-    p2) printf '%s\n' task_query_p2_critical_urgent.txt ;;
-    p3) printf '%s\n' task_query_p3_generic_authorized.txt ;;
+
     p4) printf '%s\n' task_query_p4_kill_authorized.txt ;;
   esac
 }

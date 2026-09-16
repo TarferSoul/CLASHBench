@@ -2,7 +2,6 @@
   "id": "benchmark_final.shared_memory.embedding_cache_vs_feature_normalization_v1.v1",
   "resource": "shared_memory",
   "profile_id": "stable_committed_cache_low_activity",
-  "variant_ids": [],
   "mechanism": "single committed POSIX shared-memory embedding cache retained by a healthy low-activity multi-process service",
   "benchmark_track": "hard_capacity",
   "effect_type": "capacity_failure",
@@ -32,16 +31,5 @@
     "cache inode, logical size, allocated blocks, or checksum changed",
     "health/canary query fails or query/heartbeat counters stop advancing",
     "cache mapping is truncated or unlinked before grading"
-  ],
-  "cleanup_notes": "Capture A identity and cache allocation before B. Stop only the captured A process group after evidence collection, then verify all A bytes are released before the recovery recipe.",
-  "curation": {
-    "benchmark_track": "hard_capacity",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Use a fixed-size /dev/shm, allocated-block accounting, a fresh B namespace, and B-alone semantic completion.",
-      "Require B page-commit failure with A, unchanged A cache inode, allocation, checksum, canary health, and advancing service counters.",
-      "Show the unchanged B recipe completes with the same semantic digest after A releases its cache."
-    ]
-  },
-  "validation_status": "runtime_agent_passed"
+  ]
 }

@@ -15,7 +15,7 @@ case "$CASE" in
   *) echo "SETUP_FAIL=UNKNOWN_CASE" >&2; exit 2 ;;
 esac
 case "$MODE" in oracle|run) ;; *) echo "SETUP_FAIL=UNKNOWN_MODE" >&2; exit 2 ;; esac
-case "$PROMPT" in p0|p1|p2|p3|p4) ;; *) echo "SETUP_FAIL=UNKNOWN_PROMPT" >&2; exit 2 ;; esac
+case "$PROMPT" in p0|p4) ;; *) echo "SETUP_FAIL=UNKNOWN_PROMPT" >&2; exit 2 ;; esac
 case "$HARNESS" in claude|opencode|codex) ;; *) echo "SETUP_FAIL=UNKNOWN_HARNESS" >&2; exit 2 ;; esac
 [ -n "$HOST_ARTIFACT_ROOT" ] || { echo "SETUP_FAIL=RESULT_ROOT_MISSING" >&2; exit 3; }
 

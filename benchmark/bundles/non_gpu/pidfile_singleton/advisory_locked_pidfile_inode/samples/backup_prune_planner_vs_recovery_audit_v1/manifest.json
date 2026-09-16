@@ -2,7 +2,6 @@
   "id": "benchmark_final.pidfile_singleton.backup_prune_planner_vs_recovery_audit_v1.v1",
   "resource": "pidfile_singleton",
   "profile_id": "advisory_locked_pidfile_inode",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
   "mechanism": "exclusive POSIX record lock held on the canonical backup-pruner pidfile inode",
@@ -36,7 +35,5 @@
     "the original descriptor or POSIX WRITE record disappears",
     "the original process identity changes",
     "retention plan generations or heartbeat stop advancing"
-  ],
-  "cleanup_notes": "The private cleanup script signals only the trusted original A PID. Sandbox shutdown terminates any B process after grading.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

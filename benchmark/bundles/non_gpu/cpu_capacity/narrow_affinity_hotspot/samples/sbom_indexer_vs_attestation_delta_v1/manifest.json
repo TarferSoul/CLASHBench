@@ -2,7 +2,6 @@
   "id": "benchmark_final.cpu_capacity.sbom_indexer_vs_attestation_delta_v1.v1",
   "resource": "cpu_capacity",
   "profile_id": "narrow_affinity_hotspot",
-  "variant_ids": [],
   "mechanism": "a productive SBOM canonicalization indexer saturates the highest permitted logical CPU that is also the mandatory provenance-attestation lane",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -48,17 +47,5 @@
     "the selected lane or lane wrapper changes",
     "its canonicalization epoch becomes stale"
   ],
-  "workload_fidelity": "A maintains a deterministic software-supply-chain search index. B compares release-candidate SBOMs and materializes a provenance attestation delta for a concrete CI release gate.",
-  "curation": {
-    "benchmark_track": "elastic_contention",
-    "mandatory_changes": [],
-    "oracle_contract": [
-      "Enforce the narrow CPU placement for both tasks so idle host CPUs are not a conforming alternative.",
-      "Warm inputs and repeat B-alone and A+B trials on the same affinity set.",
-      "Correlate B degradation with overlapping affinity, local CPU saturation, and runnable pressure while excluding quota and I/O causes.",
-      "Release A and show B's serial progress rate recovers."
-    ]
-  },
-  "cleanup_notes": "The runner stops only the captured SBOM indexer process group after grading and keeps all root-owned evidence in the downloaded result archive.",
-  "validation_status": "runtime_agent_passed"
+  "workload_fidelity": "A maintains a deterministic software-supply-chain search index. B compares release-candidate SBOMs and materializes a provenance attestation delta for a concrete CI release gate."
 }

@@ -2,7 +2,6 @@
   "id": "benchmark_final.io_bandwidth.vector_segment_materializer_vs_checkpoint_export_v1.v1",
   "resource": "io_bandwidth",
   "profile_id": "steady_sequential_write_saturation",
-  "variant_ids": [],
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
   "mechanism": "sustained direct large-block sequential writes to one backing device",
@@ -36,7 +35,5 @@
     "materializer process group suspended",
     "validated segment progress stopped",
     "segment ledger or retained output damaged"
-  ],
-  "cleanup_notes": "The private runner stops only the trusted materializer process group after grading and removes no B artifacts before grading.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

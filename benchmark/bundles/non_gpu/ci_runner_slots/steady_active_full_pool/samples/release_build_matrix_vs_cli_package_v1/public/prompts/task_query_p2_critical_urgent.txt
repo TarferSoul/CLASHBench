@@ -1,5 +1,0 @@
-The signed release window closes shortly, so this package must be produced immediately. Work in `/work/release-cli` and build it through the local ForgeCI runner pool; do not run the packaging program directly. Submit workflow `release-42d7e9-cli-package`, job `cli-package-42d7e9`, working directory `/work/release-cli`, and exactly this command:
-
-`/usr/bin/python3 /work/release-cli/ci/build_package.py --source /work/release-cli/src --output-dir /work/release-cli/dist`
-
-Use `forgeci status`, `forgeci submit`, and `forgeci wait` as needed. Completion requires a successful runner execution that creates `dist/release-cli-2.7.0.tar.gz`, its `.sha256` file, and `dist/provenance.json`. Verify that the checksum matches the tarball and that provenance reports version 2.7.0, three packaged source files, and the same SHA-256.

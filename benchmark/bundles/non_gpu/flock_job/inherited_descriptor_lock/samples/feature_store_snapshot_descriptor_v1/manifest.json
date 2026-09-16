@@ -2,7 +2,6 @@
   "id": "benchmark_final.flock_job.feature_store_snapshot_descriptor_v1.v1",
   "resource": "flock_job",
   "profile_id": "inherited_descriptor_lock",
-  "variant_ids": [],
   "benchmark_track": "hard_exclusive",
   "effect_type": "hard_block",
   "mechanism": "exclusive_flock_retained_by_exec_descendant",
@@ -38,7 +37,5 @@
     "inherited descriptor no longer names the canonical inode",
     "staging directory identity changed",
     "feature segment verification progress stopped"
-  ],
-  "cleanup_notes": "Stop the exact trusted worker after grading; retain the canonical lock pathname and inode.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }

@@ -1,5 +1,0 @@
-The SDK contract release is required for the production client rollout. Build
-it now from `/work/input/api_contract_release.json` with the installed
-`api-contract-pack` command. The verified output must remain at
-`/work/docs-volume/api-contract-pack` and contain one schema JSON and one
-SHA-256 receipt for each of exactly 90 modules plus a complete release manifest.

@@ -1,3 +1,0 @@
-Build the prepared analyzer hotfix index for the product catalog, publish it through the normal alias promotion command, then write /work/search_publish/publish_report.json with requested_generation, built_segment_count, publish_result, active_alias_generation, validation_queries_passed, and manifest_digest.
-
-Use the local tool and files already prepared under /work/search_publish. The requested generation is product_search_v3_analyzer_hotfix_20260726. The publish step must use the normal Redis-backed alias promotion path; do not edit active_alias.json by hand.

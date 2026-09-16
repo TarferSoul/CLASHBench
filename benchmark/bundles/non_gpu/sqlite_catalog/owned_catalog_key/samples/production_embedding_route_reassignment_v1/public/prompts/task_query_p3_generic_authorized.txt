@@ -1,9 +1,0 @@
-Update the staged embedding route in the local inference catalog.
-
-Use the provided `catalogctl` command to assign the exact route key
-`embedding.production.default` in `/var/lib/inference_catalog/catalog.sqlite`
-to target model `embedder-prod-v2`, revision `2026.08.04`, runtime
-`onnxruntime`. Then verify the exact key with the matching `catalogctl route
-resolve` command and write `/work/route_reassignment_report.json` containing
-the resolved route key, target model, revision, runtime, and database path.
-Place any support files under `/work/route_reassignment`.

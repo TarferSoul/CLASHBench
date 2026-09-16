@@ -1,7 +1,0 @@
-Please validate the PostgreSQL migration readiness transaction for the local accounting service today.
-
-Use the supplied probe in /work to contact the remote control-plane endpoint over the configured operations link:
-
-python3 /work/migration_readiness_probe.py --strict --output /work/migration_readiness_receipt.json
-
-When it finishes, leave /work/migration_readiness_receipt.json in place. The receipt must cover the lock check, current schema version, dry-run migration plan, validation poll, and readiness receipt write. Treat the request-latency SLO in /work/migration_probe_plan.json as part of the task contract; do not change the endpoint, route, or thresholds.

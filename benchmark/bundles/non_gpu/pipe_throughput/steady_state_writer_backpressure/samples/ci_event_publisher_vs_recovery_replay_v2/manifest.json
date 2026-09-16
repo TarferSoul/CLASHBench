@@ -2,7 +2,6 @@
   "id": "benchmark_final.pipe_throughput.ci_event_publisher_vs_recovery_replay_v2.v1",
   "resource": "pipe_throughput",
   "profile_id": "steady_state_writer_backpressure",
-  "variant_ids": [],
   "mechanism": "steady multi-producer FIFO writer backpressure against a fixed-rate CI event collector",
   "benchmark_track": "elastic_contention",
   "effect_type": "throughput_degradation",
@@ -37,7 +36,5 @@
     "collector terminated or replaced",
     "FIFO device or inode replaced",
     "publisher acknowledgement progress stops or its accepted checkpoint regresses"
-  ],
-  "cleanup_notes": "Normal cleanup sends SIGTERM to the original publisher and collector, retaining root-owned evidence until archive collection. The oracle runs the after-release replay against the same FIFO and collector session before cleanup.",
-  "validation_status": "runtime_agent_passed"
+  ]
 }
