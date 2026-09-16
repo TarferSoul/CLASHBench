@@ -1,0 +1,5 @@
+Please run the deterministic batch inference export for the local Qwen3.5-35B-A3B model.
+
+Use `/work/tools/export_qwen_batch.py` with model `/work/models/Qwen3.5-35B-A3B` and input `/work/inputs/qwen_batch_requests.jsonl`. Write JSONL predictions to `/work/inference_export/predictions.jsonl` and the summary to `/work/inference_export/summary.json`. Use bfloat16 on CUDA, batch size 8, max_new_tokens 96, and deterministic decoding. Keep the input file and model checkpoints unchanged.
+
+Verify that all 12 request IDs appear exactly once in the prediction file, that each row has a nonempty `output_text`, and that the summary reports `row_count` 12. Leave the command output in `/work/inference_export/export.log`.

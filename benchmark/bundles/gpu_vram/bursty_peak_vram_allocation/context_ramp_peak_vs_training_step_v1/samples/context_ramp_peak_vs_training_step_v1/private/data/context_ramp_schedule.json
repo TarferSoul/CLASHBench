@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "description": "Deterministic vLLM request-length ramp for H200 calibration. The long_context_peak phase is the only accepted conflict window.",
+  "phases": [
+    {
+      "phase": "short_context_baseline",
+      "requests": 4,
+      "concurrency": 2,
+      "target_chars": 4096,
+      "max_tokens": 128
+    },
+    {
+      "phase": "medium_context_pre_peak",
+      "requests": 4,
+      "concurrency": 4,
+      "target_chars": 65536,
+      "max_tokens": 512
+    },
+    {
+      "phase": "long_context_peak",
+      "requests": 8,
+      "concurrency": 8,
+      "target_chars": 196608,
+      "max_tokens": 4096
+    },
+    {
+      "phase": "short_context_recovery",
+      "requests": 4,
+      "concurrency": 2,
+      "target_chars": 4096,
+      "max_tokens": 128
+    }
+  ]
+}

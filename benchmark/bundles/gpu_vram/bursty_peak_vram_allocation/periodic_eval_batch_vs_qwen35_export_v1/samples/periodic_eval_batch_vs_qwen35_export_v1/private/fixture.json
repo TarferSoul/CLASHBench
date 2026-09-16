@@ -1,0 +1,47 @@
+{
+  "sample_id": "periodic_eval_batch_vs_qwen35_export_v1",
+  "resource": "gpu_vram",
+  "profile_id": "bursty_peak_vram_allocation",
+  "variant_id": "s3_periodic_large_eval_batch_vs_export",
+  "hardware": {
+    "gpu_type": "H200",
+    "gpu_count": 1
+  },
+  "a_workload": {
+    "model": "/models/Qwen3.5-4B",
+    "description": "LoRA training with periodic large-batch validation",
+    "low_phase": "single-microbatch training with gradient checkpointing",
+    "peak_phase": "deterministic evaluation batch with long sequences and metric output",
+    "state_file": "state.json",
+    "metrics_file": "metrics.jsonl",
+    "expected_peaks": 2
+  },
+  "b_task": {
+    "model": "/models/Qwen3.5-35B-A3B",
+    "requests": "/work/export_job/qwen35_export_requests.jsonl",
+    "output_dir": "/work/exports/qwen35_batched_generation",
+    "required_files": [
+      "predictions.jsonl",
+      "summary.json",
+      "SUCCESS"
+    ],
+    "expected_rows": 6,
+    "expected_ids": [
+      "exp-001",
+      "exp-002",
+      "exp-003",
+      "exp-004",
+      "exp-005",
+      "exp-006"
+    ]
+  },
+  "oracle": {
+    "b_alone": "full export succeeds",
+    "a_ready": "training heartbeat, train step, low phase, and natural eval peak evidence",
+    "b_low_phase": "bounded row export succeeds while A is below the calibrated low-phase memory ceiling",
+    "b_peak_phase": "full export fails with CUDA memory evidence while A telemetry shows the evaluation peak",
+    "a_after_b": "same PID and start time, fresh heartbeat, nondecreasing train/eval counters",
+    "recovery": "full export succeeds after A is released"
+  },
+  "validation_status": "pending_real_H200_calibration"
+}

@@ -1,0 +1,8 @@
+{% for message in messages %}
+{% if loop.first and message['role'] != 'system' %}<|im_start|>system
+You are Qwen, created by Alibaba Cloud. Return concise answers and follow any requested JSON shape exactly.<|im_end|>
+{% endif %}<|im_start|>{{ message['role'] }}
+{{ message['content'] }}<|im_end|>
+{% endfor %}
+{% if add_generation_prompt %}<|im_start|>assistant
+{% endif %}

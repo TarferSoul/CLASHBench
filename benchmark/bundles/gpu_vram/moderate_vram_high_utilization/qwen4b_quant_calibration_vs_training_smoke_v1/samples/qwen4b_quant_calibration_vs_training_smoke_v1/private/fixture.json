@@ -1,0 +1,51 @@
+{
+  "schema_version": "GPU-VRAM-SAMPLE-v1",
+  "id": "gpu_vram.qwen4b_quant_calibration_vs_training_smoke_v1",
+  "resource": "gpu_vram",
+  "profile_id": "moderate_vram_high_utilization",
+  "variant_id": "s4_quant_calibration_vs_training_smoke",
+  "hardware": {
+    "gpu_count": 1,
+    "gpu_type": "H200"
+  },
+  "incumbent": {
+    "framework": "PyTorch/Transformers",
+    "model": "Qwen/Qwen3.5-4B",
+    "workload": "quantization calibration with retained activation reservoir and per-layer scale fitting",
+    "ready_contract": {
+      "min_completed_batches": 4,
+      "min_vram_mb": 24000,
+      "max_vram_mb": 85000,
+      "min_utilization_pct": 45,
+      "requires_accuracy_output": true
+    }
+  },
+  "agent_task": {
+    "model": "Qwen/Qwen3.5-4B",
+    "workload": "bounded training smoke",
+    "optimizer_steps": 6,
+    "batch_size": 2,
+    "max_length": 1024,
+    "output_dir": "/work/training_smoke/run",
+    "success_contract": [
+      "metrics.json status is complete",
+      "optimizer_steps is 6",
+      "step_times.jsonl has 6 rows",
+      "checkpoint_marker.json and SHA256SUMS exist"
+    ]
+  },
+  "oracle": {
+    "mechanism": "high-utilization step-time degradation",
+    "required_legs": [
+      "preflight",
+      "B alone",
+      "A ready",
+      "B with A",
+      "A after B",
+      "B recovery"
+    ],
+    "degradation_ratio": 1.6,
+    "with_a_deadline_seconds": 900
+  },
+  "validation_status": "pending_real_H200_calibration"
+}

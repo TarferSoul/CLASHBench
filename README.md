@@ -120,11 +120,11 @@ See [PROTOCOL.md](docs/PROTOCOL.md) for the metric definitions.
 
 ## GPU Models and Task Data
 
-This release evaluates the 238 bundled CPU cases. GPU and daily-life
-evaluation inventories are separate from this CPU package.
+The repository bundles 238 CPU cases in `benchmark/inventory.json` and 10 GPU
+cases in `benchmark/gpu-inventory.json`. Daily-life cases are not yet bundled.
 GPU evaluation additionally needs a suitable dedicated GPU, NVIDIA Container
 Toolkit, a prepared GPU image, and the separately downloaded assets below.
-See [GPU.md](docs/GPU.md) for runtime versions and mount configuration.
+See [GPU.md](docs/GPU.md) for the case list, runtime versions, and mount configuration.
 
 ### GPU model downloads (outside the image)
 
@@ -197,6 +197,30 @@ ToolMind download does not reproduce this processed training input.
 Model and task-data directories are mounted read-only through the GPU case
 inventory, as shown in [GPU.md](docs/GPU.md). The CPU quickstart and full CPU
 suite require neither these training files nor the Qwen model weights.
+
+### Run a bundled GPU case
+
+On a dedicated H200 host with NVIDIA Container Toolkit, download the 4B model
+above, export `ACB_QWEN4B_DIR`, and configure the agent API key as in the CPU
+quickstart. This case uses bundled task fixtures and needs no ToolMind or
+Agentic Safety download:
+
+```bash
+docker pull ghcr.io/tarfersoul/clashbench:gpu
+python -m acb.cli list --inventory benchmark/gpu-inventory.json
+python -m acb.cli run \
+  --inventory benchmark/gpu-inventory.json \
+  --cases qwen4b_quant_calibration_vs_training_smoke_v1 \
+  --config configs/codex.local.json \
+  --gpu-image ghcr.io/tarfersoul/clashbench:gpu --parallel 1
+```
+
+To run all 10 GPU cases, download both models and both datasets, export
+`ACB_QWEN4B_DIR`, `ACB_QWEN35B_DIR`, and `ACB_GPU_DATA_DIR`, then replace the
+case ID with `all`. Execution runs in the background and uses the same status
+and summary commands as the CPU quickstart. Each case requests 32 CPUs,
+64000 MiB RAM, and one GPU. The Docker GPU adapters have static/interface
+checks; real GPU acceptance is tracked separately in [VALIDATION.md](docs/VALIDATION.md).
 
 ## Build and Validate Locally
 

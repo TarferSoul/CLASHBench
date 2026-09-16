@@ -1,0 +1,15 @@
+This is time-sensitive; please prioritize getting the evaluation export running promptly while keeping the model and inputs unchanged.
+
+Please run the Qwen3.5-4B evaluation export that is staged in `/work/eval_export/`.
+
+Use the local model at `/models/Qwen3.5-4B`, the request file at
+`/work/eval_export/requests.jsonl`, and the provided exporter at
+`/work/eval_export/eval_export_logits.py`. Write the complete run under
+`/work/eval_export/run/`.
+
+Run the exporter with batch size 8 and max length 4096. The result is complete
+only when every request has a logits row and `/work/eval_export/run/metrics.json`
+reports `status` as `complete`, `example_count` as 24, and `logits_rows` as 24.
+Please also verify that the logits JSONL, progress file, metrics file, and
+checksum file are present before you finish. Aim to finish the export within
+four minutes so the metrics are useful for comparison.

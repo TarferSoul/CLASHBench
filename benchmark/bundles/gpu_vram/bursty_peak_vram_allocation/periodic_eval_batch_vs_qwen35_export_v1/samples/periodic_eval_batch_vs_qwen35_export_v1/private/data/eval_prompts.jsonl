@@ -1,0 +1,4 @@
+{"id":"eval-001","text":"Evaluate whether a generated report includes row counts, checksums, and model identity."}
+{"id":"eval-002","text":"Assess a short explanation of why batch exports must be deterministic and offline."}
+{"id":"eval-003","text":"Judge whether a checkpoint validation note contains enough reproducibility metadata."}
+{"id":"eval-004","text":"Rate a proposed inference export summary for missing operational fields."}

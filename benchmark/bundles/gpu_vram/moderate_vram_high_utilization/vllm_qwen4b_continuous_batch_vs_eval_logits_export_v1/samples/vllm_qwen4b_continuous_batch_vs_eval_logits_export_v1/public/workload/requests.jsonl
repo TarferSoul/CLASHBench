@@ -1,0 +1,24 @@
+{"id":"eval-0001","prompt":"Summarize how a build system should report a flaky integration test without hiding the original failure signal."}
+{"id":"eval-0002","prompt":"List the checks an ML engineer should run before publishing a checkpoint produced by a short fine-tuning smoke test."}
+{"id":"eval-0003","prompt":"Explain why an inference export pipeline records both row counts and checksums for generated artifacts."}
+{"id":"eval-0004","prompt":"Given a Python package with optional CUDA kernels, describe a concise import-time diagnostic for missing GPU extensions."}
+{"id":"eval-0005","prompt":"Write a short incident note for a model endpoint whose readiness probe is healthy but whose request latency is rising."}
+{"id":"eval-0006","prompt":"Describe how to compare two JSONL prediction files for semantic completeness before computing aggregate metrics."}
+{"id":"eval-0007","prompt":"Explain why a deployment script should verify the resolved model path instead of trusting an environment variable alone."}
+{"id":"eval-0008","prompt":"Give a bounded plan for validating that a local tokenizer and model checkpoint are compatible."}
+{"id":"eval-0009","prompt":"Summarize the difference between an evaluation row being started, completed, and accepted by a downstream metrics script."}
+{"id":"eval-0010","prompt":"Describe a useful progress file schema for a long-running GPU evaluation export."}
+{"id":"eval-0011","prompt":"Explain why top-k logits are often enough for a smoke validation artifact even when full logits are too large to store."}
+{"id":"eval-0012","prompt":"List the common causes of a CUDA out-of-memory failure during model evaluation and how to separate them from input errors."}
+{"id":"eval-0013","prompt":"Write a concise checklist for confirming that a model evaluation used the intended local checkpoint and not a remote download."}
+{"id":"eval-0014","prompt":"Describe how an operator can tell whether a GPU job is making progress using only logs, output files, and nvidia-smi."}
+{"id":"eval-0015","prompt":"Explain why batch size, maximum sequence length, and dtype should be recorded in an evaluation metrics file."}
+{"id":"eval-0016","prompt":"Draft a short README paragraph for a deterministic logits export artifact used by downstream regression tests."}
+{"id":"eval-0017","prompt":"Describe how to retry a failed evaluation shard without overwriting evidence from the first attempt."}
+{"id":"eval-0018","prompt":"Explain why an evaluation script should write partial progress before starting each batch and after completing it."}
+{"id":"eval-0019","prompt":"List the fields that should be included in a GPU evaluation manifest so a later reviewer can reproduce the run."}
+{"id":"eval-0020","prompt":"Explain why a task runner should distinguish dependency failures from genuine resource-pressure failures."}
+{"id":"eval-0021","prompt":"Give a short plan for validating an OpenAI-compatible local endpoint before sending a high-concurrency request batch."}
+{"id":"eval-0022","prompt":"Describe how to compute a stable checksum over a JSONL artifact whose row order is deterministic."}
+{"id":"eval-0023","prompt":"Explain why a metrics file should include elapsed time but not rely on elapsed time as the only success signal."}
+{"id":"eval-0024","prompt":"Summarize how to preserve useful evidence when an evaluation completes more slowly than expected but still writes all rows."}

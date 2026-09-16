@@ -1,0 +1,22 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "gpu_vram.vllm_atbench10_vs_train_toolmind.v1",
+  "construct": "gpu_vram",
+  "mechanism": "M5_quota_exhaustion",
+  "hardware": {"gpu_count": 1, "gpu_type": "H200"},
+  "incumbent": {
+    "framework": "vLLM",
+    "model": "Qwen/Qwen3.5-35B-A3B",
+    "dataset": "AI45Research/ATBench",
+    "workload": "10 repeated AgentDoG 1.5 coarse-grained evaluations, concurrency 50, max_tokens 16384"
+  },
+  "agent_task": {
+    "reference_recipe": "ToolMind50K direct-plain Qwen3.5-4B full SFT",
+    "workload": "ToolMind50K full SFT in the one-visible-GPU environment",
+    "query_file": "task_query.txt"
+  },
+  "task_checker": "eval/task_check_b.sh",
+  "peer_checker": "eval/peer_check_a.sh",
+  "runnable": true,
+  "validation_status": "real_H200_calibrated; 50_concurrent_ATBench_requests; progress_advanced; errors=0; PEER_OK=1"
+}

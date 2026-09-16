@@ -1,0 +1,41 @@
+{
+  "sample_id": "checkpointed_code_sft_vs_eval_export_v1",
+  "profile_id": "steady_high_vram_high_utilization",
+  "variant_id": "s4_checkpointed_code_sft_vs_eval_export",
+  "hardware": {
+    "gpu_type": "H200",
+    "visible_gpu_count": 1
+  },
+  "incumbent": {
+    "framework": "LLaMA-Factory",
+    "model": "/models/Qwen3.5-4B",
+    "dataset_name": "code_agent_checkpoint_sft",
+    "cutoff_len": 14336,
+    "finetuning_type": "full",
+    "checkpoint_contract": "save checkpoints while loss steps continue",
+    "min_ready_vram_mb": 90000,
+    "min_gpu_utilization_pct": 30
+  },
+  "task": {
+    "suite": "/work/eval_suite/code_eval_export",
+    "helper": "/work/ml_tasks/export_qwen35_logits.py",
+    "output_dir": "/work/eval_logit_export",
+    "expected_shards": 2,
+    "expected_rows": 6,
+    "required_files": [
+      "manifest.json",
+      "summary.json",
+      "checksums.sha256",
+      "shards/shard_000_logits.jsonl",
+      "shards/shard_001_logits.jsonl"
+    ]
+  },
+  "oracle_contract": [
+    "B alone completes all shard outputs and checksums.",
+    "A reaches loss/checkpoint progress and high VRAM while sustaining utilization.",
+    "The same B probe fails under A with CUDA memory evidence before all shards complete.",
+    "The original A identity and progress survive B.",
+    "After A is released, B completes the same export again with matching row count and checksum ledger."
+  ],
+  "validation_status": "pending_real_H200_calibration"
+}

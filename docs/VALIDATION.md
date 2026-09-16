@@ -42,3 +42,19 @@ A fresh GitHub clone passed all 14 tests and the quickstart real-case oracle usi
 
 - CPU: `ghcr.io/tarfersoul/clashbench@sha256:d68219ea75e6d2c6fc6df7d5730ca493342ce04e8197a1ae0eff452726be96f4`
 - GPU: `ghcr.io/tarfersoul/clashbench@sha256:99282747965966b43f98efaf9524355e82b992b6c1e56fe85dbd3c09bf3c311c`
+
+## Bundled GPU adapters (2026-09-16)
+
+The repository now includes all 10 GPU cases in `benchmark/gpu-inventory.json`.
+Static and interface checks cover every bundled file checksum, unchanged
+source task/fixture/grader hashes, shell syntax, per-case model mappings,
+read-only asset mount validation, and native harness exit-code/trace handling
+for Codex, Claude, and OpenCode. Three cases without a source oracle reject
+oracle mode before setup. No GPU experiment is claimed by these checks.
+The full 20-test suite passed, followed by all seven GPU release tests after
+adding a regression test for GPU-only image selection (21 distinct tests).
+
+Real Docker GPU acceptance is deferred. It must establish incumbent readiness,
+CUDA execution, calibrated VRAM conflict, agent execution, and grading on the
+specified dedicated H200 with downloaded models/data. Historical source
+manifest validation is retained as provenance and is not Docker acceptance.

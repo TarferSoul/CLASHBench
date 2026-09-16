@@ -1,0 +1,6 @@
+{"instruction":"Identify the minimum evidence needed to trust a model evaluation artifact.","response":"Record the model path, input checksum, generation settings, row count, and output checksum."}
+{"instruction":"State why validation metrics should be tied to a checkpoint directory.","response":"The metrics are only reproducible when the checkpoint, inputs, and evaluation parameters are bound together."}
+{"instruction":"Summarize a conservative recovery plan for an interrupted export job.","response":"Preserve existing artifacts, rerun from the pinned request file, and compare checksums before replacing outputs."}
+{"instruction":"Explain why GPU memory telemetry needs timestamps during evaluation.","response":"Timestamps connect workload phases to observed allocation changes and distinguish peaks from unrelated failures."}
+{"instruction":"Give a concise rule for offline model evaluation.","response":"Use local snapshots, fixed seeds, pinned inputs, and write enough metadata to rerun the same workload."}
+{"instruction":"Describe one useful signal that training is still healthy.","response":"A fresh heartbeat with nondecreasing step or metric counters shows the original job is progressing."}

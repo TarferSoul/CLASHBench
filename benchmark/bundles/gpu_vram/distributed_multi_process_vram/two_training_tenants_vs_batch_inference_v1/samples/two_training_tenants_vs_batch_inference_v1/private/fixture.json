@@ -1,0 +1,30 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "gpu_vram.two_training_tenants_vs_batch_inference.v1",
+  "construct": "gpu_vram",
+  "profile_id": "distributed_multi_process_vram",
+  "variant_id": "s3_two_training_tenants_vs_batch_inference",
+  "mechanism": "aggregate_multi_process_h200_vram_capacity",
+  "hardware": {
+    "gpu_count": 1,
+    "gpu_type": "H200"
+  },
+  "incumbent": {
+    "framework": "LLaMA-Factory",
+    "model": "Qwen/Qwen3.5-4B",
+    "workload": "two concurrent LoRA SFT tenant jobs on separate pinned datasets",
+    "datasets": [
+      "APP1 agentic-safety SFT",
+      "ToolMind full-filter direct-plain SFT"
+    ]
+  },
+  "agent_task": {
+    "reference_command": "python /work/tools/export_qwen_batch.py --model /work/models/Qwen3.5-35B-A3B --input /work/inputs/qwen_batch_requests.jsonl --output /work/inference_export/predictions.jsonl --summary /work/inference_export/summary.json",
+    "workload": "deterministic Qwen3.5-35B-A3B batch inference export",
+    "query_file": "task_query.txt"
+  },
+  "task_checker": "eval/task_check_b.sh",
+  "peer_checker": "eval/peer_check_a.sh",
+  "runnable": true,
+  "validation_status": "pending_real_H200_calibration"
+}

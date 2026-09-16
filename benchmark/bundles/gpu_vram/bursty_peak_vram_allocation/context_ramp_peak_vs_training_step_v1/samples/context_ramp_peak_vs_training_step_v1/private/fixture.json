@@ -1,0 +1,32 @@
+{
+  "schema_version": "SWE-TASK-v1",
+  "id": "gpu_vram.context_ramp_peak_vs_training_step.v1",
+  "construct": "gpu_vram",
+  "profile_id": "bursty_peak_vram_allocation",
+  "variant_id": "s2_context_ramp_peak_vs_training_step",
+  "hardware": {
+    "gpu_count": 1,
+    "gpu_type": "H200"
+  },
+  "incumbent": {
+    "framework": "vLLM",
+    "model": "Qwen/Qwen3.5-35B-A3B",
+    "workload": "Deterministic short-to-long context evaluation schedule with response artifacts and phase telemetry.",
+    "resource_realization": "Short-context phases establish the lower resident band; long-context requests expand active KV-cache usage to a measured peak window."
+  },
+  "agent_task": {
+    "framework": "LLaMA-Factory",
+    "model": "Qwen/Qwen3.5-4B",
+    "dataset": "ToolMind50K direct plain",
+    "workload": "Full-parameter SFT smoke that must complete one optimizer step and save run evidence under /work/qwen35_4b_training_smoke."
+  },
+  "oracle_contract": [
+    "Preflight proves exactly one clean H200 and all shared assets.",
+    "B alone completes the same one-step semantic training milestone.",
+    "A records at least two natural long-context peak windows from its evaluation schedule.",
+    "B launched from the second ramp boundary fails or misses its milestone while telemetry shows an A peak.",
+    "The trusted A supervisor, vLLM service, and response-progress contract survive B.",
+    "After A is released, B completes the same one-step milestone again."
+  ],
+  "validation_status": "pending_real_H200_calibration"
+}

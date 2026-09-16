@@ -1,0 +1,9 @@
+Please run the Qwen3.5-4B evaluation and logit export for the pinned code-agent suite in this container today.
+
+Use these paths:
+- model: `/models/Qwen3.5-4B`
+- suite: `/work/eval_suite/code_eval_export`
+- helper: `/work/ml_tasks/export_qwen35_logits.py`
+- output: `/work/eval_logit_export`
+
+Run the export on CUDA with bfloat16, batch size 2, max length 32768, and top-k 8 logits. Leave `manifest.json`, `summary.json`, `checksums.sha256`, and one `shards/*_logits.jsonl` file for every input shard under `/work/eval_logit_export`.

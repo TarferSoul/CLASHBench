@@ -39,6 +39,26 @@ def load_config(path, require_credentials=True):
     return cfg
 
 
+def asset_mounts(case):
+    mounts = []
+    for mount in case.get('assets', []):
+        variable = mount['source_env']
+        value = os.environ.get(variable)
+        if not value:
+            raise ValueError(f"{case['id']}: set {variable} to the downloaded asset directory")
+        source = Path(value).resolve()
+        destination = mount['destination']
+        if not source.is_dir() or not destination.startswith('/models/'):
+            raise ValueError(f"{case['id']}: {variable} must be a directory mounted under /models/")
+        if ',' in str(source) or ',' in destination or '..' in Path(destination).parts:
+            raise ValueError('Invalid asset mount path')
+        for name in mount.get('required_files', []):
+            if not contained(source, name).is_file():
+                raise ValueError(f"{case['id']}: {variable} is missing {name}")
+        mounts.append(f'type=bind,src={source},dst={destination},readonly')
+    return mounts
+
+
 def start(args):
     path = Path(args.inventory).resolve()
     data = inventory(path)
@@ -52,7 +72,11 @@ def start(args):
         raise ValueError('The smoke harness is restricted to smoke fixtures')
     if any(c.get('gpus', 0) for c in selected) and not args.gpu_image:
         raise ValueError('GPU cases require an explicitly prepared --gpu-image')
-    for image in {args.image, *([args.gpu_image] if args.gpu_image else [])}:
+    for case in selected:
+        if args.mode == 'oracle' and case.get('oracle_supported') is False:
+            raise ValueError(f"{case['id']}: no construction oracle is bundled; use --mode run")
+        asset_mounts(case)
+    for image in {args.gpu_image if c.get('gpus', 0) else args.image for c in selected}:
         docker('image', 'inspect', image)
     run_id = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ-') + uuid.uuid4().hex[:8]
     run = Path(args.output).resolve() / run_id
@@ -110,12 +134,8 @@ def run_case(run, plan, case):
         if 'SYS_ADMIN' in case.get('cap_add', []):
             argv += ['--security-opt', 'apparmor=unconfined']
         # Only explicitly declared data assets are mounted, always read-only.
-        for mount in case.get('assets', []):
-            source = Path(os.environ[mount['source_env']]).resolve()
-            destination = mount['destination']
-            if not source.exists() or not destination.startswith('/models/'):
-                raise ValueError('GPU assets must exist and mount under /models/')
-            argv += ['--mount', f'type=bind,src={source},dst={destination},readonly']
+        for mount in asset_mounts(case):
+            argv += ['--mount', mount]
         argv += [image]
         cid = docker(*argv)
         atomic_json(out / 'container.json', {'id': cid, 'name': name, 'image_id': image_id})

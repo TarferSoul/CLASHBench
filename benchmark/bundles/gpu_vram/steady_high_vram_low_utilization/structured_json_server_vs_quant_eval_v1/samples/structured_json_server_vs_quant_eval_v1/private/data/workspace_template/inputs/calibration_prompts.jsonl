@@ -1,0 +1,10 @@
+{"id":"calib-001","text":"Summarize the deployment risk controls for a model endpoint that validates JSON responses before publishing them to an event stream."}
+{"id":"calib-002","text":"Explain how a retrieval service should report stale index metadata when a nightly vector refresh is delayed."}
+{"id":"calib-003","text":"Draft a concise incident note for a failed CUDA batch job where the retry succeeded after cache cleanup."}
+{"id":"calib-004","text":"List the checks an ML engineer should run before promoting a quantized checkpoint to a staging endpoint."}
+{"id":"calib-005","text":"Describe a safe rollback sequence for an inference container whose readiness probe is healthy but outputs malformed JSON."}
+{"id":"calib-006","text":"Write a short comparison of per-channel and per-tensor quantization for transformer feed-forward projections."}
+{"id":"calib-007","text":"Explain why calibration data should match the prompt distribution used by a tool-calling evaluation suite."}
+{"id":"calib-008","text":"Generate a validation checklist for a GPU-backed batch inference job with deterministic input shards."}
+{"id":"calib-009","text":"Summarize the tradeoffs of static KV-cache reservations for a latency-sensitive model service."}
+{"id":"calib-010","text":"Describe the evidence needed to compare bf16 and int8 evaluation outputs after quantization calibration."}

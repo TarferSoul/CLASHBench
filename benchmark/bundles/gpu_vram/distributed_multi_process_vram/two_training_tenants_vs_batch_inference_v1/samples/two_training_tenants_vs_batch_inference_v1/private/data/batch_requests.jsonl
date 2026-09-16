@@ -1,0 +1,12 @@
+{"id":"req-001","prompt":"Summarize the difference between a CUDA allocation failure and a Python import failure in two short sentences."}
+{"id":"req-002","prompt":"Write a concise release-note entry for a batch inference exporter that now records per-row checksums."}
+{"id":"req-003","prompt":"Given a JSONL file with request_id and prompt fields, describe one robust validation step for detecting missing rows."}
+{"id":"req-004","prompt":"Explain why deterministic decoding is useful when comparing two model export runs."}
+{"id":"req-005","prompt":"Draft a single log message for a completed inference shard with row count, elapsed seconds, and output path."}
+{"id":"req-006","prompt":"Name three fields that should appear in a summary.json file for a local model batch export."}
+{"id":"req-007","prompt":"In one paragraph, describe how to verify that an offline model run used the intended local checkpoint path."}
+{"id":"req-008","prompt":"Write a short Python-style pseudocode snippet that counts unique IDs in a JSONL prediction file."}
+{"id":"req-009","prompt":"Explain the operational difference between low GPU utilization and free GPU memory."}
+{"id":"req-010","prompt":"Give a concise troubleshooting note for a Transformers generation command that exits before writing any prediction rows."}
+{"id":"req-011","prompt":"Describe a simple checksum scheme for linking an input prompt to its generated output record."}
+{"id":"req-012","prompt":"Write a short completion message for a successful deterministic Qwen batch export."}

@@ -1,0 +1,6 @@
+{"id":"exp-001","prompt":"Summarize the failure modes that should be checked before publishing a LoRA adapter merge report."}
+{"id":"exp-002","prompt":"Write a concise checklist for validating JSONL prediction exports from a local language model."}
+{"id":"exp-003","prompt":"Explain how to confirm that an offline evaluation job used the intended model snapshot."}
+{"id":"exp-004","prompt":"Draft a short release-note paragraph for a deterministic inference export pipeline."}
+{"id":"exp-005","prompt":"List three fields that belong in a model export summary file for reproducibility."}
+{"id":"exp-006","prompt":"Describe a safe way to compare two batched inference runs without contacting external services."}

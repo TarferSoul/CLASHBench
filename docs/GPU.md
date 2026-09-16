@@ -37,8 +37,8 @@ docker pull ghcr.io/tarfersoul/clashbench:gpu
 ```
 
 This image contains the training/inference software and native agent tools.
-Model weights, processed training data, and GPU evaluation inventories are
-separate inputs. The bundled CPU quickstart uses the CPU image.
+The 10-case GPU inventory and fixtures are bundled with this repository.
+Model weights and the two processed training datasets are separate downloads. The bundled CPU quickstart uses the CPU image.
 
 ## Maintainer build
 
@@ -91,43 +91,47 @@ correctness; those checks require a dedicated GPU and the external assets.
 
 ## Download and mount assets
 
-See the README's separate **GPU model downloads** and **GPU task-data
-downloads** sections. A case that needs both models and the training data can
-include these entries in its inventory:
+See the README's **GPU model downloads** and **GPU task-data downloads**
+sections for pinned dataset downloads and checksums. Export the downloaded
+directories as `ACB_QWEN4B_DIR`, `ACB_QWEN35B_DIR`, and `ACB_GPU_DATA_DIR` as
+needed by the selected case. These must be model/data directories, not Hugging
+Face cache roots. Asset mounts are read-only. The CLI checks environment
+variables and required metadata/data files before starting its background worker.
+It does not verify all model weight shards at this stage.
 
-```json
-{
-  "gpus": 1,
-  "assets": [
-    {"source_env": "ACB_QWEN4B_DIR", "destination": "/models/qwen4b"},
-    {"source_env": "ACB_QWEN35B_DIR", "destination": "/models/qwen35b"},
-    {"source_env": "ACB_GPU_DATA_DIR", "destination": "/models/gpu-tasks"}
-  ],
-  "environment": {
-    "HOST_B_MODEL": "/models/qwen4b",
-    "HOST_QWEN35_4B": "/models/qwen4b",
-    "HOST_A_MODEL": "/models/qwen35b",
-    "HOST_A_SERVICE_MODEL": "/models/qwen35b",
-    "HOST_TOOLMIND_DATASETS": "/models/gpu-tasks",
-    "HOST_APP1_STATIC_DATA": "/models/gpu-tasks"
-  }
-}
-```
+## Bundled GPU cases
 
-Use only the assets required by the selected case. The directory names refer to
-normal downloaded model directories, not Hugging Face cache roots. The CLI
-mounts assets read-only. Full frozen-case exports still need their Docker
-adapter: legacy runners that overwrite agent wrappers or start internal API
-proxies must be ported as described in `DATASET.md` before model evaluation.
-The runtime image alone does not convert those runners.
+Every case requests one dedicated H200, 32 CPUs, 64000 MiB RAM, and a 1800-second
+timeout. Docker shared memory is explicitly 1 GiB (the controller default;
+the original index does not specify a separate shared-memory limit).
+
+| Case ID | Models | External task data | Construction oracle |
+|---|---|---|---|
+| `context_ramp_peak_vs_training_step_v1` | 4B + 35B-A3B | ToolMind | Included |
+| `periodic_eval_batch_vs_qwen35_export_v1` | 4B + 35B-A3B | Bundled fixtures only | Included |
+| `train_vs_train_app1_toolmind_v1` | 4B | ToolMind + Agentic Safety | Not in original bundle |
+| `two_training_tenants_vs_batch_inference_v1` | 4B + 35B-A3B | ToolMind + Agentic Safety | Included |
+| `qwen4b_quant_calibration_vs_training_smoke_v1` | 4B | Bundled fixtures only | Included |
+| `vllm_qwen4b_continuous_batch_vs_eval_logits_export_v1` | 4B | Bundled fixtures only | Included |
+| `checkpointed_code_sft_vs_eval_export_v1` | 4B | Bundled fixtures only | Included |
+| `vllm_atbench10_vs_train_toolmind_v1` | 4B + 35B-A3B | ToolMind | Not in original bundle |
+| `structured_json_server_vs_quant_eval_v1` | 4B + 35B-A3B | Bundled fixtures only | Included |
+| `vllm_idle_vs_train_toolmind_v1` | 4B + 35B-A3B | ToolMind | Not in original bundle |
 
 ```bash
 python -m acb.cli run \
-  --inventory data/release/inventory.json --cases GPU_CASE_ID \
+  --inventory benchmark/gpu-inventory.json \
+  --cases qwen4b_quant_calibration_vs_training_smoke_v1 \
   --config configs/codex.local.json \
-  --image ghcr.io/tarfersoul/clashbench:cpu --gpu-image ghcr.io/tarfersoul/clashbench:gpu \
-  --parallel 1
+  --gpu-image ghcr.io/tarfersoul/clashbench:gpu --parallel 1
 ```
+
+Use `--cases all` after downloading all assets. Only the GPU image is needed
+for a GPU-only selection. For cases with an included construction oracle,
+`--mode oracle` checks construction without an API call and never contributes
+to model scores. The three cases without an oracle reject this mode before
+launch; they do not silently run an agent. GPU acceptance of the Docker
+adapters is pending; see `VALIDATION.md` for the checks completed so far.
 
 ## Host GPU requirements
 

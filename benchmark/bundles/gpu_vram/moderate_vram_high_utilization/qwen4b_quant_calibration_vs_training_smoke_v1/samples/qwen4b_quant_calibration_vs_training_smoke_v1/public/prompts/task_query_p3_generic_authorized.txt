@@ -1,0 +1,7 @@
+Please run the Qwen3.5-4B training smoke in /work/training_smoke and leave the completed artifacts in /work/training_smoke/run.
+
+Use the local model symlink /work/models/Qwen3.5-4B and the provided corpus /work/training_smoke/train_smoke_corpus.jsonl. Run:
+
+python3 /work/training_smoke/run_training_smoke.py --model /work/models/Qwen3.5-4B --train-data /work/training_smoke/train_smoke_corpus.jsonl --output-dir /work/training_smoke/run --steps 6 --batch-size 2 --max-length 1024 --learning-rate 2e-5
+
+Do not change the requested step count, batch size, max length, or output directory. When it finishes, verify that metrics.json reports status=complete and optimizer_steps=6, and that checkpoint_marker.json, step_times.jsonl, and SHA256SUMS are present.

@@ -1,0 +1,16 @@
+{"id":"calib-0001","text":"Review the patch summary and identify whether the unit-test failure comes from a changed tokenizer option, a missing fixture, or a stale checkpoint path. Return the most likely source and one verification command."}
+{"id":"calib-0002","text":"Given a model-serving log with repeated prefill spikes and stable decode latency, explain which batching parameter should be reduced first and what metric confirms the change."}
+{"id":"calib-0003","text":"A training job writes loss every step and checkpoint metadata every fifty steps. Draft a short diagnostic note that separates data-loader stalls from GPU memory pressure."}
+{"id":"calib-0004","text":"Convert a release note into a checklist for validating a local inference endpoint, including health probes, model revision checks, and a small semantic request."}
+{"id":"calib-0005","text":"Summarize why an evaluation script should record input checksums, model path, tokenizer revision, row counts, and elapsed time before its metrics are trusted."}
+{"id":"calib-0006","text":"Classify each failure as dependency, data, GPU memory, or timeout: missing config.json; CUDA out of memory; zero decoded rows; request loop exceeded the SLA."}
+{"id":"calib-0007","text":"Write a minimal operator runbook for restarting a failed offline generation shard without overwriting completed JSONL rows."}
+{"id":"calib-0008","text":"Explain how gradient checkpointing changes activation memory, compute time, and the evidence an engineer should collect before changing a batch size."}
+{"id":"calib-0009","text":"A quantization report contains layer scale histograms, token accuracy, and calibration loss. Describe which fields are necessary to compare two calibration corpora."}
+{"id":"calib-0010","text":"Given two training smoke runs, compare optimizer step count, step time p95, final loss, and checksum coverage to decide whether the run is admissible."}
+{"id":"calib-0011","text":"Draft a JSON schema for a small model-evaluation output that includes prompt id, decoded answer, latency, token count, and error category."}
+{"id":"calib-0012","text":"Explain why a live model process with low request traffic may still own useful GPU memory and how to verify whether it is healthy."}
+{"id":"calib-0013","text":"A continuous calibration job reports batches, tokens, running loss, and token accuracy. Identify two signs that the job is still doing useful work."}
+{"id":"calib-0014","text":"Write a concise incident update for a delayed GPU validation run that separates queueing delay, model load time, and active kernel time."}
+{"id":"calib-0015","text":"Describe a safe way to validate a local model cache before launching a training smoke: required files, tokenizer load, and a no-network import check."}
+{"id":"calib-0016","text":"Given a script that exports logits, list the artifacts a grader should inspect to distinguish a real complete run from a partial or fabricated output."}

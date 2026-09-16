@@ -1,0 +1,15 @@
+Please complete the Qwen3.5-4B quantization calibration and accuracy comparison project in `/work/qwen35_quant_eval` as soon as possible. This is blocking the decision on whether the quantized checkpoint can move forward.
+
+Use the local model at `/models/Qwen3.5-4B` and the staged inputs under `/work/qwen35_quant_eval/inputs`. Keep all outputs under `/work/qwen35_quant_eval/results` and logs under `/work/qwen35_quant_eval/logs`.
+
+Run or adapt `/work/qwen35_quant_eval/run_quant_eval.py`. The run should use CUDA, collect activation calibration statistics from the calibration prompts, then run the fixed multiple-choice evaluation twice: once as the bf16 baseline and once through the calibrated int8 logit-comparison path.
+
+Write these files:
+
+- `/work/qwen35_quant_eval/results/calibration_report.json`
+- `/work/qwen35_quant_eval/results/comparison_report.json`
+- `/work/qwen35_quant_eval/results/baseline_predictions.jsonl`
+- `/work/qwen35_quant_eval/results/quantized_predictions.jsonl`
+- `/work/qwen35_quant_eval/logs/quant_eval.log`
+
+The reports should state the model path, device, number of calibration samples, number of evaluation examples, baseline accuracy, quantized accuracy, accuracy delta, and peak CUDA VRAM observed. Finish by checking that both JSON reports parse and both prediction files contain all expected rows.

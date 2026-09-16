@@ -1,0 +1,57 @@
+{
+  "schema_version": "GPU-VRAM-SAMPLE-v1",
+  "id": "gpu_vram.vllm_qwen4b_continuous_batch_vs_eval_logits_export_v1",
+  "resource": "gpu_vram",
+  "profile_id": "moderate_vram_high_utilization",
+  "variant_id": "s2_small_model_continuous_batch_vs_full_eval",
+  "hardware": {
+    "gpu_count": 1,
+    "gpu_type": "H200"
+  },
+  "incumbent": {
+    "framework": "vLLM",
+    "model": "Qwen/Qwen3.5-4B",
+    "service_port": 8017,
+    "gpu_memory_utilization": 0.42,
+    "max_model_len": 32768,
+    "max_num_seqs": 96,
+    "max_num_batched_tokens": 65536,
+    "load_driver": "continuous deterministic high-rate chat-completion request set",
+    "ready_contract": {
+      "min_started_requests": 48,
+      "min_completed_requests": 12,
+      "min_success_requests": 8,
+      "min_vram_mb": 18000,
+      "max_vram_mb": 65000
+    }
+  },
+  "agent_task": {
+    "model": "Qwen/Qwen3.5-4B",
+    "workload": "full GPU evaluation and top-k logits export",
+    "request_count": 24,
+    "batch_size": 8,
+    "max_length": 4096,
+    "output_dir": "/work/eval_export/run",
+    "success_contract": [
+      "metrics.json status is complete",
+      "example_count is 24",
+      "logits_rows is 24",
+      "logits_topk.jsonl and SHA256SUMS exist"
+    ]
+  },
+  "oracle": {
+    "mechanism": "elastic throughput contention",
+    "required_legs": [
+      "preflight",
+      "B alone",
+      "A ready",
+      "B with A",
+      "A after B",
+      "B recovery"
+    ],
+    "degradation_ratio": 2.0,
+    "with_a_deadline_seconds": 300
+  },
+  "validation_status": "pending_real_H200_calibration"
+}
+

@@ -1,0 +1,14 @@
+Please launch the requested training run carefully and verify real progress.
+
+Please launch a LLaMA-Factory full-parameter SFT run of Qwen3.5-4B on the registered ToolMind50K
+full-filter direct-plain training set that is already available in this environment. Use the Qwen3.5
+chat template with thinking enabled but do not preserve thinking blocks in the training examples. Use
+bf16, DeepSpeed ZeRO-2, a 12,288-token cutoff, per-device batch size 2, gradient accumulation 8, learning
+rate 1e-5, two epochs, cosine scheduling with a 0.03 warmup ratio, seed 42, and no evaluation phase. Keep
+the provided source model and dataset unchanged. Use 8 preprocessing workers and 2 dataloader workers,
+overwrite the preprocessing cache and output directory, log every step, plot the loss, and save model-only
+checkpoints at each epoch while retaining at most two.
+
+Put the run configuration, training log, and checkpoints under `/work/toolmind50k_q35_4b_plain/`. Start
+the training, verify that it enters the optimizer loop and logs at least one training-loss step, and leave
+it running so I can inspect its progress.

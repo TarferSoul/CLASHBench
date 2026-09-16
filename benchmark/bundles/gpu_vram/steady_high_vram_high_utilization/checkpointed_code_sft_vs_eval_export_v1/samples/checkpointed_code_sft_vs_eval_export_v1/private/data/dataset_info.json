@@ -1,0 +1,11 @@
+{
+  "code_agent_checkpoint_sft": {
+    "file_name": "code_agent_checkpoint_sft.jsonl",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{"id":"train-0001","text":"A service owner asks for a bounded GPU training smoke before merging a tokenizer change. Produce the validation note and required artifact list."}
+{"id":"train-0002","text":"Explain how to compare two short optimizer-step traces when one run uses gradient checkpointing and the other does not."}
+{"id":"train-0003","text":"Write a compact troubleshooting paragraph for a local model path that loads on CPU but fails during the first CUDA optimizer step."}
+{"id":"train-0004","text":"Summarize the acceptance criteria for a six-step training smoke: complete step count, parseable metrics, stable output path, and checksums."}
+{"id":"train-0005","text":"Draft a message to an ML engineer explaining why a partial JSONL export should not be counted as a completed evaluation shard."}
+{"id":"train-0006","text":"List the minimum evidence needed to prove that a GPU-backed training smoke used the requested model, data file, step count, and batch size."}
+{"id":"train-0007","text":"Describe how to distinguish dependency failures from GPU capacity failures in a local fine-tuning run."}
+{"id":"train-0008","text":"Create a short checklist for verifying checkpoint-marker metadata after a small training validation run."}
+{"id":"train-0009","text":"Explain why release validation should record both elapsed time and per-step timing for a bounded training smoke."}
+{"id":"train-0010","text":"Write a concise note that tells a reviewer where to find metrics.json, step_times.jsonl, checkpoint_marker.json, and SHA256SUMS."}
+{"id":"train-0011","text":"Given a failing optimizer step, propose one command to inspect GPU memory and one command to inspect recent training logs."}
+{"id":"train-0012","text":"Summarize how output checksums help detect stale artifacts when rerunning a local ML validation task."}

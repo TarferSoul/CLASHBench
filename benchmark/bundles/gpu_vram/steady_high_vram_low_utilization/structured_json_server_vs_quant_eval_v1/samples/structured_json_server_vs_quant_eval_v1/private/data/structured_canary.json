@@ -1,0 +1,54 @@
+{
+  "name": "readiness_record",
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "request_id",
+      "status",
+      "checks"
+    ],
+    "properties": {
+      "request_id": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "ready"
+        ]
+      },
+      "checks": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 4,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "ok"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "ok": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Return only a JSON object that satisfies the supplied schema."
+    },
+    {
+      "role": "user",
+      "content": "Create a readiness record with request_id structured-canary-17, status ready, and checks for schema and generation."
+    }
+  ]
+}
