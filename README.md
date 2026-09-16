@@ -154,17 +154,45 @@ GPU workloads use processed training data separately from the runtime image:
 
 | Input | Required files |
 |---|---|
-| ToolMind | `toolmind50k_direct_plain.json`, `dataset_info.json` |
-| Agentic safety | `agentic_safety_sft.json`, `dataset_info.json` |
+| [ToolMind](https://huggingface.co/datasets/jinjinyien/CLASHBench-ToolMind) | `toolmind50k_direct_plain.json`, `dataset_info.json` |
+| [Agentic safety](https://huggingface.co/datasets/AI45Research/APP1-Agentic-Safety-SFT-Data) | `agentic_safety_sft.json` (dataset metadata is supplied by the case) |
 
-Use the processed task-data package associated with the GPU evaluation
-inventory. An arbitrary upstream ToolMind download does not reproduce these
-files. After downloading and verifying that package against its supplied
-checksum, extract it under `data/gpu-tasks` and configure:
+Download the Agentic Safety file at the pinned revision below. Its SHA-256
+matches the original GPU benchmark input exactly:
 
 ```bash
+python -m pip install huggingface_hub
+hf download AI45Research/APP1-Agentic-Safety-SFT-Data \
+  agentic_safety_sft.json --repo-type dataset \
+  --revision 6ed56799527517de7868314abd9b6b8e7e9e2105 \
+  --local-dir data/gpu-tasks
+printf '%s  %s\n' \
+  8ea135f5c120d059be19a3c20b789ab469e37d77299952dc84cb3d1cd7d76376 \
+  data/gpu-tasks/agentic_safety_sft.json | sha256sum --check
 export ACB_GPU_DATA_DIR="$PWD/data/gpu-tasks"
 ```
+
+Download the frozen 50,000-record ToolMind input and its LlamaFactory metadata:
+
+```bash
+hf download jinjinyien/CLASHBench-ToolMind \
+  toolmind50k_direct_plain.json dataset_info.json SHA256SUMS \
+  --repo-type dataset --revision 360cb6bf9a9f51e4c18c6dd2a4ccbb75e7936e0f \
+  --local-dir data/gpu-tasks
+(cd data/gpu-tasks && sha256sum --check SHA256SUMS)
+```
+
+The original filename `toolmind_fullfilter50k_direct_plain_train.json` has
+identical bytes. Cases that require that filename can use a local alias:
+
+```bash
+ln -sfn toolmind50k_direct_plain.json \
+  data/gpu-tasks/toolmind_fullfilter50k_direct_plain_train.json
+```
+
+The supplied `dataset_info.json` defines both ToolMind dataset names. Use each
+case's metadata for the Agentic Safety workload. An arbitrary upstream
+ToolMind download does not reproduce this processed training input.
 
 Model and task-data directories are mounted read-only through the GPU case
 inventory, as shown in [GPU.md](docs/GPU.md). The CPU quickstart and full CPU
