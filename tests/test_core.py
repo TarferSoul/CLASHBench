@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from acb.core import contained, inspect_trace, memory_bytes, score
+from clashbench.core import contained, inspect_trace, memory_bytes, score
 
 
 class ValidityTests(unittest.TestCase):

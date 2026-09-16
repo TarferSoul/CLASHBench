@@ -23,7 +23,7 @@ Configure a provider and API key as shown in the README, then run:
 
 ```bash
 docker pull ghcr.io/tarfersoul/clashbench:cpu
-python -m acb.cli run \
+python -m clashbench.cli run \
   --inventory benchmark/daily-life-inventory.json --cases all \
   --config configs/codex.local.json --parallel 1
 ```

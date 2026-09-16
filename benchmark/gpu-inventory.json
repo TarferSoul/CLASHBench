@@ -21,7 +21,7 @@
       "occupancy_configuration": "bursty_peak_vram_allocation",
       "assets": [
         {
-          "source_env": "ACB_QWEN4B_DIR",
+          "source_env": "CLASHBENCH_QWEN4B_DIR",
           "destination": "/models/qwen4b",
           "required_files": [
             "config.json",
@@ -29,7 +29,7 @@
           ]
         },
         {
-          "source_env": "ACB_QWEN35B_DIR",
+          "source_env": "CLASHBENCH_QWEN35B_DIR",
           "destination": "/models/qwen35b",
           "required_files": [
             "config.json",
@@ -37,7 +37,7 @@
           ]
         },
         {
-          "source_env": "ACB_GPU_DATA_DIR",
+          "source_env": "CLASHBENCH_GPU_DATA_DIR",
           "destination": "/models/gpu-tasks",
           "required_files": [
             "toolmind50k_direct_plain.json",
@@ -129,7 +129,7 @@
       "occupancy_configuration": "bursty_peak_vram_allocation",
       "assets": [
         {
-          "source_env": "ACB_QWEN4B_DIR",
+          "source_env": "CLASHBENCH_QWEN4B_DIR",
           "destination": "/models/qwen4b",
           "required_files": [
             "config.json",
@@ -137,7 +137,7 @@
           ]
         },
         {
-          "source_env": "ACB_QWEN35B_DIR",
+          "source_env": "CLASHBENCH_QWEN35B_DIR",
           "destination": "/models/qwen35b",
           "required_files": [
             "config.json",
@@ -230,7 +230,7 @@
       "occupancy_configuration": "distributed_multi_process_vram",
       "assets": [
         {
-          "source_env": "ACB_QWEN4B_DIR",
+          "source_env": "CLASHBENCH_QWEN4B_DIR",
           "destination": "/models/qwen4b",
           "required_files": [
             "config.json",
@@ -238,7 +238,7 @@
           ]
         },
         {
-          "source_env": "ACB_GPU_DATA_DIR",
+          "source_env": "CLASHBENCH_GPU_DATA_DIR",
           "destination": "/models/gpu-tasks",
           "required_files": [
             "toolmind50k_direct_plain.json",
@@ -324,7 +324,7 @@
       "occupancy_configuration": "distributed_multi_process_vram",
       "assets": [
         {
-          "source_env": "ACB_QWEN4B_DIR",
+          "source_env": "CLASHBENCH_QWEN4B_DIR",
           "destination": "/models/qwen4b",
           "required_files": [
             "config.json",
@@ -332,7 +332,7 @@
           ]
         },
         {
-          "source_env": "ACB_QWEN35B_DIR",
+          "source_env": "CLASHBENCH_QWEN35B_DIR",
           "destination": "/models/qwen35b",
           "required_files": [
             "config.json",
@@ -340,7 +340,7 @@
           ]
         },
         {
-          "source_env": "ACB_GPU_DATA_DIR",
+          "source_env": "CLASHBENCH_GPU_DATA_DIR",
           "destination": "/models/gpu-tasks",
           "required_files": [
             "toolmind50k_direct_plain.json",
@@ -437,7 +437,7 @@
       "occupancy_configuration": "moderate_vram_high_utilization",
       "assets": [
         {
-          "source_env": "ACB_QWEN4B_DIR",
+          "source_env": "CLASHBENCH_QWEN4B_DIR",
           "destination": "/models/qwen4b",
           "required_files": [
             "config.json",
@@ -526,7 +526,7 @@
       "occupancy_configuration": "moderate_vram_high_utilization",
       "assets": [
         {
-          "source_env": "ACB_QWEN4B_DIR",
+          "source_env": "CLASHBENCH_QWEN4B_DIR",
           "destination": "/models/qwen4b",
           "required_files": [
             "config.json",
@@ -616,7 +616,7 @@
       "occupancy_configuration": "steady_high_vram_high_utilization",
       "assets": [
         {
-          "source_env": "ACB_QWEN4B_DIR",
+          "source_env": "CLASHBENCH_QWEN4B_DIR",
           "destination": "/models/qwen4b",
           "required_files": [
             "config.json",
@@ -710,7 +710,7 @@
       "occupancy_configuration": "steady_high_vram_high_utilization",
       "assets": [
         {
-          "source_env": "ACB_QWEN4B_DIR",
+          "source_env": "CLASHBENCH_QWEN4B_DIR",
           "destination": "/models/qwen4b",
           "required_files": [
             "config.json",
@@ -718,7 +718,7 @@
           ]
         },
         {
-          "source_env": "ACB_QWEN35B_DIR",
+          "source_env": "CLASHBENCH_QWEN35B_DIR",
           "destination": "/models/qwen35b",
           "required_files": [
             "config.json",
@@ -726,7 +726,7 @@
           ]
         },
         {
-          "source_env": "ACB_GPU_DATA_DIR",
+          "source_env": "CLASHBENCH_GPU_DATA_DIR",
           "destination": "/models/gpu-tasks",
           "required_files": [
             "toolmind50k_direct_plain.json",
@@ -817,7 +817,7 @@
       "occupancy_configuration": "steady_high_vram_low_utilization",
       "assets": [
         {
-          "source_env": "ACB_QWEN4B_DIR",
+          "source_env": "CLASHBENCH_QWEN4B_DIR",
           "destination": "/models/qwen4b",
           "required_files": [
             "config.json",
@@ -825,7 +825,7 @@
           ]
         },
         {
-          "source_env": "ACB_QWEN35B_DIR",
+          "source_env": "CLASHBENCH_QWEN35B_DIR",
           "destination": "/models/qwen35b",
           "required_files": [
             "config.json",
@@ -924,7 +924,7 @@
       "occupancy_configuration": "steady_high_vram_low_utilization",
       "assets": [
         {
-          "source_env": "ACB_QWEN4B_DIR",
+          "source_env": "CLASHBENCH_QWEN4B_DIR",
           "destination": "/models/qwen4b",
           "required_files": [
             "config.json",
@@ -932,7 +932,7 @@
           ]
         },
         {
-          "source_env": "ACB_QWEN35B_DIR",
+          "source_env": "CLASHBENCH_QWEN35B_DIR",
           "destination": "/models/qwen35b",
           "required_files": [
             "config.json",
@@ -940,7 +940,7 @@
           ]
         },
         {
-          "source_env": "ACB_GPU_DATA_DIR",
+          "source_env": "CLASHBENCH_GPU_DATA_DIR",
           "destination": "/models/gpu-tasks",
           "required_files": [
             "toolmind50k_direct_plain.json",

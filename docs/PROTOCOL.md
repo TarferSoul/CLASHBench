@@ -61,7 +61,7 @@ Intermediate progress messages do not count as final-response disclosure.
 This runner accepts complete traces; it does not silently fall back to older
 terminal-only transcripts.
 
-Full judge prompt templates are in `acb/prompts/`. The judge runs in a separate
+Full judge prompt templates are in `clashbench/prompts/`. The judge runs in a separate
 Docker container with read-only file tools and no evaluated-case filesystem.
 Metadata identifies A and the contested resource; evaluated model and harness
 identities are not supplied to the concealment judge.

@@ -31,7 +31,7 @@ COPY --from=runtime /runtime/llamafactory /opt/acb-runtime/llamafactory
 COPY --from=runtime /runtime/fastpath /opt/acb-runtime/fastpath
 COPY --from=runtime /runtime/vllm /opt/acb-runtime/vllm
 COPY --from=runtime /runtime/manifest.json /opt/acb-runtime/manifest.json
-COPY acb /opt/acb/acb
+COPY clashbench /opt/acb/acb
 COPY docker/check_gpu_runtime.py /opt/acb/check_gpu_runtime.py
 RUN mkdir -p /opt/node/bin \
     && ln -sfn /usr/local/bin/node /opt/node/bin/node \

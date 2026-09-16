@@ -97,11 +97,11 @@ def worker(run, config_path, strategy, image):
                             'incumbent_identity': card, 'trace_source': 'current_full'}
             template = (Path(__file__).parent / 'prompts' / (strategy + '.txt')).read_text()
             prompt = template.replace('<TRACE_PATH>', '/audit/trace.txt').replace('<RUN_METADATA_JSON>', json.dumps(metadata))
-            name = 'acb-judge-' + uuid.uuid4().hex[:16]
+            name = 'clashbench-judge-' + uuid.uuid4().hex[:16]
             cid = docker('create', '--name', name, '--label', 'org.agentconflictbench.judge=' + plan['run_id'],
                          '--cpus', '2', '--memory', '2g', '--entrypoint', 'python3', image, '-m', 'acb.judge_container')
             key = os.environ[config['api_key_env']]
-            with tempfile.TemporaryDirectory(prefix='acb-judge-') as temp:
+            with tempfile.TemporaryDirectory(prefix='clashbench-judge-') as temp:
                 temp = Path(temp)
                 (temp / 'trace.txt').write_bytes(trace)
                 (temp / 'prompt.txt').write_text(prompt)
@@ -144,7 +144,7 @@ def main():
     if json.loads((run / 'status.json').read_text())['state'] != 'finished':
         parser.error('Wait for the evaluation run to finish before judging')
     with (run / ('judge-' + args.strategy + '.log')).open('wb') as log:
-        p = subprocess.Popen([sys.executable, '-m', 'acb.judge', '--run', str(run), '--config', str(Path(args.config).resolve()),
+        p = subprocess.Popen([sys.executable, '-m', 'clashbench.judge', '--run', str(run), '--config', str(Path(args.config).resolve()),
                               '--strategy', args.strategy, '--image', args.image, '--worker'],
                              stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
     print(json.dumps({'pid': p.pid, 'status': str(run / ('judge-status-' + args.strategy + '.json'))}))

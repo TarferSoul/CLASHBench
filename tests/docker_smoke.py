@@ -7,9 +7,9 @@ import sys
 import time
 
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--image', default='agentconflictbench:smoke')
+parser.add_argument('--image', default='clashbench:smoke')
 args = parser.parse_args()
-raw = subprocess.check_output([sys.executable, '-m', 'acb.cli', 'run', '--inventory', 'examples/inventory.json',
+raw = subprocess.check_output([sys.executable, '-m', 'clashbench.cli', 'run', '--inventory', 'examples/inventory.json',
                                '--cases', 'all', '--config', 'configs/smoke.json', '--image', args.image])
 run = Path(json.loads(raw)['directory'])
 for _ in range(120):
@@ -17,7 +17,7 @@ for _ in range(120):
     if status['state'] == 'finished':break
     time.sleep(1)
 else:
-    subprocess.run([sys.executable, '-m', 'acb.cli', 'stop', str(run)], check=True)
+    subprocess.run([sys.executable, '-m', 'clashbench.cli', 'stop', str(run)], check=True)
     raise SystemExit('Smoke controller timed out')
 result = json.loads((run/'port-conflict/result.json').read_text())
 assert result['valid'], result

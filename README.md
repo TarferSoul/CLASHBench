@@ -5,6 +5,10 @@ incumbent task. This checkout includes **268 cases: 238 CPU system-resource,
 10 GPU system-resource, and 20 daily-life cases**, with fixtures, prompts,
 independent graders, and separate inventories.
 
+The Python package and command are named `clashbench`. Run directly from a
+clone with `python -m clashbench`, or install with `python -m pip install -e .`
+and use `clashbench`. Both accept the same subcommands shown below.
+
 ## Quickstart: Run a Real Case
 
 You need Linux, Docker, Python 3.10+, and an API key for your chosen model.
@@ -32,7 +36,7 @@ variable, not in the JSON file. For an interactive shell:
 ```bash
 read -rsp 'API key: ' OPENAI_API_KEY; echo
 export OPENAI_API_KEY
-python -m acb.cli run --config configs/codex.local.json \
+python -m clashbench.cli run --config configs/codex.local.json \
   --cases cluster_access_reconciler_vs_recovery_preflight_v1
 ```
 
@@ -45,8 +49,8 @@ The command starts in the background and prints a `run_id`, result directory,
 and controller PID. Substitute the printed directory for `RUN_DIR`:
 
 ```bash
-python -m acb.cli status RUN_DIR
-python -m acb.cli summarize RUN_DIR
+python -m clashbench.cli status RUN_DIR
+python -m clashbench.cli summarize RUN_DIR
 ```
 
 A successful evaluation has `evaluation_valid: 1`. `task_ok` and `peer_ok` in
@@ -58,8 +62,8 @@ include diagnostics and never count as safe behavior.
 ### Run the bundled CPU suite
 
 ```bash
-python -m acb.cli list
-python -m acb.cli run --config configs/codex.local.json --parallel 1
+python -m clashbench.cli list
+python -m clashbench.cli run --config configs/codex.local.json --parallel 1
 ```
 
 The default inventory is `benchmark/inventory.json`, the default selection is
@@ -80,8 +84,8 @@ there are no extra model or dataset downloads. Each case requests 4 CPUs and
 4 GiB RAM.
 
 ```bash
-python -m acb.cli list --inventory benchmark/daily-life-inventory.json
-python -m acb.cli run \
+python -m clashbench.cli list --inventory benchmark/daily-life-inventory.json
+python -m clashbench.cli run \
   --inventory benchmark/daily-life-inventory.json \
   --cases roommate_laundry_slot_v1 \
   --config configs/codex.local.json --parallel 1
@@ -108,7 +112,7 @@ by Git. If your provider needs an outbound proxy, add
 passes it only to the native agent client.
 
 ```bash
-python -m acb.cli run --config configs/claude.local.json \
+python -m clashbench.cli run --config configs/claude.local.json \
   --cases registry_session_reconciler_vs_sbom_attestation_v1 \
   --condition preservation
 ```
@@ -117,7 +121,7 @@ Conditions are `default`, `permission`, and `preservation`. Each invocation
 creates a new run; there is no implicit resume or overwrite.
 
 ```bash
-python -m acb.cli stop RUN_DIR
+python -m clashbench.cli stop RUN_DIR
 ```
 
 Containers are removed after artifact collection. Use `--keep-containers` for
@@ -130,12 +134,12 @@ requires a trace judge. Configure a Claude Code-compatible endpoint in
 `configs/judge.local.json` using `configs/claude.json` as the template, then run:
 
 ```bash
-python -m acb.judge --run RUN_DIR --config configs/judge.local.json \
+python -m clashbench.judge --run RUN_DIR --config configs/judge.local.json \
   --strategy resource_interference --image ghcr.io/tarfersoul/clashbench:cpu
 ```
 
 Judging also starts in the background. After its status file reports
-`finished`, run `python -m acb.cli summarize RUN_DIR` again. DIR remains `null`
+`finished`, run `python -m clashbench.cli summarize RUN_DIR` again. DIR remains `null`
 until valid judge results exist; it is never inferred from task success alone.
 Optional strategies are `conflict_deference` and `concealment_gt`.
 See [PROTOCOL.md](docs/PROTOCOL.md) for the metric definitions.
@@ -162,8 +166,8 @@ hf download Qwen/Qwen3.5-4B --local-dir data/models/Qwen3.5-4B
 hf download Qwen/Qwen3.5-35B-A3B \
   --revision b1fc3d59ae0ab1e4279e04a8dd0fc4dc361fc2b6 \
   --local-dir data/models/Qwen3.5-35B-A3B
-export ACB_QWEN4B_DIR="$PWD/data/models/Qwen3.5-4B"
-export ACB_QWEN35B_DIR="$PWD/data/models/Qwen3.5-35B-A3B"
+export CLASHBENCH_QWEN4B_DIR="$PWD/data/models/Qwen3.5-4B"
+export CLASHBENCH_QWEN35B_DIR="$PWD/data/models/Qwen3.5-35B-A3B"
 ```
 
 The 35B revision is taken from the original runner. The 4B command downloads
@@ -192,7 +196,7 @@ hf download AI45Research/APP1-Agentic-Safety-SFT-Data \
 printf '%s  %s\n' \
   8ea135f5c120d059be19a3c20b789ab469e37d77299952dc84cb3d1cd7d76376 \
   data/gpu-tasks/agentic_safety_sft.json | sha256sum --check
-export ACB_GPU_DATA_DIR="$PWD/data/gpu-tasks"
+export CLASHBENCH_GPU_DATA_DIR="$PWD/data/gpu-tasks"
 ```
 
 Download the frozen 50,000-record ToolMind input and its LlamaFactory metadata:
@@ -224,14 +228,14 @@ suite require neither these training files nor the Qwen model weights.
 ### Run a bundled GPU case
 
 On a dedicated H200 host with NVIDIA Container Toolkit, download the 4B model
-above, export `ACB_QWEN4B_DIR`, and configure the agent API key as in the CPU
+above, export `CLASHBENCH_QWEN4B_DIR`, and configure the agent API key as in the CPU
 quickstart. This case uses bundled task fixtures and needs no ToolMind or
 Agentic Safety download:
 
 ```bash
 docker pull ghcr.io/tarfersoul/clashbench:gpu
-python -m acb.cli list --inventory benchmark/gpu-inventory.json
-python -m acb.cli run \
+python -m clashbench.cli list --inventory benchmark/gpu-inventory.json
+python -m clashbench.cli run \
   --inventory benchmark/gpu-inventory.json \
   --cases qwen4b_quant_calibration_vs_training_smoke_v1 \
   --config configs/codex.local.json \
@@ -239,7 +243,7 @@ python -m acb.cli run \
 ```
 
 To run all 10 GPU cases, download both models and both datasets, export
-`ACB_QWEN4B_DIR`, `ACB_QWEN35B_DIR`, and `ACB_GPU_DATA_DIR`, then replace the
+`CLASHBENCH_QWEN4B_DIR`, `CLASHBENCH_QWEN35B_DIR`, and `CLASHBENCH_GPU_DATA_DIR`, then replace the
 case ID with `all`. Execution runs in the background and uses the same status
 and summary commands as the CPU quickstart. Each case requests 32 CPUs,
 64000 MiB RAM, and one GPU. The Docker GPU adapters have static/interface
@@ -265,7 +269,7 @@ image digest and model when reporting results.
 For an infrastructure-only check without an API key:
 
 ```bash
-docker build -f docker/Dockerfile.smoke -t agentconflictbench:smoke .
+docker build -f docker/Dockerfile.smoke -t clashbench:smoke .
 python tests/docker_smoke.py
 python -m unittest discover -s tests -v
 ```

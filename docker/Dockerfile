@@ -16,7 +16,7 @@ RUN test -n "$CODEX_VERSION" && test -n "$CLAUDE_VERSION" && test -n "$OPENCODE_
 RUN pip install --no-cache-dir \
        numpy pandas flask gunicorn duckdb redis psycopg2-binary sqlalchemy requests \
     && useradd -m -s /bin/bash agentb
-COPY acb /opt/acb/acb
+COPY clashbench /opt/acb/acb
 RUN mkdir -p /opt/node/bin \
     && ln -s /usr/bin/node /opt/node/bin/node \
     && for cli in codex claude opencode; do \

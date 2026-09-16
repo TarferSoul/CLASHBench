@@ -90,7 +90,7 @@ def start(args):
     env = dict(os.environ)
     env['PYTHONPATH'] = str(ROOT) + os.pathsep + env.get('PYTHONPATH', '')
     with (run / 'controller.log').open('wb') as log:
-        p = subprocess.Popen([sys.executable, '-m', 'acb.cli', '_worker', str(run)],
+        p = subprocess.Popen([sys.executable, '-m', 'clashbench.cli', '_worker', str(run)],
                              stdout=log, stderr=subprocess.STDOUT, start_new_session=True, env=env)
     atomic_json(run / 'controller.json', {'pid': p.pid, 'run_id': run_id})
     print(json.dumps({'run_id': run_id, 'directory': str(run), 'controller_pid': p.pid}, indent=2))
@@ -117,7 +117,7 @@ def run_case(run, plan, case):
         return
     out = run / case['id']
     out.mkdir(mode=0o700)
-    name = 'acb-' + plan['run_id'].lower() + '-' + hashlib.sha256(case['id'].encode()).hexdigest()[:8]
+    name = 'clashbench-' + plan['run_id'].lower() + '-' + hashlib.sha256(case['id'].encode()).hexdigest()[:8]
     image = plan['gpu_image'] if case.get('gpus', 0) else plan['image']
     cid = None
     try:
@@ -146,7 +146,7 @@ def run_case(run, plan, case):
             cfg['proxy_url'] = os.environ.get(cfg['proxy_env'], '')
             cfg['proxy_no_proxy'] = os.environ.get('NO_PROXY', 'localhost,127.0.0.1')
         bundle = contained(Path(plan['inventory']).parent, case['bundle'])
-        with tempfile.TemporaryDirectory(prefix='acb-control-') as temp:
+        with tempfile.TemporaryDirectory(prefix='clashbench-control-') as temp:
             tmp = Path(temp)
             atomic_json(tmp / 'config.json', cfg)
             (tmp / 'config.json').chmod(0o600)

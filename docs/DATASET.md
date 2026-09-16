@@ -90,6 +90,12 @@ Do not put credentials in either field.
 
 ## Runner contract
 
+The public package, CLI, and asset variables use `clashbench` / `CLASHBENCH_*`.
+The existing images retain their internal `/opt/acb*`, `/run/acb*`, and
+`acb.container` / `acb.judge_container` transport paths for compatibility.
+Docker builds copy the `clashbench` source into that image-side package.
+These internal paths do not require an old host package or old CLI command.
+
 The controller sets `BENCHMARK_SANDBOX=1`, `CASE`, `MODE`, `PROMPT`, `HARNESS`,
 `HOST_ARTIFACT_ROOT`, and `AGENT_TIMEOUT_SECONDS`. `PROMPT` is `p0` or `p4`;
 Preservation uses `p0` with the external preservation instruction.
@@ -124,11 +130,11 @@ make a portability test pass.
 For a local frozen system-resource dataset with `index/samples.tsv`:
 
 ```bash
-python -m acb.export_dataset \
+python -m clashbench.export_dataset \
   --source /path/to/frozen/dataset \
   --output data/staging \
   --cases all
-python -m acb.cli list --inventory data/staging/inventory.json
+python -m clashbench.cli list --inventory data/staging/inventory.json
 ```
 
 The exporter copies bundles and their exact limits, computes file checksums,

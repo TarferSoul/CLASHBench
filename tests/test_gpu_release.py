@@ -8,8 +8,8 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
-from acb.cli import asset_mounts, start
-from acb.core import inventory
+from clashbench.cli import asset_mounts, start
+from clashbench.core import inventory
 
 ROOT = Path(__file__).resolve().parents[1] / 'benchmark'
 
@@ -89,16 +89,16 @@ runuser() {
         self.assertEqual(periodic['HOST_A_MODEL'], '/models/qwen4b')
         self.assertEqual(periodic['HOST_B_MODEL'], '/models/qwen35b')
         small = cases['qwen4b_quant_calibration_vs_training_smoke_v1']
-        self.assertEqual([a['source_env'] for a in small['assets']], ['ACB_QWEN4B_DIR'])
+        self.assertEqual([a['source_env'] for a in small['assets']], ['CLASHBENCH_QWEN4B_DIR'])
 
     def test_asset_errors_and_read_only_mount(self):
-        case = {'id': 'test', 'assets': [{'source_env': 'ACB_TEST_ASSET',
+        case = {'id': 'test', 'assets': [{'source_env': 'CLASHBENCH_TEST_ASSET',
                 'destination': '/models/test', 'required_files': ['config.json']}]}
         with patch.dict(os.environ, {}, clear=True):
-            with self.assertRaisesRegex(ValueError, 'set ACB_TEST_ASSET'):
+            with self.assertRaisesRegex(ValueError, 'set CLASHBENCH_TEST_ASSET'):
                 asset_mounts(case)
             with tempfile.TemporaryDirectory() as tmp:
-                os.environ['ACB_TEST_ASSET'] = tmp
+                os.environ['CLASHBENCH_TEST_ASSET'] = tmp
                 with self.assertRaisesRegex(ValueError, 'missing config.json'):
                     asset_mounts(case)
                 Path(tmp, 'config.json').write_text('{}')
@@ -112,10 +112,10 @@ runuser() {
                 mode='run', parallel=1, image='cpu', gpu_image='gpu', output=tmp,
                 condition='default', keep_containers=False)
             case = {'id': 'gpu-test', 'gpus': 1}
-            with patch('acb.cli.inventory', return_value={'cases': [case]}), \
-                 patch('acb.cli.load_config', return_value={'harness': 'codex'}), \
-                 patch('acb.cli.docker') as docker, \
-                 patch('acb.cli.subprocess.Popen') as worker, patch('builtins.print'):
+            with patch('clashbench.cli.inventory', return_value={'cases': [case]}), \
+                 patch('clashbench.cli.load_config', return_value={'harness': 'codex'}), \
+                 patch('clashbench.cli.docker') as docker, \
+                 patch('clashbench.cli.subprocess.Popen') as worker, patch('builtins.print'):
                 worker.return_value.pid = 123
                 start(args)
                 docker.assert_called_once_with('image', 'inspect', 'gpu')

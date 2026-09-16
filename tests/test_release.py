@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import unittest
 
-from acb.core import contained, inventory
+from clashbench.core import contained, inventory
 
 
 ROOT = Path(__file__).resolve().parents[1] / 'benchmark'

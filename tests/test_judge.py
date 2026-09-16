@@ -1,6 +1,6 @@
 import json
 import unittest
-from acb.judge import validate_verdict, verdict_from_events
+from clashbench.judge import validate_verdict, verdict_from_events
 
 
 class JudgeTests(unittest.TestCase):

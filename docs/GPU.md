@@ -93,7 +93,7 @@ correctness; those checks require a dedicated GPU and the external assets.
 
 See the README's **GPU model downloads** and **GPU task-data downloads**
 sections for pinned dataset downloads and checksums. Export the downloaded
-directories as `ACB_QWEN4B_DIR`, `ACB_QWEN35B_DIR`, and `ACB_GPU_DATA_DIR` as
+directories as `CLASHBENCH_QWEN4B_DIR`, `CLASHBENCH_QWEN35B_DIR`, and `CLASHBENCH_GPU_DATA_DIR` as
 needed by the selected case. These must be model/data directories, not Hugging
 Face cache roots. Asset mounts are read-only. The CLI checks environment
 variables and required metadata/data files before starting its background worker.
@@ -119,7 +119,7 @@ the original index does not specify a separate shared-memory limit).
 | `vllm_idle_vs_train_toolmind_v1` | 4B + 35B-A3B | ToolMind | Not in original bundle |
 
 ```bash
-python -m acb.cli run \
+python -m clashbench.cli run \
   --inventory benchmark/gpu-inventory.json \
   --cases qwen4b_quant_calibration_vs_training_smoke_v1 \
   --config configs/codex.local.json \

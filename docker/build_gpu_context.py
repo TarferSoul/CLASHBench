@@ -49,7 +49,7 @@ def main():
         parser.error('Expected the original vLLM 0.19.1 Python 3.11 runtime')
     print('Collecting runtime file list...', file=sys.stderr, flush=True)
     entries = []
-    for folder in ('acb', 'docker'):
+    for folder in ('clashbench', 'docker'):
         entries.extend((p, str(p.relative_to(project)), project) for p in files_below(project / folder))
     entries.extend((args.llamafactory / name, 'runtime/llamafactory/' + name,
                     args.llamafactory) for name in tracked if name)

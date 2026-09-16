@@ -48,7 +48,7 @@ jobs:
             container=$(docker create "$source")
             trap 'docker rm -f "$container" >/dev/null' EXIT
             docker cp "$container:/opt/acb/acb" "$RUNNER_TEMP/$variant-acb"
-            diff -r --exclude=__pycache__ acb "$RUNNER_TEMP/$variant-acb"
+            diff -r --exclude=__pycache__ clashbench "$RUNNER_TEMP/$variant-acb"
             if [ "$variant" = gpu ]; then
               docker cp "$container:/opt/acb/check_gpu_runtime.py" "$RUNNER_TEMP/check_gpu_runtime.py"
               cmp docker/check_gpu_runtime.py "$RUNNER_TEMP/check_gpu_runtime.py"

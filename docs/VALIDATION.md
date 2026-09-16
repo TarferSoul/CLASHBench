@@ -81,3 +81,15 @@ Final run: `20260916T135039Z-6cc4e4a4`. All 20 cases produced
 
 These checks do not constitute a provider-backed model evaluation of the
 daily-life suite. Oracle runs are excluded from benchmark model scores.
+
+## CLASHBench command rename (2026-09-17)
+
+The host Python package, installed command, documentation, and GPU asset
+variables now use `clashbench` / `CLASHBENCH_*`. The 24-test suite passed,
+editable installation succeeded, and both `clashbench` and `python -m clashbench`
+start the CLI. Using the existing published CPU image, Docker smoke passed
+(`20260916T161249Z-94271d5a`) and the laundry case oracle passed
+(`20260916T161250Z-69d90aae`). These run IDs use UTC. Existing image-internal
+paths are retained for compatibility; no CPU/GPU image replacement is required.
+The renamed-source `clashbench:smoke` image also built successfully and passed
+Docker smoke (`20260916T161539Z-7f557dea`).

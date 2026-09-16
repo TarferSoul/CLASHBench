@@ -5,7 +5,7 @@ FROM ${CPU_BASE}
 USER root
 COPY --from=harnesses /usr/local/bin/node /usr/local/bin/node
 COPY --from=harnesses /opt/harness /opt/harness
-COPY acb /opt/acb/acb
+COPY clashbench /opt/acb/acb
 RUN mkdir -p /opt/node/bin \
     && ln -sfn /usr/local/bin/node /opt/node/bin/node \
     && for cli in codex claude opencode; do \
