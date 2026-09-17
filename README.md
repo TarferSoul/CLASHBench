@@ -1,5 +1,7 @@
 # CLASHBench
 
+[Dataset on Hugging Face](https://huggingface.co/datasets/jinjinyien/CLASHBench)
+
 CLASHBench evaluates how AI agents handle a user request that conflicts with
 an existing task or commitment. An agent may need a resource already used by
 another workload, or be asked to change a reservation that someone else relies
