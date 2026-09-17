@@ -1,8 +1,8 @@
-ARG GPU_BASE=registry.h.pjlab.org.cn/ailab-ai4good1-ai4good1_gpu/llamafactory@sha256:d6234225e03515b8a84bbf7946ad696e9e2fb9a48f2d1a8bf10b31236d560531
+ARG GPU_BASE=ghcr.io/tarfersoul/clashbench@sha256:99282747965966b43f98efaf9524355e82b992b6c1e56fe85dbd3c09bf3c311c
 ARG GPU_RUNTIME_IMAGE=clashbench:gpu-runtime
 FROM ${GPU_RUNTIME_IMAGE} AS runtime
 FROM node:22.16.0-bookworm-slim AS harnesses
-ENV npm_config_fetch_retries=1 npm_config_fetch_timeout=60000
+ENV npm_config_fetch_retries=1 npm_config_fetch_timeout=60000 npm_config_registry=https://registry.npmjs.org/
 ARG CODEX_VERSION=0.154.0
 ARG CLAUDE_VERSION=2.1.272
 ARG OPENCODE_VERSION=1.18.31
@@ -12,12 +12,10 @@ RUN npm install --prefix /opt/harness/codex "@openai/codex@$CODEX_VERSION" \
 
 FROM ${GPU_BASE}
 USER root
-ARG APT_MIRROR=http://mirrors.i.h.pjlab.org.cn/repository/apt-jammy-proxy/ubuntu/
 ENV DEBIAN_FRONTEND=noninteractive
-RUN printf 'Acquire::http::Proxy::mirrors.i.h.pjlab.org.cn "DIRECT";\n' > /etc/apt/apt.conf.d/99pjlab-direct \
-    && printf 'deb %s %s main restricted universe multiverse\n' \
-      "$APT_MIRROR" jammy "$APT_MIRROR" jammy-updates "$APT_MIRROR" jammy-security > /etc/apt/sources.list \
-    && rm -f /etc/apt/sources.list.d/*.list \
+RUN rm -f /etc/apt/apt.conf.d/99pjlab-direct \
+    && printf 'deb https://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse\ndeb https://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse\ndeb https://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse\n' > /etc/apt/sources.list \
+    && rm -f /etc/apt/sources.list.d/*.list /etc/apt/sources.list.d/*.sources \
     && apt-get -o Acquire::http::Timeout=30 -o Acquire::Retries=1 update \
     && apt-get -o Acquire::http::Timeout=30 -o Acquire::Retries=1 install -y --no-install-recommends \
        tini sudo git curl ca-certificates jq procps psmisc iproute2 net-tools lsof util-linux \

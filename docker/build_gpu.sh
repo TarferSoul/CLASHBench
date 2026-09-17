@@ -13,7 +13,7 @@ if [ "${CLASH_REUSE_GPU_RUNTIME:-0}" != 1 ]; then
     --vllm "$CLASH_VLLM" \
     | docker build -f docker/Dockerfile.gpu-runtime -t "$runtime_image" -
 fi
-build_no_proxy="${NO_PROXY:-${no_proxy:-localhost,127.0.0.1}},.pjlab.org.cn"
+build_no_proxy="${NO_PROXY:-${no_proxy:-localhost,127.0.0.1}}"
 docker build --network "${CLASH_BUILD_NETWORK:-host}" -f docker/Dockerfile.gpu --build-arg GPU_RUNTIME_IMAGE="$runtime_image" \
   --build-arg HTTP_PROXY --build-arg HTTPS_PROXY --build-arg http_proxy --build-arg https_proxy \
   --build-arg "NO_PROXY=$build_no_proxy" --build-arg "no_proxy=$build_no_proxy" \

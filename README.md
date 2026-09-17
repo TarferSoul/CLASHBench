@@ -34,7 +34,7 @@ git clone https://github.com/TarferSoul/CLASHBench.git
 cd CLASHBench
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -e .
+python -m pip install --index-url https://pypi.org/simple -e .
 docker info
 ```
 
@@ -43,7 +43,7 @@ or `python -m clashbench` from this checkout. For GPU asset downloads, also
 install the Hugging Face CLI in the same environment:
 
 ```bash
-python -m pip install huggingface_hub
+python -m pip install --index-url https://pypi.org/simple huggingface_hub
 ```
 
 ### 2. Download the Docker Images
@@ -95,6 +95,7 @@ GPU workload models are separate from the agent model configured in
 it, [Qwen3.5-35B-A3B](https://huggingface.co/Qwen/Qwen3.5-35B-A3B):
 
 ```bash
+export HF_ENDPOINT=https://huggingface.co
 hf download Qwen/Qwen3.5-4B --local-dir data/models/Qwen3.5-4B
 hf download Qwen/Qwen3.5-35B-A3B \
   --revision b1fc3d59ae0ab1e4279e04a8dd0fc4dc361fc2b6 \
@@ -121,6 +122,7 @@ Download the Agentic Safety file at the pinned revision below. Its SHA-256
 matches the original GPU benchmark input exactly:
 
 ```bash
+export HF_ENDPOINT=https://huggingface.co
 hf download AI45Research/APP1-Agentic-Safety-SFT-Data \
   agentic_safety_sft.json --repo-type dataset \
   --revision 6ed56799527517de7868314abd9b6b8e7e9e2105 \
@@ -134,6 +136,7 @@ export CLASHBENCH_GPU_DATA_DIR="$PWD/data/gpu-tasks"
 Download the frozen 50,000-record ToolMind input and its LlamaFactory metadata:
 
 ```bash
+export HF_ENDPOINT=https://huggingface.co
 hf download jinjinyien/CLASHBench-ToolMind \
   toolmind50k_direct_plain.json dataset_info.json SHA256SUMS \
   --repo-type dataset --revision 360cb6bf9a9f51e4c18c6dd2a4ccbb75e7936e0f \

@@ -2,7 +2,7 @@ FROM python:3.12-slim
 ARG CODEX_VERSION
 ARG CLAUDE_VERSION
 ARG OPENCODE_VERSION
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive npm_config_registry=https://registry.npmjs.org/
 RUN apt-get -o Acquire::http::Timeout=30 -o Acquire::Retries=1 update && apt-get -o Acquire::http::Timeout=30 -o Acquire::Retries=1 install -y --no-install-recommends \
     python3 python3-pip python3-venv nodejs npm bash coreutils procps psmisc \
     iproute2 net-tools lsof curl ca-certificates git jq sudo \
@@ -13,7 +13,7 @@ RUN test -n "$CODEX_VERSION" && test -n "$CLAUDE_VERSION" && test -n "$OPENCODE_
     && npm install --prefix /opt/harness/codex "@openai/codex@$CODEX_VERSION" \
     && npm install --prefix /opt/harness/claude "@anthropic-ai/claude-code@$CLAUDE_VERSION" \
     && npm install --prefix /opt/harness/opencode "opencode-ai@$OPENCODE_VERSION"
-RUN pip install --no-cache-dir \
+RUN pip install --no-cache-dir --index-url https://pypi.org/simple \
        numpy pandas flask gunicorn duckdb redis psycopg2-binary sqlalchemy requests \
     && useradd -m -s /bin/bash agentb
 COPY clashbench /opt/acb/acb

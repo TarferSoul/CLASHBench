@@ -1,4 +1,4 @@
-ARG CPU_BASE=registry-v2.h.pjlab.org.cn/ailab-ai4good1/agentconflict-cb-real@sha256:d07c3fb60ed1de776226680eb7826491d99d6dba3e87ded545e66bb83921bca2
+ARG CPU_BASE=ghcr.io/tarfersoul/clashbench@sha256:d68219ea75e6d2c6fc6df7d5730ca493342ce04e8197a1ae0eff452726be96f4
 ARG HARNESS_IMAGE=clashbench:gpu-harnesses
 FROM ${HARNESS_IMAGE} AS harnesses
 FROM ${CPU_BASE}
