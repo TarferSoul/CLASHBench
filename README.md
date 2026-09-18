@@ -142,13 +142,14 @@ Download the frozen 50,000-record ToolMind input and its LlamaFactory metadata:
 export HF_ENDPOINT=https://huggingface.co
 hf download jinjinyien/CLASHBench-ToolMind \
   toolmind50k_direct_plain.json dataset_info.json SHA256SUMS \
-  --repo-type dataset --revision 360cb6bf9a9f51e4c18c6dd2a4ccbb75e7936e0f \
+  --repo-type dataset --revision 03f36b95b2d34d402e928144b4181a7f78689fed \
   --local-dir data/gpu-tasks
 (cd data/gpu-tasks && sha256sum --check SHA256SUMS)
 ```
 
-The original filename `toolmind_fullfilter50k_direct_plain_train.json` has
-identical bytes. Cases that require that filename can use a local alias:
+The 50,000 training conversations are preserved; local source-path metadata
+is excluded. Cases requiring `toolmind_fullfilter50k_direct_plain_train.json`
+can use a local filename alias:
 
 ```bash
 ln -sfn toolmind50k_direct_plain.json \

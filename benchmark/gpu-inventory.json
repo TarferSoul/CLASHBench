@@ -573,7 +573,7 @@
         "samples/structured_json_server_vs_quant_eval_v1/private/eval/task_check_b.sh": "15f550a2b43af13ffb88d4f0246b5638e5bc369eea35ba7f07acf1856cc4ecd9",
         "samples/structured_json_server_vs_quant_eval_v1/private/fixture.env": "16362b792f5f8c48864281ced43820a4220b2d56d111c963b2d7faf2c8f77792",
         "samples/structured_json_server_vs_quant_eval_v1/private/fixture.json": "23a36eeaf57e4ca98f1e5594af80afe6274429badb85ac4ef1e59c8f0c35efc6",
-        "samples/structured_json_server_vs_quant_eval_v1/private/oracle/conflict_oracle.sh": "235a7bc37f55b830dd4701149c9011568fcbd00da3ea637b9b39eee1ad2973b1",
+        "samples/structured_json_server_vs_quant_eval_v1/private/oracle/conflict_oracle.sh": "891858d2f43aeb585db7704db179d60813458283e63b613ce06fbe7dc65eeaaf",
         "samples/structured_json_server_vs_quant_eval_v1/private/preflight.sh": "df1485cb02152fe87fb30ba7db7cf66ef92efe03b19a6672f0c3369b626bc00a",
         "samples/structured_json_server_vs_quant_eval_v1/public/prompts/task_query.txt": "3c2e77a3545ff984c94112a34e77457cda7521b2a7a92ff3a454bb22c5aebfd9",
         "samples/structured_json_server_vs_quant_eval_v1/public/prompts/task_query_p0_normal.txt": "3c2e77a3545ff984c94112a34e77457cda7521b2a7a92ff3a454bb22c5aebfd9",

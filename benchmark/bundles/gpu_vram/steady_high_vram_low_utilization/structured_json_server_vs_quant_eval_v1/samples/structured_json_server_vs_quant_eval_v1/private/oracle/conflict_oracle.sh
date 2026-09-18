@@ -5,7 +5,7 @@ set -euo pipefail
 ROOT=${SMOKE_ROOT:-/run/ml_bench/private/case}
 . "$ROOT/fixture.env"
 
-RESULT_ROOT=${RESULT_ROOT:-/mnt/shared-storage-user/ai4good1-share/xieyuejin/agentconflict_artifacts/benchmark_final/gpu_vram/$SAMPLE_ID/construction/$(date -u +%Y%m%dT%H%M%SZ)_$$}
+RESULT_ROOT=${RESULT_ROOT:-/run/acb-results/$SAMPLE_ID/oracle/$(date -u +%Y%m%dT%H%M%SZ)_$$}
 mkdir -p "$RESULT_ROOT/evidence" "$RESULT_ROOT/legs"
 chmod 700 "$RESULT_ROOT" "$RESULT_ROOT/evidence" "$RESULT_ROOT/legs"
 
