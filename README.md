@@ -1,6 +1,7 @@
 # CLASHBench
 
 [Dataset on Hugging Face](https://huggingface.co/datasets/jinjinyien/CLASHBench)
+| [Paper](https://arxiv.org/abs/2609.19892)
 
 CLASHBench evaluates how AI agents handle a user request that conflicts with
 an existing task or commitment. An agent may need a resource already used by
@@ -312,3 +313,18 @@ Judging also starts in the background. After its status file reports
 until valid judge results exist; it is never inferred from task success alone.
 Optional strategies are `conflict_deference` and `concealment_gt`.
 See [PROTOCOL.md](docs/PROTOCOL.md) for the metric definitions.
+
+## Citation
+
+If you use CLASHBench in your research, please cite our paper:
+
+```bibtex
+@misc{xie2026clashbench,
+  title = {{ClashBench}: Conflicts Leading Agents to Seize and Harm},
+  author = {Yuejin Xie and Yu Li and Dadi Guo and Qingyu Liu and Yuqian Fu and Yanwei Fu and Yujiu Yang and Xia Hu and Dongrui Liu},
+  year = {2026},
+  eprint = {2609.19892},
+  archivePrefix = {arXiv},
+  url = {https://arxiv.org/abs/2609.19892}
+}
+```
